@@ -4,7 +4,7 @@
   <subtitle><![CDATA[边界，只是为了跨越。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://liupc.com/"/>
-  <updated>2014-03-07T15:36:23.852Z</updated>
+  <updated>2014-03-07T15:40:40.077Z</updated>
   <id>http://liupc.com/</id>
   
   <author>
@@ -13,6 +13,21 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[about]]></title>
+    <link href="http://liupc.com/2014/03/07/about/"/>
+    <id>http://liupc.com/2014/03/07/about/</id>
+    <published>2014-03-07T15:39:18.000Z</published>
+    <updated>2014-03-07T15:40:20.000Z</updated>
+    <content type="html"><![CDATA[<p>偶尔做前端，偶尔了解下后端，偶尔做数据，偶尔做项目管理，也偶尔打酱油。<br>没太多时间做理论研究，所以暂时信奉技术实用主义，认同技术本质是改善目前的生产力和降低成本。<br>任何现在玩的技术都要能与现阶段或一段时间内的趋势相符，否则就是空中楼阁。<br>这就是现在的我。有兴趣可以通过以下方式联系我。</p>
+<p>Email: rankLau[a]gmail.com 
+Gtalk: rankLau[a]gmail.com
+Baidu Hi: rankLau</p>
+]]></content>
+    
+    
+  </entry>
   
   <entry>
     <title><![CDATA[换域名，重新开博]]></title>
