@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for cross]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-10T16:20:53.205Z</updated>
+  <updated>2014-03-10T16:23:12.523Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://rank.im/2014/03/10/hexo-for-blog/"/>
     <id>http://rank.im/2014/03/10/hexo-for-blog/</id>
     <published>2014-03-10T13:40:27.000Z</published>
-    <updated>2014-03-10T16:20:49.000Z</updated>
+    <updated>2014-03-10T16:22:44.000Z</updated>
     <content type="html"><![CDATA[<p>这两天把博客新迁在github page上，这两天抽空注册了新域名，并且在github pages上搭建了新的博客，还用了逼格极高的hexo。 </p>
 <p>先列一下在github pages上搭建静态博客比较热的几套系统：</p>
 <ol>
@@ -36,8 +36,8 @@
 <p>有一些问题他没有提及，我补充一下：</p>
 <ul>
 <li><a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank">这里</a> 有详细的官方推荐皮肤。目前我使用的是<a href="https://github.com/heroicyang/hexo-theme-modernist" target="_blank">modernist</a>，如果你对皮肤要求比较高的话，恐怕theme上没有太满意的，只能自己设计。:(</li>
-<li><a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a>，看上去挺全的，但很多地方『点到即止』，所以才看到有很多使用说明都是自己搭建过的同学写出来的经验之谈，不过这没关系，结合google baidu来使用就可以了。</li>
-<li><a href="http://zespia.tw/hexo/docs/migration.html" target="_blank">迁移功能</a>。 关键的功能从rss导入功能
+<li><a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a>。看上去挺全的，但很多地方『点到即止』，所以才看到有很多使用说明都是自己搭建过的同学写出来的经验之谈，不过这没关系，结合google baidu来使用就可以了。</li>
+<li><a href="http://zespia.tw/hexo/docs/migration.html" target="_blank">迁移</a>。 关键的功能从rss导入功能
 &quot;hexo migrate rss <a href="http://rank.im/atom.xml">http://rank.im/atom.xml</a>&quot; 居然不能用。我哪天fix了放出来给大家。</li>
 </ul>
 ]]></content>
