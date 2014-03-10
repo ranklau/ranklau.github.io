@@ -56,15 +56,33 @@
     
     
   
-    <h1 class="title"><a href="/2014/03/10/hexo-for-blog/">用hexo在github page搭建blog</a></h1>
+    <h1 class="title"><a href="/2014/03/10/hexo-for-blog/">用hexo在github page搭建静态文件博客</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>这两天抽空注册了新域名，并且在github上搭建了新的博客，还用了逼格极高的hexo。
-hexo算是一个比较好的静态博客系统，所谓静态博客就是静态文件的博客，有『编译过程』。</p>
+      <p>这两天把博客新迁在github page上，这两天抽空注册了新域名，并且在github pages上搭建了新的博客，还用了逼格极高的hexo。
+在github pages上搭建静态博客无外乎以下几种：</p>
+<ol>
+<li><a href="https://github.com/mojombo/jekyll" target="_blank">mojombo/jekyll</a>  最著名的静态博客引擎(ruby) </li>
+<li><a href="https://github.com/imathis/octopress" target="_blank">imathis/octopress</a>  jekyll的一个框架，降低了使用难度</li>
+<li><a href="https://github.com/tommy351/hexo" target="_blank">tommy351/hexo</a>  使用node编写的静态博客生成器</li>
+<li><a href="https://github.com/getpelican/pelican" target="_blank">getpelican/pelican</a>  Python编写的静态博客生成器(markdown, reST)</li>
+<li><a href="https://github.com/lepture/liquidluck" target="_blank">lepture/liquidluck</a>  Python的</li>
+<li><a href="https://github.com/whtsky/catsup" target="_blank">whtsky/catsup</a>  Python的</li>
+</ol>
+<p>官方推荐的是 <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>。</p>
+<p>我之前也没想这么多，主要想借机多熟悉下node所以用的是hexo，另外简单看了简介使用hexo上手也也相对容易。<br>如要对这几种静态博客进行系统比较的话，大家可自行测试，或 <a href="http://www.zhihu.com/question/21981094" target="_blank">参考这篇贴子</a>。</p>
+<p>hexo的配置及使用官方有比较详细的 <a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a> ，也有一些热心的同学写了较为详细的博文 <a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank">hexo你的博客</a> 。  </p>
+<p>有一些问题他没有提及，我补充一下：</p>
+<ul>
+<li><a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank">这里</a> 有详细的官方推荐皮肤。目前我使用的是<a href="https://github.com/heroicyang/hexo-theme-modernist" target="_blank">modernist</a>，如果你对皮肤要求比较高的话，恐怕theme上没有太满意的，只能自己设计。:(</li>
+<li><a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a>，看上去挺全的，但很多地方『点到即止』，所以才看到有很多使用说明都是自己搭建过的同学写出来的经验之谈，不过这没关系，结合google baidu来使用就可以了。</li>
+<li><a href="http://zespia.tw/hexo/docs/migration.html" target="_blank">迁移功能</a>。 关键的功能：
+&quot;hexo migrate rss <a href="http://rank.im/atom.xml">http://rank.im/atom.xml</a>&quot; 居然不能用。我哪天fix了放出来给大家。</li>
+</ul>
 
     
   </div>
@@ -190,7 +208,7 @@ hexo算是一个比较好的静态博客系统，所谓静态博客就是静态�
   <ul class="entry">
     
       <li>
-        <a href="/2014/03/10/hexo-for-blog/">用hexo在github page搭建blog</a>
+        <a href="/2014/03/10/hexo-for-blog/">用hexo在github page搭建静态文件博客</a>
       </li>
     
       <li>
