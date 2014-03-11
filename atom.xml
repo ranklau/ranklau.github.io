@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[rank's blog]]></title>
-  <subtitle><![CDATA[Border is just for cross]]></subtitle>
+  <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-10T16:23:42.085Z</updated>
+  <updated>2014-03-11T05:36:56.544Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://rank.im/2014/03/10/hexo-for-blog/"/>
     <id>http://rank.im/2014/03/10/hexo-for-blog/</id>
     <published>2014-03-10T13:40:27.000Z</published>
-    <updated>2014-03-10T16:23:36.000Z</updated>
+    <updated>2014-03-11T05:36:48.000Z</updated>
     <content type="html"><![CDATA[<p>这两天把博客新迁在github page上，这两天抽空注册了新域名，并且在github pages上搭建了新的博客，还用了逼格极高的hexo。 </p>
 <p>先列一下在github pages上搭建静态博客比较热的几套系统：</p>
 <ol>
@@ -31,7 +31,7 @@
 <li><a href="https://github.com/whtsky/catsup" target="_blank">whtsky/catsup</a>  Python的</li>
 </ol>
 <p>官方推荐的是 <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>。</p>
-<p>我用hexo主要想借机多熟悉下node，另外也先看了简介使用，感觉hexo上手也相对容易，可用markdown语言。<br>如对这几种静态博客进行系统比较的话，大家可自行测试，或 <a href="http://www.zhihu.com/question/21981094" target="_blank">参考这篇贴子</a>。</p>
+<p>我用hexo主要想借机多熟悉下node，另外也先看了简介使用，感觉hexo上手也相对容易，markdown语言来写内容。<br>如果你想对这几种静态博客进行系统比较的话，可自行测试，或 <a href="http://www.zhihu.com/question/21981094" target="_blank">参考这篇贴子</a>。</p>
 <p>hexo的配置及使用官方有比较详细的 <a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a> ，也有一些热心的同学写了较为详细的博文 《<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank">hexo你的博客</a>》 。  </p>
 <p>有一些问题他没有提及，我补充一下：</p>
 <ul>
@@ -42,6 +42,8 @@
 </ul>
 ]]></content>
     
+    
+      <category term="技术" scheme="http://rank.im/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
