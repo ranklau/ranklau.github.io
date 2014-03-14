@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Archives: 2014/3 | rank&#39;s blog</title>
+  <title>Archives: 2012 | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
   
@@ -48,7 +48,7 @@
 </nav>
 <div class="clearfix"></div></header>
     <div class="content">
-<h2 class="archive-title">2014/3</h2>
+<h2 class="archive-title">2012</h2>
 
 
   
@@ -56,67 +56,65 @@
   <header>
     
       <div class="icon"></div>
-      <time datetime="2014-03-10T13:40:27.000Z"><a href="/2014/03/10/hexo-for-blog/">Mar 10 2014</a></time>
+      <time datetime="2012-12-13T06:54:40.000Z"><a href="/2012/12/13/get-script-path/">Dec 13 2012</a></time>
     
     
   
-    <h1 class="title"><a href="/2014/03/10/hexo-for-blog/">用hexo在github page搭建博客</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>这两天把博客新迁在github page上，这两天抽空注册了新域名，并且在github pages上搭建了新的博客，还用了逼格极高的hexo。 </p>
-<p>在github pages上搭建静态博客不只hexo，排名前5的系统有：</p>
-<ul>
-<li><a href="https://github.com/mojombo/jekyll" target="_blank">mojombo/jekyll</a>  最著名的静态博客引擎(ruby) </li>
-<li><a href="https://github.com/imathis/octopress" target="_blank">imathis/octopress</a>  jekyll的一个框架，降低了使用难度</li>
-<li><a href="https://github.com/tommy351/hexo" target="_blank">tommy351/hexo</a>  使用node编写的静态博客生成器</li>
-<li><a href="https://github.com/getpelican/pelican" target="_blank">getpelican/pelican</a>  Python编写的静态博客生成器</li>
-<li><a href="https://github.com/lepture/liquidluck" target="_blank">lepture/liquidluck</a>  同样也是Python的系统</li>
-</ul>
-<p>官方推荐的是 <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>。</p>
-<p>我用hexo主要想借机多熟悉下node，另外也先看了简介使用，感觉hexo上手也相对容易，markdown语言来写内容。<br>如果你想对这几种静态博客进行系统比较的话，可自行测试，或 <a href="http://www.zhihu.com/question/21981094" target="_blank">参考这篇贴子</a>。</p>
-<p>hexo的配置及使用官方有比较详细的 <a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a> ，有一位热心同学写了较为详细的博文 《<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank">hexo你的博客</a>》 。  </p>
-<p>有一些问题他没有提及，我补充一下：</p>
-<ul>
-<li><a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank">这里</a> 有详细的官方推荐皮肤。目前我使用的是<a href="https://github.com/heroicyang/hexo-theme-modernist" target="_blank">modernist</a>，如果你对皮肤要求比较高的话，恐怕theme上没有太满意的，只能自己设计。:(</li>
-<li><a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a>。看上去挺全的，但很多地方『点到即止』，所以才看到有很多使用说明都是自己搭建过的同学写出来的经验之谈，不过这没关系，结合google baidu来使用就可以了。</li>
-<li><a href="http://zespia.tw/hexo/docs/migration.html" target="_blank">迁移</a>。 关键的功能从rss导入功能
-&quot;hexo migrate rss <a href="http://rank.im/atom.xml">http://rank.im/atom.xml</a>&quot; 居然不能用。我哪天fix了放出来给大家。</li>
-</ul>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <time datetime="2014-03-07T09:04:20.000Z"><a href="/2014/03/07/new-blog-start/">Mar 7 2014</a></time>
-    
-    
-  
-    <h1 class="title"><a href="/2014/03/07/new-blog-start/">换域名，重新开博</a></h1>
+    <h1 class="title"><a href="/2012/12/13/get-script-path/">取得当前脚本元素的路径的一个特例</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>注册了一个比较帅的域名rank.im，用于个人站点。<br>把原来的很古老的博客系统换成现在比较流行，逼格比较高的hexo。  </p>
-<p>虽然原来我的博客在G reader的订阅数也有1K多，从头再开始是个不错的选择。:)<br>此篇是个新的开始。</p>
+      <h2 id="getcurrentscriptpath">getCurrentScriptPath</h2>
+<p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
+<ol>
+<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
+<li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
+</ol>
+<p>简单实现代码如下：</p>
+<pre><code>function getCurrentScriptPath() {
+     //currentScript
+     if (document.hasOwnProperty(&#39;currentScript&#39;)) {
+       return document.currentScript.src;
+     }
+     var scripts = document.scripts || document.getElementsByTagName(&#39;script&#39;),
+       len = scripts.length,
+       state = &#39;interactive&#39;;
+     //兼容IE
+     for (var i=0; i &lt;len; i++) {
+       if (scripts[i].readyState==state) {
+         return scripts[i].src;
+       }
+     }
+     //webkit
+     return scripts[len-1].src;
+}
+</code></pre><h2 id="-">开发中遇到的一个特例</h2>
+<p>最近在开发中遇到一个 readyState 在 IE 下的特例：</p>
+<ul>
+<li>page.html 里引入一个外链的脚本 a.js。</li>
+<li>a.js 里有两个外链脚本：a.a.js 和 a.b.js。「注：这是用 document.write 来引入脚本。」</li>
+</ul>
+<p>page.html代码：</p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+    &lt;script src=&quot;a.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>a.js代码：</p>
+<pre><code>document.write(&#39;&lt;script src=&quot;a.a.js&quot;&gt;&lt;\/script&gt;&#39;);
+document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
+</code></pre><p>在浏览器 IE6 至 IE10 里：</p>
+<p>我们在 a.a.js 里将所有脚本元素打印出 readyState ：</p>
+<ul>
+<li>a.js -- complete</li>
+<li>a.a.js -- interactive</li>
+<li>a.b.js -- loaded</li>
+</ul>
+<p>上述的 log 告诉我们，从 readyState 状态上看，其实 IE 里已经加载了 a.js, a.a.js, a.b.js 了。</p>
 
     
   </div>
