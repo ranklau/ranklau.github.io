@@ -288,8 +288,8 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <p>默认原点以p(0,0)开始计算,如果是定宽页面,p(0,0)坐标在不同辩率下得到的坐标是不同的.如何解决这一问题.
 普遍情况下会采取截面坐标. 分析目前页面几种类型：</p>
 <ul>
-<li>页面居左布局 「align left」 原点坐标从 p(0,0) 开始计算。</li>
-<li>页面居中布局 「align middle」 原点坐标从 p(document.documentElement.scrollWidth/2|0,0) 开始计算。</li>
+<li>页面居左布局原点坐标从 p(0,0) 开始计算。</li>
+<li>页面居中布局原点坐标从 p(document.documentElement.scrollWidth/2|0,0) 开始计算。</li>
 <li>百分比的宽其实也是可以定位的，原理也是引入相对坐标系，但也有一些劣势，这里不展开了。</li>
 </ul>
 <h2 id="-">页面像素粒度切分</h2>

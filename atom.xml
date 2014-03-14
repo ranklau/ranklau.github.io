@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-14T15:52:23.887Z</updated>
+  <updated>2014-03-14T15:53:49.379Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -161,7 +161,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     <link href="http://rank.im/2011/04/07/user-behavior-record-data/"/>
     <id>http://rank.im/2011/04/07/user-behavior-record-data/</id>
     <published>2011-04-07T15:45:43.000Z</published>
-    <updated>2014-03-14T15:52:13.000Z</updated>
+    <updated>2014-03-14T15:53:44.000Z</updated>
     <content type="html"><![CDATA[<p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot。中文为「土拨鼠」，有挖掘之意。
 除我之外，还有两位开发人员分别是：seven 和 cyhello。</p>
 <p>本篇文章简短的说明一下 marmot 的 log 重点问题：</p>
@@ -175,8 +175,8 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <p>默认原点以p(0,0)开始计算,如果是定宽页面,p(0,0)坐标在不同辩率下得到的坐标是不同的.如何解决这一问题.
 普遍情况下会采取截面坐标. 分析目前页面几种类型：</p>
 <ul>
-<li>页面居左布局 「align left」 原点坐标从 p(0,0) 开始计算。</li>
-<li>页面居中布局 「align middle」 原点坐标从 p(document.documentElement.scrollWidth/2|0,0) 开始计算。</li>
+<li>页面居左布局原点坐标从 p(0,0) 开始计算。</li>
+<li>页面居中布局原点坐标从 p(document.documentElement.scrollWidth/2|0,0) 开始计算。</li>
 <li>百分比的宽其实也是可以定位的，原理也是引入相对坐标系，但也有一些劣势，这里不展开了。</li>
 </ul>
 <h2 id="-">页面像素粒度切分</h2>
