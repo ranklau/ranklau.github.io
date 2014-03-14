@@ -4,13 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Archives: 2014/3 | rank&#39;s blog</title>
+  <title>用户行为系统 如何记录行为数据 | rank&#39;s blog</title>
   <meta name="author" content="rank">
+  
+  <meta name="description" content="最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot。中文为「土拨鼠」，有挖掘之意。
+除我之外，还有两位开发人员分别是：seven 和 cyhello。
+本篇文章简短的说明一下 marmot 的 log 重点问题：
+
+解决不同分辩率的策略.
+解决粒度过细的问题.
+还原">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  
+  <meta property="og:title" content="用户行为系统 如何记录行为数据"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -47,51 +55,69 @@
   <div class="clearfix"></div>
 </nav>
 <div class="clearfix"></div></header>
-    <div class="content">
-<h2 class="archive-title">2014/3</h2>
-
-
-  
-    <article class="post">
+    <div class="content"><article class="post">
   <header>
     
       <div class="icon"></div>
-      <time datetime="2014-03-10T13:40:27.000Z"><a href="/2014/03/10/hexo-for-blog/">Mar 10 2014</a></time>
+      <time datetime="2011-04-07T15:45:43.000Z"><a href="/2011/04/07/user-behavior-record-data/">Apr 7 2011</a></time>
     
     
   
-    <h1 class="title"><a href="/2014/03/10/hexo-for-blog/">用hexo在github page搭建博客</a></h1>
+    <h1 class="title">用户行为系统 如何记录行为数据</h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>这两天把博客新迁在github page上，这两天抽空注册了新域名，并且在github pages上搭建了新的博客，还用了逼格极高的hexo。 </p>
-<p>在github pages上搭建静态博客不只hexo，排名前5的系统有：</p>
+      <p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot。中文为「土拨鼠」，有挖掘之意。
+除我之外，还有两位开发人员分别是：seven 和 cyhello。</p>
+<p>本篇文章简短的说明一下 marmot 的 log 重点问题：</p>
+<ol>
+<li>解决不同分辩率的策略.</li>
+<li>解决粒度过细的问题.</li>
+<li>还原路径问题.</li>
+<li>何时发回数据及数据量的问题</li>
+</ol>
+<h2 id="-">分辩率策略</h2>
+<p>默认原点以p(0,0)开始计算,如果是定宽页面,p(0,0)坐标在不同辩率下得到的坐标是不同的.如何解决这一问题.
+普遍情况下会采取截面坐标. 分析目前页面几种类型：</p>
 <ul>
-<li><a href="https://github.com/mojombo/jekyll" target="_blank">mojombo/jekyll</a>  最著名的静态博客引擎(ruby) </li>
-<li><a href="https://github.com/imathis/octopress" target="_blank">imathis/octopress</a>  jekyll的一个框架，降低了使用难度</li>
-<li><a href="https://github.com/tommy351/hexo" target="_blank">tommy351/hexo</a>  使用node编写的静态博客生成器</li>
-<li><a href="https://github.com/getpelican/pelican" target="_blank">getpelican/pelican</a>  Python编写的静态博客生成器</li>
-<li><a href="https://github.com/lepture/liquidluck" target="_blank">lepture/liquidluck</a>  同样也是Python的系统</li>
+<li>页面居左布局 「align left」 原点坐标从 p(0,0) 开始计算。</li>
+<li>页面居中布局 「align middle」 原点坐标从 p(document.documentElement.scrollWidth/2|0,0) 开始计算。</li>
+<li>百分比的宽其实也是可以定位的，原理也是引入相对坐标系，但也有一些劣势，这里不展开了。</li>
 </ul>
-<p>官方推荐的是 <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>。</p>
-<p>我用hexo主要想借机多熟悉下node，另外也先看了简介使用，感觉hexo上手也相对容易，markdown语言来写内容。<br>如果你想对这几种静态博客进行系统比较的话，可自行测试，或 <a href="http://www.zhihu.com/question/21981094" target="_blank">参考这篇贴子</a>。</p>
-<p>hexo的配置及使用官方有比较详细的 <a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a> ，有一位热心同学写了较为详细的博文 《<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank">hexo你的博客</a>》 。  </p>
-<p>有一些问题他没有提及，我补充一下：</p>
+<h2 id="-">页面像素粒度切分</h2>
+<p>每个页面默认粒度为 pixel(1,1)，即 1 像素为单位。 这样的优点是数据不失真，但缺点则是数据量传输和存储量大。</p>
+<p>大多数时候我们是不需要按 pixel(1,1) 来计算的。而解决这一问题的思路很简单：</p>
 <ul>
-<li><a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank">这里</a> 有详细的官方推荐皮肤。目前我使用的是<a href="https://github.com/heroicyang/hexo-theme-modernist" target="_blank">modernist</a>，如果你对皮肤要求比较高的话，恐怕theme上没有太满意的，只能自己设计。:(</li>
-<li><a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a>。看上去挺全的，但很多地方『点到即止』，所以才看到有很多使用说明都是自己搭建过的同学写出来的经验之谈，不过这没关系，结合google baidu来使用就可以了。</li>
-<li><a href="http://zespia.tw/hexo/docs/migration.html" target="_blank">迁移</a>。 关键的功能从rss导入功能
-&quot;hexo migrate rss <a href="http://rank.im/atom.xml">http://rank.im/atom.xml</a>&quot; 居然不能用。我哪天fix了放出来给大家。</li>
+<li>页面做先 grid 化, pixel(n,n)。</li>
+<li>数量为: Math.floor(document.documentElement.scrollWidth/n)。「n为象素比例尺」</li>
 </ul>
+<h2 id="-">还原路径</h2>
+<ul>
+<li>可以序列化DOM path成selector。</li>
+<li>以previousSibling + ancestor为基础不断向上递归出presudo selector(伪selector)。</li>
+</ul>
+<h2 id="-">何时发回及发回数据量</h2>
+<p>beforeunload异步发回。
+数据量不会太大, HTTP 里 GET 方式请求我们所知：</p>
+<ul>
+<li>IE6 2K 数据(已知)。</li>
+<li>IE7+5K 左右(记得之前我测过，印象中是这个数据)，非 IE 都有 &gt;= 2K 的数据量。</li>
+</ul>
+<p>肯定有人问题发回的比例是多少，据 dron 同学统计过约80%左右。<br>虽说不是绝对发回来，但足够你用。<br>采样率 5K~1W 左右 pv 操作, 数据最大 2K*1W 约 20~30M log不算大。</p>
 
     
   </div>
-  <footer class="end-sep">
+  <footer>
     
       
+  
+  <div class="categories">
+    <a href="/categories/tech/">tech</a>
+  </div>
+
       
     
     <div class="clearfix"></div>
@@ -99,45 +125,12 @@
 </article>
 
 
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <time datetime="2014-03-07T09:04:20.000Z"><a href="/2014/03/07/new-blog-start/">Mar 7 2014</a></time>
-    
-    
-  
-    <h1 class="title"><a href="/2014/03/07/new-blog-start/">换域名，重新开博</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>注册了一个比较帅的域名rank.im，用于个人站点。<br>把原来的很古老的博客系统换成现在比较流行，逼格比较高的hexo。  </p>
-<p>虽然原来我的博客在G reader的订阅数也有1K多，从头再开始是个不错的选择。:)<br>此篇是个新的开始。</p>
-
-    
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
-
+</section>
 </div>
   </div>
   <div class="widget-wrapper">
@@ -239,7 +232,7 @@
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   }());
 </script>

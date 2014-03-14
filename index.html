@@ -256,6 +256,72 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 
 
 
+  <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <time datetime="2011-04-07T15:45:43.000Z"><a href="/2011/04/07/user-behavior-record-data/">Apr 7 2011</a></time>
+    
+    
+  
+    <h1 class="title"><a href="/2011/04/07/user-behavior-record-data/">用户行为系统 如何记录行为数据</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot。中文为「土拨鼠」，有挖掘之意。
+除我之外，还有两位开发人员分别是：seven 和 cyhello。</p>
+<p>本篇文章简短的说明一下 marmot 的 log 重点问题：</p>
+<ol>
+<li>解决不同分辩率的策略.</li>
+<li>解决粒度过细的问题.</li>
+<li>还原路径问题.</li>
+<li>何时发回数据及数据量的问题</li>
+</ol>
+<h2 id="-">分辩率策略</h2>
+<p>默认原点以p(0,0)开始计算,如果是定宽页面,p(0,0)坐标在不同辩率下得到的坐标是不同的.如何解决这一问题.
+普遍情况下会采取截面坐标. 分析目前页面几种类型：</p>
+<ul>
+<li>页面居左布局 「align left」 原点坐标从 p(0,0) 开始计算。</li>
+<li>页面居中布局 「align middle」 原点坐标从 p(document.documentElement.scrollWidth/2|0,0) 开始计算。</li>
+<li>百分比的宽其实也是可以定位的，原理也是引入相对坐标系，但也有一些劣势，这里不展开了。</li>
+</ul>
+<h2 id="-">页面像素粒度切分</h2>
+<p>每个页面默认粒度为 pixel(1,1)，即 1 像素为单位。 这样的优点是数据不失真，但缺点则是数据量传输和存储量大。</p>
+<p>大多数时候我们是不需要按 pixel(1,1) 来计算的。而解决这一问题的思路很简单：</p>
+<ul>
+<li>页面做先 grid 化, pixel(n,n)。</li>
+<li>数量为: Math.floor(document.documentElement.scrollWidth/n)。「n为象素比例尺」</li>
+</ul>
+<h2 id="-">还原路径</h2>
+<ul>
+<li>可以序列化DOM path成selector。</li>
+<li>以previousSibling + ancestor为基础不断向上递归出presudo selector(伪selector)。</li>
+</ul>
+<h2 id="-">何时发回及发回数据量</h2>
+<p>beforeunload异步发回。
+数据量不会太大, HTTP 里 GET 方式请求我们所知：</p>
+<ul>
+<li>IE6 2K 数据(已知)。</li>
+<li>IE7+5K 左右(记得之前我测过，印象中是这个数据)，非 IE 都有 &gt;= 2K 的数据量。</li>
+</ul>
+<p>肯定有人问题发回的比例是多少，据 dron 同学统计过约80%左右。<br>虽说不是绝对发回来，但足够你用。<br>采样率 5K~1W 左右 pv 操作, 数据最大 2K*1W 约 20~30M log不算大。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+
 
 <nav id="pagination">
   
@@ -275,7 +341,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/tech/">tech</a><small>3</small></li>
+    <li><a href="/categories/tech/">tech</a><small>4</small></li>
   
   </ul>
 </div>
@@ -305,6 +371,10 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     
       <li>
         <a href="/2012/12/13/get-script-path/">取得当前脚本元素的路径的一个特例</a>
+      </li>
+    
+      <li>
+        <a href="/2011/04/07/user-behavior-record-data/">用户行为系统 如何记录行为数据</a>
       </li>
     
   </ul>
