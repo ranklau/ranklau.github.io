@@ -169,8 +169,7 @@
   
   <div class="entry">
     
-      <h2 id="getcurrentscriptpath">getCurrentScriptPath</h2>
-<p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
+      <p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
 <ol>
 <li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
 <li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
@@ -193,8 +192,7 @@
      //webkit
      return scripts[len-1].src;
 }
-</code></pre><h2 id="-">开发中遇到的一个特例</h2>
-<p>最近在开发中遇到一个 readyState 在 IE 下的特例：</p>
+</code></pre><p>最近在开发中遇到一个 readyState 在 IE 下的特例：</p>
 <ul>
 <li>page.html 里引入一个外链的脚本 a.js。</li>
 <li>a.js 里有两个外链脚本：a.a.js 和 a.b.js。「注：这是用 document.write 来引入脚本。」</li>
@@ -216,7 +214,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <li>a.a.js -- interactive</li>
 <li>a.b.js -- loaded</li>
 </ul>
-<p>上述的 log 告诉我们，从 readyState 状态上看，其实 IE 里已经加载了 a.js, a.a.js, a.b.js 了。</p>
+<p>上述的 log 告诉我们，从 readyState 状态上看:<br>其实 IE 里已经加载了 a.js, a.a.js, a.b.js 了。</p>
 
     
   </div>
