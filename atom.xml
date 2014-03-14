@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-14T15:54:26.615Z</updated>
+  <updated>2014-03-14T15:56:46.598Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -161,7 +161,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     <link href="http://rank.im/2011/04/07/user-behavior-record-data/"/>
     <id>http://rank.im/2011/04/07/user-behavior-record-data/</id>
     <published>2011-04-07T15:45:43.000Z</published>
-    <updated>2014-03-14T15:54:20.000Z</updated>
+    <updated>2014-03-14T15:56:40.000Z</updated>
     <content type="html"><![CDATA[<p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot。中文为「土拨鼠」，有挖掘之意。
 除我之外，还有两位开发人员分别是：seven 和 cyhello。</p>
 <p>本篇文章简短的说明一下 marmot 的 log 重点问题：</p>
@@ -188,8 +188,8 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 </ul>
 <h2 id="-">还原路径</h2>
 <ul>
-<li>可以序列化DOM path成selector。</li>
-<li>以previousSibling + ancestor为基础不断向上递归出presudo selector(伪selector)。</li>
+<li>可以序列化 DOM path 成 selector。</li>
+<li>以 previousSibling + ancestor 不断向上递归出 presudo selector(伪selector)。</li>
 </ul>
 <h2 id="-">何时发回及发回数据量</h2>
 <p>beforeunload异步发回。
