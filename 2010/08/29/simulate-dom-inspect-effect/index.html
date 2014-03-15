@@ -12,7 +12,9 @@
 
 首先，我们会document里添加mouseover事件时在HTMLElement上飘一个absolute的容器，设置border。
 接着，mousedown，这个 absolute 的元素隐藏；
-再着着，cli">
+再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。
+
+可这样是不是真的能做到呢？">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -76,8 +78,9 @@
 <li>接着，mousedown，这个 absolute 的元素隐藏；</li>
 <li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
 </ul>
-<p>可这样是不是真的能做到呢？</p>
-<p>忽视了一点。<br>mouseover 如果在某个元素上飘一个 absolute 容器，那么你的 over 事件永远在这个 absolute 元素上了。</p>
+<p>可这样是不是真的能做到呢？
+<a id="more"></a>
+忽视了一点。<br>mouseover 如果在某个元素上飘一个 absolute 容器，那么你的 over 事件永远在这个 absolute 元素上了。</p>
 <p>可惜不是as，as可以把某个容器的事件 enable 设为 false 即可。<br>DOM w3c 没有禁用事件的功能。</p>
 <h2 id="-">打破常规</h2>
 <p>回到题目，那怎么做呢？<br>同事能跳出刚才的程序思维——用 4 个 div 当 4 条边就可以了。</p>
