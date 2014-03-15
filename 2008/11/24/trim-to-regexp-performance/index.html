@@ -141,8 +141,7 @@
 </blockquote>
 <p>由于存在这个过程，在NFA匹配过程中，特别是在编写不合理的正则式匹配过程中，文本被反复扫描，效率损失是不小的。明白这个道理，对于写出高效的正则表达式很有帮助。</p>
 <h2 id="-">定位/分析原因</h2>
-<p>在解释上面的trim原型方法的时候。
-经过测试，有几个方法是可以化解 JS NFA 引擎的回朔次数：</p>
+<p>在解释上面的trim原型方法的时候。<br>经过测试，有几个方法是可以化解 JS NFA 引擎的回朔次数：</p>
 <ul>
 <li><p>去掉限定的量词，即改成</p>
   <figure class="highlight js"><pre> <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
