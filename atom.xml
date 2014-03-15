@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T07:46:44.166Z</updated>
+  <updated>2014-03-15T07:48:10.736Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -161,7 +161,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     <link href="http://rank.im/2012/08/18/fix-swfupload2.5/"/>
     <id>http://rank.im/2012/08/18/fix-swfupload2.5/</id>
     <published>2012-08-18T07:08:51.000Z</published>
-    <updated>2014-03-15T07:46:39.000Z</updated>
+    <updated>2014-03-15T07:48:06.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-swfupload">关于 SWFUpload</h2>
 <blockquote>
 <p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
@@ -185,7 +185,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <li>在目前 v2.5 的代码里 bitmapData 不能用于 「applyFilter」 函数，那段代码需要去除（注释也可）或修改。对程序无明显影响。</li>
 <li>使用 jpegencoder.swc 的 init()方法有内存 free up 问题，可以改成单例模式「singleton」 调用组件 jpegencoder.swc。</li>
 </ul>
-<p>代码有点长，感兴趣的同学可以到我的 github 上下载我 fix 后的代码。<br>在这篇文章中主要讲述 debug 过程。</p>
+<p>如果有需要修复后的代码可到我的 github 上下载 fix 后的代码。<br>在这篇文章中主要讲述 debug 过程。</p>
 <h2 id="-">线上问题反馈</h2>
 <p>从用户反馈过来，上传图片速度过慢。-- 用户界面 loading 的菊花图转比较久。</p>
 <h2 id="-">定位问题</h2>
