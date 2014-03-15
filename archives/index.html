@@ -343,38 +343,40 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 </ul>
 <p>所以，在 Flash 里用 FileReference 是无法获取图片的宽高，如果如要得到图片的宽度和高度，需要创建一个 loader 把图片传入，通过 loader 的「complete」异步事件得到图片的高宽。</p>
 <p>所以，查看ImageResizer.as，看到loader_Complete的事件处理函数：</p>
-<pre><code>···Actionscript
- if (this.newWidth &lt; bmp.width || this.newHeight &lt; bmp.height) {
-   // Apply the blur filter that helps clean up the resized image result
-   var blurMultiplier:Number = 1.15; // 1.25;
-   var blurXValue:Number = Math.max(1, bmp.width / this.newWidth) * blurMultiplier;
-   var blurYValue:Number = Math.max(1, bmp.height / this.newHeight) * blurMultiplier;
-   var blurFilter:BlurFilter = new BlurFilter(blurXValue, blurYValue, int(BitmapFilterQuality.LOW));
-   bmp.applyFilter(bmp, new Rectangle(0, 0, bmp.width, bmp.height), new Point(0, 0), blurFilter);
+<figure class="highlight as"><pre> <span class="keyword">if</span> (<span class="keyword">this</span>.newWidth &lt; bmp.width || <span class="keyword">this</span>.newHeight &lt; bmp.height) {
+   <span class="comment">// Apply the blur filter that helps clean up the resized image result</span>
+   <span class="keyword">var</span> blurMultiplier:<span class="built_in">Number</span> = <span class="number">1.15</span>; <span class="comment">// 1.25;</span>
+   <span class="keyword">var</span> blurXValue:<span class="built_in">Number</span> = <span class="built_in">Math</span>.max(<span class="number">1</span>, bmp.width / <span class="keyword">this</span>.newWidth) * blurMultiplier;
+   <span class="keyword">var</span> blurYValue:<span class="built_in">Number</span> = <span class="built_in">Math</span>.max(<span class="number">1</span>, bmp.height / <span class="keyword">this</span>.newHeight) * blurMultiplier;
+   <span class="keyword">var</span> blurFilter:BlurFilter = <span class="keyword">new</span> BlurFilter(blurXValue, blurYValue, int(BitmapFilterQuality.LOW));
+   bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, bmp.width, bmp.height), <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>), blurFilter);
  }
- ···
-</code></pre><p>这一段大概意思是，如果有把大图片 resize 成小图片，就会给图片加模糊滤镜，以防止出现马赛克。<br>先将以上代码注释掉，化简我们的逻辑。</p>
+</pre></figure>
+
+
+<p>这一段大概意思是，如果有把大图片 resize 成小图片，就会给图片加模糊滤镜，以防止出现马赛克。<br>先将以上代码注释掉，化简我们的逻辑。</p>
 <p>然后再看还有另一段代码：</p>
-<pre><code>···Actionscript
- var _bytes:ByteArray = resizedBmp.getPixels(resizedBmp.rect);
+<figure class="highlight as"><pre> <span class="reserved">var</span> <span class="attribute">_bytes</span>:ByteArray = resizedBmp.getPixels(resizedBmp.rect);
  _bytes.compress();
- var jpegEncoder:AsyncJPEGEncoder = new AsyncJPEGEncoder(this.quality, 0, 100);
- jpegEncoder.addEventListener(EncodeCompleteEvent.COMPLETE, this.EncodeCompleteHandler);
- jpegEncoder.addEventListener(ErrorEvent.ERROR, this.EncodeErrorHandler);
+ <span class="reserved">var</span> <span class="attribute">jpegEncoder</span>:AsyncJPEGEncoder = <span class="keyword">new</span> AsyncJPEGEncoder(<span class="keyword">this</span>.quality, <span class="number">0</span>, <span class="number">100</span>);
+ jpegEncoder.addEventListener(EncodeCompleteEvent.COMPLETE, <span class="keyword">this</span>.EncodeCompleteHandler);
+ jpegEncoder.addEventListener(ErrorEvent.ERROR, <span class="keyword">this</span>.EncodeErrorHandler);
  jpegEncoder.encode(resizedBmp);
-
+ 
  /*
- this.ba = resizedBmp.getPixels(resizedBmp.rect);
- this.ba.position = 0;
- this.baOut = new ByteArray();
-
- var cLibEncoder:Object = (new CLibInit).init();
- this.debug(resizedBmp.width.toString());
- this.debug(resizedBmp.height.toString());
- cLibEncoder.encodeAsync(compressFinished, this.ba, this.bagOut, resizedBmp.width, resizedBmp.height, this.quality);
+ <span class="keyword">this</span>.ba = resizedBmp.getPixels(resizedBmp.rect);
+ <span class="keyword">this</span>.ba.position = <span class="number">0</span>;
+ <span class="keyword">this</span>.baOut = <span class="keyword">new</span> ByteArray();
+ 
+ <span class="reserved">var</span> <span class="attribute">cLibEncoder</span>:Object = (<span class="keyword">new</span> CLibInit).init();
+ <span class="keyword">this</span>.debug(resizedBmp.width.toString());
+ <span class="keyword">this</span>.debug(resizedBmp.height.toString());
+ cLibEncoder.encodeAsync(compressFinished, <span class="keyword">this</span>.ba, <span class="keyword">this</span>.bagOut, resizedBmp.width, resizedBmp.height, <span class="keyword">this</span>.quality);
  */
-  ···
-</code></pre><p>未注释的代码是用一个开源异步 JPEG 编码类（<a href="http://code.google.com/p/sync-to-async/source/browse/#svn%2Ftrunk%2Facr%2Fcodec" target="_blank">AsyncJPEGEncoder</a>）用于编码图片。</p>
+</pre></figure>
+
+
+<p>未注释的代码是用一个开源异步 JPEG 编码类（<a href="http://code.google.com/p/sync-to-async/source/browse/#svn%2Ftrunk%2Facr%2Fcodec" target="_blank">AsyncJPEGEncoder</a>）用于编码图片。</p>
 <p>为什么它没有用内置的 JPEG 图片 lib 「JEPGEncoder」进行编码？是因为开源的 AsyncJPEGEncoder 是异步的，且它在效率上对比 Adobe 内置的要稍高一些。</p>
 <p>注释的代码是用 <a href="http://labs.adobe.com/wiki/index.php?title=Alchemy:Documentation:Developing_with_Alchemy:AS3_API&amp;redirect=no
 http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">Adobe alchemy</a> 技术实现的一个 clib 组件，这个组件在代码目录下可以看到是 jpegencoder.swc。</p>
@@ -395,14 +397,17 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">A
 </ul>
 <p>原来，是 bitmapdata 文档有一个 loader 无 1600w 像素限制的细节没有说。<br>先比较以下两段使用bitmapdata代码：</p>
 <p>代码 A：</p>
-<pre><code>···Actionscript
-var bmp:BitmapData = (li.content as Bitmap).bitmapData; //载入图片并放入到bitmapData里
-  ···
-</code></pre><p>代码 B：</p>
-<pre><code>···Actionscript      
-bmp.applyFilter(bmp, new Rectangle(0, 0, bmp.width, bmp.height), new Point(0, 0), blurFilter); //应用bitmapData的filter
-  ···
-</code></pre><p>两者在使用上有何不同?   </p>
+<figure class="highlight as"><pre><span class="keyword">var</span> bmp:BitmapData = (li.content <span class="keyword">as</span> Bitmap).bitmapData; <span class="comment">//载入图片并放入到bitmapData里</span>
+</pre></figure>
+
+
+<p>代码 B：</p>
+<figure class="highlight as"><pre>	 
+	bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, bmp.width, bmp.height), <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>), blurFilter); <span class="comment">//应用bitmapData的filter</span>
+</pre></figure>
+
+
+<p>两者在使用上有何不同?   </p>
 <ul>
 <li>「代码 A」是将图片load到bitmtpData里，它不会报错。</li>
 <li>「代码 B」调用方法 applyFilter 创建出来的Bitmap，这样就会报错。</li>
@@ -415,14 +420,18 @@ Takes a source image and a filter object and generates the filtered image.</p>
 </blockquote>
 <p>以上代码差别 AS 3 文档没有说明用 loader 载入图片没有像素限制的问题。<br>线上代码因之前是其他同学修改过部分代码，无意用成了「代码 A」loader 方式载入。<br>因此并没有报错。</p>
 <p>所以，此问题的解决方法为将使用filter的条件由</p>
-<pre><code>···Actionscript 
-if (this.newWidth &lt; bmp.width || this.newHeight &lt; bmp.height) { //bmp.applyFilter } 
-  ···
-</code></pre><p>改为</p>
-<pre><code>···Actionscript     
-if (bmp.width * bmp.height &lt; 0x01000000) { //bmp.applyFilter } 即可。（0x01000000 等于10进制数 16777216）
-  ···
-</code></pre><p>像素问题 Bitmap 问题终于解决。</p>
+<figure class="highlight as"><pre>	 
+	if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preprocessor">.width</span> || this<span class="preprocessor">.newHeight</span> &lt; bmp<span class="preprocessor">.height</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 
+</pre></figure>
+
+
+<p>改为</p>
+<figure class="highlight as"><pre>	 	
+	if (bmp<span class="preprocessor">.width</span> * bmp<span class="preprocessor">.height</span> &lt; <span class="number">0x01000000</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 即可。（<span class="number">0x01000000</span> 等于<span class="number">10</span>进制数 <span class="number">16777216</span>）
+</pre></figure>
+
+
+<p>像素问题 Bitmap 问题终于解决。</p>
 <h3 id="-alchemy">神奇的炼金术 alchemy</h3>
 <p>解决完上面的问题，再测试，又发现了一个问题。</p>
 <ul>
@@ -442,25 +451,29 @@ if (bmp.width * bmp.height &lt; 0x01000000) { //bmp.applyFilter } 即可。（0x
 </li>
 </ul>
 <p>再加入一个 log 函数：</p>
-<pre><code>···Actionscript 
-private function debug(msg:String):void {    
-  ExternalCall.Debug(&#39;console.log&#39;,msg);  
-}
-  ···
-</code></pre><p>这样，就可以在控制台里看到log了。
+<figure class="highlight as"><pre>	  
+	<span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">debug</span><span class="params">(msg:String)</span><span class="type">:void</span> {</span>    
+	  ExternalCall.Debug(<span class="string">'console.log'</span>,msg);  
+	}
+</pre></figure>
+
+
+<p>这样，就可以在控制台里看到log了。
 发现规律</p>
 <ul>
 <li>第 1 次 resize 图正常</li>
 <li>第 2 次除了压缩进度的有log，其他进展一直都是 0%。</li>
 </ul>
 <p>再次review JPEG编码的代码块:</p>
-<pre><code>···Actionscript  
-var cLibEncoder:Object = (new CLibInit).init();
-this.debug(resizedBmp.width.toString());
-this.debug(resizedBmp.height.toString());
-cLibEncoder.encodeAsync(compressFinished, this.ba, this.bagOut, resizedBmp.width, resizedBmp.height, this.quality);
-  ···
-</code></pre><p>分析个组件的使用，第一感觉就是组件使用过后居然没有销毁，这代码太囧了 =.=</p>
+<figure class="highlight as"><pre>	 
+	var cLibEncoder:Object = (new CLibInit)<span class="preprocessor">.init</span>()<span class="comment">;</span>
+	this<span class="preprocessor">.debug</span>(resizedBmp<span class="preprocessor">.width</span><span class="preprocessor">.toString</span>())<span class="comment">;</span>
+	this<span class="preprocessor">.debug</span>(resizedBmp<span class="preprocessor">.height</span><span class="preprocessor">.toString</span>())<span class="comment">;</span>
+	cLibEncoder<span class="preprocessor">.encodeAsync</span>(compressFinished, this<span class="preprocessor">.ba</span>, this<span class="preprocessor">.bagOut</span>, resizedBmp<span class="preprocessor">.width</span>, resizedBmp<span class="preprocessor">.height</span>, this<span class="preprocessor">.quality</span>)<span class="comment">;</span>
+</pre></figure>
+
+
+<p>分析个组件的使用，第一感觉就是组件使用过后居然没有销毁，这代码太囧了 =.=</p>
 <p>alchemy如果为了高效，应该是</p>
 <ul>
 <li>将 lib 驻入内存再开辟一块 buffer 给它</li>
