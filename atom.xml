@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T09:54:24.228Z</updated>
+  <updated>2014-03-15T09:56:01.911Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -1000,7 +1000,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/08/23/firefox-regexp-issue/"/>
     <id>http://rank.im/2008/08/23/firefox-regexp-issue/</id>
     <published>2008-08-23T10:56:41.000Z</published>
-    <updated>2014-03-15T09:54:20.000Z</updated>
+    <updated>2014-03-15T09:55:56.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
 <p>有可能你会答&quot;是,他们相等&quot;,也有可能你去查了查手册, 看到以下的解释:</p>
@@ -1023,7 +1023,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 </pre></figure>
 
 
-<p>全角半角在firefox2里会出现此现象。</p>
+<p>全角半角在firefox2里会出现「\d」等于 半角[0-9] 和 全角[0-9] 现象。</p>
 <h2 id="-">解决办法</h2>
 <p>firefox 2里用正则表达式\d字符时,会将全角转义成半角再进行匹配, 与手册描述不一致。  </p>
 <p>解决办法即是：以后大家用正则还是直接用 [0-9] 去匹配数字。</p>
