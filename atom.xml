@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T09:13:56.110Z</updated>
+  <updated>2014-03-15T09:19:50.240Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -728,7 +728,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/12/21/ie6-ssl-ajax-trouble/"/>
     <id>http://rank.im/2008/12/21/ie6-ssl-ajax-trouble/</id>
     <published>2008-12-20T17:04:33.000Z</published>
-    <updated>2014-03-15T09:13:52.000Z</updated>
+    <updated>2014-03-15T09:14:10.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题描述</h2>
 <p>在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank">网上</a>有不少人遇到了这困惑的状态码。</p>
 <p>说明</p>
@@ -749,7 +749,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 </ul>
 </li>
 </ul>
-<p>要解决此问题，可以想想</p>
+<p>要解决此问题，可以想</p>
 <ul>
 <li>把无刷新页面看做是一个与服务器沟通的桥梁的话，这座桥除了用XMLHttpRequest之外。</li>
 <li>还可以用iframe。形成一个 connection 的 adapter。</li>
@@ -783,6 +783,169 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <li>IE 7以下对 SSL (即 HTTPS) 的支持不够好。</li>
 </ul>
 ]]></summary>
+    
+      <category term="tech" scheme="http://rank.im/categories/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[IE 在 DOM 操作有表单控件时的bug]]></title>
+    <link href="http://rank.im/2008/07/20/ie-form-check-bug/"/>
+    <id>http://rank.im/2008/07/20/ie-form-check-bug/</id>
+    <published>2008-07-20T11:44:21.000Z</published>
+    <updated>2014-03-15T09:19:39.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="bug-">bug描述</h2>
+<ul>
+<li>影响的范围: IE的所有版本</li>
+<li>在表单的 radio/checkbox 控件中，一旦他们的DOM结构被更改过就会出现这个bug。</li>
+<li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio将会自动恢复到默认状态，</li>
+<li>有如点了 reset 按钮一样。</li>
+</ul>
+<p>bug重现</p>
+<figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">title</span>&gt;</span>Rank's HTML document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=gb2312"</span> /&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Pragma"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Cache-Control"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Expires"</span> <span class="attribute">content</span>=<span class="value">"0"</span> /&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"ImageToolbar"</span> <span class="attribute">content</span>=<span class="value">"no"</span> /&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Creator.name"</span> <span class="attribute">content</span>=<span class="value">"Rank, BlueDestiny, never-online"</span> /&gt;</span>
+ <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">title</span>=<span class="value">"default"</span> <span class="attribute">media</span>=<span class="value">"screen"</span>&gt;</span><span class="css">
+ <span class="comment">/*&lt;![CDATA[*/</span>
+      <span class="tag">body</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">80</span>%</span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">1.5</span></span></span>; <span class="rule">}</span></span>
+      <span class="tag">body</span>, <span class="tag">button</span> <span class="rules">{ <span class="rule"><span class="attribute">font-family</span>:<span class="value">arial</span></span>; <span class="rule">}</span></span>
+      <span class="tag">button</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span> <span class="number">0.3</span>em <span class="number">0</span> <span class="number">0.3</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="tag">h1</span>, <span class="tag">h3</span> <span class="rules">{ <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule">}</span></span>
+      <span class="tag">h1</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">2.3</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="tag">h3</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">1.3</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="tag">form</span> <span class="rules">{ <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>; <span class="rule">}</span></span>
+      <span class="tag">div</span><span class="class">.link</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">1</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="tag">div</span><span class="class">.content</span> <span class="rules">{ <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#ffc</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">1</span>em</span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1</span>px solid <span class="hexcolor">#222</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">1</span>em <span class="number">0</span> <span class="number">1</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="id">#rdoWrapper</span> <span class="rules">{ <span class="rule">}</span></span>
+      <span class="id">#hd</span> <span class="rules">{ <span class="rule"><span class="attribute">text-align</span>:<span class="value">center</span></span>; <span class="rule">}</span></span>
+ <span class="comment">/*]]&gt;*/</span>
+ </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+ <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"hd"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">h1</span>&gt;</span> IE form control bug <span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>from: <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.never-online.net/blog"</span>&gt;</span><span class="tag">&lt;<span class="title">em</span>&gt;</span>never-online weblog<span class="tag">&lt;/<span class="title">em</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"rdoWrapper"</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">h3</span>&gt;</span> 1. Select radio to checked <span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">form</span> <span class="attribute">method</span>=<span class="value">"post"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"rdo"</span> <span class="attribute">id</span>=<span class="value">"rdo-1"</span> <span class="attribute">value</span>=<span class="value">"rdo-1"</span> <span class="attribute">checked</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"rdo-1"</span>&gt;</span>radio1<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"rdo"</span> <span class="attribute">id</span>=<span class="value">"rdo-2"</span> <span class="attribute">value</span>=<span class="value">"rdo-2"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"rdo-2"</span>&gt;</span>radio2<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"rdo"</span> <span class="attribute">id</span>=<span class="value">"rdo-3"</span> <span class="attribute">value</span>=<span class="value">"rdo-3"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"rdo-3"</span>&gt;</span>radio3<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"rdo"</span> <span class="attribute">id</span>=<span class="value">"rdo-4"</span> <span class="attribute">value</span>=<span class="value">"rdo-4"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"rdo-4"</span>&gt;</span>radio4<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">h3</span>&gt;</span> 2. Click button to change dom structure <span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span><span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">onclick</span>=<span class="value">"handleChangeDom()"</span>&gt;</span>test<span class="tag">&lt;/<span class="title">button</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="comment">//&lt;![CDATA[</span>
+      <span class="function"><span class="keyword">function</span> <span class="title">getRadioValue</span><span class="params">(ctlName)</span> {</span>
+        <span class="keyword">var</span> ctls = document.getElementsByName(ctlName);
+        <span class="keyword">var</span> len = ctls.length;
+        <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;len; i++) {
+          <span class="keyword">if</span> (ctls[i].checked) {
+            <span class="keyword">return</span> ctls[i].value;
+          }
+        }
+      }
+      <span class="function"><span class="keyword">function</span> <span class="title">handleChangeDom</span><span class="params">()</span> {</span>
+        alert(<span class="string">'before append, you select radio value is "'</span>+getRadioValue(<span class="string">'rdo'</span>)+<span class="string">'"'</span>);
+        <span class="keyword">var</span> wrapper = document.getElementById(<span class="string">'rdoWrapper'</span>);
+        document.body.appendChild(wrapper);
+        alert(<span class="string">'after append, you select radio value is "'</span>+getRadioValue(<span class="string">'rdo'</span>)+<span class="string">'"'</span>);
+      }
+    <span class="comment">//]]&gt;</span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+ <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</pre></figure>
+
+
+<h2 id="-">解决方法</h2>
+<p>可以在操作DOM之前，用 「defaultChecked」 来设置 checked 的值。</p>
+<figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">title</span>&gt;</span>Rank's HTML document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=gb2312"</span> /&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Pragma"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Cache-Control"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Expires"</span> <span class="attribute">content</span>=<span class="value">"0"</span> /&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"ImageToolbar"</span> <span class="attribute">content</span>=<span class="value">"no"</span> /&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Creator.name"</span> <span class="attribute">content</span>=<span class="value">"Rank, BlueDestiny, never-online"</span> /&gt;</span>
+ <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">title</span>=<span class="value">"default"</span> <span class="attribute">media</span>=<span class="value">"screen"</span>&gt;</span><span class="css">
+ <span class="comment">/*&lt;![CDATA[*/</span>
+      <span class="tag">body</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">80</span>%</span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">1.5</span></span></span>; <span class="rule">}</span></span>
+      <span class="tag">body</span>, <span class="tag">button</span> <span class="rules">{ <span class="rule"><span class="attribute">font-family</span>:<span class="value">arial</span></span>; <span class="rule">}</span></span>
+      <span class="tag">button</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span> <span class="number">0.3</span>em <span class="number">0</span> <span class="number">0.3</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="tag">h1</span>, <span class="tag">h3</span> <span class="rules">{ <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule">}</span></span>
+      <span class="tag">h1</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">2.3</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="tag">h3</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">1.3</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="tag">form</span> <span class="rules">{ <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>; <span class="rule">}</span></span>
+      <span class="tag">div</span><span class="class">.link</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">1</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="tag">div</span><span class="class">.content</span> <span class="rules">{ <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#ffc</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">1</span>em</span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1</span>px solid <span class="hexcolor">#222</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">1</span>em <span class="number">0</span> <span class="number">1</span>em</span></span>; <span class="rule">}</span></span>
+      <span class="id">#rdoWrapper</span> <span class="rules">{ <span class="rule">}</span></span>
+      <span class="id">#hd</span> <span class="rules">{ <span class="rule"><span class="attribute">text-align</span>:<span class="value">center</span></span>; <span class="rule">}</span></span>
+ <span class="comment">/*]]&gt;*/</span>
+ </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+ <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"hd"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">h1</span>&gt;</span> fixed IE form control bug <span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>from: <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.never-online.net/blog"</span>&gt;</span><span class="tag">&lt;<span class="title">em</span>&gt;</span>never-online weblog<span class="tag">&lt;/<span class="title">em</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"rdoWrapper"</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">h3</span>&gt;</span> 1. Select radio to checked <span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">form</span> <span class="attribute">method</span>=<span class="value">"post"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"rdo"</span> <span class="attribute">id</span>=<span class="value">"rdo-1"</span> <span class="attribute">value</span>=<span class="value">"rdo-1"</span> <span class="attribute">checked</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"rdo-1"</span>&gt;</span>radio1<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"rdo"</span> <span class="attribute">id</span>=<span class="value">"rdo-2"</span> <span class="attribute">value</span>=<span class="value">"rdo-2"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"rdo-2"</span>&gt;</span>radio2<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"rdo"</span> <span class="attribute">id</span>=<span class="value">"rdo-3"</span> <span class="attribute">value</span>=<span class="value">"rdo-3"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"rdo-3"</span>&gt;</span>radio3<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"rdo"</span> <span class="attribute">id</span>=<span class="value">"rdo-4"</span> <span class="attribute">value</span>=<span class="value">"rdo-4"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"rdo-4"</span>&gt;</span>radio4<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">h3</span>&gt;</span> 2. Click button to change dom structure <span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"p"</span>&gt;</span><span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">onclick</span>=<span class="value">"handleChangeDom()"</span>&gt;</span>test<span class="tag">&lt;/<span class="title">button</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="comment">//&lt;![CDATA[</span>
+      <span class="function"><span class="keyword">function</span> <span class="title">getRadioValue</span><span class="params">(ctlName)</span> {</span>
+        <span class="keyword">var</span> ctls = document.getElementsByName(ctlName);
+        <span class="keyword">var</span> len = ctls.length;
+        <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;len; i++) {
+          <span class="keyword">if</span> (ctls[i].checked) {
+            <span class="keyword">return</span> ctls[i].value;
+          }
+        }
+      }
+      <span class="function"><span class="keyword">function</span> <span class="title">setRadioDefaultValue</span><span class="params">(ctlName)</span> {</span>
+        <span class="keyword">var</span> ctls = document.getElementsByName(ctlName);
+        <span class="keyword">var</span> len = ctls.length;
+        <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;len; i++) {
+          ctls[i].defaultChecked = ctls[i].checked;
+        }
+      }
+      <span class="function"><span class="keyword">function</span> <span class="title">handleChangeDom</span><span class="params">()</span> {</span>
+        alert(<span class="string">'before append, you select radio value is "'</span>+getRadioValue(<span class="string">'rdo'</span>)+<span class="string">'"'</span>);
+        setRadioDefaultValue(<span class="string">'rdo'</span>);
+        <span class="keyword">var</span> wrapper = document.getElementById(<span class="string">'rdoWrapper'</span>);
+        document.body.appendChild(wrapper);
+        alert(<span class="string">'after append, you select radio value is "'</span>+getRadioValue(<span class="string">'rdo'</span>)+<span class="string">'"'</span>);
+      }
+    <span class="comment">//]]&gt;</span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+ <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</pre></figure>
+]]></content>
+    
     
       <category term="tech" scheme="http://rank.im/categories/tech/"/>
     
