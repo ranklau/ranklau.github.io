@@ -257,7 +257,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">A
 <li>为什么线上正在运行的 SWFUploader 没有这个异常问题？</li>
 <li>不是超过 1600w 像素的限制了吗，为什么还能正常上传还没有报错呢？</li>
 </ul>
-<p>原来，是 bitmapdata 文档有一个细节很坑爹，没有说，是我自己测试出来的。<br>先比较以下两段使用bitmapdata代码：</p>
+<p>原来，是 bitmapdata 文档有一个 loader 无 1600w 像素限制的细节没有说。<br>先比较以下两段使用bitmapdata代码：</p>
 <p>代码 A：</p>
 <pre><code>···Actionscript
 var bmp:BitmapData = (li.content as Bitmap).bitmapData; //载入图片并放入到bitmapData里
