@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T09:42:02.288Z</updated>
+  <updated>2014-03-15T09:42:34.083Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -863,11 +863,11 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
   </entry>
   
   <entry>
-    <title><![CDATA[从trim原型函数看js正则表达式的性能]]></title>
+    <title><![CDATA[从 trim 原型函数看 JS 正则表达式的性能]]></title>
     <link href="http://rank.im/2008/11/24/trim-to-regexp-performance/"/>
     <id>http://rank.im/2008/11/24/trim-to-regexp-performance/</id>
     <published>2008-11-24T12:20:21.000Z</published>
-    <updated>2014-03-15T09:41:58.000Z</updated>
+    <updated>2014-03-15T09:42:30.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>如果你看到别人写trim函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的trim函数效率很高，请看完本文再下结论。</p>
 <p>一般情况下用正则写法为：</p>
