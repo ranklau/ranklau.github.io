@@ -312,8 +312,11 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 </ul>
 <p>从反馈问题来看，有可能出现的地方是在 压缩、网络 IO 上传、修剪图象及入库这 3 部分。<br>如何找到具体是哪一部分，首先看看我们执行图片resize上传的阈值是多少。</p>
 <p>对应的 查看了一下 PublishUploader.js，发现有这样的代码。</p>
-<pre><code>this.startResizedUpload(null,800,800,SWFUpload.RESIZE_ENCODING.JPEG,80,false);
-</code></pre><p>从代码作用是将所有图片最大尺寸 resize 为 800*800 象素。用 jpeg 图像压缩算法，并且图片质量是80 。</p>
+<figure class="highlight as"><pre><span class="keyword">this</span>.startResizedUpload(<span class="keyword">null</span>,<span class="number">800</span>,<span class="number">800</span>,SWFUpload.RESIZE_ENCODING.JPEG,<span class="number">80</span>,<span class="keyword">false</span>);
+</pre></figure>
+
+
+<p>从代码作用是将所有图片最大尺寸 resize 为 800*800 象素。用 jpeg 图像压缩算法，并且图片质量是80 。</p>
 <p>于是，我进行以下操作：</p>
 <ul>
 <li>上传一张小于 800px 的图与一张大于 800px 的图，这两张图的总像素近似进行比较</li>
