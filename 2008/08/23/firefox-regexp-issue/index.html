@@ -96,11 +96,11 @@
 </pre></figure>
 
 
-<p>全角半角在firefox2里会出现「\d」等于 半角[0-9] 和 全角[0-9] 现象。</p>
+<p>Firefox 2 里会出现「\d」等于 半角[0-9] 和 全角[0-9] 现象。</p>
 <h2 id="-">解决办法</h2>
-<p>firefox 2里用正则表达式\d字符时,会将全角转义成半角再进行匹配, 与手册描述不一致。  </p>
+<p>Firefox 2里用正则表达式\d字符时,会将全角转义成半角再进行匹配, 与手册描述不一致。  </p>
 <p>解决办法即是：以后大家用正则还是直接用 [0-9] 去匹配数字。</p>
-<p>这是否意味着是 firefox 2 的bug呢？非也。  </p>
+<p>这是否意味着是 Firefox 2 的bug呢？非也。  </p>
 <p>《Master Regular Expression，精通正则表达式》书中说是不同的流派的问题。</p>
 <blockquote>
 <p>Matches any non-decimal digit. Equivalent to [\P{Nd}] for Unicode and [^0-9] for non-Unicode, ECMAScript behavior.</p>
