@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T08:35:08.934Z</updated>
+  <updated>2014-03-15T08:35:34.939Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -427,7 +427,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
     <link href="http://rank.im/2012/01/05/webkit-css3-blink/"/>
     <id>http://rank.im/2012/01/05/webkit-css3-blink/</id>
     <published>2012-01-05T06:00:03.000Z</published>
-    <updated>2014-03-15T08:35:05.000Z</updated>
+    <updated>2014-03-15T08:35:31.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  </p>
 <h2 id="-">解决办法</h2>
@@ -441,7 +441,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
 
 
 <h2 id="-">过程</h2>
-<p>昨天晚上aomao，晓刚我提起，会否是我们的「浮层」导致。逻辑是因为</p>
+<p>昨天晚上maomao，晓刚我提起，会否是我们的「浮层」导致。逻辑是因为</p>
 <ul>
 <li>「浮层」 的 style 加了opacity。</li>
 <li>页面还没 load 完毕就把 mask 给加到 body 第一个元素了，这时没有加 display:none。</li>
