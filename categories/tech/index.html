@@ -434,6 +434,53 @@
   <header>
     
       <div class="icon"></div>
+      <time datetime="2008-11-24T12:20:21.000Z"><a href="/2008/11/24/trim-to-regexp-performance/">Nov 24 2008</a></time>
+    
+    
+  
+    <h1 class="title"><a href="/2008/11/24/trim-to-regexp-performance/">从trim原型函数看js正则表达式的性能</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h2 id="-">问题</h2>
+<p>如果你看到别人写trim函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的trim函数效率很高，请看完本文再下结论。</p>
+<p>一般情况下用正则写法为：</p>
+<figure class="highlight js"><pre>&lt;script type=<span class="string">"text/javascript"</span>&gt;<span class="comment">//&lt;![CDATA[</span>
+  <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\t ]+|[\s\t ]+$/g</span>, <span class="string">''</span>);
+  }
+  s = <span class="string">' never-online\'s weblog, www.never-online.net/blog '</span>;
+  alert(s.trim().length);
+<span class="comment">//]]&gt;&lt;/script&gt;</span>
+</pre></figure>
+
+
+<p>如果遇到大数据的变长字符串的话就会发现这个是很耗资源的。<br>效率并不高，有的时候甚至无法忍受。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2008/11/24/trim-to-regexp-performance/#more" class="more-link">Read More</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
       <time datetime="2008-07-20T11:44:21.000Z"><a href="/2008/07/20/ie-form-check-bug/">Jul 20 2008</a></time>
     
     
@@ -491,7 +538,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/tech/">tech</a><small>10</small></li>
+    <li><a href="/categories/tech/">tech</a><small>11</small></li>
   
   </ul>
 </div>
