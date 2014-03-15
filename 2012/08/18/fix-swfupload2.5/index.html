@@ -4,13 +4,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Archives: 2012 | rank&#39;s blog</title>
+  <title>SWFUpload 2.5 修改日志 | rank&#39;s blog</title>
   <meta name="author" content="rank">
+  
+  <meta name="description" content="关于 SWFUpload
+
+SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。
+
+主要特点：
+
+可以同时上传多个文件；
+类似AJAX的无刷新上传">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  
+  <meta property="og:title" content="SWFUpload 2.5 修改日志"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -47,87 +56,7 @@
   <div class="clearfix"></div>
 </nav>
 <div class="clearfix"></div></header>
-    <div class="content">
-<h2 class="archive-title">2012</h2>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <time datetime="2012-12-13T06:54:40.000Z"><a href="/2012/12/13/get-script-path/">Dec 13 2012</a></time>
-    
-    
-  
-    <h1 class="title"><a href="/2012/12/13/get-script-path/">取得当前脚本元素的路径的一个特例</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
-<ol>
-<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
-<li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
-</ol>
-<p>简单实现代码如下：</p>
-<pre><code>function getCurrentScriptPath() {
-     //currentScript
-     if (document.hasOwnProperty(&#39;currentScript&#39;)) {
-       return document.currentScript.src;
-     }
-     var scripts = document.scripts || document.getElementsByTagName(&#39;script&#39;),
-       len = scripts.length,
-       state = &#39;interactive&#39;;
-     //兼容IE
-     for (var i=0; i &lt;len; i++) {
-       if (scripts[i].readyState==state) {
-         return scripts[i].src;
-       }
-     }
-     //webkit
-     return scripts[len-1].src;
-}
-</code></pre><p>最近在开发中遇到一个 readyState 在 IE 下的特例：</p>
-<ul>
-<li>page.html 里引入一个外链的脚本 a.js。</li>
-<li>a.js 里有两个外链脚本：a.a.js 和 a.b.js。「注：这是用 document.write 来引入脚本。」</li>
-</ul>
-<p>page.html代码：</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;&lt;/head&gt;
-&lt;body&gt;
-    &lt;script src=&quot;a.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>a.js代码：</p>
-<pre><code>document.write(&#39;&lt;script src=&quot;a.a.js&quot;&gt;&lt;\/script&gt;&#39;);
-document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
-</code></pre><p>在浏览器 IE6 至 IE10 里：</p>
-<p>我们在 a.a.js 里将所有脚本元素打印出 readyState ：</p>
-<ul>
-<li>a.js -- complete</li>
-<li>a.a.js -- interactive</li>
-<li>a.b.js -- loaded</li>
-</ul>
-<p>上述的 log 告诉我们，从 readyState 状态上看:<br>其实 IE 里已经加载了 a.js, a.a.js, a.b.js 了。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
+    <div class="content"><article class="post">
   <header>
     
       <div class="icon"></div>
@@ -135,7 +64,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     
     
   
-    <h1 class="title"><a href="/2012/08/18/fix-swfupload2.5/">SWFUpload 2.5 修改日志</a></h1>
+    <h1 class="title">SWFUpload 2.5 修改日志</h1>
   
 
   </header>
@@ -358,9 +287,14 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
 
     
   </div>
-  <footer class="end-sep">
+  <footer>
     
       
+  
+  <div class="categories">
+    <a href="/categories/tech/">tech</a>
+  </div>
+
       
     
     <div class="clearfix"></div>
@@ -368,14 +302,12 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
 </article>
 
 
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
-
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </div>
   </div>
   <div class="widget-wrapper">
@@ -477,7 +409,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   }());
 </script>
