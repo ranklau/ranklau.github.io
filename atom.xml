@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T08:35:54.533Z</updated>
+  <updated>2014-03-15T08:36:09.773Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -427,7 +427,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
     <link href="http://rank.im/2012/01/05/webkit-css3-blink/"/>
     <id>http://rank.im/2012/01/05/webkit-css3-blink/</id>
     <published>2012-01-05T06:00:03.000Z</published>
-    <updated>2014-03-15T08:35:51.000Z</updated>
+    <updated>2014-03-15T08:36:02.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  </p>
 <h2 id="-">解决办法</h2>
@@ -455,8 +455,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
 <p>在百度上搜索类似 css 3 transform bug，无果。
 别灰心，在 stackoverflow上 看看。</p>
 <p>query: &quot;transform flick bug webkit&quot;</p>
-<p>果然有料。
-<a href="http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform" target="_blank">http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform</a></p>
+<p>果然有料。<br><a href="http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform" target="_blank">http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform</a></p>
 <p>也就是说用</p>
 <figure class="highlight css"><pre><span class="tag">-webkit-backface-visibility</span>: <span class="tag">hidden</span>; <span class="comment">/*但不能用于sprite雪碧图*/</span>
 </pre></figure>
