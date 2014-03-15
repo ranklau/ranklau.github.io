@@ -97,8 +97,8 @@
 </code></pre><p>标签里。</p>
 <p>晓亮提到会否是 Transform 引起的。<br>试后，去除 transform 果然管用。<br>但是我们仍然没有知道解决办法，以及为何这样。</p>
 <p>在百度上搜索类似 css 3 transform bug，无果。
-别灰心，在 stackoverflow上 看看。</p>
-<p>query: &quot;transform flick bug webkit&quot;</p>
+别灰心，在 stackoverflow上 看看。
+query: &quot;transform flick bug webkit&quot;</p>
 <p>果然有料。<br><a href="http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform" target="_blank">http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform</a></p>
 <p>也就是说用</p>
 <figure class="highlight css"><pre><span class="tag">-webkit-backface-visibility</span>: <span class="tag">hidden</span>; <span class="comment">/*但不能用于sprite雪碧图*/</span>
