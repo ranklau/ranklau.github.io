@@ -585,7 +585,8 @@ query: &quot;transform flick bug webkit&quot;</p>
 
 <p>来解决「闪」的问题。</p>
 <p>如果用 translate3d 这么解决，心里想这不是用 3d 另一个问题解决现在 css3 3d的一个问题吗。
-顺着往下找了下资料果然如此，translate3d有问题：</p>
+顺着往下找了下资料。</p>
+<p>果然如此，translate3d 有问题：</p>
 <blockquote>
 <p>However, the body {-webkit-transform} approach causes all elements on the page to effectively be rendered in 3D. This isn&#39;t the worst thing, but it slightly changes the rendering of text and other CSS-styled elements.</p>
 <p>It may be an effect you want. It may be useful if you&#39;re doing a lot of transform on your page. Otherwise, -webkit-backface-visibility:hidden on the element your transforming is the least invasive option.</p>
@@ -598,7 +599,7 @@ query: &quot;transform flick bug webkit&quot;</p>
 <p>The ‘backface-visibility’ property determines whether or not the &quot;back&quot; side of a transformed element is visible when facing the viewer. With an identity transform, the front side of an element faces the viewer. Applying a rotation about Y of 180 degrees (for instance) would cause the back side of the element to face the viewer.
 This property is useful when you place two elements back-to-back, as you would to create a playing card. Without this property, the front and back elements could switch places at times during an animation to flip the card. Another example is creating a box out of 6 elements, but where you want to see the inside faces of the box. This is useful when creating the backdrop for a 3 dimensional stage.</p>
 </blockquote>
-<p>也就是说这个属性做翻卡片的小游戏，比较合适。<br>测试运行以下代码，就能理解为什么会在transform时会闪：</p>
+<p>用这个属性做翻卡片的小游戏比较合适 :)。<br>测试运行以下代码，就能理解为什么会在transform时会闪：</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
 <span class="tag">&lt;<span class="title">head</span>&gt;</span>
