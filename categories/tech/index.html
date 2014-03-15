@@ -376,7 +376,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">A
 
 <p>代码 B：</p>
 <figure class="highlight as"><pre>	 
-	bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, bmp.width, bmp.height), <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>), blurFilter); <span class="comment">//应用bitmapData的filter</span>
+bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, bmp.width, bmp.height), <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>), blurFilter); <span class="comment">//应用bitmapData的filter</span>
 </pre></figure>
 
 
@@ -394,13 +394,13 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">A
 <p>以上代码差别 AS 3 文档没有说明用 loader 载入图片没有像素限制的问题。<br>线上代码因之前是其他同学修改过部分代码，无意用成了「代码 A」loader 方式载入。<br>因此并没有报错。</p>
 <p>所以，此问题的解决方法为将使用filter的条件由</p>
 <figure class="highlight as"><pre>	 
-	if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preprocessor">.width</span> || this<span class="preprocessor">.newHeight</span> &lt; bmp<span class="preprocessor">.height</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 
+if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preprocessor">.width</span> || this<span class="preprocessor">.newHeight</span> &lt; bmp<span class="preprocessor">.height</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 
 </pre></figure>
 
 
 <p>改为</p>
 <figure class="highlight as"><pre>	 	
-	if (bmp<span class="preprocessor">.width</span> * bmp<span class="preprocessor">.height</span> &lt; <span class="number">0x01000000</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 即可。（<span class="number">0x01000000</span> 等于<span class="number">10</span>进制数 <span class="number">16777216</span>）
+if (bmp<span class="preprocessor">.width</span> * bmp<span class="preprocessor">.height</span> &lt; <span class="number">0x01000000</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 即可。（<span class="number">0x01000000</span> 等于<span class="number">10</span>进制数 <span class="number">16777216</span>）
 </pre></figure>
 
 

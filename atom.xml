@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T08:05:06.168Z</updated>
+  <updated>2014-03-15T08:05:52.663Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -165,7 +165,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     <link href="http://rank.im/2012/08/18/fix-swfupload2.5/"/>
     <id>http://rank.im/2012/08/18/fix-swfupload2.5/</id>
     <published>2012-08-18T07:08:51.000Z</published>
-    <updated>2014-03-15T08:05:00.000Z</updated>
+    <updated>2014-03-15T08:05:48.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-swfupload">关于 SWFUpload</h2>
 <blockquote>
 <p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
@@ -294,7 +294,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">A
 
 <p>代码 B：</p>
 <figure class="highlight as"><pre>	 
-	bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, bmp.width, bmp.height), <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>), blurFilter); <span class="comment">//应用bitmapData的filter</span>
+bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, bmp.width, bmp.height), <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>), blurFilter); <span class="comment">//应用bitmapData的filter</span>
 </pre></figure>
 
 
@@ -312,13 +312,13 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">A
 <p>以上代码差别 AS 3 文档没有说明用 loader 载入图片没有像素限制的问题。<br>线上代码因之前是其他同学修改过部分代码，无意用成了「代码 A」loader 方式载入。<br>因此并没有报错。</p>
 <p>所以，此问题的解决方法为将使用filter的条件由</p>
 <figure class="highlight as"><pre>	 
-	if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preprocessor">.width</span> || this<span class="preprocessor">.newHeight</span> &lt; bmp<span class="preprocessor">.height</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 
+if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preprocessor">.width</span> || this<span class="preprocessor">.newHeight</span> &lt; bmp<span class="preprocessor">.height</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 
 </pre></figure>
 
 
 <p>改为</p>
 <figure class="highlight as"><pre>	 	
-	if (bmp<span class="preprocessor">.width</span> * bmp<span class="preprocessor">.height</span> &lt; <span class="number">0x01000000</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 即可。（<span class="number">0x01000000</span> 等于<span class="number">10</span>进制数 <span class="number">16777216</span>）
+if (bmp<span class="preprocessor">.width</span> * bmp<span class="preprocessor">.height</span> &lt; <span class="number">0x01000000</span>) { //bmp<span class="preprocessor">.applyFilter</span> } 即可。（<span class="number">0x01000000</span> 等于<span class="number">10</span>进制数 <span class="number">16777216</span>）
 </pre></figure>
 
 
