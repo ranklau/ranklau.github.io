@@ -183,56 +183,15 @@
 <li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
 <li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
 </ol>
-<p>简单实现代码如下：</p>
-<figure class="highlight js"><pre>	 
-	<span class="function"><span class="keyword">function</span> <span class="title">getCurrentScriptPath</span><span class="params">()</span> {</span>
-		 <span class="comment">//currentScript</span>
-		 <span class="keyword">if</span> (document.hasOwnProperty(<span class="string">'currentScript'</span>)) {
-		   <span class="keyword">return</span> document.currentScript.src;
-		 }
-		 <span class="keyword">var</span> scripts = document.scripts || document.getElementsByTagName(<span class="string">'script'</span>),
-		   len = scripts.length,
-		   state = <span class="string">'interactive'</span>;
-		 <span class="comment">//兼容IE</span>
-		 <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt;len; i++) {
-		   <span class="keyword">if</span> (scripts[i].readyState==state) {
-		     <span class="keyword">return</span> scripts[i].src;
-		   }
-		 }
-		 <span class="comment">//webkit</span>
-		 <span class="keyword">return</span> scripts[len-<span class="number">1</span>].src;
-	}	
-</pre></figure>
-
-
-<p>最近在开发中遇到一个 readyState 在 IE 下的特例：</p>
-<ul>
-<li>page.html 里引入一个外链的脚本 a.js。</li>
-<li>a.js 里有两个外链脚本：a.a.js 和 a.b.js。「注：这是用 document.write 来引入脚本。」</li>
-</ul>
-<p>page.html代码：</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;&lt;/head&gt;
-&lt;body&gt;
-    &lt;script src=&quot;a.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>a.js代码：</p>
-<pre><code>document.write(&#39;&lt;script src=&quot;a.a.js&quot;&gt;&lt;\/script&gt;&#39;);
-document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
-</code></pre><p>在浏览器 IE6 至 IE10 里：</p>
-<p>我们在 a.a.js 里将所有脚本元素打印出 readyState ：</p>
-<ul>
-<li>a.js -- complete</li>
-<li>a.a.js -- interactive</li>
-<li>a.b.js -- loaded</li>
-</ul>
-<p>上述的 log 告诉我们，从 readyState 状态上看:<br>其实 IE 里已经加载了 a.js, a.a.js, a.b.js 了。</p>
 
     
   </div>
   <footer class="end-sep">
     
+      
+        <div class="alignleft">
+          <a href="/2012/12/13/get-script-path/#more" class="more-link">Read More</a>
+        </div>
       
       
     
