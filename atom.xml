@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T09:43:29.266Z</updated>
+  <updated>2014-03-15T09:44:14.320Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -867,7 +867,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/11/24/trim-to-regexp-performance/"/>
     <id>http://rank.im/2008/11/24/trim-to-regexp-performance/</id>
     <published>2008-11-24T12:20:21.000Z</published>
-    <updated>2014-03-15T09:43:24.000Z</updated>
+    <updated>2014-03-15T09:44:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>如果你看到别人写 trim 函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的 trim 函数效率很高，请看完本文再下结论。</p>
 <p>一般情况下用正则写法为：</p>
@@ -907,6 +907,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 </pre></figure>
 
 
+<h2 id="dfa">DFA</h2>
 <p>在解释这个原因的时候想起以前看到 《Master regular expression》 里面有提到过。NFA 和 DFA 引擎是有区别的。</p>
 <blockquote>
 <p>DFA 与 NFA 机制上的不同带来5个影响：</p>
