@@ -452,9 +452,9 @@ if (bmp<span class="preprocessor">.width</span> * bmp<span class="preprocessor">
 </ul>
 <p>再加入一个 log 函数：</p>
 <figure class="highlight as"><pre>	  
-	<span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">debug</span><span class="params">(msg:String)</span><span class="type">:void</span> {</span>    
-	  ExternalCall.Debug(<span class="string">'console.log'</span>,msg);  
-	}
+<span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">debug</span><span class="params">(msg:String)</span><span class="type">:void</span> {</span>    
+  ExternalCall.Debug(<span class="string">'console.log'</span>,msg);  
+}
 </pre></figure>
 
 
@@ -466,10 +466,10 @@ if (bmp<span class="preprocessor">.width</span> * bmp<span class="preprocessor">
 </ul>
 <p>再次review JPEG编码的代码块:</p>
 <figure class="highlight as"><pre>	 
-	var cLibEncoder:Object = (new CLibInit)<span class="preprocessor">.init</span>()<span class="comment">;</span>
-	this<span class="preprocessor">.debug</span>(resizedBmp<span class="preprocessor">.width</span><span class="preprocessor">.toString</span>())<span class="comment">;</span>
-	this<span class="preprocessor">.debug</span>(resizedBmp<span class="preprocessor">.height</span><span class="preprocessor">.toString</span>())<span class="comment">;</span>
-	cLibEncoder<span class="preprocessor">.encodeAsync</span>(compressFinished, this<span class="preprocessor">.ba</span>, this<span class="preprocessor">.bagOut</span>, resizedBmp<span class="preprocessor">.width</span>, resizedBmp<span class="preprocessor">.height</span>, this<span class="preprocessor">.quality</span>)<span class="comment">;</span>
+var cLibEncoder:Object = (new CLibInit)<span class="preprocessor">.init</span>()<span class="comment">;</span>
+this<span class="preprocessor">.debug</span>(resizedBmp<span class="preprocessor">.width</span><span class="preprocessor">.toString</span>())<span class="comment">;</span>
+this<span class="preprocessor">.debug</span>(resizedBmp<span class="preprocessor">.height</span><span class="preprocessor">.toString</span>())<span class="comment">;</span>
+cLibEncoder<span class="preprocessor">.encodeAsync</span>(compressFinished, this<span class="preprocessor">.ba</span>, this<span class="preprocessor">.bagOut</span>, resizedBmp<span class="preprocessor">.width</span>, resizedBmp<span class="preprocessor">.height</span>, this<span class="preprocessor">.quality</span>)<span class="comment">;</span>
 </pre></figure>
 
 
