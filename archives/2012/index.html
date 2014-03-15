@@ -243,7 +243,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <p>注释的代码是用 <a href="http://labs.adobe.com/wiki/index.php?title=Alchemy:Documentation:Developing_with_Alchemy:AS3_API&amp;redirect=no
 http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">Adobe alchemy</a> 技术实现的一个 clib 组件，这个组件在代码目录下可以看到是 jpegencoder.swc。</p>
 <p>这个技术简单的说就是，它是把 c 的 libjpeg 编进 flash 里，并且可以高效执行 swc，看网上的一些测试数据，确实比较高效。</p>
-<p>看到这里或许我们该高兴了，如果将现在异步的AsyncJPEGEncoder类改成jpegencoder.swc，那问题不就解决了吗？</p>
+<p>看到这里或许我们该高兴了，如果将现在异步的 AsyncJPEGEncoder 类改成 jpegencoder.swc，那问题不就解决了吗？</p>
 <h2 id="-bitmapdata">神奇的BitmapData</h2>
 <p>我带着上面的想法试了一下，果然有效！<br>但不久就发现一个问题，有的图片上传成功，有的图片在 resize 的时候抛出异常「#2015」。  </p>
 <p>google 了一下这个错误号，发现是 flash Player 10 的一个 <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/BitmapData.html" target="_blank">限制</a>：</p>
