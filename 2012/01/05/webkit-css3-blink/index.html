@@ -12,7 +12,7 @@
 解决办法
 .no-flick{-webkit-backface-visibility: hidden; /*但不能用于sprite雪碧图*/}
 /* 或 */
-.no-flick{-webkit-transform:tran">
+.no-flick{-webkit-transform:translate3d(0,0,0);}">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -77,6 +77,8 @@
 <span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"><span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;<span class="rule">}</span></span>
 </pre></figure>
 
+
+<a id="more"></a>
 
 <h2 id="-">过程</h2>
 <p>昨天晚上maomao，晓刚我提起，会否是我们的「浮层」导致。逻辑是因为</p>
