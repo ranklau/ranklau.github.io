@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T09:53:44.678Z</updated>
+  <updated>2014-03-15T09:54:07.437Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -996,11 +996,11 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
   </entry>
   
   <entry>
-    <title><![CDATA[firefox 2正则表达式全半角问题]]></title>
+    <title><![CDATA[Firefox 2正则表达式全半角问题]]></title>
     <link href="http://rank.im/2008/08/23/firefox-regexp-issue/"/>
     <id>http://rank.im/2008/08/23/firefox-regexp-issue/</id>
     <published>2008-08-23T10:56:41.000Z</published>
-    <updated>2014-03-15T09:53:38.000Z</updated>
+    <updated>2014-03-15T09:54:04.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
 <p>有可能你会答&quot;是,他们相等&quot;,也有可能你去查了查手册, 看到以下的解释:</p>
