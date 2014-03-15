@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Archives: 2012/12 | rank&#39;s blog</title>
+  <title>Archives: 2008 | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
   
@@ -48,7 +48,7 @@
 </nav>
 <div class="clearfix"></div></header>
     <div class="content">
-<h2 class="archive-title">2012/12</h2>
+<h2 class="archive-title">2008</h2>
 
 
   
@@ -56,22 +56,24 @@
   <header>
     
       <div class="icon"></div>
-      <time datetime="2012-12-13T06:54:40.000Z"><a href="/2012/12/13/get-script-path/">Dec 13 2012</a></time>
+      <time datetime="2008-12-20T17:04:33.000Z"><a href="/2008/12/21/ie6-ssl-ajax-trouble/">Dec 21 2008</a></time>
     
     
   
-    <h1 class="title"><a href="/2012/12/13/get-script-path/">取得当前脚本元素的路径的一个特例</a></h1>
+    <h1 class="title"><a href="/2008/12/21/ie6-ssl-ajax-trouble/">IE6 SP1+SSL+AJAX(XMLHttpRequest)=trouble</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
-<ol>
-<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
-<li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
-</ol>
+      <h2 id="-">问题描述</h2>
+<p>在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank">网上</a>有不少人遇到了这困惑的状态码。</p>
+<p>说明</p>
+<ul>
+<li>Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。</li>
+<li>IE 7以下对 ssl 的支持不够好。</li>
+</ul>
 
     
   </div>
@@ -79,7 +81,7 @@
     
       
         <div class="alignleft">
-          <a href="/2012/12/13/get-script-path/#more" class="more-link">Read More</a>
+          <a href="/2008/12/21/ie6-ssl-ajax-trouble/#more" class="more-link">Read More</a>
         </div>
       
       

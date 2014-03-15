@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T08:56:50.117Z</updated>
+  <updated>2014-03-15T09:13:06.953Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -717,6 +717,71 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
 </ul>
 <p>可这样是不是真的能做到呢？
+]]></summary>
+    
+      <category term="tech" scheme="http://rank.im/categories/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[IE6 SP1+SSL+AJAX(XMLHttpRequest)=trouble]]></title>
+    <link href="http://rank.im/2008/12/21/ie6-ssl-ajax-trouble/"/>
+    <id>http://rank.im/2008/12/21/ie6-ssl-ajax-trouble/</id>
+    <published>2008-12-20T17:04:33.000Z</published>
+    <updated>2014-03-15T09:13:00.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="-">问题描述</h2>
+<p>在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank">网上</a>有不少人遇到了这困惑的状态码。</p>
+<p>说明</p>
+<ul>
+<li>Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。</li>
+<li>IE 7以下对 ssl 的支持不够好。</li>
+</ul>
+<a id="more"></a>
+
+
+<h2 id="-">解决方案</h2>
+<p>考虑</p>
+<ul>
+<li>如上述的情况基数人群很少，那可考虑短时间内不解决此问题。</li>
+<li>要解决而我们又不想彻底的抛弃AJAX，该怎么办。<ul>
+<li>因为我们不仅仅只有IE 6，还有 IE 7和IE 8。</li>
+<li>所以不能因为IE 6 SP1或某些奇怪版本的 IE 用户而摒弃 AJAX）</li>
+</ul>
+</li>
+</ul>
+<p>要解决此问题，可以想想</p>
+<ul>
+<li>把无刷新页面看做是一个与服务器沟通的桥梁的话，这座桥除了用XMLHttpRequest之外。</li>
+<li>还可以用iframe。形成一个 connection 的 adapter。</li>
+</ul>
+<p>除此之外可以将 AJAX 加一个比较快速的 「重试」（retry）方案：</p>
+<figure class="highlight js"><pre>      <span class="keyword">switch</span>(<span class="keyword">this</span>.requestor.status)
+      {
+        <span class="keyword">case</span> <span class="number">12029</span>:
+        <span class="keyword">case</span> <span class="number">12030</span>:
+        <span class="keyword">case</span> <span class="number">12031</span>:
+        <span class="keyword">case</span> <span class="number">12152</span>:
+        <span class="keyword">case</span> <span class="number">12159</span>:
+          <span class="comment">// fixed ie ssl bug, retry send data</span>
+          <span class="keyword">var</span> loader = <span class="keyword">this</span>;
+          setTimeout( <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> loader.execute.call(loader); }, <span class="number">10</span>);
+          <span class="keyword">break</span>;
+          
+        <span class="keyword">default</span>:
+          <span class="keyword">this</span>.onError(<span class="keyword">this</span>);
+      }
+</pre></figure>
+
+
+<p>-- EOF --</p>
+]]></content>
+    <summary type="html"><![CDATA[<h2 id="-">问题描述</h2>
+<p>在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank">网上</a>有不少人遇到了这困惑的状态码。</p>
+<p>说明</p>
+<ul>
+<li>Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。</li>
+<li>IE 7以下对 ssl 的支持不够好。</li>
+</ul>
 ]]></summary>
     
       <category term="tech" scheme="http://rank.im/categories/tech/"/>

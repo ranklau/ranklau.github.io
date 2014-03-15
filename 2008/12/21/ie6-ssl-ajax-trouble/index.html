@@ -4,13 +4,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Archives: 2012/12 | rank&#39;s blog</title>
+  <title>IE6 SP1+SSL+AJAX(XMLHttpRequest)=trouble | rank&#39;s blog</title>
   <meta name="author" content="rank">
+  
+  <meta name="description" content="问题描述
+在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。网上有不少人遇到了这困惑的状态码。
+说明
+
+Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。
+IE 7以下对 ssl 的支持不够好。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  
+  <meta property="og:title" content="IE6 SP1+SSL+AJAX(XMLHttpRequest)=trouble"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -47,41 +54,77 @@
   <div class="clearfix"></div>
 </nav>
 <div class="clearfix"></div></header>
-    <div class="content">
-<h2 class="archive-title">2012/12</h2>
-
-
-  
-    <article class="post">
+    <div class="content"><article class="post">
   <header>
     
       <div class="icon"></div>
-      <time datetime="2012-12-13T06:54:40.000Z"><a href="/2012/12/13/get-script-path/">Dec 13 2012</a></time>
+      <time datetime="2008-12-20T17:04:33.000Z"><a href="/2008/12/21/ie6-ssl-ajax-trouble/">Dec 21 2008</a></time>
     
     
   
-    <h1 class="title"><a href="/2012/12/13/get-script-path/">取得当前脚本元素的路径的一个特例</a></h1>
+    <h1 class="title">IE6 SP1+SSL+AJAX(XMLHttpRequest)=trouble</h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
-<ol>
-<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
-<li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
-</ol>
+      <h2 id="-">问题描述</h2>
+<p>在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank">网上</a>有不少人遇到了这困惑的状态码。</p>
+<p>说明</p>
+<ul>
+<li>Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。</li>
+<li>IE 7以下对 ssl 的支持不够好。</li>
+</ul>
+<a id="more"></a>
+
+
+<h2 id="-">解决方案</h2>
+<p>考虑</p>
+<ul>
+<li>如上述的情况基数人群很少，那可考虑短时间内不解决此问题。</li>
+<li>要解决而我们又不想彻底的抛弃AJAX，该怎么办。<ul>
+<li>因为我们不仅仅只有IE 6，还有 IE 7和IE 8。</li>
+<li>所以不能因为IE 6 SP1或某些奇怪版本的 IE 用户而摒弃 AJAX）</li>
+</ul>
+</li>
+</ul>
+<p>要解决此问题，可以想想</p>
+<ul>
+<li>把无刷新页面看做是一个与服务器沟通的桥梁的话，这座桥除了用XMLHttpRequest之外。</li>
+<li>还可以用iframe。形成一个 connection 的 adapter。</li>
+</ul>
+<p>除此之外可以将 AJAX 加一个比较快速的 「重试」（retry）方案：</p>
+<figure class="highlight js"><pre>      <span class="keyword">switch</span>(<span class="keyword">this</span>.requestor.status)
+      {
+        <span class="keyword">case</span> <span class="number">12029</span>:
+        <span class="keyword">case</span> <span class="number">12030</span>:
+        <span class="keyword">case</span> <span class="number">12031</span>:
+        <span class="keyword">case</span> <span class="number">12152</span>:
+        <span class="keyword">case</span> <span class="number">12159</span>:
+          <span class="comment">// fixed ie ssl bug, retry send data</span>
+          <span class="keyword">var</span> loader = <span class="keyword">this</span>;
+          setTimeout( <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> loader.execute.call(loader); }, <span class="number">10</span>);
+          <span class="keyword">break</span>;
+          
+        <span class="keyword">default</span>:
+          <span class="keyword">this</span>.onError(<span class="keyword">this</span>);
+      }
+</pre></figure>
+
+
+<p>-- EOF --</p>
 
     
   </div>
-  <footer class="end-sep">
+  <footer>
     
       
-        <div class="alignleft">
-          <a href="/2012/12/13/get-script-path/#more" class="more-link">Read More</a>
-        </div>
-      
+  
+  <div class="categories">
+    <a href="/categories/tech/">tech</a>
+  </div>
+
       
     
     <div class="clearfix"></div>
@@ -89,14 +132,12 @@
 </article>
 
 
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
-
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </div>
   </div>
   <div class="widget-wrapper">
@@ -198,7 +239,7 @@
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   }());
 </script>
