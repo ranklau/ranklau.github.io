@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T09:42:53.654Z</updated>
+  <updated>2014-03-15T09:43:29.266Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -867,7 +867,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/11/24/trim-to-regexp-performance/"/>
     <id>http://rank.im/2008/11/24/trim-to-regexp-performance/</id>
     <published>2008-11-24T12:20:21.000Z</published>
-    <updated>2014-03-15T09:42:49.000Z</updated>
+    <updated>2014-03-15T09:43:24.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>如果你看到别人写 trim 函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的 trim 函数效率很高，请看完本文再下结论。</p>
 <p>一般情况下用正则写法为：</p>
@@ -875,7 +875,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
   <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\t ]+|[\s\t ]+$/g</span>, <span class="string">''</span>);
   }
-  s = <span class="string">' never-online\'s weblog, www.never-online.net/blog '</span>;
+  s = <span class="string">' rank\'s weblog, www.rank.im '</span>;
   alert(s.trim().length);
 <span class="comment">//]]&gt;&lt;/script&gt;</span>
 </pre></figure>
@@ -981,7 +981,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
   <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\t ]+|[\s\t ]+$/g</span>, <span class="string">''</span>);
   }
-  s = <span class="string">' never-online\'s weblog, www.never-online.net/blog '</span>;
+  s = <span class="string">' rank\'s weblog, www.rank.im '</span>;
   alert(s.trim().length);
 <span class="comment">//]]&gt;&lt;/script&gt;</span>
 </pre></figure>
