@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T09:42:34.083Z</updated>
+  <updated>2014-03-15T09:42:53.654Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -867,9 +867,9 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/11/24/trim-to-regexp-performance/"/>
     <id>http://rank.im/2008/11/24/trim-to-regexp-performance/</id>
     <published>2008-11-24T12:20:21.000Z</published>
-    <updated>2014-03-15T09:42:30.000Z</updated>
+    <updated>2014-03-15T09:42:49.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
-<p>如果你看到别人写trim函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的trim函数效率很高，请看完本文再下结论。</p>
+<p>如果你看到别人写 trim 函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的 trim 函数效率很高，请看完本文再下结论。</p>
 <p>一般情况下用正则写法为：</p>
 <figure class="highlight js"><pre>&lt;script type=<span class="string">"text/javascript"</span>&gt;<span class="comment">//&lt;![CDATA[</span>
   <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
@@ -930,7 +930,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <blockquote>
 <p>当 NFA 发现自己吃多了，一个一个往回吐，边吐边找匹配，这个过程叫做 backtracking。</p>
 </blockquote>
-<p>由于存在这个过程，在NFA匹配过程中，特别是在编写不合理的正则式匹配过程中，文本被反复扫描，效率损失是不小的。明白这个道理，对于写出高效的正则表达式很有帮助。</p>
+<p>由于存在这个过程，在 NFA 匹配过程中，特别是在编写不合理的正则式匹配过程中，文本被反复扫描，效率损失是不小的。明白这个道理，对于写出高效的正则表达式很有帮助。</p>
 <h2 id="-">定位/分析原因</h2>
 <p>在解释上面的trim原型方法的时候。<br>经过测试，有几个方法是可以化解 JS NFA 引擎的回朔次数：</p>
 <ul>
@@ -975,7 +975,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <p>-- EOF --</p>
 ]]></content>
     <summary type="html"><![CDATA[<h2 id="-">问题</h2>
-<p>如果你看到别人写trim函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的trim函数效率很高，请看完本文再下结论。</p>
+<p>如果你看到别人写 trim 函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的 trim 函数效率很高，请看完本文再下结论。</p>
 <p>一般情况下用正则写法为：</p>
 <figure class="highlight js"><pre>&lt;script type=<span class="string">"text/javascript"</span>&gt;<span class="comment">//&lt;![CDATA[</span>
   <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
