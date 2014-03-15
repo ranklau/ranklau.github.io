@@ -428,11 +428,8 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
 <p>有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  </p>
 <h2 id="-">解决办法</h2>
 <figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于sprite雪碧图*/</span><span class="rule">}</span></span>
-</pre></figure>
-
-
-<p>或者</p>
-<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"><span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;<span class="rule">}</span></span>
+<span class="comment">/* 或 */</span>
+<span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"><span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;<span class="rule">}</span></span>
 </pre></figure>
 
 
