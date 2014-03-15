@@ -291,10 +291,20 @@ cLibEncoder<span class="preprocessor">.encodeAsync</span>(compressFinished, this
 <p>因为我觉得前端同学看上去都是只关注兼容性而不关注逻辑思维。这篇文章是算是抛砖引玉了。<br>对于我们使用的第三方代码，有空可以多熟悉，关键时刻也许不用手忙脚乱。</p>
 <p>其他的flash第三方上传解决方案：</p>
 <ul>
-<li><a href="http://www.plupload.com/example_all_runtimes.php" target="_blank">plupload</a> - 特点是支持平台全（flash, silverlight, html5, html4)都支持。flash支持客户端压缩图片，flash编译出来的大小只有18K。压缩效率比swfupload低不少。5616 × 3744(5.1M)图片，resize成（320*240，质量90）plupload用时在10s+，而Swfupload用时在2s- ;环境在mac ML系统flash player 11，safari 6 &amp; chrome 22dev。</li>
-<li><a href="http://www.uploadify.com/demos/" target="_blank">uploadify</a> - 平台支持全面， 与plupload类似，但是不支持resize图片，这点在大图上传的时，网速慢时，上传整体时间就会比较久，全依赖于带宽。
-虽然两年过去了，swfupload的压缩性能还算是不错的（主要是依赖于flash平台的性能）。</li>
+<li><a href="http://www.plupload.com/example_all_runtimes.php" target="_blank">plupload</a> - 特点是支持平台全（flash, silverlight, html5, html4)都支持。flash支持客户端压缩图片，flash编译出来的大小只有18K。压缩效率比swfupload低不少。<ul>
+<li>5616 × 3744(5.1M)图片，resize成（320*240，质量90）</li>
+<li>plupload用时在10s+，而Swfupload用时在2s- ;</li>
+<li>环境在 mac ML 系统 flash player 11，safari 6 &amp; chrome 22dev。</li>
 </ul>
+</li>
+<li><a href="http://www.uploadify.com/demos/" target="_blank">uploadify</a> <ul>
+<li>平台支持全面， 与plupload类似</li>
+<li>但是不支持resize图片，</li>
+<li>在大图上传的时，网速慢时，上传整体时间就会比较久，全依赖于带宽。</li>
+</ul>
+</li>
+</ul>
+<p>虽然两年过去了，swfupload的压缩性能还算是不错的（主要是依赖于flash平台的性能）。</p>
 <h2 id="-">相关链接汇总</h2>
 <ul>
 <li><a href="http://code.google.com/p/swfupload/" target="_blank">swfupload</a></li>
