@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T08:35:34.939Z</updated>
+  <updated>2014-03-15T08:35:54.533Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -427,7 +427,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
     <link href="http://rank.im/2012/01/05/webkit-css3-blink/"/>
     <id>http://rank.im/2012/01/05/webkit-css3-blink/</id>
     <published>2012-01-05T06:00:03.000Z</published>
-    <updated>2014-03-15T08:35:31.000Z</updated>
+    <updated>2014-03-15T08:35:51.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  </p>
 <h2 id="-">解决办法</h2>
@@ -451,7 +451,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
 <p>在调试的时候感到幸运的是：<br>发现「闪」这个问题，都是闪在页面头部，经过精简后发现是在</p>
 <pre><code>&lt;a&gt;&lt;i&gt;&lt;i&gt;&lt;/a&gt;
 </code></pre><p>标签里。</p>
-<p>晓亮提到会否是 Transform 引起的。<br>试后，去除transform果然管用。<br>但是我们仍然没有知道解决办法，以及为何这样。</p>
+<p>晓亮提到会否是 Transform 引起的。<br>试后，去除 transform 果然管用。<br>但是我们仍然没有知道解决办法，以及为何这样。</p>
 <p>在百度上搜索类似 css 3 transform bug，无果。
 别灰心，在 stackoverflow上 看看。</p>
 <p>query: &quot;transform flick bug webkit&quot;</p>
