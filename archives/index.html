@@ -546,6 +546,145 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
   <header>
     
       <div class="icon"></div>
+      <time datetime="2012-01-05T06:00:03.000Z"><a href="/2012/01/05/webkit-css3-blink/">Jan 5 2012</a></time>
+    
+    
+  
+    <h1 class="title"><a href="/2012/01/05/webkit-css3-blink/">SWFUpload 2.5 修改日志</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h2 id="-">问题</h2>
+<p>有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  </p>
+<h2 id="-">解决办法</h2>
+<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于sprite雪碧图*/</span><span class="rule">}</span></span>
+</pre></figure>
+
+
+<p>或者</p>
+<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"><span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;<span class="rule">}</span></span>
+</pre></figure>
+
+
+<h2 id="-">过程</h2>
+<p>昨天晚上aomao，晓刚我提起，会否是我们的「浮层」导致。逻辑是因为</p>
+<ul>
+<li>「浮层」 的 style 加了opacity。</li>
+<li>页面还没 load 完毕就把 mask 给加到 body 第一个元素了，这时没有加 display:none。</li>
+</ul>
+<p>而后我在「浮层」的蒙板 mask 把 background:white 改成 Red。<br>很遗憾是没有出现红色。</p>
+<p>所以，确定不是「浮层」的 mask 导致的问题。</p>
+<p>在调试的时候感到幸运的是：<br>发现「闪」这个问题，都是闪在页面头部，经过精简后发现是在</p>
+<pre><code>&lt;a&gt;&lt;i&gt;&lt;i&gt;&lt;/a&gt;
+</code></pre><p>标签里。</p>
+<p>晓亮提到会否是 Transform 引起的。<br>试后，去除transform果然管用。<br>但是我们仍然没有知道解决办法，以及为何这样。</p>
+<p>在百度上搜索类似 css 3 transform bug，无果。
+别灰心，在 stackoverflow上 看看。</p>
+<p>query: &quot;transform flick bug webkit&quot;</p>
+<p>果然有料。
+<a href="http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform" target="_blank">http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform</a></p>
+<p>也就是说用</p>
+<figure class="highlight css"><pre><span class="tag">-webkit-backface-visibility</span>: <span class="tag">hidden</span>; <span class="comment">/*但不能用于sprite雪碧图*/</span>
+</pre></figure>
+
+
+<p>也可以通过</p>
+<figure class="highlight css"><pre><span class="tag">-webkit-transform</span><span class="pseudo">:translate3d(0</span>,0,0);
+</pre></figure>
+
+<p>来解决。</p>
+<p>如果用 translate3d 这么解决，心里想这不是用 3d 另一个问题解决现在 css3 3d的一个问题吗。
+顺着往下找了下资料果然如此，translate3d有问题：</p>
+<blockquote>
+<p>However, the body {-webkit-transform} approach causes all elements on the page to effectively be rendered in 3D. This isn&#39;t the worst thing, but it slightly changes the rendering of text and other CSS-styled elements.</p>
+<p>It may be an effect you want. It may be useful if you&#39;re doing a lot of transform on your page. Otherwise, -webkit-backface-visibility:hidden on the element your transforming is the least invasive option.</p>
+</blockquote>
+<p>所以，从目前来看 -webkit-backface-visibility: hidden; 是最优解。</p>
+<h2 id="-">弄清源头</h2>
+<p>关于这个css3属性拿来作什么用的。可以查阅<br>w3c 资料
+<a href="http://www.w3.org/TR/css3-3d-transforms/#backface-visibility-property" target="_blank">http://www.w3.org/TR/css3-3d-transforms/#backface-visibility-property</a></p>
+<blockquote>
+<p>The ‘backface-visibility’ property determines whether or not the &quot;back&quot; side of a transformed element is visible when facing the viewer. With an identity transform, the front side of an element faces the viewer. Applying a rotation about Y of 180 degrees (for instance) would cause the back side of the element to face the viewer.
+This property is useful when you place two elements back-to-back, as you would to create a playing card. Without this property, the front and back elements could switch places at times during an animation to flip the card. Another example is creating a box out of 6 elements, but where you want to see the inside faces of the box. This is useful when creating the backdrop for a 3 dimensional stage.</p>
+</blockquote>
+<p>也就是说这个属性做翻卡片的小游戏，比较合适。<br>测试运行以下代码，就能理解为什么会在transform时会闪：</p>
+<figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"> 
+<span class="id">#div1</span> <span class="rules">{
+<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">120</span>px</span></span>;
+<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100</span>px</span></span>;
+<span class="rule"><span class="attribute">background-color</span>:<span class="value">yellow</span></span>;
+<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1</span>px solid black</span></span>;
+<span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"><span class="function">rotateY(<span class="number">25</span>deg)</span></span></span>; <span class="comment">/* Firefox */</span>
+<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"><span class="function">rotateY(<span class="number">25</span>deg)</span></span></span>; <span class="comment">/* Safari and Chrome */</span>
+<span class="rule"><span class="attribute">transform</span>:<span class="value"><span class="function">rotateY(<span class="number">25</span>deg)</span></span></span>;
+<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+<span class="function"><span class="keyword">function</span> <span class="title">rotate</span><span class="params">(value)</span> {</span>
+  document.getElementById(<span class="string">'div1'</span>).style.webkitTransform = <span class="string">"rotateY("</span> + value + <span class="string">"deg)"</span>;
+  document.getElementById(<span class="string">'div1'</span>).style.MozTransform = <span class="string">"rotateY("</span> + value + <span class="string">"deg)"</span>;
+  document.getElementById(<span class="string">'div1'</span>).style.transform = <span class="string">"rotateY("</span> + value + <span class="string">"deg)"</span>;
+  document.getElementById(<span class="string">'span1'</span>).innerHTML = value + <span class="string">"deg"</span>
+}
+<span class="function"><span class="keyword">function</span> <span class="title">checkBackface</span><span class="params">()</span> {</span>
+  <span class="keyword">if</span> (document.getElementById(<span class="string">"bf"</span>).checked == <span class="literal">true</span>) {
+    document.getElementById(<span class="string">'div1'</span>).style.webkitBackfaceVisibility = <span class="string">"hidden"</span>
+  } <span class="keyword">else</span> {
+    document.getElementById(<span class="string">'div1'</span>).style.webkitBackfaceVisibility = <span class="string">"visible"</span>
+  }
+}
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"div1"</span>&gt;</span>HELLO<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>Rotate the yellow div element, with and without checking the backface-visibility checkbox:<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>Hide the backside:<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span> <span class="attribute">onchange</span>=<span class="value">"checkBackface()"</span> <span class="attribute">id</span>=<span class="value">"bf"</span> /&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
+<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"range"</span> <span class="attribute">min</span>=<span class="value">"-360"</span> <span class="attribute">max</span>=<span class="value">"360"</span> <span class="attribute">value</span>=<span class="value">"25"</span> <span class="attribute">onchange</span>=<span class="value">"rotate(this.value)"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
+-webkit-transform: rotateY(<span class="tag">&lt;<span class="title">span</span> <span class="attribute">id</span>=<span class="value">"span1"</span>&gt;</span>7deg<span class="tag">&lt;/<span class="title">span</span>&gt;</span>);
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</pre></figure>
+
+
+<p>transform 是 3D 变换，而 backface-visibility:hidden，则是在背面隐藏，实际上就变成了 2D。<br>而把 translate3d 变换关闭也可以，但性能不好。</p>
+<h2 id="-">结论</h2>
+<p>在用 </p>
+<ul>
+<li>position:absulote+zindex!=0 </li>
+<li>用 transform会偶尔出现页面会闪的现象</li>
+</ul>
+<p>确实是chrome的一个bug。<br>chromium里没有发现有人提bug，所以我检索了一下 webkit.org 的 bugtrace，看到</p>
+<ul>
+<li><a href="https://bugs.webkit.org/show_bug.cgi?id=47175" target="_blank">https://bugs.webkit.org/show_bug.cgi?id=47175</a></li>
+<li><a href="https://bug-47175-attachments.webkit.org/attachment.cgi?id=69779" target="_blank">https://bug-47175-attachments.webkit.org/attachment.cgi?id=69779</a></li>
+</ul>
+<p>无疑，这个问题后续 webkit 一定会 fix。<br>另，-webkit-backface-visibility: hidden; 是最优解。</p>
+<p>-- EOF --</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
       <time datetime="2011-04-07T15:45:43.000Z"><a href="/2011/04/07/user-behavior-record-data/">Apr 7 2011</a></time>
     
     
@@ -629,7 +768,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/tech/">tech</a><small>5</small></li>
+    <li><a href="/categories/tech/">tech</a><small>6</small></li>
   
   </ul>
 </div>
