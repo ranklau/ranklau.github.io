@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T09:24:08.658Z</updated>
+  <updated>2014-03-15T09:25:42.748Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -864,7 +864,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/07/20/ie-form-check-bug/"/>
     <id>http://rank.im/2008/07/20/ie-form-check-bug/</id>
     <published>2008-07-20T11:44:21.000Z</published>
-    <updated>2014-03-15T09:20:04.000Z</updated>
+    <updated>2014-03-15T09:25:39.000Z</updated>
     <content type="html"><![CDATA[<h2 id="bug-">bug描述</h2>
 <ul>
 <li>影响的范围: IE的所有版本</li>
@@ -1016,6 +1016,9 @@ bug重现</p>
  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">html</span>&gt;</span>
 </pre></figure>
+
+
+<p>-- EOF --</p>
 ]]></content>
     <summary type="html"><![CDATA[<h2 id="bug-">bug描述</h2>
 <ul>
