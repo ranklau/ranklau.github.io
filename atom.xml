@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T08:53:41.138Z</updated>
+  <updated>2014-03-15T08:55:03.722Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -161,11 +161,11 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
   </entry>
   
   <entry>
-    <title><![CDATA[SWFUpload 2.5 修改日志]]></title>
+    <title><![CDATA[SWFUpload 2.5 bug修改日志]]></title>
     <link href="http://rank.im/2012/08/18/fix-swfupload2.5/"/>
     <id>http://rank.im/2012/08/18/fix-swfupload2.5/</id>
     <published>2012-08-18T07:08:51.000Z</published>
-    <updated>2014-03-15T08:09:12.000Z</updated>
+    <updated>2014-03-15T08:54:59.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-swfupload">关于 SWFUpload</h2>
 <blockquote>
 <p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
@@ -182,7 +182,8 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <blockquote>
 <p>SWFUpload 不同于其他基于 Flash 构建的上传工具，它有着优雅的代码设计，开发者可以利用 XHTML、 CSS和 JavaScript 来随心所欲的定制它在浏览器下的外观；它还提供了一组简明的 JavaScript 事件，借助它们开发者可以方便的在文件上传过程中更新页面内容来营造各种动态效果。</p>
 </blockquote>
-<p>这么多说的就是一个意思，SWFUpload 使用灵活方便，不少人在用。</p>
+<p>这么多说的就是一个意思，SWFUpload 使用灵活方便，不少人在用。<br>但是，它在我们项目实际应用中发现问题。
+<a id="more"></a></p>
 <h2 id="-swfupload-2-5-">目前 SWFUpload 2.5 存在问题</h2>
 <p>目前swfupload 2.5存在的bug及修改方法：</p>
 <ul>
@@ -416,7 +417,24 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
 <li><a href="http://wenku.baidu.com/view/42b5633e5727a5e9856a61ff.html" target="_blank">JPEG图像格式详解</a></li>
 </ul>
 ]]></content>
-    
+    <summary type="html"><![CDATA[<h2 id="-swfupload">关于 SWFUpload</h2>
+<blockquote>
+<p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
+</blockquote>
+<p>主要特点：</p>
+<ul>
+<li>可以同时上传多个文件；</li>
+<li>类似AJAX的无刷新上传；</li>
+<li>可以显示上传进度；</li>
+<li>良好的浏览器兼容性；</li>
+<li>兼容其他JavaScript库 (例如：jQuery, Prototype等)；</li>
+<li>支持Flash 8和Flash 9；</li>
+</ul>
+<blockquote>
+<p>SWFUpload 不同于其他基于 Flash 构建的上传工具，它有着优雅的代码设计，开发者可以利用 XHTML、 CSS和 JavaScript 来随心所欲的定制它在浏览器下的外观；它还提供了一组简明的 JavaScript 事件，借助它们开发者可以方便的在文件上传过程中更新页面内容来营造各种动态效果。</p>
+</blockquote>
+<p>这么多说的就是一个意思，SWFUpload 使用灵活方便，不少人在用。<br>但是，它在我们项目实际应用中发现问题。
+]]></summary>
     
       <category term="tech" scheme="http://rank.im/categories/tech/"/>
     
@@ -543,7 +561,7 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
     <link href="http://rank.im/2011/04/07/user-behavior-record-data/"/>
     <id>http://rank.im/2011/04/07/user-behavior-record-data/</id>
     <published>2011-04-07T15:45:43.000Z</published>
-    <updated>2014-03-14T15:57:52.000Z</updated>
+    <updated>2014-03-15T08:54:01.000Z</updated>
     <content type="html"><![CDATA[<p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot。中文为「土拨鼠」，有挖掘之意。
 除我之外，还有两位开发人员分别是：seven 和 cyhello。</p>
 <p>本篇文章简短的说明一下 marmot 的 log 重点问题：</p>
@@ -553,6 +571,8 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 <li>还原路径问题.</li>
 <li>何时发回数据及数据量的问题</li>
 </ol>
+<a id="more"></a>
+
 <h2 id="-">分辩率策略</h2>
 <p>默认原点以p(0,0)开始计算,如果是定宽页面,p(0,0)坐标在不同辩率下得到的坐标是不同的.如何解决这一问题.
 普遍情况下会采取截面坐标. 分析目前页面几种类型：</p>
@@ -582,7 +602,16 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 </ul>
 <p>肯定有人问发回的比例是多少，据 dron 同学统计过约80%左右。<br>虽说不是绝对发回来，但足够你用。<br>采样率 5K~1W 左右 pv 的操作发回，数据最大为 2K*1W 约 20~30M log不算多。</p>
 ]]></content>
-    
+    <summary type="html"><![CDATA[<p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot。中文为「土拨鼠」，有挖掘之意。
+除我之外，还有两位开发人员分别是：seven 和 cyhello。</p>
+<p>本篇文章简短的说明一下 marmot 的 log 重点问题：</p>
+<ol>
+<li>解决不同分辩率的策略.</li>
+<li>解决粒度过细的问题.</li>
+<li>还原路径问题.</li>
+<li>何时发回数据及数据量的问题</li>
+</ol>
+]]></summary>
     
       <category term="tech" scheme="http://rank.im/categories/tech/"/>
     

@@ -241,7 +241,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     
     
   
-    <h1 class="title"><a href="/2012/08/18/fix-swfupload2.5/">SWFUpload 2.5 修改日志</a></h1>
+    <h1 class="title"><a href="/2012/08/18/fix-swfupload2.5/">SWFUpload 2.5 bug修改日志</a></h1>
   
 
   </header>
@@ -264,244 +264,16 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <blockquote>
 <p>SWFUpload 不同于其他基于 Flash 构建的上传工具，它有着优雅的代码设计，开发者可以利用 XHTML、 CSS和 JavaScript 来随心所欲的定制它在浏览器下的外观；它还提供了一组简明的 JavaScript 事件，借助它们开发者可以方便的在文件上传过程中更新页面内容来营造各种动态效果。</p>
 </blockquote>
-<p>这么多说的就是一个意思，SWFUpload 使用灵活方便，不少人在用。</p>
-<h2 id="-swfupload-2-5-">目前 SWFUpload 2.5 存在问题</h2>
-<p>目前swfupload 2.5存在的bug及修改方法：</p>
-<ul>
-<li>在目前 v2.5 的代码里 bitmapData 不能用于 「applyFilter」 函数，那段代码需要去除（注释也可）或修改。对程序无明显影响。</li>
-<li>使用 jpegencoder.swc 的 init()方法有内存 free up 问题，可以改成单例模式「singleton」 调用组件 jpegencoder.swc。</li>
-</ul>
-<p>如果有需要使用SWFUploader，可到我的 github 上下载 fix 后的代码。完全向前兼容。<br>在这篇文章中主要讲述 debug 过程。</p>
-<h2 id="-">线上问题反馈</h2>
-<p>从用户反馈过来，上传图片速度过慢。-- 用户界面 loading 的菊花图转比较久。</p>
-<h2 id="-">定位问题</h2>
-<p>单从描述来看太过笼统，需要先具体定位到哪个环节出了问题。</p>
-<ul>
-<li>我在本机上测试上传，感觉速度很快（图片大小平均大概1M，width 最大为 800 像素），几乎秒传。  </li>
-<li>后来发起群众后发现在另一同事机器上传图片也很慢。</li>
-</ul>
-<p>我们先将「上传整体流程」分析，大致可分为以下几个部分:</p>
-<ul>
-<li>选择图片然后图片压缩</li>
-<li>通过网络上传</li>
-<li>修剪图象及入库</li>
-<li>主库与从库进行同步</li>
-</ul>
-<p>从反馈问题来看，有可能出现的地方是在 压缩、网络 IO 上传、修剪图象及入库这 3 部分。<br>如何找到具体是哪一部分，首先看看我们执行图片resize上传的阈值是多少。</p>
-<p>对应的 查看了一下 PublishUploader.js，发现有这样的代码。</p>
-<figure class="highlight as"><pre><span class="keyword">this</span>.startResizedUpload(<span class="keyword">null</span>,<span class="number">800</span>,<span class="number">800</span>,SWFUpload.RESIZE_ENCODING.JPEG,<span class="number">80</span>,<span class="keyword">false</span>);
-</pre></figure>
-
-
-<p>从代码作用是将所有图片最大尺寸 resize 为 800*800 象素。用 jpeg 图像压缩算法，并且图片质量是80 。</p>
-<p>于是，我进行以下操作：</p>
-<ul>
-<li>上传一张小于 800px 的图与一张大于 800px 的图，这两张图的总像素近似进行比较</li>
-<li>分别在几台笔记本上试试</li>
-</ul>
-<p>经过实际测试，在「公司级网络」传输速度下，小于 800px 的图从上传到服务器返回在 1s 左右。<br>而 大于 800px 的图约 6s+ 才能执行完整个上传流程。</p>
-<p>diff 这两个过程中，结论比较明显：</p>
-<ul>
-<li>图片 resize 压缩占的时间花了上传时间的 5 倍 -- 5s。</li>
-<li>后后经测试，发现在3000px的图上传压缩的时间占了 10s 左右。</li>
-</ul>
-<h2 id="-swfupload">修改 SWFUpload</h2>
-<p>扫过 SWFUpload 代码，了解它的上传原理流程：</p>
-<ul>
-<li>FileReference 获取路径和图片内容</li>
-<li>loader 载入图片</li>
-<li>判断宽和高进行 resize 和压缩编码</li>
-<li>进行HTTP POST</li>
-<li>服务器返回进行 JS 回调</li>
-</ul>
-<p>所以，在 Flash 里用 FileReference 是无法获取图片的宽高，如果如要得到图片的宽度和高度，需要创建一个 loader 把图片传入，通过 loader 的「complete」异步事件得到图片的高宽。</p>
-<p>所以，查看ImageResizer.as，看到loader_Complete的事件处理函数：</p>
-<figure class="highlight as"><pre> <span class="keyword">if</span> (<span class="keyword">this</span>.newWidth &lt; bmp.width || <span class="keyword">this</span>.newHeight &lt; bmp.height) {
-   <span class="comment">// Apply the blur filter that helps clean up the resized image result</span>
-   <span class="keyword">var</span> blurMultiplier:<span class="built_in">Number</span> = <span class="number">1.15</span>; <span class="comment">// 1.25;</span>
-   <span class="keyword">var</span> blurXValue:<span class="built_in">Number</span> = <span class="built_in">Math</span>.max(<span class="number">1</span>, bmp.width / <span class="keyword">this</span>.newWidth) * blurMultiplier;
-   <span class="keyword">var</span> blurYValue:<span class="built_in">Number</span> = <span class="built_in">Math</span>.max(<span class="number">1</span>, bmp.height / <span class="keyword">this</span>.newHeight) * blurMultiplier;
-   <span class="keyword">var</span> blurFilter:BlurFilter = <span class="keyword">new</span> BlurFilter(blurXValue, blurYValue, int(BitmapFilterQuality.LOW));
-   bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, bmp.width, bmp.height), <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>), blurFilter);
- }
-</pre></figure>
-
-
-<p>这一段大概意思是，如果有把大图片 resize 成小图片，就会给图片加模糊滤镜，以防止出现马赛克。<br>先将以上代码注释掉，化简我们的逻辑。</p>
-<p>然后再看还有另一段代码：</p>
-<figure class="highlight as"><pre> <span class="reserved">var</span> <span class="attribute">_bytes</span>:ByteArray = resizedBmp.getPixels(resizedBmp.rect);
- _bytes.compress();
- <span class="reserved">var</span> <span class="attribute">jpegEncoder</span>:AsyncJPEGEncoder = <span class="keyword">new</span> AsyncJPEGEncoder(<span class="keyword">this</span>.quality, <span class="number">0</span>, <span class="number">100</span>);
- jpegEncoder.addEventListener(EncodeCompleteEvent.COMPLETE, <span class="keyword">this</span>.EncodeCompleteHandler);
- jpegEncoder.addEventListener(ErrorEvent.ERROR, <span class="keyword">this</span>.EncodeErrorHandler);
- jpegEncoder.encode(resizedBmp);
- 
- /*
- <span class="keyword">this</span>.ba = resizedBmp.getPixels(resizedBmp.rect);
- <span class="keyword">this</span>.ba.position = <span class="number">0</span>;
- <span class="keyword">this</span>.baOut = <span class="keyword">new</span> ByteArray();
- 
- <span class="reserved">var</span> <span class="attribute">cLibEncoder</span>:Object = (<span class="keyword">new</span> CLibInit).init();
- <span class="keyword">this</span>.debug(resizedBmp.width.toString());
- <span class="keyword">this</span>.debug(resizedBmp.height.toString());
- cLibEncoder.encodeAsync(compressFinished, <span class="keyword">this</span>.ba, <span class="keyword">this</span>.bagOut, resizedBmp.width, resizedBmp.height, <span class="keyword">this</span>.quality);
- */
-</pre></figure>
-
-
-<p>未注释的代码是用一个开源异步 JPEG 编码类（<a href="http://code.google.com/p/sync-to-async/source/browse/#svn%2Ftrunk%2Facr%2Fcodec" target="_blank">AsyncJPEGEncoder</a>）用于编码图片。</p>
-<p>为什么它没有用内置的 JPEG 图片 lib 「JEPGEncoder」进行编码？是因为开源的 AsyncJPEGEncoder 是异步的，且它在效率上对比 Adobe 内置的要稍高一些。</p>
-<p>注释的代码是用 <a href="http://labs.adobe.com/wiki/index.php?title=Alchemy:Documentation:Developing_with_Alchemy:AS3_API&amp;redirect=no
-http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">Adobe alchemy</a> 技术实现的一个 clib 组件，这个组件在代码目录下可以看到是 jpegencoder.swc。</p>
-<p>这个技术简单的说就是，它是把 c 的 libjpeg 编进 flash 里，并且可以高效执行 swc，看网上的一些测试数据，确实比较高效。</p>
-<p>看到这里或许我们该高兴了，如果将现在异步的 AsyncJPEGEncoder 类改成 jpegencoder.swc，那问题不就解决了吗？</p>
-<h2 id="-bitmapdata">神奇的BitmapData</h2>
-<p>我带着上面的想法试了一下，果然有效！<br>但不久就发现一个问题，有的图片上传成功，有的图片在 resize 的时候抛出异常「#2015」。  </p>
-<p>google 了一下这个错误号，发现是 flash Player 10 的一个 <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/BitmapData.html" target="_blank">限制</a>：</p>
-<blockquote>
-<p>In AIR 1.5 and Flash Player 10, the maximum size for a BitmapData object is 8,191 pixels in width or height, and the total number of pixels cannot exceed 16,777,215 pixels. (So, if a BitmapData object is 8,191 pixels wide, it can only be 2,048 pixels high.) In Flash Player 9 and earlier and AIR 1.1 and earlier, the limitation is 2,880 pixels in height and 2,880 in width.</p>
-<p>Starting with AIR 3 and Flash player 11, the size limits for a BitmapData object have been removed. The maximum size of a bitmap is now dependent on the operating system.</p>
-</blockquote>
-<p>现在市面上比较好的全画幅相机，就会超过这个像素限制。<br>例如测试的一张样图 5616 × 3744=21026304 像素。<br>而我们目前的 SWFUploader 2.5的编译是基于 flash player 10 。<br>所以，异常自然就抛出了。</p>
-<p>但是</p>
-<ul>
-<li>为什么线上正在运行的 SWFUploader 没有这个异常问题？</li>
-<li>不是超过 1600w 像素的限制了吗，为什么还能正常上传还没有报错呢？</li>
-</ul>
-<p>原来，是 bitmapdata 文档有一个 loader 无 1600w 像素限制的细节没有说。<br>先比较以下两段使用bitmapdata代码：</p>
-<p>代码 A：</p>
-<figure class="highlight as"><pre><span class="keyword">var</span> bmp:BitmapData = (li.content <span class="keyword">as</span> Bitmap).bitmapData; 
-<span class="comment">//载入图片并放入到bitmapData里</span>
-</pre></figure>
-
-
-<p>代码 B：</p>
-<figure class="highlight as"><pre>	 
-bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, bmp.width, bmp.height), <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>), blurFilter); 
-<span class="comment">//应用bitmapData的filter</span>
-</pre></figure>
-
-
-<p>两者在使用上有何不同?   </p>
-<ul>
-<li>「代码 A」是将图片load到bitmtpData里，它不会报错。</li>
-<li>「代码 B」调用方法 applyFilter 创建出来的Bitmap，这样就会报错。</li>
-</ul>
-<p>applyFilter 从文档里的一段描述可以看出此方法是创建了一个新的 bitmapData 对象：</p>
-<blockquote>
-<p>applyFilter  ()  method</p>
-<p>public function applyFilter(sourceBitmapData:BitmapData, sourceRect:Rectangle, destPoint:Point, filter:BitmapFilter):void</p>
-<p>Takes a source image and a filter object and generates the filtered image.</p>
-</blockquote>
-<p>以上代码差别 AS 3 文档没有说明用 loader 载入图片没有像素限制的问题。<br>线上代码因之前是其他同学修改过部分代码，无意用成了「代码 A」loader 方式载入。<br>因此并没有报错。</p>
-<p>所以，此问题的解决方法为将使用filter的条件由</p>
-<figure class="highlight as"><pre>	 
-if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preprocessor">.width</span> || this<span class="preprocessor">.newHeight</span> &lt; bmp<span class="preprocessor">.height</span>) { 
-//bmp<span class="preprocessor">.applyFilter</span> 
-} 
-</pre></figure>
-
-
-<p>改为</p>
-<figure class="highlight as"><pre>	 	
-<span class="comment">//（0x01000000 等于10进制数 16777216）</span>
-<span class="keyword">if</span> (bmp.width * bmp.height &lt; <span class="number">0x01000000</span>) { 
-<span class="comment">//bmp.applyFilter </span>
-} 
-</pre></figure>
-
-
-<p>像素问题 Bitmap 问题终于解决。</p>
-<h3 id="-alchemy">神奇的炼金术 alchemy</h3>
-<p>解决完上面的问题，再测试，又发现了一个问题。</p>
-<ul>
-<li>用 JS 创建 SWFUploader 上传图片第一次成功；</li>
-<li>再用这个 flash 实例传一张图就可耻的失败了，而且还不抛异常。</li>
-</ul>
-<p>好吧，不抛异常，就只能加入调试埋 log 了，将几个代码关键函数加入对应的log：</p>
-<ul>
-<li>加入压缩进度log。因为不管用何种JPEG组件，都是异步成生成JPEG图片。</li>
-<li>在重点逻辑的入口点与出口点加入相应 log，<ul>
-<li>加入到 load图片成功；</li>
-<li>开始进入压缩函数块；</li>
-<li>压缩图片的宽高；</li>
-<li>调用alchemy结束；</li>
-<li>异步压缩结束。</li>
-</ul>
-</li>
-</ul>
-<p>再加入一个 log 函数：</p>
-<figure class="highlight as"><pre>	  
-<span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">debug</span><span class="params">(msg:String)</span><span class="type">:void</span> {</span>    
-  ExternalCall.Debug(<span class="string">'console.log'</span>,msg);  
-}
-</pre></figure>
-
-
-<p>这样，就可以在控制台里看到log了。
-发现规律</p>
-<ul>
-<li>第 1 次 resize 图正常</li>
-<li>第 2 次除了压缩进度的有log，其他进展一直都是 0%。</li>
-</ul>
-<p>再次review JPEG编码的代码块:</p>
-<figure class="highlight as"><pre>	 
-var cLibEncoder:Object = (new CLibInit)<span class="preprocessor">.init</span>()<span class="comment">;</span>
-this<span class="preprocessor">.debug</span>(resizedBmp<span class="preprocessor">.width</span><span class="preprocessor">.toString</span>())<span class="comment">;</span>
-this<span class="preprocessor">.debug</span>(resizedBmp<span class="preprocessor">.height</span><span class="preprocessor">.toString</span>())<span class="comment">;</span>
-cLibEncoder<span class="preprocessor">.encodeAsync</span>(compressFinished, this<span class="preprocessor">.ba</span>, this<span class="preprocessor">.bagOut</span>, resizedBmp<span class="preprocessor">.width</span>, resizedBmp<span class="preprocessor">.height</span>, this<span class="preprocessor">.quality</span>)<span class="comment">;</span>
-</pre></figure>
-
-
-<p>分析个组件的使用，第一感觉就是组件使用过后居然没有销毁，这代码太囧了 =.=</p>
-<p>alchemy如果为了高效，应该是</p>
-<ul>
-<li>将 lib 驻入内存再开辟一块 buffer 给它</li>
-<li>Resize 大图时，如果 buffer 处理不好，没有很好的 free up，第二次 init 会不会有问题？</li>
-<li>如果开辟的内存小的话是不是更安全？</li>
-</ul>
-<p>按照上面的这个思路，我将 resize 的参数改小，使 buffer 使用尽可能的小：</p>
-<ul>
-<li>将 resize 参数改为所有上传图都 resize 到 100*100, quiality 为80。</li>
-</ul>
-<p>测试了一下发现都能正常上传多张图片。</p>
-<p>那再按照第一次可上传后续不能传和 buffer 小可用的结论，我将使用 alchemy 组件初始化的使用改用为static（即singlton类型）保证只实例化一次，看是否正常。</p>
-<p>最后发现可正常resize多张图片，到此 alchemy 的问题也得已解决。</p>
-<h2 id="-">后记</h2>
-<p>这篇文章来源于我把 SWFUpload 的问题解决思路用邮件分享给大家。<br>如何改的，可以看我附件里的代码。<br>重要的不是代码怎么 fix 的，而是思路。  </p>
-<p>因为我觉得前端同学看上去都是只关注兼容性而不关注逻辑思维。这篇文章是算是抛砖引玉了。<br>对于我们使用的第三方代码，有空可以多熟悉，关键时刻也许不用手忙脚乱。</p>
-<p>其他的flash第三方上传解决方案：</p>
-<ul>
-<li><a href="http://www.plupload.com/example_all_runtimes.php" target="_blank">plupload</a> - 特点是支持平台全（flash, silverlight, html5, html4)都支持。flash支持客户端压缩图片，flash编译出来的大小只有18K。压缩效率比swfupload低不少。<ul>
-<li>5616 × 3744(5.1M)图片，resize成（320*240，质量90）</li>
-<li>plupload用时在10s+，而Swfupload用时在2s- ;</li>
-<li>环境在 mac ML 系统 flash player 11，safari 6 &amp; chrome 22dev。</li>
-</ul>
-</li>
-<li><a href="http://www.uploadify.com/demos/" target="_blank">uploadify</a> <ul>
-<li>平台支持全面， 与plupload类似</li>
-<li>但是不支持resize图片，</li>
-<li>在大图上传的时，网速慢时，上传整体时间就会比较久，全依赖于带宽。</li>
-</ul>
-</li>
-</ul>
-<p>虽然两年过去了，swfupload的压缩性能还算是不错的（主要是依赖于flash平台的性能）。</p>
-<h2 id="-">相关链接汇总</h2>
-<ul>
-<li><a href="http://code.google.com/p/swfupload/" target="_blank">swfupload</a></li>
-<li><a href="http://code.google.com/p/sync-to-async/source/browse/#svn%2Ftrunk%2Facr%2Fcodec" target="_blank">AsyncJPEGEncoder</a></li>
-<li><a href="http://www.bytearray.org/?p=775" target="_blank">JPEG encoder with alchemy</a> <a href="http://www.adobe.com/cn/devnet/author_bios/thibault_imbert.html" target="_blank">作者介绍</a></li>
-<li><a href="http://www.plupload.com/example_all_runtimes.php" target="_blank">plupload</a></li>
-<li><a href="http://www.uploadify.com/demos/" target="_blank">uploadify</a> </li>
-<li><a href="http://labs.adobe.com/wiki/index.php?title=Alchemy:Documentation:Developing_with_Alchemy:AS3_API&amp;redirect=no
-http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">adobe alchemy</a></li>
-<li><a href="http://wenku.baidu.com/view/42b5633e5727a5e9856a61ff.html" target="_blank">JPEG图像格式详解</a></li>
-</ul>
+<p>这么多说的就是一个意思，SWFUpload 使用灵活方便，不少人在用。<br>但是，它在我们项目实际应用中发现问题。
 
     
   </div>
   <footer class="end-sep">
     
+      
+        <div class="alignleft">
+          <a href="/2012/08/18/fix-swfupload2.5/#more" class="more-link">Read More</a>
+        </div>
       
       
     
@@ -667,39 +439,15 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 <li>还原路径问题.</li>
 <li>何时发回数据及数据量的问题</li>
 </ol>
-<h2 id="-">分辩率策略</h2>
-<p>默认原点以p(0,0)开始计算,如果是定宽页面,p(0,0)坐标在不同辩率下得到的坐标是不同的.如何解决这一问题.
-普遍情况下会采取截面坐标. 分析目前页面几种类型：</p>
-<ul>
-<li>页面居左布局原点坐标从 p(0,0) 开始计算。</li>
-<li>页面居中布局原点坐标从 p(document.documentElement.scrollWidth/2|0,0) 开始计算。</li>
-<li>百分比的宽其实也是可以定位的，原理也是引入相对坐标系，但也有一些劣势，这里不展开了。</li>
-</ul>
-<h2 id="-">页面像素粒度切分</h2>
-<p>每个页面默认粒度为 pixel(1,1)，即 1 像素为单位。 这样的优点是数据不失真，但缺点则是数据量传输和存储量大。</p>
-<p>大多数时候我们是不需要按 pixel(1,1) 来计算的。而解决这一问题的思路很简单：</p>
-<ul>
-<li>页面做先 grid 化, pixel(n,n)。</li>
-<li>数量为: Math.floor(document.documentElement.scrollWidth/n)。「n为象素比例尺」</li>
-</ul>
-<h2 id="-">还原路径</h2>
-<ul>
-<li>可以序列化 DOM path 成 selector。</li>
-<li>以 previousSibling + ancestor 不断向上递归出 presudo selector(伪selector)。</li>
-</ul>
-<h2 id="-">何时发回及发回数据量</h2>
-<p>beforeunload异步发回。
-数据量不会太大, HTTP 里 GET 方式请求我们所知：</p>
-<ul>
-<li>IE6 2K 数据(已知)。</li>
-<li>IE7+5K 左右(记得之前我测过，印象中是这个数据)，非 IE 都有 &gt;= 2K 的数据量。</li>
-</ul>
-<p>肯定有人问发回的比例是多少，据 dron 同学统计过约80%左右。<br>虽说不是绝对发回来，但足够你用。<br>采样率 5K~1W 左右 pv 的操作发回，数据最大为 2K*1W 约 20~30M log不算多。</p>
 
     
   </div>
   <footer class="end-sep">
     
+      
+        <div class="alignleft">
+          <a href="/2011/04/07/user-behavior-record-data/#more" class="more-link">Read More</a>
+        </div>
       
       
     
@@ -804,7 +552,7 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
       </li>
     
       <li>
-        <a href="/2012/08/18/fix-swfupload2.5/">SWFUpload 2.5 修改日志</a>
+        <a href="/2012/08/18/fix-swfupload2.5/">SWFUpload 2.5 bug修改日志</a>
       </li>
     
   </ul>
