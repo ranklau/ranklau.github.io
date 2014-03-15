@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T08:40:35.451Z</updated>
+  <updated>2014-03-15T08:52:55.856Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -581,6 +581,81 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 <li>IE7+5K 左右(记得之前我测过，印象中是这个数据)，非 IE 都有 &gt;= 2K 的数据量。</li>
 </ul>
 <p>肯定有人问发回的比例是多少，据 dron 同学统计过约80%左右。<br>虽说不是绝对发回来，但足够你用。<br>采样率 5K~1W 左右 pv 的操作发回，数据最大为 2K*1W 约 20~30M log不算多。</p>
+]]></content>
+    
+    
+      <category term="tech" scheme="http://rank.im/categories/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[模拟里firebug的 DOM inspect 功能]]></title>
+    <link href="http://rank.im/2010/08/29/simulate-dom-inspect-effect/"/>
+    <id>http://rank.im/2010/08/29/simulate-dom-inspect-effect/</id>
+    <published>2010-08-29T06:09:15.000Z</published>
+    <updated>2014-03-15T08:52:47.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="-">常规思路</h2>
+<p>在firefox里如何实现firebug的DOM inspect选择功能?</p>
+<ul>
+<li>首先，我们会document里添加mouseover事件时在HTMLElement上飘一个absolute的容器，设置border。</li>
+<li>接着，mousedown，这个 absolute 的元素隐藏；</li>
+<li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
+</ul>
+<p>可这样是不是真的能做到呢？</p>
+<p>忽视了一点。<br>mouseover 如果在某个元素上飘一个 absolute 容器，那么你的 over 事件永远在这个 absolute 元素上了。</p>
+<p>可惜不是as，as可以把某个容器的事件 enable 设为 false 即可。<br>DOM w3c 没有禁用事件的功能。</p>
+<h2 id="-">打破常规</h2>
+<p>回到题目，那怎么做呢？<br>同事能跳出刚才的程序思维——用 4 个 div 当 4 条边就可以了。</p>
+<p>不知道你第还没试之前的分析是否是这样的呢？
+我当时在想，在coding的时候能跳出原来传统的思维真是不易。太赞了!</p>
+<p>写个简单 demo 记念（用 firefox 看吧。)
+八卦一下，据观察，firebug 确实真的也是这么做的（没看代码，只看了 DOM tree 里多了几个 div）。</p>
+<figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">head</span>&gt;</span><span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"http://code.jquery.com/jquery-1.4.2.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="class">.abs</span> <span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">zoom</span>:<span class="value"><span class="number">1</span></span></span></span>}
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background:#ffc;height:20px;margin:20px 0;padding:20px;"</span>&gt;</span>rank<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background:#ffc;height:20px;margin:20px 0;padding:20px;"</span>&gt;</span>rank<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background:#ffc;height:20px;margin:20px 0;padding:20px;"</span>&gt;</span>rank<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background:#ffc;height:20px;margin:20px 0;padding:20px;"</span>&gt;</span>rank<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background:#ffc;height:20px;margin:20px 0;padding:20px;"</span>&gt;</span>rank<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background:#ffc;height:20px;margin:20px 0;padding:20px;"</span>&gt;</span>rank<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background:#ffc;height:20px;margin:20px 0;padding:20px;"</span>&gt;</span>rank<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background:#ffc;height:20px;margin:20px 0;padding:20px;"</span>&gt;</span>rank<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"abs-right"</span> <span class="attribute">class</span>=<span class="value">"abs"</span>&gt;</span>&amp;nbsp;<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"abs-left"</span> <span class="attribute">class</span>=<span class="value">"abs"</span>&gt;</span>&amp;nbsp;<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"abs-bottom"</span> <span class="attribute">class</span>=<span class="value">"abs"</span>&gt;</span>&amp;nbsp;<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"abs-top"</span> <span class="attribute">class</span>=<span class="value">"abs"</span>&gt;</span>&amp;nbsp;<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="comment">//&lt;![CDATA[</span>
+$(document).mouseover(<span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+  <span class="keyword">var</span> target = e.target;
+  <span class="keyword">var</span> width = target.offsetWidth;
+  <span class="keyword">var</span> height = target.offsetHeight;
+  <span class="keyword">var</span> pos = $(target).offset();
+
+  $(<span class="string">'#abs-top'</span>).css({<span class="string">"background"</span>:<span class="string">"blue"</span>,<span class="string">"left"</span>:pos.left,<span class="string">"top"</span>:pos.top,<span class="string">"width"</span>:width,<span class="string">"height"</span>:<span class="number">1</span>});
+  $(<span class="string">'#abs-bottom'</span>).css({<span class="string">"background"</span>:<span class="string">"blue"</span>,<span class="string">"left"</span>:pos.left,<span class="string">"top"</span>:pos.top+height,<span class="string">"width"</span>:width,<span class="string">"height"</span>:<span class="number">1</span>});
+  $(<span class="string">'#abs-left'</span>).css({<span class="string">"background"</span>:<span class="string">"blue"</span>,<span class="string">"left"</span>:pos.left,<span class="string">"top"</span>:pos.top,<span class="string">"width"</span>:<span class="number">1</span>,<span class="string">"height"</span>:height});
+  $(<span class="string">'#abs-right'</span>).css({<span class="string">"background"</span>:<span class="string">"blue"</span>,<span class="string">"left"</span>:pos.left+width,<span class="string">"top"</span>:pos.top,<span class="string">"width"</span>:<span class="number">1</span>,<span class="string">"height"</span>:height});
+});
+$(document).click(<span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+  alert($(e.target).html());
+});
+<span class="comment">//]]&gt;</span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+ <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</pre></figure>
+
+
+<h2 id="-">穿透事件</h2>
+<p>不能像 AS 一样禁止事件，但是非IE下可穿透事件。<br>非IE下可以通过
+ <a href="https://developer.mozilla.org/en/CSS/pointer-events" target="_blank">pointer-events:none</a>来透过事件，这里有个 <a href="http://www.qgy18.com/file/code/firebug_demo.html" target="_blank">demo</a>。</p>
+<p>-- EOF --</p>
 ]]></content>
     
     
