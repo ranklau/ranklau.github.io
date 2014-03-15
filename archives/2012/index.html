@@ -73,24 +73,28 @@
 <li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
 </ol>
 <p>简单实现代码如下：</p>
-<pre><code>function getCurrentScriptPath() {
-     //currentScript
-     if (document.hasOwnProperty(&#39;currentScript&#39;)) {
-       return document.currentScript.src;
-     }
-     var scripts = document.scripts || document.getElementsByTagName(&#39;script&#39;),
-       len = scripts.length,
-       state = &#39;interactive&#39;;
-     //兼容IE
-     for (var i=0; i &lt;len; i++) {
-       if (scripts[i].readyState==state) {
-         return scripts[i].src;
-       }
-     }
-     //webkit
-     return scripts[len-1].src;
-}
-</code></pre><p>最近在开发中遇到一个 readyState 在 IE 下的特例：</p>
+<figure class="highlight js"><pre>	 
+	<span class="function"><span class="keyword">function</span> <span class="title">getCurrentScriptPath</span><span class="params">()</span> {</span>
+		 <span class="comment">//currentScript</span>
+		 <span class="keyword">if</span> (document.hasOwnProperty(<span class="string">'currentScript'</span>)) {
+		   <span class="keyword">return</span> document.currentScript.src;
+		 }
+		 <span class="keyword">var</span> scripts = document.scripts || document.getElementsByTagName(<span class="string">'script'</span>),
+		   len = scripts.length,
+		   state = <span class="string">'interactive'</span>;
+		 <span class="comment">//兼容IE</span>
+		 <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt;len; i++) {
+		   <span class="keyword">if</span> (scripts[i].readyState==state) {
+		     <span class="keyword">return</span> scripts[i].src;
+		   }
+		 }
+		 <span class="comment">//webkit</span>
+		 <span class="keyword">return</span> scripts[len-<span class="number">1</span>].src;
+	}	
+</pre></figure>
+
+
+<p>最近在开发中遇到一个 readyState 在 IE 下的特例：</p>
 <ul>
 <li>page.html 里引入一个外链的脚本 a.js。</li>
 <li>a.js 里有两个外链脚本：a.a.js 和 a.b.js。「注：这是用 document.write 来引入脚本。」</li>
