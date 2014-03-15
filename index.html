@@ -415,8 +415,8 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">A
 <p>applyFilter 从文档里的一段描述可以看出此方法是创建了一个新的 bitmapData 对象：</p>
 <blockquote>
 <p>applyFilter  ()  method</p>
-<p>public function applyFilter(sourceBitmapData:BitmapData, sourceRect:Rectangle, destPoint:Point, filter:BitmapFilter):void
-Takes a source image and a filter object and generates the filtered image.</p>
+<p>public function applyFilter(sourceBitmapData:BitmapData, sourceRect:Rectangle, destPoint:Point, filter:BitmapFilter):void</p>
+<p>Takes a source image and a filter object and generates the filtered image.</p>
 </blockquote>
 <p>以上代码差别 AS 3 文档没有说明用 loader 载入图片没有像素限制的问题。<br>线上代码因之前是其他同学修改过部分代码，无意用成了「代码 A」loader 方式载入。<br>因此并没有报错。</p>
 <p>所以，此问题的解决方法为将使用filter的条件由</p>
