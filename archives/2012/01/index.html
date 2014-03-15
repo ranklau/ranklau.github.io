@@ -96,11 +96,8 @@
 query: &quot;transform flick bug webkit&quot;</p>
 <p>果然有料。<br><a href="http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform" target="_blank">http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform</a></p>
 <figure class="highlight css"><pre><span class="tag">-webkit-backface-visibility</span>: <span class="tag">hidden</span>; <span class="comment">/*但不能用于sprite雪碧图*/</span>
-</pre></figure>
-
-
-<p>或</p>
-<figure class="highlight css"><pre><span class="tag">-webkit-transform</span><span class="pseudo">:translate3d(0</span>,0,0);
+<span class="comment">/* 或 */</span>
+<span class="tag">-webkit-transform</span><span class="pseudo">:translate3d(0</span>,0,0);
 </pre></figure>
 
 <p>来解决「闪」的问题。</p>
