@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T07:48:10.736Z</updated>
+  <updated>2014-03-15T07:49:12.796Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -161,7 +161,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     <link href="http://rank.im/2012/08/18/fix-swfupload2.5/"/>
     <id>http://rank.im/2012/08/18/fix-swfupload2.5/</id>
     <published>2012-08-18T07:08:51.000Z</published>
-    <updated>2014-03-15T07:48:06.000Z</updated>
+    <updated>2014-03-15T07:49:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-swfupload">关于 SWFUpload</h2>
 <blockquote>
 <p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
@@ -190,8 +190,11 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <p>从用户反馈过来，上传图片速度过慢。-- 用户界面 loading 的菊花图转比较久。</p>
 <h2 id="-">定位问题</h2>
 <p>单从描述来看太过笼统，需要先具体定位到哪个环节出了问题。</p>
-<p>我在本机上测试上传，感觉速度很快（图片大小平均大概1M，width 最大为 800 像素），几乎秒传。<br>在另一同事机器上传图片却很慢。</p>
-<p>将「上传整体流程」分析来看，可分为以下几个部分:</p>
+<ul>
+<li>我在本机上测试上传，感觉速度很快（图片大小平均大概1M，width 最大为 800 像素），几乎秒传。  </li>
+<li>后来发起群众后发现在另一同事机器上传图片也很慢。</li>
+</ul>
+<p>我们先将「上传整体流程」分析，大致可分为以下几个部分:</p>
 <ul>
 <li>选择图片然后图片压缩</li>
 <li>通过网络上传</li>
