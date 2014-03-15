@@ -12,7 +12,7 @@
 影响的范围: IE的所有版本
 在表单的 radio/checkbox 控件中，一旦他们的DOM结构被更改过就会出现这个bug。
 操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio将会自动恢复到默认状态，
-有如点">
+有如点了 reset 按钮一样。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -76,7 +76,8 @@
 <li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio将会自动恢复到默认状态，</li>
 <li>有如点了 reset 按钮一样。</li>
 </ul>
-<p>bug重现</p>
+<p><a id="more"></a>
+bug重现</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
 "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
