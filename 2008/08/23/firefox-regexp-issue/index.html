@@ -4,13 +4,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Archives: 2012/12 | rank&#39;s blog</title>
+  <title>firefox 2正则表达式全半角问题 | rank&#39;s blog</title>
   <meta name="author" content="rank">
+  
+  <meta name="description" content="问题
+先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?
+有可能你会答&quot;是,他们相等&quot;,也有可能你去查了查手册, 看到以下的解释:
+
+\d Matches a nondigit character. Equivalent to [^0-9]. 
+匹配一个数字字符。等价于 [0-9]。
+
+测试一下
+ //http://rank.im
+ alert(/^\d{2}$/.test(&quot;１２&quot;));
+ alert(&#39;请注意,１２是全角&#39;);">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  
+  <meta property="og:title" content="firefox 2正则表达式全半角问题"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -47,41 +59,61 @@
   <div class="clearfix"></div>
 </nav>
 <div class="clearfix"></div></header>
-    <div class="content">
-<h2 class="archive-title">2012/12</h2>
-
-
-  
-    <article class="post">
+    <div class="content"><article class="post">
   <header>
     
       <div class="icon"></div>
-      <time datetime="2012-12-13T06:54:40.000Z"><a href="/2012/12/13/get-script-path/">Dec 13 2012</a></time>
+      <time datetime="2008-08-23T10:56:41.000Z"><a href="/2008/08/23/firefox-regexp-issue/">Aug 23 2008</a></time>
     
     
   
-    <h1 class="title"><a href="/2012/12/13/get-script-path/">取得当前脚本元素的路径的一个特例</a></h1>
+    <h1 class="title">firefox 2正则表达式全半角问题</h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
-<ol>
-<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
-<li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
-</ol>
+      <h2 id="-">问题</h2>
+<p>先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
+<p>有可能你会答&quot;是,他们相等&quot;,也有可能你去查了查手册, 看到以下的解释:</p>
+<blockquote>
+<p>\d Matches a nondigit character. Equivalent to [^0-9]. 
+匹配一个数字字符。等价于 [0-9]。</p>
+</blockquote>
+<p>测试一下</p>
+<figure class="highlight js"><pre> <span class="comment">//http://rank.im</span>
+ alert(<span class="regexp">/^\d{2}$/</span>.test(<span class="string">"１２"</span>));
+ alert(<span class="string">'请注意,１２是全角'</span>);
+</pre></figure>
+
+
+<a id="more"></a>
+
+<p>再试试这个例子：</p>
+<figure class="highlight js"><pre> alert(<span class="regexp">/^[0-9]{2}$/</span>.test(<span class="string">"１２"</span>));
+ alert(<span class="string">'请注意,１２是全角'</span>);
+</pre></figure>
+
+
+<p>全角半角在firefox2里会出现此现象。</p>
+<p>firefox 2里用正则表达式\d字符时,会将全角转义成半角再进行匹配, 与手册描述不一致.以后大家用正则还是直接用 [0-9] 去匹配数字。</p>
+<p>这是否意味着是 firefox 2 的bug呢？非也。<br>《Master Regular Expression，精通正则表达式》书中说是不同的流派的问题。</p>
+<blockquote>
+<p>Matches any non-decimal digit. Equivalent to [\P{Nd}] for Unicode and [^0-9] for non-Unicode, ECMAScript behavior.</p>
+</blockquote>
+<p>-- EOF --</p>
 
     
   </div>
-  <footer class="end-sep">
+  <footer>
     
       
-        <div class="alignleft">
-          <a href="/2012/12/13/get-script-path/#more" class="more-link">Read More</a>
-        </div>
-      
+  
+  <div class="categories">
+    <a href="/categories/tech/">tech</a>
+  </div>
+
       
     
     <div class="clearfix"></div>
@@ -89,14 +121,12 @@
 </article>
 
 
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
-
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </div>
   </div>
   <div class="widget-wrapper">
@@ -198,7 +228,7 @@
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   }());
 </script>

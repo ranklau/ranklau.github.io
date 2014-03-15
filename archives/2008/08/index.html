@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Archives: 2012/12 | rank&#39;s blog</title>
+  <title>Archives: 2008/8 | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
   
@@ -48,7 +48,7 @@
 </nav>
 <div class="clearfix"></div></header>
     <div class="content">
-<h2 class="archive-title">2012/12</h2>
+<h2 class="archive-title">2008/8</h2>
 
 
   
@@ -56,22 +56,31 @@
   <header>
     
       <div class="icon"></div>
-      <time datetime="2012-12-13T06:54:40.000Z"><a href="/2012/12/13/get-script-path/">Dec 13 2012</a></time>
+      <time datetime="2008-08-23T10:56:41.000Z"><a href="/2008/08/23/firefox-regexp-issue/">Aug 23 2008</a></time>
     
     
   
-    <h1 class="title"><a href="/2012/12/13/get-script-path/">取得当前脚本元素的路径的一个特例</a></h1>
+    <h1 class="title"><a href="/2008/08/23/firefox-regexp-issue/">firefox 2正则表达式全半角问题</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
-<ol>
-<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
-<li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
-</ol>
+      <h2 id="-">问题</h2>
+<p>先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
+<p>有可能你会答&quot;是,他们相等&quot;,也有可能你去查了查手册, 看到以下的解释:</p>
+<blockquote>
+<p>\d Matches a nondigit character. Equivalent to [^0-9]. 
+匹配一个数字字符。等价于 [0-9]。</p>
+</blockquote>
+<p>测试一下</p>
+<figure class="highlight js"><pre> <span class="comment">//http://rank.im</span>
+ alert(<span class="regexp">/^\d{2}$/</span>.test(<span class="string">"１２"</span>));
+ alert(<span class="string">'请注意,１２是全角'</span>);
+</pre></figure>
+
+
 
     
   </div>
@@ -79,7 +88,7 @@
     
       
         <div class="alignleft">
-          <a href="/2012/12/13/get-script-path/#more" class="more-link">Read More</a>
+          <a href="/2008/08/23/firefox-regexp-issue/#more" class="more-link">Read More</a>
         </div>
       
       

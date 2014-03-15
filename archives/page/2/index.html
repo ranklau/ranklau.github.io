@@ -103,6 +103,53 @@
   <header>
     
       <div class="icon"></div>
+      <time datetime="2008-08-23T10:56:41.000Z"><a href="/2008/08/23/firefox-regexp-issue/">Aug 23 2008</a></time>
+    
+    
+  
+    <h1 class="title"><a href="/2008/08/23/firefox-regexp-issue/">firefox 2正则表达式全半角问题</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h2 id="-">问题</h2>
+<p>先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
+<p>有可能你会答&quot;是,他们相等&quot;,也有可能你去查了查手册, 看到以下的解释:</p>
+<blockquote>
+<p>\d Matches a nondigit character. Equivalent to [^0-9]. 
+匹配一个数字字符。等价于 [0-9]。</p>
+</blockquote>
+<p>测试一下</p>
+<figure class="highlight js"><pre> <span class="comment">//http://rank.im</span>
+ alert(<span class="regexp">/^\d{2}$/</span>.test(<span class="string">"１２"</span>));
+ alert(<span class="string">'请注意,１２是全角'</span>);
+</pre></figure>
+
+
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2008/08/23/firefox-regexp-issue/#more" class="more-link">Read More</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
       <time datetime="2008-07-20T11:44:21.000Z"><a href="/2008/07/20/ie-form-check-bug/">Jul 20 2008</a></time>
     
     
@@ -162,7 +209,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/tech/">tech</a><small>11</small></li>
+    <li><a href="/categories/tech/">tech</a><small>12</small></li>
   
   </ul>
 </div>
