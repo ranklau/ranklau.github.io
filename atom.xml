@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T09:20:07.811Z</updated>
+  <updated>2014-03-15T09:24:08.658Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -783,6 +783,77 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <li>IE 7以下对 SSL (即 HTTPS) 的支持不够好。</li>
 </ul>
 ]]></summary>
+    
+      <category term="tech" scheme="http://rank.im/categories/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[radio list的用户体验细节]]></title>
+    <link href="http://rank.im/2008/11/24/radio-list-user-experience-detail/"/>
+    <id>http://rank.im/2008/11/24/radio-list-user-experience-detail/</id>
+    <published>2008-11-24T12:34:57.000Z</published>
+    <updated>2014-03-15T09:24:04.000Z</updated>
+    <content type="html"><![CDATA[<p>radio list的用户体验细节相当赞：</p>
+<ul>
+<li>可支持方向键</li>
+<li>当radio最后一个选中时，按小键盘后会自动跳回第一个</li>
+<li>checked可自动触发onclick</li>
+<li>支持各种浏览器,cross-browser</li>
+</ul>
+<p>用这个特性，可以做一个无障碍的TabView:)</p>
+<p><a id="more"></a></p>
+<figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">title</span>&gt;</span>Rank's HTML document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=gb2312"</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Pragma"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span>&gt;</span> 
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Cache-Control"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span>&gt;</span> 
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Expires"</span> <span class="attribute">content</span>=<span class="value">"0"</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"ImageToolbar"</span> <span class="attribute">content</span>=<span class="value">"no"</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Creator.name"</span> <span class="attribute">content</span>=<span class="value">"Rank, BlueDestiny, never-online"</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">title</span>=<span class="value">"default"</span> <span class="attribute">media</span>=<span class="value">"screen"</span>&gt;</span><span class="css">
+ <span class="comment">/*&lt;![CDATA[*/</span>
+    <span class="tag">body</span> <span class="rules">{ <span class="rule"><span class="attribute">font</span>:<span class="value"><span class="number">13</span>px/<span class="number">1.5</span> arial</span></span>; <span class="rule">}</span></span>
+ <span class="comment">/*]]&gt;*/</span>
+ </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+ <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>radio list的妙用<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">ol</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">li</span>&gt;</span>可支持方向键<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">li</span>&gt;</span>当radio最后一个选中时，按小键盘后会自动跳回第一个<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">li</span>&gt;</span>checked可自动触发onclick<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">li</span>&gt;</span>支持各种浏览器,cross-browser<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">ol</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">h2</span>&gt;</span>demo<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"wrap"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">name</span>=<span class="value">"radio_n"</span> <span class="attribute">type</span>=<span class="value">"radio"</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">name</span>=<span class="value">"radio_n"</span> <span class="attribute">type</span>=<span class="value">"radio"</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">name</span>=<span class="value">"radio_n"</span> <span class="attribute">type</span>=<span class="value">"radio"</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">id</span>=<span class="value">"ad"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="comment">//&lt;![CDATA[</span>
+    document.getElementById(<span class="string">'wrap'</span>).onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      document.getElementById(<span class="string">'ad'</span>).innerHTML = (<span class="string">'never-online \'s weblog'</span>) + <span class="built_in">Math</span>.random();
+    }
+    <span class="comment">//]]&gt;</span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+ <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</pre></figure>
+]]></content>
+    <summary type="html"><![CDATA[<p>radio list的用户体验细节相当赞：</p>
+<ul>
+<li>可支持方向键</li>
+<li>当radio最后一个选中时，按小键盘后会自动跳回第一个</li>
+<li>checked可自动触发onclick</li>
+<li>支持各种浏览器,cross-browser</li>
+</ul>
+<p>用这个特性，可以做一个无障碍的TabView:)</p>
+<p>]]></summary>
     
       <category term="tech" scheme="http://rank.im/categories/tech/"/>
     

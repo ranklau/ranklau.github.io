@@ -424,24 +424,25 @@
   <header>
     
       <div class="icon"></div>
-      <time datetime="2008-07-20T11:44:21.000Z"><a href="/2008/07/20/ie-form-check-bug/">Jul 20 2008</a></time>
+      <time datetime="2008-11-24T12:34:57.000Z"><a href="/2008/11/24/radio-list-user-experience-detail/">Nov 24 2008</a></time>
     
     
   
-    <h1 class="title"><a href="/2008/07/20/ie-form-check-bug/">IE 在 DOM 操作有表单控件时的bug</a></h1>
+    <h1 class="title"><a href="/2008/11/24/radio-list-user-experience-detail/">radio list的用户体验细节</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <h2 id="bug-">bug描述</h2>
+      <p>radio list的用户体验细节相当赞：</p>
 <ul>
-<li>影响的范围: IE的所有版本</li>
-<li>在表单的 radio/checkbox 控件中，一旦他们的DOM结构被更改过就会出现这个bug。</li>
-<li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio将会自动恢复到默认状态，</li>
-<li>有如点了 reset 按钮一样。</li>
+<li>可支持方向键</li>
+<li>当radio最后一个选中时，按小键盘后会自动跳回第一个</li>
+<li>checked可自动触发onclick</li>
+<li>支持各种浏览器,cross-browser</li>
 </ul>
+<p>用这个特性，可以做一个无障碍的TabView:)</p>
 <p>
     
   </div>
@@ -449,7 +450,7 @@
     
       
         <div class="alignleft">
-          <a href="/2008/07/20/ie-form-check-bug/#more" class="more-link">Read More</a>
+          <a href="/2008/11/24/radio-list-user-experience-detail/#more" class="more-link">Read More</a>
         </div>
       
       
@@ -463,6 +464,8 @@
 
   <nav id="pagination">
   
+  
+    <a href="/archives/page/2/" class="next">Next</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -481,7 +484,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/tech/">tech</a><small>9</small></li>
+    <li><a href="/categories/tech/">tech</a><small>10</small></li>
   
   </ul>
 </div>
