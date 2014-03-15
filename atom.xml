@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-15T08:03:12.696Z</updated>
+  <updated>2014-03-15T08:04:34.628Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -102,7 +102,7 @@
     <link href="http://rank.im/2012/12/13/get-script-path/"/>
     <id>http://rank.im/2012/12/13/get-script-path/</id>
     <published>2012-12-13T06:54:40.000Z</published>
-    <updated>2014-03-15T08:03:08.000Z</updated>
+    <updated>2014-03-15T08:03:12.000Z</updated>
     <content type="html"><![CDATA[<p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
 <ol>
 <li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
@@ -165,7 +165,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     <link href="http://rank.im/2012/08/18/fix-swfupload2.5/"/>
     <id>http://rank.im/2012/08/18/fix-swfupload2.5/</id>
     <published>2012-08-18T07:08:51.000Z</published>
-    <updated>2014-03-15T08:02:19.000Z</updated>
+    <updated>2014-03-15T08:04:28.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-swfupload">关于 SWFUpload</h2>
 <blockquote>
 <p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
