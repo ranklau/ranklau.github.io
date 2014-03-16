@@ -106,13 +106,8 @@
 
 <p>注意，这个选择节点时的代码(oRange1)，你必须指定oP1父节点里所有childNodes集合里的一个索引。<br>而选择内容时的代码(oRange2)，则不需要额外的考虑，</p>
 <ul>
-<li><p>从刚才的例子来从这段HTML里</p>
-  <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>  
-
-</pre></figure>
-</li>
-<li><p>选择从 hello 中的 llo 开始到从 World 中的 Wo 开始的 Range，我们用setStart()和setEnd()，很容易就做到了。</p>
-</li>
+<li>从刚才的例子来从这段HTML里&lt;p id=&quot;p1&quot;&gt;&lt;b&gt;Hello&lt;/b&gt; World&lt;/p&gt;</li>
+<li>选择从 hello 中的 llo 开始到从 World 中的 Wo 开始的 Range，我们用setStart()和setEnd()，很容易就做到了。</li>
 </ul>
 <p>首先，我们必须用常规的 DOM 方法得到文本节点的引用还有就是容器 p1 的引用。</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
