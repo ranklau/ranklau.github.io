@@ -231,58 +231,6 @@
   <header>
     
       <div class="icon"></div>
-      <time datetime="2006-09-30T08:36:17.000Z"><a href="/2006/09/30/javascript-dom-range-1/">Sep 30 2006</a></time>
-    
-    
-  
-    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range操作(1)</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
-</ul>
-<h2 id="createrange-">createRange 方法</h2>
-<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
-<figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
-</pre></figure>
-
-
-<p>如果你要检测你的浏览器是否支持此标准Range对象，可以用hasFeature()方法来检测：</p>
-<figure class="highlight js"><pre><span class="keyword">var</span> supportsDOMRanges = document.implementation.hasFeature(<span class="string">"Range"</span>, <span class="string">"2.0"</span>);
-<span class="keyword">if</span> (supportsDOMRange) {
-<span class="keyword">var</span> oRange = document.createRange();
-<span class="comment">//range code here</span>
-}
-</pre></figure>
-
-
-<p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2006/09/30/javascript-dom-range-1/#more" class="more-link">Read More</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
       <time datetime="2006-09-30T08:36:17.000Z"><a href="/2006/09/30/javascript-dom-range-2/">Sep 30 2006</a></time>
     
     
@@ -332,7 +280,8 @@
 
 <p>注意，这个选择节点时的代码(oRange1)，你必须指定oP1父节点里所有childNodes集合里的一个索引。<br>而选择内容时的代码(oRange2)，则不需要额外的考虑，</p>
 <ul>
-<li>从刚才的例子来从这段HTML里(code <p id="p1"><b>Hello</b> World</p>)  </li>
+<li>从刚才的例子来从这段HTML里
+  (code <p id="p1"><b>Hello</b> World</p>)  </li>
 <li>选择从hello中的llo开始到从World中的Wo开始的Range，我们用setStart()和setEnd()，很容易就可以做到。</li>
 </ul>
 <p>首先，我们必须用常规的 DOM 方法得到文本节点的引用还有就是容器 p1 的引用。</p>
@@ -420,6 +369,58 @@ document.body.appendChild(oFragment);
   </div>
   <footer class="end-sep">
     
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <time datetime="2006-09-30T08:36:17.000Z"><a href="/2006/09/30/javascript-dom-range-1/">Sep 30 2006</a></time>
+    
+    
+  
+    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range操作(1)</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <ul>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
+</ul>
+<h2 id="createrange-">createRange 方法</h2>
+<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
+<figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
+</pre></figure>
+
+
+<p>如果你要检测你的浏览器是否支持此标准Range对象，可以用hasFeature()方法来检测：</p>
+<figure class="highlight js"><pre><span class="keyword">var</span> supportsDOMRanges = document.implementation.hasFeature(<span class="string">"Range"</span>, <span class="string">"2.0"</span>);
+<span class="keyword">if</span> (supportsDOMRange) {
+<span class="keyword">var</span> oRange = document.createRange();
+<span class="comment">//range code here</span>
+}
+</pre></figure>
+
+
+<p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2006/09/30/javascript-dom-range-1/#more" class="more-link">Read More</a>
+        </div>
       
       
     
