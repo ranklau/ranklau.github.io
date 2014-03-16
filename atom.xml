@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T14:07:02.837Z</updated>
+  <updated>2014-03-16T14:07:53.340Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -718,8 +718,9 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
     <link href="http://rank.im/2011/08/08/tourism-in-hunlunbeier/"/>
     <id>http://rank.im/2011/08/08/tourism-in-hunlunbeier/</id>
     <published>2011-08-08T04:05:22.000Z</published>
-    <updated>2014-03-16T14:06:56.000Z</updated>
+    <updated>2014-03-16T14:07:20.000Z</updated>
     <content type="html"><![CDATA[<p><img src="/images/hunlunbeier/6016693788_149811e489_z.jpg" alt="">
+<a id="more"></a>
 <img src="/images/hunlunbeier/6016136621_80fa51b162_z.jpg" alt="">
 <img src="/images/hunlunbeier/6016137457_48d4f44b93_z.jpg" alt="">
 <img src="/images/hunlunbeier/6016143997_2c676523e3_z.jpg" alt="">
@@ -747,7 +748,8 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 <img src="/images/hunlunbeier/6016135033_211a847822_z.jpg" alt=""></p>
 <p>-- EOF --</p>
 ]]></content>
-    
+    <summary type="html"><![CDATA[<p><img src="/images/hunlunbeier/6016693788_149811e489_z.jpg" alt="">
+]]></summary>
     
       <category term="life" scheme="http://rank.im/categories/life/"/>
     
