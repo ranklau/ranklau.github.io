@@ -120,7 +120,7 @@ setEnd(node, offset) 节点引用为 endContainer，偏移就是 endOffset。">
 <p>注意，这个选择节点时的代码 (oRange1)，你必须指定 oP1 父节点里所有 childNodes 集合里的一个索引。<br>而选择内容时的代码 (oRange2)，则不需要额外考虑。</p>
 <ul>
 <li>从刚才的例子来从这段HTML里&lt;p id=&quot;p1&quot;&gt;&lt;b&gt;Hello&lt;/b&gt; World&lt;/p&gt;</li>
-<li>选择从 hello 中的 llo 开始到从 World 中的 Wo 开始的 Range，我们用setStart()和setEnd()，很容易就做到了。</li>
+<li>选择从 「hello」 中的 「llo」 开始到从 「World」 中的 「Wo」 开始的 Range，我们用setStart()和setEnd()，很容易就做到了。</li>
 </ul>
 <p>首先，我们必须用常规的 DOM 方法得到文本节点的引用还有就是容器 p1 的引用。</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
@@ -132,7 +132,7 @@ setEnd(node, offset) 节点引用为 endContainer，偏移就是 endOffset。">
 
 <ul>
 <li>文本 Hello 实际上是容器 p1 的孙子节点，所以我们可以用 oP1.firstChild 得到 &lt;b&gt;</li>
-<li>oP1.firstChild.firstChild 也就是 Hello 文本节点的引用了，而 World 则就是容器 p1 的最后一个节点了。</li>
+<li>oP1.firstChild.firstChild 也就是 「Hello」 文本节点的引用了，而 「World」 则就是容器 p1 的最后一个节点了。</li>
 </ul>
 <p>下一步，创建 Range 然后设置偏移 (offset)：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
@@ -160,7 +160,7 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 </pre></figure>
 
 
-<p>也就是自动加上了开始标签&lt;b&gt;，使得整个 Range 变为：</p>
+<p>也就是自动加上了开始标签「&lt;b&gt;」，使得整个 Range 变为：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> Wo，
 </pre></figure>
 
@@ -168,13 +168,13 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 <p>fragment的示意图为：</p>
 <p><img src="/images/javascript-dom-range/30_170131_domranges5.gif" alt=""></p>
 <p>fragment 创建后，你就可以用 Range 的一些方法来操作它了。</p>
-<p>最简单的一个操作就是：<br>deleteContents()方法，这个方法将删除Range选中的部分，在上面的操作之后进行 deleteContents()，那么余下的HTML就为：</p>
+<p>最简单的一个操作就是：<br>deleteContents() 方法，这个方法将删除 Range 选中的部分，在上面的操作之后进行 deleteContents()，那么余下的HTML就为：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span>rld<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 </pre></figure>
 
 
 <p>之所以加上闭合标签 &lt;/b&gt;，上面也说了，也是 Range 为了确保它是 well-formed。</p>
-<p>extractContents() 方法类似于 deleteContents()，但具体操作不同。<br>extractContents()是将选中的Range从DOM树中移到一个fragment中，并返回此fragment，复制下面这些代码然后在Mozilla Firefox里运行，看看结果你就明白了。——删除的&lt;b&gt;llo&lt;/b&gt; Wo作为一个fragment被添加到 body 的末端。</p>
+<p>extractContents() 方法类似于 deleteContents()，但具体操作不同。<br>extractContents()是将选中的Range从DOM树中移到一个fragment中，并返回此fragment，复制下面这些代码然后在Mozilla Firefox里运行，看看结果你就明白了。——删除的「&lt;b&gt;llo&lt;/b&gt; Wo」作为一个fragment被添加到 body 的末端。</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
 <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
