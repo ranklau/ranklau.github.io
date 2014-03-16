@@ -734,10 +734,10 @@
 
 
 <ul>
-<li>文本 Hello 实际上是容器 p1 的孙子节点，所以我们可以用 oP1.firstChild 得到 b 元素，</li>
+<li>文本 Hello 实际上是容器 p1 的孙子节点，所以我们可以用 oP1.firstChild 得到 &lt;b&gt;</li>
 <li>oP1.firstChild.firstChild 也就是 Hello 文本节点的引用了，而 World 则就是容器 p1 的最后一个节点了。</li>
 </ul>
-<p>下一步，建立range然后设置偏移(offset)：</p>
+<p>下一步，创建 Range 然后设置偏移 (offset)：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
 <span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
 <span class="keyword">var</span> oWorld = oP1.lastChild;
@@ -756,7 +756,7 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 <p>注意：(Mozilla DOM Range bug #135928)在 Mozilla低版本浏览器 执行此Range方法时，如果 setStart()和 setEnd() 都指向同一个文本节点会出现异常。</p>
 </blockquote>
 <h2 id="-dom-range-">用DOM Range操作</h2>
-<p>当创建一个 Range 对象时，在 Range 里的所有对象之上，已经创建了一个文档的 fragment 节点。<br>在这之前，Range 对象必须合格证你选择的这段Range是一个 well-formed（格式良好）。<br>比如以面这段 Range：</p>
+<p>当创建一个 Range 对象时，在 Range 里的所有对象之上，已经创建了一个文档的 fragment 节点。<br>在这之前，Range 对象必须合格证你选择的这段 Range 是一个 well-formed（格式良好）。<br>比如以面这段 Range：</p>
 <p><img src="/images/javascript-dom-range/30_165636_domranges4.gif" alt="range demo"></p>
 <p>在这里 HTML 并不是一个 well-formed。<br>上面也说过，当创建一个 Range 时，会自动产生一个 fragment。<br>在这里 framgment 自动动态的添加一些元素，以保证 Range 的正确性：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
@@ -770,20 +770,14 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 
 <p>fragment的示意图为：</p>
 <p><img src="/images/javascript-dom-range/30_170131_domranges5.gif" alt="range demo"></p>
-<p>当此fragment创建后，你就可以用Range的一些方法来操作它了。</p>
-<p>最简单的一个操作就是：deleteContents()方法，这个方法将删除Range选中的部分，在上面的操作之后进行deleteContents()，那么余下的HTML就为：</p>
+<p>fragment 创建后，你就可以用 Range 的一些方法来操作它了。</p>
+<p>最简单的一个操作就是：<br>deleteContents()方法，这个方法将删除Range选中的部分，在上面的操作之后进行 deleteContents()，那么余下的HTML就为：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span>rld<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 </pre></figure>
 
 
-<p>之所以加上闭合标签 </b>，上面也说了，也是 Range 为了确保它是 well-formed。</p>
-<p>extractContents() 方法类似于 deleteContents()，但具体操作不同。  </p>
-<p>extractContents()是将选中的Range从DOM树中移到一个fragment中，并返回此fragment，复制下面这些代码然后在Mozilla Firefox里运行，看看结果你就明白了。——删除的</p>
-<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> Wo
-</pre></figure>
-
-
-<p>作为一个fragment被添加到 body 的末端。</p>
+<p>之所以加上闭合标签 &lt;/b&gt;，上面也说了，也是 Range 为了确保它是 well-formed。</p>
+<p>extractContents() 方法类似于 deleteContents()，但具体操作不同。<br>extractContents()是将选中的Range从DOM树中移到一个fragment中，并返回此fragment，复制下面这些代码然后在Mozilla Firefox里运行，看看结果你就明白了。——删除的&lt;b&gt;llo&lt;/b&gt; Wo作为一个fragment被添加到 body 的末端。</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
 <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
