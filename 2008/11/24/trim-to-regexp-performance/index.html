@@ -8,7 +8,6 @@
   <meta name="author" content="rank">
   
   <meta name="description" content="问题
-如果你看到别人写 trim 函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。如果你很自信你的 trim 函数效率很高，请看完本文再下结论。
 一般情况下用正则写法为：
 &lt;script type=&quot;text/javascript&quot;&gt;//&lt;![CDATA[
   String.prototype.trim = function () {
@@ -78,7 +77,6 @@
   <div class="entry">
     
       <h2 id="-">问题</h2>
-<p>如果你看到别人写 trim 函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的 trim 函数效率很高，请看完本文再下结论。</p>
 <p>一般情况下用正则写法为：</p>
 <figure class="highlight js"><pre>&lt;script type=<span class="string">"text/javascript"</span>&gt;<span class="comment">//&lt;![CDATA[</span>
   <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
@@ -117,7 +115,8 @@
 
 
 <h2 id="dfa">DFA</h2>
-<p>在解释这个原因的时候想起以前看到 《Master regular expression》 里面有提到过。NFA 和 DFA 引擎是有区别的。</p>
+<p>在解释这个原因的时候想起以前看到 《Master regular expression》 里面有提到过。</p>
+<p>NFA 和 DFA 引擎是有区别的。</p>
 <blockquote>
 <p>DFA 与 NFA 机制上的不同带来5个影响：</p>
 <ol>
