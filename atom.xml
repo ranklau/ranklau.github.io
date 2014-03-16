@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T12:37:37.925Z</updated>
+  <updated>2014-03-16T12:39:23.688Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -1317,7 +1317,7 @@ bug重现</p>
     <link href="http://rank.im/2006/09/30/javascript-dom-range-2/"/>
     <id>http://rank.im/2006/09/30/javascript-dom-range-2/</id>
     <published>2006-09-30T08:36:17.000Z</published>
-    <updated>2014-03-16T12:37:32.000Z</updated>
+    <updated>2014-03-16T12:39:19.000Z</updated>
     <content type="html"><![CDATA[<ul>
 <li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
 <li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
@@ -1406,10 +1406,10 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 </pre></figure>
 
 
-<p>fragment的示意图为：</p>
+<p>fragment 的示意图：</p>
 <p><img src="/images/javascript-dom-range/30_170131_domranges5.gif" alt=""></p>
 <p>fragment 创建后，你就可以用 Range 的一些方法来操作它了。</p>
-<p>最简单的一个操作就是：<br>deleteContents() 方法，这个方法将删除 Range 选中的部分，在上面的操作之后进行 deleteContents()，那么余下的HTML就为：</p>
+<p>最简单的一个操作就是：<br>deleteContents() 方法，这个方法将删除 Range 选中的部分，在上面的操作之后进行 deleteContents()，那么余下的 HTML 就为：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span>rld<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 </pre></figure>
 
