@@ -646,118 +646,16 @@
 }
 </pre></figure>
 
-<h2 id="-range-">用Range对象进行简单的选择</h2>
-<p>最简单用Range进行选择，用selectNode()或者selectNodeContents()方法，这两个方法只有一个接收参数，一个DOM节点。</p>
-<p>selectNode()方法选择全部节点，包括它的孩子，而selectNodeContents()选择的节点只是它的孩子：</p>
-<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
-<span class="keyword">var</span> oRange1 = document.createRange();
-<span class="keyword">var</span> oRange2 = document.createRange();
-<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
-oRange1.selectNode(oP1);
-oRange2.selectNodeContents(oP1);
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-</pre></figure>
 
-<p>oRange1和oRange2包含上面所说的两种方法，但是看了下面的示图相信你能很快明白这两个方法的区别：
-<img src="/images/javascript-dom-range/30_160954_domranges1.gif" alt="image"></p>
-<p>当你创建了一个Range对象时，Range实例就会有以下的属性：</p>
-<ul>
-<li>startContainer — 返回range对象从何开始的节点对象（父节点的第一个节点）</li>
-<li>startOffset — 返回Range开始的偏移量(offset)，如果startContainer是一个文本节点，注释节点，或者是CDATA节点，这个属性返回文本的偏移量，否则返回第一个节点的索引。</li>
-<li>endCOntainer — 返回Range对象最后一个节点对象（父节点的最后一个节点）</li>
-<li>endOffset — 返回Range结束时的偏移量(offset)特性与startOffset相同。</li>
-<li>commonAncestorContainer — 返回第一个包含该Range对象的节点。</li>
-</ul>
-<p>注：这些属性均为只读属性(read-only)，startOffset和endOffset将在下文中有较详细的解释。</p>
-<p>下面这段代码将说明这些属性，请在Mozilla firefox里运行（支持此标准的浏览器——DOM2级，IE里将无效）：</p>
-<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">html</span>&gt;</span>
- <span class="tag">&lt;<span class="title">head</span>&gt;</span>
- <span class="tag">&lt;<span class="title">title</span>&gt;</span>DOM Range Example<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
- <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
- <span class="function"><span class="keyword">function</span> <span class="title">useRanges</span><span class="params">()</span> {</span>
- <span class="keyword">var</span> oRange1 = document.createRange();
- <span class="keyword">var</span> oRange2 = document.createRange();
- <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
- oRange1.selectNode(oP1);
- oRange2.selectNodeContents(oP1);
- 
- document.getElementById(<span class="string">"txtStartContainer1"</span>).value 
-    = oRange1.startContainer.tagName;
- document.getElementById(<span class="string">"txtStartOffset1"</span>).value = 
-    oRange1.startOffset;
- document.getElementById(<span class="string">"txtEndContainer1"</span>).value = 
-    oRange1.endContainer.tagName;
- document.getElementById(<span class="string">"txtEndOffset1"</span>).value = 
-    oRange1.endOffset;
- document.getElementById(<span class="string">"txtCommonAncestor1"</span>).value = 
-    oRange1.commonAncestorContainer.tagName;
- document.getElementById(<span class="string">"txtStartContainer2"</span>).value = 
-    oRange2.startContainer.tagName;
- document.getElementById(<span class="string">"txtStartOffset2"</span>).value = 
-    oRange2.startOffset;
- document.getElementById(<span class="string">"txtEndContainer2"</span>).value = 
-    oRange2.endContainer.tagName;
- document.getElementById(<span class="string">"txtEndOffset2"</span>).value = 
-    oRange2.endOffset;
- document.getElementById(<span class="string">"txtCommonAncestor2"</span>).value = 
-    oRange2.commonAncestorContainer.tagName;
- }
- </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
- <span class="tag">&lt;<span class="title">body</span>&gt;</span><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
- <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"Use Ranges"</span> <span class="attribute">onclick</span>=<span class="value">"useRanges()"</span> /&gt;</span> 
- <span class="tag">&lt;<span class="title">table</span> <span class="attribute">border</span>=<span class="value">"0"</span>&gt;</span>
- <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
- <span class="tag">&lt;<span class="title">td</span>&gt;</span>
- <span class="tag">&lt;<span class="title">fieldset</span>&gt;</span>
- <span class="tag">&lt;<span class="title">legend</span>&gt;</span>oRange1<span class="tag">&lt;/<span class="title">legend</span>&gt;</span>
- Start Container: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtStartContainer1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- Start Offset: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtStartOffset1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- End Container: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtEndContainer1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- End Offset: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtEndOffset1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- Common Ancestor: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtCommonAncestor1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span> 
- <span class="tag">&lt;/<span class="title">fieldset</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">td</span>&gt;</span>
- <span class="tag">&lt;<span class="title">td</span>&gt;</span>
- <span class="tag">&lt;<span class="title">fieldset</span>&gt;</span>
- <span class="tag">&lt;<span class="title">legend</span>&gt;</span>oRange2<span class="tag">&lt;/<span class="title">legend</span>&gt;</span>
- Start Container: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtStartContainer2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- Start Offset: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtStartOffset2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- End Container: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtEndContainer2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- End Offset: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtEndOffset2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- Common Ancestor: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtCommonAncestor2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- <span class="tag">&lt;/<span class="title">fieldset</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">td</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
-</pre></figure>
-
-<p>上面的代码将不作注释了，有什么问题，在评论中留言。</p>
-<p>Range中还有一些其它的方法：</p>
-<ul>
-<li>setStartBefore(node) — 设置Range的相对于node节点的起始位置</li>
-<li>setStartAfter(node) — 同上</li>
-<li>setEndBefore — 设置Range的相对于node节点的结束位置</li>
-<li>setEndAfter — 同上</li>
-</ul>
-
+<p>
     
   </div>
   <footer class="end-sep">
     
+      
+        <div class="alignleft">
+          <a href="/2006/09/30/javascript-dom-range-1/#more" class="more-link">Read More</a>
+        </div>
       
       
     
