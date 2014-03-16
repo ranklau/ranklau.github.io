@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T03:17:10.316Z</updated>
+  <updated>2014-03-16T03:17:43.302Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -176,10 +176,10 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     <link href="http://rank.im/2012/09/12/fix-swfupload2.5-part2/"/>
     <id>http://rank.im/2012/09/12/fix-swfupload2.5-part2/</id>
     <published>2012-09-12T03:11:54.000Z</published>
-    <updated>2014-03-16T03:17:06.000Z</updated>
+    <updated>2014-03-16T03:17:36.000Z</updated>
     <content type="html"><![CDATA[<p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 php 的 webserver 下运行。</p>
 <h2 id="-">再遇问题</h2>
-<p>经过上一轮的 SWFUpload 修改，以为完事。但好景不长，最近有人反馈</p>
+<p>经过上一轮的 SWFUpload 修改两周后有人反馈：</p>
 <ul>
 <li>上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；</li>
 <li>其次是上传图片数量到某个阈值就无法上传；</li>
@@ -244,7 +244,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 ]]></content>
     <summary type="html"><![CDATA[<p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 php 的 webserver 下运行。</p>
 <h2 id="-">再遇问题</h2>
-<p>经过上一轮的 SWFUpload 修改，以为完事。但好景不长，最近有人反馈</p>
+<p>经过上一轮的 SWFUpload 修改两周后有人反馈：</p>
 <ul>
 <li>上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；</li>
 <li>其次是上传图片数量到某个阈值就无法上传；</li>
