@@ -619,6 +619,58 @@
   <header>
     
       <div class="icon"></div>
+      <time datetime="2006-09-30T08:36:17.000Z"><a href="/2006/09/30/javascript-dom-range-1/">Sep 30 2006</a></time>
+    
+    
+  
+    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range操作(1)</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <ul>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
+</ul>
+<h2 id="createrange-">createRange 方法</h2>
+<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
+<figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
+</pre></figure>
+
+
+<p>如果你要检测你的浏览器是否支持此标准Range对象，可以用hasFeature()方法来检测：</p>
+<figure class="highlight js"><pre><span class="keyword">var</span> supportsDOMRanges = document.implementation.hasFeature(<span class="string">"Range"</span>, <span class="string">"2.0"</span>);
+<span class="keyword">if</span> (supportsDOMRange) {
+<span class="keyword">var</span> oRange = document.createRange();
+<span class="comment">//range code here</span>
+}
+</pre></figure>
+
+
+<p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2006/09/30/javascript-dom-range-1/#more" class="more-link">Read More</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
       <time datetime="2006-09-30T08:36:17.000Z"><a href="/2006/09/30/javascript-dom-range-2/">Sep 30 2006</a></time>
     
     
@@ -686,7 +738,7 @@
 
 
 <ul>
-<li>文本 Hello 实际上是容器 p1 的孙子节点，所以我们可以用 oP1.firstChild 得到 <b> 元素，</li>
+<li>文本 Hello 实际上是容器 p1 的孙子节点，所以我们可以用 oP1.firstChild 得到 b 元素，</li>
 <li>oP1.firstChild.firstChild 也就是 Hello 文本节点的引用了，而 World 则就是容器 p1 的最后一个节点了。</li>
 </ul>
 <p>下一步，建立range然后设置偏移(offset)：</p>
@@ -706,18 +758,24 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 </ul>
 <p>设置 setEnd() 方法中的偏移为 3，原因同上，需要注意的是 World 前面有一个空格，空格也是占位置的。如图：</p>
 <p><img src="/images/javascript-dom-range/30_141714_domranges3.gif" alt="range demo"></p>
-<p>注意：
-(Mozilla DOM Range bug #135928)在 Mozilla低版本浏览器 执行此Range方法时，如果setStart()和setEnd()都指向同一个文本节点会出现异常。</p>
+<blockquote>
+<p>注意：(Mozilla DOM Range bug #135928)在 Mozilla低版本浏览器 执行此Range方法时，如果 setStart()和 setEnd() 都指向同一个文本节点会出现异常。</p>
+</blockquote>
 <h2 id="-dom-range-">用DOM Range操作</h2>
-<p>当创建一个Range对象时，在Range里的所有对象之上，已经创建了一个文档的fragment节点。在这之前，Range对象必须合格证你选择的这段Range是一个well-formed（格式良好）。
-比如以面这段Range</p>
+<p>当创建一个Range对象时，在Range里的所有对象之上，已经创建了一个文档的fragment节点。
+在这之前，Range对象必须合格证你选择的这段Range是一个well-formed（格式良好）。<br>比如以面这段Range</p>
 <p><img src="/images/javascript-dom-range/30_165636_domranges4.gif" alt="range demo"></p>
-<p>很明显在这里，HTML 并不是一个 well-formed。<br>上面也说过了，当创建一个Range时，会自动产生一个fragment。<br>在这里 framgment 自动动态的添加一些元素，以保证 Range 的正确性：</p>
+<p>在这里HTML 并不是一个 well-formed。<br>上面也说过了，当创建一个 Range 时，会自动产生一个 fragment。<br>在这里 framgment 自动动态的添加一些元素，以保证 Range 的正确性：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 </pre></figure>
 
 
-<p>也就是自动加上了开始标签<b>，使得整个Range变为<b>llo</b> Wo，fragment的示意图为：</p>
+<p>也就是自动加上了开始标签<b>，使得整个Range变为</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> Wo，
+</pre></figure>
+
+
+<p>fragment的示意图为：</p>
 <p><img src="/images/javascript-dom-range/30_170131_domranges5.gif" alt="range demo"></p>
 <p>当此fragment创建后，你就可以用Range的一些方法来操作它了。</p>
 <p>最简单的一个操作就是：deleteContents()方法，这个方法将删除Range选中的部分，在上面的操作之后进行deleteContents()，那么余下的HTML就为：</p>
@@ -726,7 +784,13 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 
 
 <p>之所以加上闭合标签 </b>，上面也说了，也是 Range 为了确保它是 well-formed。</p>
-<p>extractContents() 方法类似于 deleteContents()，但具体操作不同。<br>extractContents()是将选中的Range从DOM树中移到一个fragment中，并返回此fragment，复制下面这些代码然后在Mozilla Firefox里运行，看看结果你就明白了。——删除的<b>llo</b> Wo作为一个fragment被添加到body的末端。</p>
+<p>extractContents() 方法类似于 deleteContents()，但具体操作不同。  </p>
+<p>extractContents()是将选中的Range从DOM树中移到一个fragment中，并返回此fragment，复制下面这些代码然后在Mozilla Firefox里运行，看看结果你就明白了。——删除的</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> Wo
+</pre></figure>
+
+
+<p>作为一个fragment被添加到 body 的末端。</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
 <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
@@ -762,58 +826,6 @@ document.body.appendChild(oFragment);
   </div>
   <footer class="end-sep">
     
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <time datetime="2006-09-30T08:36:17.000Z"><a href="/2006/09/30/javascript-dom-range-1/">Sep 30 2006</a></time>
-    
-    
-  
-    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range操作(1)</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
-</ul>
-<h2 id="createrange-">createRange 方法</h2>
-<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
-<figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
-</pre></figure>
-
-
-<p>如果你要检测你的浏览器是否支持此标准Range对象，可以用hasFeature()方法来检测：</p>
-<figure class="highlight js"><pre><span class="keyword">var</span> supportsDOMRanges = document.implementation.hasFeature(<span class="string">"Range"</span>, <span class="string">"2.0"</span>);
-<span class="keyword">if</span> (supportsDOMRange) {
-<span class="keyword">var</span> oRange = document.createRange();
-<span class="comment">//range code here</span>
-}
-</pre></figure>
-
-
-<p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2006/09/30/javascript-dom-range-1/#more" class="more-link">Read More</a>
-        </div>
       
       
     
