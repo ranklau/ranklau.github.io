@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T09:05:58.053Z</updated>
+  <updated>2014-03-16T09:06:27.584Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -1317,7 +1317,7 @@ bug重现</p>
     <link href="http://rank.im/2006/09/30/javascript-dom-range-1/"/>
     <id>http://rank.im/2006/09/30/javascript-dom-range-1/</id>
     <published>2006-09-30T08:36:17.000Z</published>
-    <updated>2014-03-16T09:05:54.000Z</updated>
+    <updated>2014-03-16T09:06:22.000Z</updated>
     <content type="html"><![CDATA[<p> Javascript标准DOM Range操作(2)
  Javascript标准DOM Range操作(3)</p>
 <h2 id="createrange-">createRange 方法</h2>
@@ -1361,7 +1361,7 @@ oRange2.selectNodeContents(oP1);
 <li>commonAncestorContainer — 返回第一个包含该 Rang e对象的节点。</li>
 </ul>
 <p>注：这些属性均为只读属性(read-only)，startOffset 和 endOffset 将在下文中有较详细的解释。</p>
-<p>下面这段代码将说明这些属性，请在Mozilla firefox里运行（支持此标准的浏览器——DOM2级，IE里将无效）：</p>
+<p>下面这段代码将说明这些属性，请在 Mozilla firefox 里运行（支持此标准的浏览器——DOM 2 级，IE 里将无效）：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">html</span>&gt;</span>
  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
  <span class="tag">&lt;<span class="title">title</span>&gt;</span>DOM Range Example<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
@@ -1439,9 +1439,9 @@ oRange2.selectNodeContents(oP1);
 <p>上面的代码将不作注释了，有什么问题，在评论中留言。</p>
 <p>Range中还有一些其它的方法：</p>
 <ul>
-<li>setStartBefore(node) — 设置Range的相对于node节点的起始位置</li>
+<li>setStartBefore(node) — 设置 Range 的相对于 node 节点的起始位置</li>
 <li>setStartAfter(node) — 同上</li>
-<li>setEndBefore — 设置Range的相对于node节点的结束位置</li>
+<li>setEndBefore — 设置 Range 的相对于 node 节点的结束位置</li>
 <li>setEndAfter — 同上</li>
 </ul>
 ]]></content>
