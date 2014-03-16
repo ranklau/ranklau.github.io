@@ -52,6 +52,47 @@
   <header>
     
       <div class="icon"></div>
+      <time datetime="2010-08-29T06:09:15.000Z"><a href="/2010/08/29/simulate-dom-inspect-effect/">Aug 29 2010</a></time>
+    
+    
+  
+    <h1 class="title"><a href="/2010/08/29/simulate-dom-inspect-effect/">模拟里firebug的 DOM inspect 功能</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h2 id="-">常规思路</h2>
+<p>在firefox里如何实现firebug的DOM inspect选择功能?</p>
+<ul>
+<li>首先，我们会document里添加mouseover事件时在HTMLElement上飘一个absolute的容器，设置border。</li>
+<li>接着，mousedown，这个 absolute 的元素隐藏；</li>
+<li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
+</ul>
+<p>可这样是不是真的能做到呢？
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2010/08/29/simulate-dom-inspect-effect/#more" class="more-link">Read More</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+
+  <article class="post">
+  <header>
+    
+      <div class="icon"></div>
       <time datetime="2008-12-20T17:04:33.000Z"><a href="/2008/12/21/ie6-ssl-ajax-trouble/">Dec 21 2008</a></time>
     
     
@@ -430,7 +471,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/life/">life</a><small>1</small></li>
+    <li><a href="/categories/life/">life</a><small>2</small></li>
   
     <li><a href="/categories/tech/">tech</a><small>16</small></li>
   
