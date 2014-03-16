@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T13:57:11.366Z</updated>
+  <updated>2014-03-16T13:59:18.744Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -1716,164 +1716,160 @@ alert(oRange1.compareBoundaryPoints(Range.END_TO_END, oRange2));
   </entry>
   
   <entry>
-    <title><![CDATA[Javascript 标准 DOM Range操作(1)]]></title>
-    <link href="http://rank.im/2006/09/30/javascript-dom-range-1/"/>
-    <id>http://rank.im/2006/09/30/javascript-dom-range-1/</id>
+    <title><![CDATA[Javascript 标准 DOM Range操作(2)]]></title>
+    <link href="http://rank.im/2006/09/30/javascript-dom-range-2/"/>
+    <id>http://rank.im/2006/09/30/javascript-dom-range-2/</id>
     <published>2006-09-30T08:36:17.000Z</published>
-    <updated>2014-03-16T12:33:14.000Z</updated>
+    <updated>2014-03-16T13:10:01.000Z</updated>
     <content type="html"><![CDATA[<ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
 <li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
 </ul>
-<h2 id="createrange-">createRange 方法</h2>
-<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
-<figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
-</pre></figure>
+<h2 id="-dom-range">复杂DOM Range</h2>
+<p>建立复杂的 DOM range 需要使用 setStart() 和 setEnd() 两个方法。
+这两个方法有两个参数：</p>
+<ul>
+<li>一个参数是一个节点 (node)引用；</li>
+<li>另一个参数是偏移量 (offset)。</li>
+</ul>
+<p>这两个方法的功能：</p>
+<ul>
+<li>setStart(node, offset) 节点的引用是 startContainer，偏移则是 startOffset；</li>
+<li>setEnd(node, offset) 节点引用为 endContainer，偏移就是 endOffset。</li>
+</ul>
+<a id="more"></a>
 
-
-<p>如果你要检测你的浏览器是否支持此标准Range对象，可以用hasFeature()方法来检测：</p>
-<figure class="highlight js"><pre><span class="keyword">var</span> supportsDOMRanges = document.implementation.hasFeature(<span class="string">"Range"</span>, <span class="string">"2.0"</span>);
-<span class="keyword">if</span> (supportsDOMRange) {
-	<span class="keyword">var</span> oRange = document.createRange();
-	<span class="comment">//range code here</span>
+<p>使用这两个方法与 selectNode() 和 selectNodeContents() 方法相似。<br>比如下面 useRanges() 函数的前一个示例，可以使用 setStart() 和 setEnd():</p>
+<figure class="highlight js"><pre><span class="function"><span class="keyword">function</span> <span class="title">useRanges</span><span class="params">()</span> {</span>
+	<span class="keyword">var</span> oRange1 = document.createRange();
+	<span class="keyword">var</span> oRange2 = document.createRange();
+	<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+	<span class="keyword">var</span> iP1Index = -<span class="number">1</span>;
+	<span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; oP1.parentNode.childNodes.length; i++) {
+		<span class="keyword">if</span> (oP1.parentNode.childNodes[i] == oP1) {
+			iP1Index = i;
+			<span class="keyword">break</span>;
+		}
+	}
+	
+	oRange1.setStart(oP1.parentNode, iP1Index);
+	oRange1.setEnd(oP1.parentNode, iP1Index + <span class="number">1</span>);
+	oRange2.setStart(oP1, <span class="number">0</span>);
+	oRange2.setEnd(oP1, oP1.childNodes.length);
+	<span class="comment">//textbox assignments here</span>
 }
 </pre></figure>
 
 
-<p><a id="more"></a></p>
-<h2 id="-range-">用Range对象进行简单的选择</h2>
-<p>最简单用 Range 进行选择，用 selectNode() 或者 selectNodeContents() 方法，这两个方法
-只有 1 个接收参数， 1 个 DOM 节点。</p>
-<p>selectNode()方法选择全部节点，包括它的孩子，而selectNodeContents()选择的节点只是它的孩子：</p>
+<p>注意，这个选择节点时的代码 (oRange1)，你必须指定 oP1 父节点里所有 childNodes 集合里的一个索引。<br>而选择内容时的代码 (oRange2)，则不需要额外考虑。</p>
+<ul>
+<li>从刚才的例子来从这段HTML里&lt;p id=&quot;p1&quot;&gt;&lt;b&gt;Hello&lt;/b&gt; World&lt;/p&gt;</li>
+<li>选择从 「hello」 中的 「llo」 开始到从 「World」 中的 「Wo」 开始的 Range，我们用setStart()和setEnd()，很容易就做到了。</li>
+</ul>
+<p>首先，我们必须用常规的 DOM 方法得到文本节点的引用还有就是容器 p1 的引用。</p>
+<figure class="highlight js"><pre><span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+</pre></figure>
+
+
+
+<ul>
+<li>文本 Hello 实际上是容器 p1 的孙子节点，所以我们可以用 oP1.firstChild 得到 &lt;b&gt;</li>
+<li>oP1.firstChild.firstChild 也就是 「Hello」 文本节点的引用了，而 「World」 则就是容器 p1 的最后一个节点了。</li>
+</ul>
+<p>下一步，创建 Range 然后设置偏移 (offset)：</p>
+<figure class="highlight js"><pre><span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+<span class="keyword">var</span> oRange = document.createRange();
+oRange.setStart(oHello, <span class="number">2</span>);
+oRange.setEnd(oWorld, <span class="number">3</span>);
+</pre></figure>
+
+
+<ul>
+<li>用 setStart() 偏移 (offset)为 2。<br>因为字母 l 在该文本节点中 (即 Hello 中) 的位置是 2，(位置是从 0 开始计算的)，</li>
+<li>用 setEnd() 的偏移 (offset) 为 3。<br>原因同上，需要注意的是 World 前面有一个空格，空格也是占位置的。如图：</li>
+</ul>
+<p><img src="/images/javascript-dom-range/30_141714_domranges3.gif" alt=""></p>
+<blockquote>
+<p>注意：(Mozilla DOM Range bug #135928)在 Mozilla低版本浏览器 执行此Range方法时，如果 setStart()和 setEnd() 都指向同一个文本节点会出现异常。</p>
+</blockquote>
+<h2 id="-dom-range-">用DOM Range操作</h2>
+<p>当创建一个 Range 对象时，在 Range 里的所有对象之上，已经创建了一个文档的 fragment 节点。<br>在这之前，Range 对象必须合格证你选择的这段 Range 是一个 well-formed（格式良好）。<br>比如以面这段 Range：</p>
+<p><img src="/images/javascript-dom-range/30_165636_domranges4.gif" alt=""></p>
+<p>在这里 HTML 并不是一个 well-formed。<br>上面也说过，当创建一个 Range 时，会自动产生一个 fragment。<br>在这里 framgment 自动动态的添加一些元素，以保证 Range 的正确性：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</pre></figure>
+
+
+<p>也就是自动加上了开始标签「&lt;b&gt;」，使得整个 Range 变为：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> Wo，
+</pre></figure>
+
+
+<p>fragment 的示意图：</p>
+<p><img src="/images/javascript-dom-range/30_170131_domranges5.gif" alt=""></p>
+<p>fragment 创建后，你就可以用 Range 的一些方法来操作它了。</p>
+<p>最简单的一个操作就是：<br>deleteContents() 方法，这个方法将删除 Range 选中的部分，在上面的操作之后进行 deleteContents()，那么余下的 HTML 就为：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span>rld<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</pre></figure>
+
+
+<p>之所以加上闭合标签 &lt;/b&gt;，上面也说了，也是 Range 为了确保它是 well-formed。</p>
+<p>extractContents() 方法类似于 deleteContents()，但具体操作不同。<br>extractContents()是将选中的Range从DOM树中移到一个fragment中，并返回此fragment，复制下面这些代码然后在Mozilla Firefox里运行，看看结果你就明白了。——删除的「&lt;b&gt;llo&lt;/b&gt; Wo」作为一个fragment被添加到 body 的末端。</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
-<span class="keyword">var</span> oRange1 = document.createRange();
-<span class="keyword">var</span> oRange2 = document.createRange();
 <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
-oRange1.selectNode(oP1);
-oRange2.selectNodeContents(oP1);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+<span class="keyword">var</span> oRange = document.createRange();
+oRange.setStart(oHello, <span class="number">2</span>);
+oRange.setEnd(oWorld, <span class="number">3</span>);
+<span class="keyword">var</span> oFragment = oRange.extractContents();
+document.body.appendChild(oFragment);
 </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 </pre></figure>
 
-<p>oRange1 和 oRange2 包含上面所说的两种方法，看了下面的示图相信你能很快明白这两个方法的区别：</p>
-<p><img src="/images/javascript-dom-range/30_160954_domranges1.gif" alt="range demo"></p>
-<p>当你创建了一个 Range 对象时，Range 实例会有以下的属性：</p>
-<ul>
-<li>startContainer — 返回 Range 对象从何开始的节点对象（父节点的第一个节点）</li>
-<li>startOffset — 返回 Range 开始的偏移量(offset)。<ul>
-<li>如果 startContainer 是一个文本节点、注释节点、或者是 CDATA 节点；</li>
-<li>这个属性返回文本的偏移量，否则返回第一个节点的索引(index)。</li>
-</ul>
-</li>
-<li>endCOntainer — 返回 Range 对象最后一个节点对象（父节点的最后一个节点）</li>
-<li>endOffset — 返回 Range 结束时的偏移量(offset)特性与 startOffset 相同。</li>
-<li>commonAncestorContainer — 返回第一个包含该 Range 对象的节点。</li>
-</ul>
-<p>注：这些属性均为只读属性(read-only)，startOffset 和 endOffset 将在下文中有较详细的解释。</p>
-<p>下面这段代码将说明这些属性，请在 Mozilla firefox 里运行（支持此标准的浏览器——DOM 2 级，IE 里将无效）：</p>
-<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">html</span>&gt;</span>
- <span class="tag">&lt;<span class="title">head</span>&gt;</span>
- <span class="tag">&lt;<span class="title">title</span>&gt;</span>DOM Range Example<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
- <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
- <span class="function"><span class="keyword">function</span> <span class="title">useRanges</span><span class="params">()</span> {</span>
-	 <span class="keyword">var</span> oRange1 = document.createRange();
-	 <span class="keyword">var</span> oRange2 = document.createRange();
-	 <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
-	 oRange1.selectNode(oP1);
-	 oRange2.selectNodeContents(oP1);
-	 
-	 document.getElementById(<span class="string">"txtStartContainer1"</span>).value 
-	    = oRange1.startContainer.tagName;
-	 document.getElementById(<span class="string">"txtStartOffset1"</span>).value = 
-	    oRange1.startOffset;
-	 document.getElementById(<span class="string">"txtEndContainer1"</span>).value = 
-	    oRange1.endContainer.tagName;
-	 document.getElementById(<span class="string">"txtEndOffset1"</span>).value = 
-	    oRange1.endOffset;
-	 document.getElementById(<span class="string">"txtCommonAncestor1"</span>).value = 
-	    oRange1.commonAncestorContainer.tagName;
-	 document.getElementById(<span class="string">"txtStartContainer2"</span>).value = 
-	    oRange2.startContainer.tagName;
-	 document.getElementById(<span class="string">"txtStartOffset2"</span>).value = 
-	    oRange2.startOffset;
-	 document.getElementById(<span class="string">"txtEndContainer2"</span>).value = 
-	    oRange2.endContainer.tagName;
-	 document.getElementById(<span class="string">"txtEndOffset2"</span>).value = 
-	    oRange2.endOffset;
-	 document.getElementById(<span class="string">"txtCommonAncestor2"</span>).value = 
-	    oRange2.commonAncestorContainer.tagName;
-}
- </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
- <span class="tag">&lt;<span class="title">body</span>&gt;</span><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
- <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"Use Ranges"</span> <span class="attribute">onclick</span>=<span class="value">"useRanges()"</span> /&gt;</span> 
- <span class="tag">&lt;<span class="title">table</span> <span class="attribute">border</span>=<span class="value">"0"</span>&gt;</span>
- <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
- <span class="tag">&lt;<span class="title">td</span>&gt;</span>
- <span class="tag">&lt;<span class="title">fieldset</span>&gt;</span>
- <span class="tag">&lt;<span class="title">legend</span>&gt;</span>oRange1<span class="tag">&lt;/<span class="title">legend</span>&gt;</span>
- Start Container: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtStartContainer1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- Start Offset: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtStartOffset1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- End Container: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtEndContainer1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- End Offset: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtEndOffset1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- Common Ancestor: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtCommonAncestor1"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span> 
- <span class="tag">&lt;/<span class="title">fieldset</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">td</span>&gt;</span>
- <span class="tag">&lt;<span class="title">td</span>&gt;</span>
- <span class="tag">&lt;<span class="title">fieldset</span>&gt;</span>
- <span class="tag">&lt;<span class="title">legend</span>&gt;</span>oRange2<span class="tag">&lt;/<span class="title">legend</span>&gt;</span>
- Start Container: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtStartContainer2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- Start Offset: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtStartOffset2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- End Container: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtEndContainer2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- End Offset: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtEndOffset2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- Common Ancestor: 
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"txtCommonAncestor2"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span>
- <span class="tag">&lt;/<span class="title">fieldset</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">td</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+
+<p>cloneContents() 方法可以克隆选中 Range 的fragment，比如：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+<span class="keyword">var</span> oRange = document.createRange();
+oRange.setStart(oHello, <span class="number">2</span>);
+oRange.setEnd(oWorld, <span class="number">3</span>);
+<span class="keyword">var</span> oFragment = oRange.cloneContents();
+document.body.appendChild(oFragment);
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 </pre></figure>
 
-<p>上面的代码将不作注释了，有什么问题，在评论中留言。</p>
-<p>Range 中还有一些其它的方法：</p>
+
+<p>这个方法类似于extractContents()，但是不是删除，而是克隆。</p>
 <ul>
-<li>setStartBefore(node) — 设置 Range 的相对于 node 节点的起始位置</li>
-<li>setStartAfter(node) — 同上</li>
-<li>setEndBefore — 设置 Range 的相对于 node 节点的结束位置</li>
-<li>setEndAfter — 同上</li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
 </ul>
 ]]></content>
     <summary type="html"><![CDATA[<ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
 <li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
 </ul>
-<h2 id="createrange-">createRange 方法</h2>
-<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
-<figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
-</pre></figure>
-
-
-<p>如果你要检测你的浏览器是否支持此标准Range对象，可以用hasFeature()方法来检测：</p>
-<figure class="highlight js"><pre><span class="keyword">var</span> supportsDOMRanges = document.implementation.hasFeature(<span class="string">"Range"</span>, <span class="string">"2.0"</span>);
-<span class="keyword">if</span> (supportsDOMRange) {
-	<span class="keyword">var</span> oRange = document.createRange();
-	<span class="comment">//range code here</span>
-}
-</pre></figure>
-
-
-<p>]]></summary>
+<h2 id="-dom-range">复杂DOM Range</h2>
+<p>建立复杂的 DOM range 需要使用 setStart() 和 setEnd() 两个方法。
+这两个方法有两个参数：</p>
+<ul>
+<li>一个参数是一个节点 (node)引用；</li>
+<li>另一个参数是偏移量 (offset)。</li>
+</ul>
+<p>这两个方法的功能：</p>
+<ul>
+<li>setStart(node, offset) 节点的引用是 startContainer，偏移则是 startOffset；</li>
+<li>setEnd(node, offset) 节点引用为 endContainer，偏移就是 endOffset。</li>
+</ul>
+]]></summary>
     
       <category term="tech" scheme="http://rank.im/categories/tech/"/>
     
