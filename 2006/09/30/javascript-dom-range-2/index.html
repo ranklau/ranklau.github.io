@@ -148,13 +148,13 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 <li>用 setStart() 偏移 (offset)为 2。<br>因为字母 l 在该文本节点中 (即 Hello 中) 的位置是 2，(位置是从 0 开始计算的)，</li>
 <li>用 setEnd() 的偏移 (offset) 为 3。<br>原因同上，需要注意的是 World 前面有一个空格，空格也是占位置的。如图：</li>
 </ul>
-<p><img src="/images/javascript-dom-range/30_141714_domranges3.gif" alt="range demo"></p>
+<p><img src="/images/javascript-dom-range/30_141714_domranges3.gif" alt=""></p>
 <blockquote>
 <p>注意：(Mozilla DOM Range bug #135928)在 Mozilla低版本浏览器 执行此Range方法时，如果 setStart()和 setEnd() 都指向同一个文本节点会出现异常。</p>
 </blockquote>
 <h2 id="-dom-range-">用DOM Range操作</h2>
 <p>当创建一个 Range 对象时，在 Range 里的所有对象之上，已经创建了一个文档的 fragment 节点。<br>在这之前，Range 对象必须合格证你选择的这段 Range 是一个 well-formed（格式良好）。<br>比如以面这段 Range：</p>
-<p><img src="/images/javascript-dom-range/30_165636_domranges4.gif" alt="range demo"></p>
+<p><img src="/images/javascript-dom-range/30_165636_domranges4.gif" alt=""></p>
 <p>在这里 HTML 并不是一个 well-formed。<br>上面也说过，当创建一个 Range 时，会自动产生一个 fragment。<br>在这里 framgment 自动动态的添加一些元素，以保证 Range 的正确性：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 </pre></figure>
@@ -166,7 +166,7 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 
 
 <p>fragment的示意图为：</p>
-<p><img src="/images/javascript-dom-range/30_170131_domranges5.gif" alt="range demo"></p>
+<p><img src="/images/javascript-dom-range/30_170131_domranges5.gif" alt=""></p>
 <p>fragment 创建后，你就可以用 Range 的一些方法来操作它了。</p>
 <p>最简单的一个操作就是：<br>deleteContents()方法，这个方法将删除Range选中的部分，在上面的操作之后进行 deleteContents()，那么余下的HTML就为：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span>rld<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
