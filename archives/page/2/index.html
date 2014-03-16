@@ -251,10 +251,11 @@
 这两个方法有两个参数：</p>
 <ul>
 <li>一个参数是一个节点(node)引用；</li>
-<li><p>另一个参数是偏移量(offset)。</p>
-</li>
-<li><p>setStart 方法节点的引用是startContainer，偏移则是startOffset；</p>
-</li>
+<li>另一个参数是偏移量(offset)。</li>
+</ul>
+<p>这两个方法的功能：</p>
+<ul>
+<li>setStart 方法节点的引用是startContainer，偏移则是startOffset；</li>
 <li>setEnd() 方法时，节点引用为endContainer，偏移就是endOffset。</li>
 </ul>
 <p>使用这两个方法与 selectNode() 和 selectNodeContents() 方法相似。<br>比如，下面的 useRanges() 函数的前一个示例，可以使用 setStart() 和 setEnd():</p>
@@ -280,9 +281,13 @@
 
 <p>注意，这个选择节点时的代码(oRange1)，你必须指定oP1父节点里所有childNodes集合里的一个索引。<br>而选择内容时的代码(oRange2)，则不需要额外的考虑，</p>
 <ul>
-<li>从刚才的例子来从这段HTML里
-  (code <p id="p1"><b>Hello</b> World</p>)  </li>
-<li>选择从hello中的llo开始到从World中的Wo开始的Range，我们用setStart()和setEnd()，很容易就可以做到。</li>
+<li><p>从刚才的例子来从这段HTML里</p>
+  <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>  
+
+</pre></figure>
+</li>
+<li><p>选择从hello中的llo开始到从World中的Wo开始的Range，我们用setStart()和setEnd()，很容易就可以做到。</p>
+</li>
 </ul>
 <p>首先，我们必须用常规的 DOM 方法得到文本节点的引用还有就是容器 p1 的引用。</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
