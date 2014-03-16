@@ -215,33 +215,33 @@ alert(oRange1.compareBoundaryPoints(Range.END_TO_END, oRange2));
 
 <p>下面一个示例在Mozilla中，利用Range可以模拟出IE中的element.insertAdjacentHTML()方法，</p>
 <figure class="highlight js"><pre><span class="keyword">if</span> (browser.isMozilla) {
- HTMLElement.prototype.insertAdjacentHTML = <span class="function"><span class="keyword">function</span> <span class="params">(sWhere, sHTML)</span> {</span>
- <span class="keyword">var</span> df; <span class="keyword">var</span> r = <span class="keyword">this</span>.ownerDocument.createRange();
- <span class="keyword">switch</span> (<span class="built_in">String</span>(sWhere).toLowerCase()) {
- <span class="keyword">case</span> <span class="string">"beforebegin"</span>:
- r.setStartBefore(<span class="keyword">this</span>);
- df = r.createContextualFragment(sHTML);
- <span class="keyword">this</span>.parentNode.insertBefore(df, <span class="keyword">this</span>);
- <span class="keyword">break</span>;
- <span class="keyword">case</span> <span class="string">"afterbegin"</span>:
- r.selectNodeContents(<span class="keyword">this</span>);
- r.collapse(<span class="literal">true</span>);
- df = r.createContextualFragment(sHTML);
- <span class="keyword">this</span>.insertBefore(df, <span class="keyword">this</span>.firstChild);
- <span class="keyword">break</span>;
- <span class="keyword">case</span> <span class="string">"beforeend"</span>:
- r.selectNodeContents(<span class="keyword">this</span>);
- r.collapse(<span class="literal">false</span>);
- df = r.createContextualFragment(sHTML);
- <span class="keyword">this</span>.appendChild(df);
- <span class="keyword">break</span>;
- <span class="keyword">case</span> <span class="string">"afterend"</span>:
- r.setStartAfter(<span class="keyword">this</span>);
- df = r.createContextualFragment(sHTML);
- <span class="keyword">this</span>.parentNode.insertBefore(df, <span class="keyword">this</span>.nextSibling);
- <span class="keyword">break</span>;
- }
- };
+	 HTMLElement.prototype.insertAdjacentHTML = <span class="function"><span class="keyword">function</span> <span class="params">(sWhere, sHTML)</span> {</span>
+		 <span class="keyword">var</span> df; <span class="keyword">var</span> r = <span class="keyword">this</span>.ownerDocument.createRange();
+		 <span class="keyword">switch</span> (<span class="built_in">String</span>(sWhere).toLowerCase()) {
+			 <span class="keyword">case</span> <span class="string">"beforebegin"</span>:
+				 r.setStartBefore(<span class="keyword">this</span>);
+				 df = r.createContextualFragment(sHTML);
+				 <span class="keyword">this</span>.parentNode.insertBefore(df, <span class="keyword">this</span>);
+			 	<span class="keyword">break</span>;
+			 <span class="keyword">case</span> <span class="string">"afterbegin"</span>:
+			 	r.selectNodeContents(<span class="keyword">this</span>);
+				r.collapse(<span class="literal">true</span>);
+			 	df = r.createContextualFragment(sHTML);
+				 <span class="keyword">this</span>.insertBefore(df, <span class="keyword">this</span>.firstChild);
+				 <span class="keyword">break</span>;
+			 <span class="keyword">case</span> <span class="string">"beforeend"</span>:
+				 r.selectNodeContents(<span class="keyword">this</span>);
+				 r.collapse(<span class="literal">false</span>);
+				 df = r.createContextualFragment(sHTML);
+				 <span class="keyword">this</span>.appendChild(df);
+				 <span class="keyword">break</span>;
+			 <span class="keyword">case</span> <span class="string">"afterend"</span>:
+				 r.setStartAfter(<span class="keyword">this</span>);
+				 df = r.createContextualFragment(sHTML);
+				 <span class="keyword">this</span>.parentNode.insertBefore(df, <span class="keyword">this</span>.nextSibling);
+				 <span class="keyword">break</span>;
+		 }
+	 };
 }
 </pre></figure>
 
@@ -289,6 +289,8 @@ alert(oRange1.compareBoundaryPoints(Range.END_TO_END, oRange2));
 <div class="widget tag first">
   <h3 class="title">Categories</h3>
   <ul class="entry">
+  
+    <li><a href="/categories/life/">life</a><small>1</small></li>
   
     <li><a href="/categories/tech/">tech</a><small>16</small></li>
   
