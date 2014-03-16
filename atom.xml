@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T09:06:27.584Z</updated>
+  <updated>2014-03-16T09:10:32.029Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -1317,9 +1317,11 @@ bug重现</p>
     <link href="http://rank.im/2006/09/30/javascript-dom-range-1/"/>
     <id>http://rank.im/2006/09/30/javascript-dom-range-1/</id>
     <published>2006-09-30T08:36:17.000Z</published>
-    <updated>2014-03-16T09:06:22.000Z</updated>
-    <content type="html"><![CDATA[<p> Javascript标准DOM Range操作(2)
- Javascript标准DOM Range操作(3)</p>
+    <updated>2014-03-16T09:10:27.000Z</updated>
+    <content type="html"><![CDATA[<ul>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
+</ul>
 <h2 id="createrange-">createRange 方法</h2>
 <p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
@@ -1350,15 +1352,19 @@ oRange2.selectNodeContents(oP1);
 </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 </pre></figure>
 
-<p>oRange1 和 oRange2 包含上面所说的两种方法，但是看了下面的示图相信你能很快明白这两个方法的区别：
-<img src="/images/javascript-dom-range/30_160954_domranges1.gif" alt="image"></p>
-<p>当你创建了一个Range对象时，Range实例就会有以下的属性：</p>
+<p>oRange1 和 oRange2 包含上面所说的两种方法，看了下面的示图相信你能很快明白这两个方法的区别：</p>
+<p><img src="/images/javascript-dom-range/30_160954_domranges1.gif" alt="range demo"></p>
+<p>当你创建了一个 Range 对象时，Range 实例会有以下的属性：</p>
 <ul>
 <li>startContainer — 返回 Range 对象从何开始的节点对象（父节点的第一个节点）</li>
-<li>startOffset — 返回 Range 开始的偏移量(offset)，如果 startContainer 是一个文本节点，注释节点，或者是 CDATA 节点，这个属性返回文本的偏移量，否则返回第一个节点的索引。</li>
+<li>startOffset — 返回 Range 开始的偏移量(offset)。<ul>
+<li>如果 startContainer 是一个文本节点、注释节点、或者是 CDATA 节点；</li>
+<li>这个属性返回文本的偏移量，否则返回第一个节点的索引(index)。</li>
+</ul>
+</li>
 <li>endCOntainer — 返回 Range 对象最后一个节点对象（父节点的最后一个节点）</li>
 <li>endOffset — 返回 Range 结束时的偏移量(offset)特性与 startOffset 相同。</li>
-<li>commonAncestorContainer — 返回第一个包含该 Rang e对象的节点。</li>
+<li>commonAncestorContainer — 返回第一个包含该 Range 对象的节点。</li>
 </ul>
 <p>注：这些属性均为只读属性(read-only)，startOffset 和 endOffset 将在下文中有较详细的解释。</p>
 <p>下面这段代码将说明这些属性，请在 Mozilla firefox 里运行（支持此标准的浏览器——DOM 2 级，IE 里将无效）：</p>
@@ -1445,8 +1451,10 @@ oRange2.selectNodeContents(oP1);
 <li>setEndAfter — 同上</li>
 </ul>
 ]]></content>
-    <summary type="html"><![CDATA[<p> Javascript标准DOM Range操作(2)
- Javascript标准DOM Range操作(3)</p>
+    <summary type="html"><![CDATA[<ul>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
+</ul>
 <h2 id="createrange-">createRange 方法</h2>
 <p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
