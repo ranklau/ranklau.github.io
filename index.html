@@ -205,11 +205,62 @@
   <header>
     
       <div class="icon"></div>
-      <time datetime="2012-08-18T07:08:51.000Z"><a href="/2012/08/18/fix-swfupload2.5/">Aug 18 2012</a></time>
+      <time datetime="2012-09-12T03:11:54.000Z"><a href="/2012/09/12/fix-swfupload2.5-part2/">Sep 12 2012</a></time>
     
     
   
-    <h1 class="title"><a href="/2012/08/18/fix-swfupload2.5/">SWFUpload 2.5 bug修改日志</a></h1>
+    <h1 class="title"><a href="/2012/09/12/fix-swfupload2.5-part2/">SWFUpload 2.5 bug修改日志II</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 php 的 webserver 下运行。</p>
+<h2 id="-">再遇问题</h2>
+<p>经过上一轮的 SWFUpload 修改，以为完事。但好景不长，最近有人反馈</p>
+<ul>
+<li>上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；</li>
+<li>其次是上传图片数量到某个阈值就无法上传；</li>
+</ul>
+<p>Debug了一个下午，发现：</p>
+<ul>
+<li>问题 1 上传速度慢的问题，只存在IE里。<ul>
+<li>我也觉得很奇怪，为什么flash的性能还和浏览器有差别</li>
+</ul>
+</li>
+<li>问题 2 不是flash的问题，与脚本使用有关<ul>
+<li>经查问题发现 flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work；</li>
+</ul>
+</li>
+</ul>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2012/09/12/fix-swfupload2.5-part2/#more" class="more-link">Read More</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+
+  <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <time datetime="2012-08-18T07:08:51.000Z"><a href="/2012/08/18/fix-swfupload2.5-part1/">Aug 18 2012</a></time>
+    
+    
+  
+    <h1 class="title"><a href="/2012/08/18/fix-swfupload2.5-part1/">SWFUpload 2.5 bug修改日志I</a></h1>
   
 
   </header>
@@ -240,7 +291,7 @@
     
       
         <div class="alignleft">
-          <a href="/2012/08/18/fix-swfupload2.5/#more" class="more-link">Read More</a>
+          <a href="/2012/08/18/fix-swfupload2.5-part1/#more" class="more-link">Read More</a>
         </div>
       
       
@@ -416,47 +467,6 @@
 
 
 
-  <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <time datetime="2008-11-24T12:34:57.000Z"><a href="/2008/11/24/radio-list-user-experience-detail/">Nov 24 2008</a></time>
-    
-    
-  
-    <h1 class="title"><a href="/2008/11/24/radio-list-user-experience-detail/">radio list的用户体验细节</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>radio list的用户体验细节相当赞：</p>
-<ul>
-<li>可支持方向键</li>
-<li>当radio最后一个选中时，按小键盘后会自动跳回第一个</li>
-<li>checked可自动触发onclick</li>
-<li>支持各种浏览器,cross-browser</li>
-</ul>
-<p>用这个特性，可以做一个无障碍的TabView:)</p>
-<p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2008/11/24/radio-list-user-experience-detail/#more" class="more-link">Read More</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-
 
 <nav id="pagination">
   
@@ -478,7 +488,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/tech/">tech</a><small>12</small></li>
+    <li><a href="/categories/tech/">tech</a><small>13</small></li>
   
   </ul>
 </div>
@@ -511,7 +521,7 @@
       </li>
     
       <li>
-        <a href="/2012/08/18/fix-swfupload2.5/">SWFUpload 2.5 bug修改日志</a>
+        <a href="/2012/09/12/fix-swfupload2.5-part2/">SWFUpload 2.5 bug修改日志II</a>
       </li>
     
   </ul>

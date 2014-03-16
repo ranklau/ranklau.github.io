@@ -4,20 +4,29 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>IE6 SP1+SSL+AJAX(XMLHttpRequest)=trouble | rank&#39;s blog</title>
+  <title>SWFUpload 2.5 bug修改日志II | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
-  <meta name="description" content="问题描述
-在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。网上有不少人遇到了这困惑的状态码。
-说明
+  <meta name="description" content="在github上我放了一个修改版，有兴趣的同学可以测试下性能。需要注意的是，要在支持 php 的 webserver 下运行。
+再遇问题
+经过上一轮的 SWFUpload 修改，以为完事。但好景不长，最近有人反馈
 
-Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。
-IE 7以下对 SSL (即 HTTPS) 的支持不够好。">
+上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；
+其次是上传图片数量到某个阈值就无法上传；
+
+Debug了一个下午，发现：
+
+问题 1 上传速度慢的问题，只存在IE里。
+我也觉得很奇怪，为什么flash的性能还和浏览器有差别
+
+
+问题 2 不是flash的问题，与脚本使用有关
+经查问题发现 flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work；">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <meta property="og:title" content="IE6 SP1+SSL+AJAX(XMLHttpRequest)=trouble"/>
+  <meta property="og:title" content="SWFUpload 2.5 bug修改日志II"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -58,61 +67,80 @@ IE 7以下对 SSL (即 HTTPS) 的支持不够好。">
   <header>
     
       <div class="icon"></div>
-      <time datetime="2008-12-20T17:04:33.000Z"><a href="/2008/12/21/ie6-ssl-ajax-trouble/">Dec 21 2008</a></time>
+      <time datetime="2012-09-12T03:11:54.000Z"><a href="/2012/09/12/fix-swfupload2.5-part2/">Sep 12 2012</a></time>
     
     
   
-    <h1 class="title">IE6 SP1+SSL+AJAX(XMLHttpRequest)=trouble</h1>
+    <h1 class="title">SWFUpload 2.5 bug修改日志II</h1>
   
 
   </header>
   
   <div class="entry">
     
-      <h2 id="-">问题描述</h2>
-<p>在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank">网上</a>有不少人遇到了这困惑的状态码。</p>
-<p>说明</p>
+      <p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 php 的 webserver 下运行。</p>
+<h2 id="-">再遇问题</h2>
+<p>经过上一轮的 SWFUpload 修改，以为完事。但好景不长，最近有人反馈</p>
 <ul>
-<li>Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。</li>
-<li>IE 7以下对 SSL (即 HTTPS) 的支持不够好。</li>
+<li>上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；</li>
+<li>其次是上传图片数量到某个阈值就无法上传；</li>
 </ul>
-<a id="more"></a>
-
-
-<h2 id="-">解决方案</h2>
-<p>考虑</p>
+<p>Debug了一个下午，发现：</p>
 <ul>
-<li>如上述的情况基数人群很少，那可考虑短时间内不解决此问题。</li>
-<li>要解决而我们又不想彻底的抛弃AJAX，该怎么办。<ul>
-<li>因为我们不仅仅只有IE 6，还有 IE 7和IE 8。</li>
-<li>所以不能因为IE 6 SP1或某些奇怪版本的 IE 用户而摒弃 AJAX）</li>
+<li>问题 1 上传速度慢的问题，只存在IE里。<ul>
+<li>我也觉得很奇怪，为什么flash的性能还和浏览器有差别</li>
+</ul>
+</li>
+<li>问题 2 不是flash的问题，与脚本使用有关<ul>
+<li>经查问题发现 flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work；</li>
 </ul>
 </li>
 </ul>
-<p>要解决此问题，可以想</p>
+<a id="more"></a>
+
+<h2 id="-">改造以及测试</h2>
+<p>随之，经过一系列的调试和全系列机器环境测试：</p>
 <ul>
-<li>把无刷新页面看做是一个与服务器沟通的桥梁的话，这座桥除了用XMLHttpRequest之外。</li>
-<li>还可以用iframe。形成一个 connection 的 adapter。</li>
+<li>测试环境在 flash player 版本都是11+；</li>
+<li>在 mac 下的最新版safari, chrome, firefox 和 win xp， win 7 下的 IE 6, 7, 8；</li>
+<li>测试图片由5616 × 3744 5M及3888 × 2592px的图组成；</li>
+<li>由原图压缩成1000*1000的图；质量90。</li>
 </ul>
-<p>除此之外可以将 AJAX 加一个比较快速的 「重试」（retry）方案：</p>
-<figure class="highlight js"><pre>      <span class="keyword">switch</span>(<span class="keyword">this</span>.requestor.status)
-      {
-        <span class="keyword">case</span> <span class="number">12029</span>:
-        <span class="keyword">case</span> <span class="number">12030</span>:
-        <span class="keyword">case</span> <span class="number">12031</span>:
-        <span class="keyword">case</span> <span class="number">12152</span>:
-        <span class="keyword">case</span> <span class="number">12159</span>:
-          <span class="comment">// fixed ie ssl bug, retry send data</span>
-          <span class="keyword">var</span> loader = <span class="keyword">this</span>;
-          setTimeout( <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> loader.execute.call(loader); }, <span class="number">10</span>);
-          <span class="keyword">break</span>;
-          
-        <span class="keyword">default</span>:
-          <span class="keyword">this</span>.onError(<span class="keyword">this</span>);
-      }
-</pre></figure>
-
-
+<p>我用了多种异步 JPEGencode 的库，发现还是 alchemy 的效率比较好，所以只列它的数据：</p>
+<ul>
+<li>异步 library 在非 IE 下表现良好，但是在 IE 下性能极差。</li>
+<li>IE 时间值大致分布在 4s~30s 之间<ul>
+<li>均值 8s～10s 左右，时间上随机性很大</li>
+</ul>
+</li>
+<li>非 IE 下值相对很稳定，时间都在 3~5s 这个区间。</li>
+<li>IE与其他浏览器相比，性能有的时候甚至有差 10 倍！这不能忍啊。<ul>
+<li>我猜测是 flash player 在 IE 下，不能获得较长的 CPU 时间片。（注：目测了 CPU 监控得出的结论）</li>
+</ul>
+</li>
+</ul>
+<p>既然异步压缩没有办法允分利用 CPU，那我试着改用同步压缩，而不用异步。<br>惊喜的发现效果比预期要好得多（如果用swc会更佳）。</p>
+<ul>
+<li>用同步的压缩有可以去 <a href="http://www.bytearray.org" target="_blank">http://www.bytearray.org</a> 用改良版的 JPEGEncoder.as。  </li>
+<li>我这里用的是同事推荐的 blooddy_crypto.swc 组件。</li>
+</ul>
+<h2 id="-">测试结果</h2>
+<ul>
+<li>IE 时间值大致分布在 1~8s 之间<ul>
+<li>均值 4s 左右，时间上随机性很大，1 次上传的图片越多，越趋向于均值）</li>
+</ul>
+</li>
+<li>非 IE下 值相对很稳定，时间都在 1s 左右，绝在多数用时不超过 1s。</li>
+<li>没有出现假死现象。用 i4 cpu 测试，cpu 使用最高才 13%。</li>
+</ul>
+<p>比预期还好，完爆异步压缩。</p>
+<p>从 cpu 监控可以看到控制都较为良好（都没到50%）；<br>IE 下的 flash player 的性能短期压缩时间很随机，长期看性能平均下来比非 IE 要慢不少。<br>曲线是由快而慢，然后慢慢是趋向均值（就象是电脑越用越慢一样）。</p>
+<h2 id="-">教训</h2>
+<p>这给我的教训是为什么不及早使用同步压缩？<br>是一直以来的观念束缚了我，认为「同步」一定会假死。</p>
+<p>从我们这次的使用结果来看则不然。所以还是那句话：</p>
+<blockquote>
+<p>实践是检验真理的唯一标准。</p>
+</blockquote>
 <p>-- EOF --</p>
 
     
