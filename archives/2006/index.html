@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Page 2 | rank&#39;s blog</title>
+  <title>Archives: 2006 | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
   
@@ -48,182 +48,11 @@
 </nav>
 <div class="clearfix"></div></header>
     <div class="content">
-  <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <time datetime="2008-11-24T12:34:57.000Z"><a href="/2008/11/24/radio-list-user-experience-detail/">Nov 24 2008</a></time>
-    
-    
+<h2 class="archive-title">2006</h2>
+
+
   
-    <h1 class="title"><a href="/2008/11/24/radio-list-user-experience-detail/">radio list的用户体验细节</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>radio list的用户体验细节相当赞：</p>
-<ul>
-<li>可支持方向键</li>
-<li>当radio最后一个选中时，按小键盘后会自动跳回第一个</li>
-<li>checked可自动触发onclick</li>
-<li>支持各种浏览器,cross-browser</li>
-</ul>
-<p>用这个特性，可以做一个无障碍的TabView:)</p>
-<p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2008/11/24/radio-list-user-experience-detail/#more" class="more-link">Read More</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-
-  <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <time datetime="2008-11-24T12:20:21.000Z"><a href="/2008/11/24/trim-to-regexp-performance/">Nov 24 2008</a></time>
-    
-    
-  
-    <h1 class="title"><a href="/2008/11/24/trim-to-regexp-performance/">从 trim 原型函数看 JS 正则表达式的性能</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h2 id="-">问题</h2>
-<p>如果你看到别人写 trim 函数是用循环而不用正则表达式来写，请不要取笑，也许他们踩过坑。<br>如果你很自信你的 trim 函数效率很高，请看完本文再下结论。</p>
-<p>一般情况下用正则写法为：</p>
-<figure class="highlight js"><pre>&lt;script type=<span class="string">"text/javascript"</span>&gt;<span class="comment">//&lt;![CDATA[</span>
-  <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\t ]+|[\s\t ]+$/g</span>, <span class="string">''</span>);
-  }
-  s = <span class="string">' rank\'s weblog, www.rank.im '</span>;
-  alert(s.trim().length);
-<span class="comment">//]]&gt;&lt;/script&gt;</span>
-</pre></figure>
-
-
-<p>如果遇到大数据的变长字符串的话就会发现这个是很耗资源的。<br>效率并不高，有的时候甚至无法忍受。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2008/11/24/trim-to-regexp-performance/#more" class="more-link">Read More</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-
-  <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <time datetime="2008-08-23T10:56:41.000Z"><a href="/2008/08/23/firefox-regexp-issue/">Aug 23 2008</a></time>
-    
-    
-  
-    <h1 class="title"><a href="/2008/08/23/firefox-regexp-issue/">Firefox 2 正则表达式全半角问题</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h2 id="-">问题</h2>
-<p>先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
-<p>有可能你会答「是，他们相等」，也有可能你去查了查手册, 看到以下的解释:</p>
-<blockquote>
-<p>\d Matches a nondigit character. Equivalent to [^0-9]. 
-匹配一个数字字符。等价于 [0-9]。</p>
-</blockquote>
-<p>那我们测试一下以下代码：</p>
-<figure class="highlight js"><pre> <span class="comment">//http://rank.im</span>
- alert(<span class="regexp">/^\d{2}$/</span>.test(<span class="string">"１２"</span>));
- alert(<span class="string">'请注意,１２是全角'</span>);
-</pre></figure>
-
-
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2008/08/23/firefox-regexp-issue/#more" class="more-link">Read More</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-
-  <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <time datetime="2008-07-20T11:44:21.000Z"><a href="/2008/07/20/ie-form-check-bug/">Jul 20 2008</a></time>
-    
-    
-  
-    <h1 class="title"><a href="/2008/07/20/ie-form-check-bug/">IE 在 DOM 操作有表单控件时的bug</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h2 id="bug-">bug描述</h2>
-<ul>
-<li>影响的范围: IE的所有版本</li>
-<li>在表单的 radio/checkbox 控件中，一旦他们的DOM结构被更改过就会出现这个bug。</li>
-<li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio将会自动恢复到默认状态，</li>
-<li>有如点了 reset 按钮一样。</li>
-</ul>
-<p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2008/07/20/ie-form-check-bug/#more" class="more-link">Read More</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-
-  <article class="post">
+    <article class="post">
   <header>
     
       <div class="icon"></div>
@@ -374,15 +203,15 @@ oRange2.selectNodeContents(oP1);
 </article>
 
 
-
-
-<nav id="pagination">
   
-    <a href="/" class="prev">Prev</a>
+
+  <nav id="pagination">
   
   
   <div class="clearfix"></div>
-</nav></div>
+</nav>
+
+</div>
   </div>
   <div class="widget-wrapper">
     <aside id="sidebar">
