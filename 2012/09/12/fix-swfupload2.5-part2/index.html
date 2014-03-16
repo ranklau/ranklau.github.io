@@ -7,7 +7,7 @@
   <title>SWFUpload 2.5 bug 修改日志 II | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
-  <meta name="description" content="在github上我放了一个修改版，有兴趣的同学可以测试下性能。需要注意的是，要在支持 php 的 webserver 下运行。
+  <meta name="description" content="在github上我放了一个修改版，有兴趣的同学可以测试下性能。需要注意的是，要在支持 PHP 的 Webserver 下运行。
 再遇问题
 经过上一轮的 SWFUpload 修改两周后有人反馈：
 
@@ -16,12 +16,12 @@
 
 Debug了一个下午，发现：
 
-问题 1 上传速度慢的问题，只存在IE里。
-我也觉得很奇怪，为什么flash的性能还和浏览器有差别
+问题 1 上传速度慢的问题，只存在 IE 里。
+我也觉得很奇怪，为什么 Flash 的性能还和浏览器有差别
 
 
-问题 2 不是flash的问题，与脚本使用有关
-经查问题发现 flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work；">
+问题 2 不是 Flash 的问题，与脚本使用有关
+经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work（这比较好查）；">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -78,7 +78,7 @@ Debug了一个下午，发现：
   
   <div class="entry">
     
-      <p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 php 的 webserver 下运行。</p>
+      <p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
 <h2 id="-">再遇问题</h2>
 <p>经过上一轮的 SWFUpload 修改两周后有人反馈：</p>
 <ul>
@@ -87,12 +87,12 @@ Debug了一个下午，发现：
 </ul>
 <p>Debug了一个下午，发现：</p>
 <ul>
-<li>问题 1 上传速度慢的问题，只存在IE里。<ul>
-<li>我也觉得很奇怪，为什么flash的性能还和浏览器有差别</li>
+<li>问题 1 上传速度慢的问题，只存在 IE 里。<ul>
+<li>我也觉得很奇怪，为什么 Flash 的性能还和浏览器有差别</li>
 </ul>
 </li>
-<li>问题 2 不是flash的问题，与脚本使用有关<ul>
-<li>经查问题发现 flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work；</li>
+<li>问题 2 不是 Flash 的问题，与脚本使用有关<ul>
+<li>经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work（这比较好查）；</li>
 </ul>
 </li>
 </ul>
@@ -101,8 +101,8 @@ Debug了一个下午，发现：
 <h2 id="-">改造以及测试</h2>
 <p>随之，经过一系列的调试和全系列机器环境测试：</p>
 <ul>
-<li>测试环境在 flash player 版本都是11+；</li>
-<li>在 mac 下的最新版safari, chrome, firefox 和 win xp， win 7 下的 IE 6, 7, 8；</li>
+<li>测试环境在 Flash Player 版本都是 11+；</li>
+<li>在 Mac 下的最新版 Safari, Chrome, Firefox 和 win xp， Win 7 下的 IE 6, 7, 8；</li>
 <li>测试图片由 5616 × 3744 5M 及 3888 × 2592px 的图组成；</li>
 <li>由原图压缩成 1000*1000 的图；质量 90。</li>
 </ul>
@@ -115,7 +115,7 @@ Debug了一个下午，发现：
 </li>
 <li>非 IE 下值相对很稳定，时间都在 3~5s 这个区间。</li>
 <li>IE与其他浏览器相比，性能有的时候甚至有差 10 倍！这不能忍啊。<ul>
-<li>我猜测是 flash player 在 IE 下，不能获得较长的 CPU 时间片。（注：目测了 CPU 监控得出的结论）</li>
+<li>我猜测是 Flash Player 在 IE 下，不能获得较长的 CPU 时间片。（注：目测了 CPU 监控得出的结论）</li>
 </ul>
 </li>
 </ul>
@@ -131,10 +131,10 @@ Debug了一个下午，发现：
 </ul>
 </li>
 <li>非 IE下 值相对很稳定，时间都在 1s 左右，绝在多数用时不超过 1s。</li>
-<li>没有出现假死现象。用 i4 cpu 测试，cpu 使用最高才 13%。</li>
+<li>没有出现假死现象。用 i4 CPU 测试，cpu 使用最高才 13%。</li>
 </ul>
 <p>比预期还好，完爆异步压缩。</p>
-<p>从 cpu 监控可以看到控制都较为良好（都没到50%）；<br>IE 下的 flash player 的性能短期压缩时间很随机，长期看性能平均下来比非 IE 要慢不少。<br>曲线是由快而慢，然后慢慢是趋向均值（就象是电脑越用越慢一样）。</p>
+<p>从 CPU 监控可以看到控制都较为良好（都没到 50%）；<br>IE 下的 Flash Player 的性能短期压缩时间很随机，长期看性能平均下来比非 IE 要慢不少。<br>曲线是由快而慢，然后慢慢是趋向均值（就象是电脑越用越慢一样）。</p>
 <h2 id="-">教训</h2>
 <p>这给我的教训是为什么不及早使用同步压缩？<br>是一直以来的观念束缚了我，认为「同步」一定会假死。</p>
 <p>从我们这次的使用结果来看则不然。所以还是那句话：</p>
