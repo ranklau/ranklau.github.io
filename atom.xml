@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T09:01:53.501Z</updated>
+  <updated>2014-03-16T09:04:18.860Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -1317,7 +1317,7 @@ bug重现</p>
     <link href="http://rank.im/2006/09/30/javascript-dom-range-1/"/>
     <id>http://rank.im/2006/09/30/javascript-dom-range-1/</id>
     <published>2006-09-30T08:36:17.000Z</published>
-    <updated>2014-03-16T09:01:48.000Z</updated>
+    <updated>2014-03-16T09:04:14.000Z</updated>
     <content type="html"><![CDATA[<p> Javascript标准DOM Range操作(2)
  Javascript标准DOM Range操作(3)</p>
 <h2 id="createrange-">createRange 方法</h2>
@@ -1348,7 +1348,7 @@ oRange2.selectNodeContents(oP1);
 </pre></figure>
 
 <p>oRange1和oRange2包含上面所说的两种方法，但是看了下面的示图相信你能很快明白这两个方法的区别：
-<img src="images/javascript-dom-range/30_160954_domranges1.gif" alt="image"></p>
+<img src="/images/javascript-dom-range/30_160954_domranges1.gif" alt="image"></p>
 <p>当你创建了一个Range对象时，Range实例就会有以下的属性：</p>
 <ul>
 <li>startContainer — 返回range对象从何开始的节点对象（父节点的第一个节点）</li>
