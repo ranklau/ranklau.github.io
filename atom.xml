@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T03:21:10.305Z</updated>
+  <updated>2014-03-16T03:25:48.797Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -1151,7 +1151,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/07/20/ie-form-check-bug/"/>
     <id>http://rank.im/2008/07/20/ie-form-check-bug/</id>
     <published>2008-07-20T11:44:21.000Z</published>
-    <updated>2014-03-15T09:25:39.000Z</updated>
+    <updated>2014-03-16T03:25:44.000Z</updated>
     <content type="html"><![CDATA[<h2 id="bug-">bug描述</h2>
 <ul>
 <li>影响的范围: IE的所有版本</li>
@@ -1168,10 +1168,6 @@ bug重现</p>
  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Rank's HTML document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=gb2312"</span> /&gt;</span>
  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Pragma"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
- <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Cache-Control"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
- <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Expires"</span> <span class="attribute">content</span>=<span class="value">"0"</span> /&gt;</span>
- <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"ImageToolbar"</span> <span class="attribute">content</span>=<span class="value">"no"</span> /&gt;</span>
- <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Creator.name"</span> <span class="attribute">content</span>=<span class="value">"Rank, BlueDestiny, never-online"</span> /&gt;</span>
  <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">title</span>=<span class="value">"default"</span> <span class="attribute">media</span>=<span class="value">"screen"</span>&gt;</span><span class="css">
  <span class="comment">/*&lt;![CDATA[*/</span>
       <span class="tag">body</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">80</span>%</span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">1.5</span></span></span>; <span class="rule">}</span></span>
@@ -1237,10 +1233,6 @@ bug重现</p>
  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Rank's HTML document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=gb2312"</span> /&gt;</span>
  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Pragma"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
- <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Cache-Control"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
- <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Expires"</span> <span class="attribute">content</span>=<span class="value">"0"</span> /&gt;</span>
- <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"ImageToolbar"</span> <span class="attribute">content</span>=<span class="value">"no"</span> /&gt;</span>
- <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Creator.name"</span> <span class="attribute">content</span>=<span class="value">"Rank, BlueDestiny, never-online"</span> /&gt;</span>
  <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">title</span>=<span class="value">"default"</span> <span class="attribute">media</span>=<span class="value">"screen"</span>&gt;</span><span class="css">
  <span class="comment">/*&lt;![CDATA[*/</span>
       <span class="tag">body</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">80</span>%</span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">1.5</span></span></span>; <span class="rule">}</span></span>
