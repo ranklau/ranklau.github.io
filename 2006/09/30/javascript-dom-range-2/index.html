@@ -4,19 +4,23 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Javascript 标准 DOM Range操作(1) | rank&#39;s blog</title>
+  <title>Javascript 标准 DOM Range操作(2) | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
   <meta name="description" content="Javascript标准DOM Range操作(1)
 Javascript标准DOM Range操作(3)
 
-复杂的DOM Range
-建立复杂的DOM range需要使用setStart()和setEnd()两个方法，这两个方法有两个参数：一个是一个节点(node)引用和一个偏移(offset)。">
+复杂DOM Range
+建立复杂的 DOM range 需要使用 setStart() 和 setEnd() 两个方法。
+这两个方法有两个参数：
+
+一个参数是一个节点(node)引用；
+另一">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <meta property="og:title" content="Javascript 标准 DOM Range操作(1)"/>
+  <meta property="og:title" content="Javascript 标准 DOM Range操作(2)"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -61,7 +65,7 @@ Javascript标准DOM Range操作(3)
     
     
   
-    <h1 class="title">Javascript 标准 DOM Range操作(1)</h1>
+    <h1 class="title">Javascript 标准 DOM Range操作(2)</h1>
   
 
   </header>
@@ -72,11 +76,18 @@ Javascript标准DOM Range操作(3)
 <li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
 <li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
 </ul>
-<p>复杂的DOM Range</p>
-<p>建立复杂的DOM range需要使用setStart()和setEnd()两个方法，这两个方法有两个参数：一个是一个节点(node)引用和一个偏移(offset)。
-setStart方法节点的引用是startContainer，偏移则是startOffset；
-setEnd()方法时，节点引用为endContainer，偏移就是endOffset。</p>
-<p>使用这两个方法与selectNode()和selectNodeContents()方法相似。比如，下面的useRanges()函数的前一个示例，可以使用setStart()和setEnd():</p>
+<h2 id="-dom-range">复杂DOM Range</h2>
+<p>建立复杂的 DOM range 需要使用 setStart() 和 setEnd() 两个方法。
+这两个方法有两个参数：</p>
+<ul>
+<li>一个参数是一个节点(node)引用；</li>
+<li><p>另一个参数是偏移量(offset)。</p>
+</li>
+<li><p>setStart 方法节点的引用是startContainer，偏移则是startOffset；</p>
+</li>
+<li>setEnd() 方法时，节点引用为endContainer，偏移就是endOffset。</li>
+</ul>
+<p>使用这两个方法与 selectNode() 和 selectNodeContents() 方法相似。<br>比如，下面的 useRanges() 函数的前一个示例，可以使用 setStart() 和 setEnd():</p>
 <figure class="highlight js"><pre><span class="function"><span class="keyword">function</span> <span class="title">useRanges</span><span class="params">()</span> {</span>
  <span class="keyword">var</span> oRange1 = document.createRange();
  <span class="keyword">var</span> oRange2 = document.createRange();
@@ -97,65 +108,89 @@ setEnd()方法时，节点引用为endContainer，偏移就是endOffset。</p>
 }
 </pre></figure>
 
-<p>注意这个选择节点时的代码(oRange1)，你必须指定oP1父节点里所有childNodes集合里的一个索引。</p>
-<p>而选择内容时的代码(oRange2)，则不需要额外的考虑，</p>
-<p>从刚才的例子来从这段HTML里(code <p id="p1"><b>Hello</b> World</p>)
-选择从hello中的llo开始到从World中的Wo开始的Range，我们用setStart()和setEnd()，很容易就可以做到。</p>
-<p>首先，我们必须用常规的DOM方法得到文本节点的引用还有就是容器p1的引用。
-var oP1 = document.getElementById(&quot;p1&quot;);
-var oHello = oP1.firstChild.firstChild;
-var oWorld = oP1.lastChild;
-说明：
-文本Hello实际上是容器p1的孙子节点，所以我们可以用oP1.firstChild得到<b>元素，oP1.firstChild.firstChild也就是Hello文本节点的引用了，而World则就是容器p1的最后一个节点了。</p>
-<p>下一步，建立range然后设置偏移(offset)：
-var oP1 = document.getElementById(&quot;p1&quot;);
-var oHello = oP1.firstChild.firstChild;
-var oWorld = oP1.lastChild;
-var oRange = document.createRange();
-oRange.setStart(oHello, 2);
-oRange.setEnd(oWorld, 3);
-说明：
-对于setStart()，偏移(offset)为2，因为字母l在该文本节点中(即Hello中)的位置是2，(位置是从0开始计算的)，设置setEnd()方法中的偏移为3，原因同上，需要注意的是World前面有一个空格，空格也是占位置的。如图：
-uploads/200609/30_141714_domranges3.gif</p>
+<p>注意，这个选择节点时的代码(oRange1)，你必须指定oP1父节点里所有childNodes集合里的一个索引。<br>而选择内容时的代码(oRange2)，则不需要额外的考虑，</p>
+<ul>
+<li>从刚才的例子来从这段HTML里(code <p id="p1"><b>Hello</b> World</p>)  </li>
+<li>选择从hello中的llo开始到从World中的Wo开始的Range，我们用setStart()和setEnd()，很容易就可以做到。</li>
+</ul>
+<p>首先，我们必须用常规的 DOM 方法得到文本节点的引用还有就是容器 p1 的引用。</p>
+<figure class="highlight js"><pre><span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+</pre></figure>
+
+
+
+<ul>
+<li>文本 Hello 实际上是容器 p1 的孙子节点，所以我们可以用 oP1.firstChild 得到 <b> 元素，</li>
+<li>oP1.firstChild.firstChild 也就是 Hello 文本节点的引用了，而 World 则就是容器 p1 的最后一个节点了。</li>
+</ul>
+<p>下一步，建立range然后设置偏移(offset)：</p>
+<figure class="highlight js"><pre><span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+<span class="keyword">var</span> oRange = document.createRange();
+oRange.setStart(oHello, <span class="number">2</span>);
+oRange.setEnd(oWorld, <span class="number">3</span>);
+</pre></figure>
+
+
+<p>对于setStart()：</p>
+<ul>
+<li>偏移 (offset)为 2，</li>
+<li>因为字母 l 在该文本节点中 (即 Hello 中) 的位置是 2，(位置是从 0 开始计算的)，</li>
+</ul>
+<p>设置 setEnd() 方法中的偏移为 3，原因同上，需要注意的是 World 前面有一个空格，空格也是占位置的。如图：</p>
+<p><img src="/images/javascript-dom-range/30_141714_domranges3.gif" alt="range demo"></p>
 <p>注意：
-(Mozilla DOM Range bug #135928)在 Mozilla低版本浏览器 执行此Range方法时，如果setStart()和setEnd()都指向同一个文本节点会出现异常</p>
-<p>用DOM Range做一些操作
-当创建一个Range对象时，在Range里的所有对象之上，已经创建了一个文档的fragment节点。在这之前，Range对象必须合格证你选择的这段Range是一个well-formed（格式良好）。
-比如以面这段Range
-uploads/200609/30_165636_domranges4.gif</p>
-<p>很明显的，在这里，并不是一个well-formed，上面说过了，当创建一个Range时，会自动产生一个fragment，在这里，framgment自动动态的添加一些元素，以保证Range的正确性：</p>
-<p><p><b>He</b><b>llo</b> World</p>
-也就是自动加上了开始标签<b>，使得整个Range变为<b>llo</b> Wo，fragment的示意图为：
-uploads/200609/30_170131_domranges5.gif</p>
+(Mozilla DOM Range bug #135928)在 Mozilla低版本浏览器 执行此Range方法时，如果setStart()和setEnd()都指向同一个文本节点会出现异常。</p>
+<h2 id="-dom-range-">用DOM Range操作</h2>
+<p>当创建一个Range对象时，在Range里的所有对象之上，已经创建了一个文档的fragment节点。在这之前，Range对象必须合格证你选择的这段Range是一个well-formed（格式良好）。
+比如以面这段Range</p>
+<p><img src="/images/javascript-dom-range/30_165636_domranges4.gif" alt="range demo"></p>
+<p>很明显在这里，HTML 并不是一个 well-formed。<br>上面也说过了，当创建一个Range时，会自动产生一个fragment。<br>在这里 framgment 自动动态的添加一些元素，以保证 Range 的正确性：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</pre></figure>
+
+
+<p>也就是自动加上了开始标签<b>，使得整个Range变为<b>llo</b> Wo，fragment的示意图为：</p>
+<p><img src="/images/javascript-dom-range/30_170131_domranges5.gif" alt="range demo"></p>
 <p>当此fragment创建后，你就可以用Range的一些方法来操作它了。</p>
 <p>最简单的一个操作就是：deleteContents()方法，这个方法将删除Range选中的部分，在上面的操作之后进行deleteContents()，那么余下的HTML就为：</p>
-<p><p><b>He</b>rld</p>
-之所以加上闭合标签</b>，上面也说了，也是Range为了确保它是well-formed。</p>
-<p>extractContents()方法类似于deleteContents()，但具体操作不同，extractContents()是将选中的Range从DOM树中移到一个fragment中，并返回此fragment，复制下面这些代码然后在Mozilla Firefox里运行，看看结果你就明白了。——删除的<b>llo</b> Wo作为一个fragment被添加到body的末端。</p>
-<p><p id="p1"><b>Hello</b> World</p></p>
-<script>
-var oP1 = document.getElementById("p1");
-var oHello = oP1.firstChild.firstChild;
-var oWorld = oP1.lastChild;
-var oRange = document.createRange();
-oRange.setStart(oHello, 2);
-oRange.setEnd(oWorld, 3);
-var oFragment = oRange.extractContents();
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span>rld<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</pre></figure>
+
+
+<p>之所以加上闭合标签 </b>，上面也说了，也是 Range 为了确保它是 well-formed。</p>
+<p>extractContents() 方法类似于 deleteContents()，但具体操作不同。<br>extractContents()是将选中的Range从DOM树中移到一个fragment中，并返回此fragment，复制下面这些代码然后在Mozilla Firefox里运行，看看结果你就明白了。——删除的<b>llo</b> Wo作为一个fragment被添加到body的末端。</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+<span class="keyword">var</span> oRange = document.createRange();
+oRange.setStart(oHello, <span class="number">2</span>);
+oRange.setEnd(oWorld, <span class="number">3</span>);
+<span class="keyword">var</span> oFragment = oRange.extractContents();
 document.body.appendChild(oFragment);
-</script>
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</pre></figure>
+
 
 <p>cloneContents()方法可以克隆选中Range的fragment，比如：</p>
-<p><p id="p1"><b>Hello</b> World</p></p>
-<script>
-var oP1 = document.getElementById("p1");
-var oHello = oP1.firstChild.firstChild;
-var oWorld = oP1.lastChild;
-var oRange = document.createRange();
-oRange.setStart(oHello, 2);
-oRange.setEnd(oWorld, 3);
-var oFragment = oRange.cloneContents();
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+<span class="keyword">var</span> oRange = document.createRange();
+oRange.setStart(oHello, <span class="number">2</span>);
+oRange.setEnd(oWorld, <span class="number">3</span>);
+<span class="keyword">var</span> oFragment = oRange.cloneContents();
 document.body.appendChild(oFragment);
-</script>
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</pre></figure>
+
 
 <p>这个方法类似于extractContents()，但是不是删除，而是克隆。</p>
 
