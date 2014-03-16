@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>Javascript 标准 DOM Range操作(3) | rank&#39;s blog</title>
+  <meta name="author" content="rank">
+  
+  <meta name="description" content="Javascript标准DOM Range操作(1)
+Javascript标准DOM Range操作(2)
+
+从Range中插入一些数据
+前一节的几个方法解决了如何移除 Range 中所选中的 fragment。
+现在来看， insertNode() 方法可以插入一个节点到 Range 中。
+假如我想把以下的节点插如 Range 中，将如何操作呢？
+&lt;span style=&quot;color: red&quot;&gt;Inserted text&lt;/span&gt;">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta property="og:title" content="Javascript 标准 DOM Range操作(3)"/>
+  <meta property="og:site_name" content="rank&#39;s blog"/>
+
+  <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!--[if lt IE 9]><script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script><![endif]-->
+  <script src="http://libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <div class="wrapper">
+    <header id="header"><div class="title">
+  <h1><a href="/">rank&#39;s blog</a></h1>
+  <p><a href="/">Border is just for crossing</a></p>
+</div>
+<nav class="nav">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/labs">Labs</a></li>
+    
+      <li><a href="http://www.slideshare.net/ranklau/presentations">Slides</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/atom.xml">Feed</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <time datetime="2006-09-30T12:33:20.000Z"><a href="/2006/09/30/javascript-dom-range-3/">Sep 30 2006</a></time>
+    
+    
+  
+    <h1 class="title">Javascript 标准 DOM Range操作(3)</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <ul>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+</ul>
+<h2 id="-range-">从Range中插入一些数据</h2>
+<p>前一节的几个方法解决了如何移除 Range 中所选中的 fragment。
+现在来看， insertNode() 方法可以插入一个节点到 Range 中。</p>
+<p>假如我想把以下的节点插如 Range 中，将如何操作呢？</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color: red"</span>&gt;</span>Inserted text<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+</pre></figure>
+
+
+
+<a id="more"></a>
+
+<p>看下面的代码：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+<span class="keyword">var</span> oRange = document.createRange();
+<span class="keyword">var</span> oSpan = document.createElement(<span class="string">"span"</span>);
+oSpan.style.color = <span class="string">"red"</span>;
+oSpan.appendChild(document.createTextNode(<span class="string">"Inserted text"</span>));
+ 
+oRange.setStart(oHello, <span class="number">2</span>);
+oRange.setEnd(oWorld, <span class="number">3</span>);
+oRange.insertNode(oSpan);
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</pre></figure>
+
+
+<p>那么原来的HTML将会变成这样：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color: red"</span>&gt;</span>Inserted text<span class="tag">&lt;/<span class="title">span</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</pre></figure>
+
+
+<p>surroundContents() 的参数为一个node，它将这个 node 加入到 Range 里，看这个示例：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+<span class="keyword">var</span> oRange = document.createRange();
+<span class="keyword">var</span> oSpan = document.createElement(<span class="string">"span"</span>);
+oSpan.style.backgroundColor = <span class="string">"yellow"</span>;
+ 
+oRange.setStart(oHello, <span class="number">2</span>);
+oRange.setEnd(oWorld, <span class="number">3</span>);
+oRange.surroundContents(oSpan);
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</pre></figure>
+
+
+<p>在 「oRange」 选取的范围内有一个我们新生成的节点 「span」，因此选取的 Range 的背景变成了黄色。</p>
+<h2 id="collapse-">collapse()方法</h2>
+<p>collapse()方法只有一个布尔型的参数，该参数为可选的，默认为false。<br>为 true 时折叠到 Range 边界的首部，为 false 时折叠到 Range 尾部。</p>
+<p><img src="/images/javascript-dom-range/30_174339_domranges6.gif" alt=""></p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oHello = oP1.firstChild.firstChild;
+<span class="keyword">var</span> oWorld = oP1.lastChild;
+<span class="keyword">var</span> oRange = document.createRange();
+oRange.setStart(oHello, <span class="number">2</span>);
+oRange.setEnd(oWorld, <span class="number">3</span>);
+oRange.collapse(<span class="literal">true</span>); 
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</pre></figure>
+
+
+<p>如果你想知道该 Range 是否已经折叠，可以用 collapsed 属性来得到 true 或者 false。<br>示例：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span>Paragraph 1<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p2"</span>&gt;</span>Paragraph 2<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+<span class="keyword">var</span> oP2 = document.getElementById(<span class="string">"p2"</span>);
+<span class="keyword">var</span> oRange = document.createRange();
+oRange.setStartAfter(oP1);
+oRange.setStartBefore(oP2);
+alert(oRange.collapsed); <span class="comment">//outputs "true"</span>
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</pre></figure>
+
+
+<p>上面的代码输为 true。</p>
+<p>虽然我们没有用 collapse 方法，但是由于我们的 Range 设置开始为 1 末端到 p2 的首端，没有任何元素。即&lt;/p&gt;(Range开始)(Range结束)&lt;p id=&quot;p2&quot;&gt;，所以显示的是 true。</p>
+<h2 id="range-">Range边界的比较</h2>
+<p>compareBoundaryPoints()方法，语法：</p>
+<blockquote>
+<p>compare = comparerange.compareBoundaryPoints(how,sourceRange)</p>
+</blockquote>
+<p>参数含义：</p>
+<ul>
+<li>compare —— 返回1, 0, -1。<ul>
+<li>0 为相等。</li>
+<li>1 为 comparerange 在 sourceRange 之后。</li>
+<li>-1 为 comparerange 在 sourceRange 之前。</li>
+</ul>
+</li>
+<li>how —— 为 Range 常数：<ul>
+<li>END_TO_END</li>
+<li>END_TO_START</li>
+<li>START_TO_END</li>
+<li>START_TO_START</li>
+</ul>
+</li>
+<li>sourceRange —— 一个 Range 对象的边界。</li>
+</ul>
+<p>看下面的例子：</p>
+<figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> oRange1 = document.createRange();
+<span class="keyword">var</span> oRange2 = document.createRange();
+<span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
+oRange1.selectNodeContents(oP1);
+oRange2.selectNodeContents(oP1);
+oRange2.setEndBefore(oP1.lastChild);
+alert(oRange1.compareBoundaryPoints(Range.START_TO_START, oRange2)); 
+<span class="comment">//outputs 0</span>
+alert(oRange1.compareBoundaryPoints(Range.END_TO_END, oRange2)); 
+<span class="comment">//outputs 1;</span>
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</pre></figure>
+
+
+<p>下图为这两个 Range 的示意图，结合代码和上面的说明，可以清晰的分析出结果了。</p>
+<p><img src="/images/javascript-dom-range/01_022322_domranges7.gif" alt=""></p>
+<h2 id="-clone-range">克隆(clone)Range</h2>
+<p>这个操作很简单，只需要一句语句即可：</p>
+<figure class="highlight js"><pre><span class="keyword">var</span> oNewRange = oRange.cloneRange();
+</pre></figure>
+
+
+<p>cloneRange() 方法将返回一个当前 Range 的副本。当然，它也是 Range 对象。</p>
+<h2 id="-range-">清除Range所占的系统资源</h2>
+<p>当你创建了 Range 对象最好用 detach() 方法来清除它所占的系统资源。<br>虽然不清除，GC（垃圾收集器）也会将其收集，但用detach()释放是一个好习惯。</p>
+<p>语法为：</p>
+<figure class="highlight js"><pre>oRange.detach();
+</pre></figure>
+
+
+<p>下面一个示例在Mozilla中，利用Range可以模拟出IE中的element.insertAdjacentHTML()方法，</p>
+<figure class="highlight js"><pre><span class="keyword">if</span> (browser.isMozilla) {
+ HTMLElement.prototype.insertAdjacentHTML = <span class="function"><span class="keyword">function</span> <span class="params">(sWhere, sHTML)</span> {</span>
+ <span class="keyword">var</span> df; <span class="keyword">var</span> r = <span class="keyword">this</span>.ownerDocument.createRange();
+ <span class="keyword">switch</span> (<span class="built_in">String</span>(sWhere).toLowerCase()) {
+ <span class="keyword">case</span> <span class="string">"beforebegin"</span>:
+ r.setStartBefore(<span class="keyword">this</span>);
+ df = r.createContextualFragment(sHTML);
+ <span class="keyword">this</span>.parentNode.insertBefore(df, <span class="keyword">this</span>);
+ <span class="keyword">break</span>;
+ <span class="keyword">case</span> <span class="string">"afterbegin"</span>:
+ r.selectNodeContents(<span class="keyword">this</span>);
+ r.collapse(<span class="literal">true</span>);
+ df = r.createContextualFragment(sHTML);
+ <span class="keyword">this</span>.insertBefore(df, <span class="keyword">this</span>.firstChild);
+ <span class="keyword">break</span>;
+ <span class="keyword">case</span> <span class="string">"beforeend"</span>:
+ r.selectNodeContents(<span class="keyword">this</span>);
+ r.collapse(<span class="literal">false</span>);
+ df = r.createContextualFragment(sHTML);
+ <span class="keyword">this</span>.appendChild(df);
+ <span class="keyword">break</span>;
+ <span class="keyword">case</span> <span class="string">"afterend"</span>:
+ r.setStartAfter(<span class="keyword">this</span>);
+ df = r.createContextualFragment(sHTML);
+ <span class="keyword">this</span>.parentNode.insertBefore(df, <span class="keyword">this</span>.nextSibling);
+ <span class="keyword">break</span>;
+ }
+ };
+}
+</pre></figure>
+
+
+<p>参考文档：</p>
+<ul>
+<li>Professional JavaScript for Web Developers(Wrox)</li>
+<li>Mozilla Develop Center Document</li>
+</ul>
+<p>-- EOF --</p>
+
+    
+  </div>
+  <footer>
+    
+      
+  
+  <div class="categories">
+    <a href="/categories/tech/">tech</a>
+  </div>
+
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div>
+  </div>
+  <div class="widget-wrapper">
+    <aside id="sidebar">
+  
+  
+    
+      
+      
+
+<div class="widget tag first">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/tech/">tech</a><small>16</small></li>
+  
+  </ul>
+</div>
+
+    
+      
+      
+    
+      
+      
+
+<div class="widget recent-posts">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2014/03/10/hexo-for-blog/">用hexo在github page搭建博客</a>
+      </li>
+    
+      <li>
+        <a href="/2014/03/07/new-blog-start/">换域名，重新开博</a>
+      </li>
+    
+      <li>
+        <a href="/2013/10/09/cutandslice/">推荐android/ios开发切图神器cutandslice</a>
+      </li>
+    
+      <li>
+        <a href="/2012/12/13/get-script-path/">取得当前脚本元素的路径的一个特例</a>
+      </li>
+    
+      <li>
+        <a href="/2012/09/12/fix-swfupload2.5-part2/">SWFUpload 2.5 bug 修改日志 II</a>
+      </li>
+    
+  </ul>
+</div>
+
+    
+      
+      
+
+<div class="widget blogroll">
+  <h3 class="title">Links</h3>
+  <ul class="entry">
+  
+    
+    <li><a href="http://wuduoyi.com/" target="_blank">wuduoyi</a></li>
+  
+    
+    <li><a href="http://fex.baidu.com/" target="_blank">FEX team</a></li>
+  
+  </ul>
+</div>
+
+    
+      
+      
+    
+  
+</aside>
+<div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2014 <a href="/">rank</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+  var disqus_shortname = 'ranklau';
+
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
