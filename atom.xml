@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T03:15:23.356Z</updated>
+  <updated>2014-03-16T03:17:10.316Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -176,7 +176,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
     <link href="http://rank.im/2012/09/12/fix-swfupload2.5-part2/"/>
     <id>http://rank.im/2012/09/12/fix-swfupload2.5-part2/</id>
     <published>2012-09-12T03:11:54.000Z</published>
-    <updated>2014-03-16T03:15:17.000Z</updated>
+    <updated>2014-03-16T03:17:06.000Z</updated>
     <content type="html"><![CDATA[<p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 php 的 webserver 下运行。</p>
 <h2 id="-">再遇问题</h2>
 <p>经过上一轮的 SWFUpload 修改，以为完事。但好景不长，最近有人反馈</p>
@@ -220,7 +220,7 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 </ul>
 <p>既然异步压缩没有办法允分利用 CPU，那我试着改用同步压缩，而不用异步。<br>惊喜的发现效果比预期要好得多（如果用swc会更佳）。</p>
 <ul>
-<li>用同步的压缩有可以去大牛 <a href="http://www.bytearray.org/?p=775" target="_blank">bytearray</a> 用改良版的 <a href="http://www.bytearray.org/wp-content/projects/fastjpeg/JPEGEncoder.as" target="_blank">JPEGEncoder.as</a>。  </li>
+<li>用同步的压缩有可以去大牛 <a href="http://www.bytearray.org/?p=775" target="_blank">bytearray</a> 下载优化后的 <a href="http://www.bytearray.org/wp-content/projects/fastjpeg/JPEGEncoder.as" target="_blank">JPEGEncoder.as</a>。  </li>
 <li>我这里用的是同事推荐的 <a href="http://www.blooddy.by/en/crypto/" target="_blank">blooddy_crypto.swc</a> 组件。</li>
 </ul>
 <h2 id="-">测试结果</h2>
