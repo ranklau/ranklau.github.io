@@ -116,7 +116,7 @@ Javascript标准DOM Range操作(3)
 
 </pre></figure>
 </li>
-<li><p>选择从hello中的llo开始到从World中的Wo开始的Range，我们用setStart()和setEnd()，很容易就可以做到。</p>
+<li><p>选择从 hello 中的 llo 开始到从 World 中的 Wo 开始的 Range，我们用setStart()和setEnd()，很容易就做到了。</p>
 </li>
 </ul>
 <p>首先，我们必须用常规的 DOM 方法得到文本节点的引用还有就是容器 p1 的引用。</p>
@@ -152,15 +152,15 @@ oRange.setEnd(oWorld, <span class="number">3</span>);
 <p>注意：(Mozilla DOM Range bug #135928)在 Mozilla低版本浏览器 执行此Range方法时，如果 setStart()和 setEnd() 都指向同一个文本节点会出现异常。</p>
 </blockquote>
 <h2 id="-dom-range-">用DOM Range操作</h2>
-<p>当创建一个Range对象时，在Range里的所有对象之上，已经创建了一个文档的fragment节点。
-在这之前，Range对象必须合格证你选择的这段Range是一个well-formed（格式良好）。<br>比如以面这段Range</p>
+<p>当创建一个 Range 对象时，在 Range 里的所有对象之上，已经创建了一个文档的 fragment 节点。
+在这之前，Range 对象必须合格证你选择的这段Range是一个 well-formed（格式良好）。<br>比如以面这段 Range：</p>
 <p><img src="/images/javascript-dom-range/30_165636_domranges4.gif" alt="range demo"></p>
-<p>在这里HTML 并不是一个 well-formed。<br>上面也说过了，当创建一个 Range 时，会自动产生一个 fragment。<br>在这里 framgment 自动动态的添加一些元素，以保证 Range 的正确性：</p>
+<p>在这里 HTML 并不是一个 well-formed。<br>上面也说过，当创建一个 Range 时，会自动产生一个 fragment。<br>在这里 framgment 自动动态的添加一些元素，以保证 Range 的正确性：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;/<span class="title">b</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 </pre></figure>
 
 
-<p>也就是自动加上了开始标签<b>，使得整个Range变为</p>
+<p>也就是自动加上了开始标签&lt;b&gt;，使得整个 Range 变为</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">b</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> Wo，
 </pre></figure>
 
