@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-17T02:32:50.100Z</updated>
+  <updated>2014-03-17T02:34:53.974Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -848,15 +848,15 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
   </entry>
   
   <entry>
-    <title><![CDATA[模拟里firebug的 DOM inspect 功能]]></title>
+    <title><![CDATA[模拟里 firebug 的 DOM inspect 功能]]></title>
     <link href="http://rank.im/2010/08/29/simulate-dom-inspect-effect/"/>
     <id>http://rank.im/2010/08/29/simulate-dom-inspect-effect/</id>
     <published>2010-08-29T06:09:15.000Z</published>
-    <updated>2014-03-15T08:53:35.000Z</updated>
+    <updated>2014-03-17T02:34:46.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">常规思路</h2>
-<p>在firefox里如何实现firebug的DOM inspect选择功能?</p>
+<p>在 firefox 里如何实现 firebug 的 DOM inspect 选择功能?</p>
 <ul>
-<li>首先，我们会document里添加mouseover事件时在HTMLElement上飘一个absolute的容器，设置border。</li>
+<li>首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border。</li>
 <li>接着，mousedown，这个 absolute 的元素隐藏；</li>
 <li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
 </ul>
@@ -873,6 +873,7 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
 "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">title</span>&gt;</span>rank's HTML Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
  <span class="tag">&lt;<span class="title">head</span>&gt;</span><span class="tag">&lt;/<span class="title">head</span>&gt;</span>
  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"http://code.jquery.com/jquery-1.4.2.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
@@ -918,9 +919,9 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <p>-- EOF --</p>
 ]]></content>
     <summary type="html"><![CDATA[<h2 id="-">常规思路</h2>
-<p>在firefox里如何实现firebug的DOM inspect选择功能?</p>
+<p>在 firefox 里如何实现 firebug 的 DOM inspect 选择功能?</p>
 <ul>
-<li>首先，我们会document里添加mouseover事件时在HTMLElement上飘一个absolute的容器，设置border。</li>
+<li>首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border。</li>
 <li>接着，mousedown，这个 absolute 的元素隐藏；</li>
 <li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
 </ul>

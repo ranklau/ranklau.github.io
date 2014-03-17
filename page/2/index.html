@@ -90,7 +90,7 @@
     
     
   
-    <h1 class="title"><a href="/2010/08/29/simulate-dom-inspect-effect/">模拟里firebug的 DOM inspect 功能</a></h1>
+    <h1 class="title"><a href="/2010/08/29/simulate-dom-inspect-effect/">模拟里 firebug 的 DOM inspect 功能</a></h1>
   
 
   </header>
@@ -98,9 +98,9 @@
   <div class="entry">
     
       <h2 id="-">常规思路</h2>
-<p>在firefox里如何实现firebug的DOM inspect选择功能?</p>
+<p>在 firefox 里如何实现 firebug 的 DOM inspect 选择功能?</p>
 <ul>
-<li>首先，我们会document里添加mouseover事件时在HTMLElement上飘一个absolute的容器，设置border。</li>
+<li>首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border。</li>
 <li>接着，mousedown，这个 absolute 的元素隐藏；</li>
 <li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
 </ul>
