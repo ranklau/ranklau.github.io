@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-16T14:30:14.976Z</updated>
+  <updated>2014-03-17T02:31:28.894Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -172,11 +172,11 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
   </entry>
   
   <entry>
-    <title><![CDATA[SWFUpload 2.5 bug 修改日志 II]]></title>
-    <link href="http://rank.im/2012/09/12/fix-swfupload2.5-part2/"/>
-    <id>http://rank.im/2012/09/12/fix-swfupload2.5-part2/</id>
+    <title><![CDATA[SWFUpload 2.5 bug 修改日志(2)]]></title>
+    <link href="http://rank.im/2012/09/12/fix-swfupload2.5-2/"/>
+    <id>http://rank.im/2012/09/12/fix-swfupload2.5-2/</id>
     <published>2012-09-12T03:11:54.000Z</published>
-    <updated>2014-03-16T03:21:02.000Z</updated>
+    <updated>2014-03-17T02:31:00.000Z</updated>
     <content type="html"><![CDATA[<p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
 <h2 id="-">再遇问题</h2>
 <p>经过上一轮的 SWFUpload 修改两周后有人反馈：</p>
@@ -267,11 +267,11 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
   </entry>
   
   <entry>
-    <title><![CDATA[SWFUpload 2.5 bug 修改日志 I]]></title>
-    <link href="http://rank.im/2012/08/18/fix-swfupload2.5-part1/"/>
-    <id>http://rank.im/2012/08/18/fix-swfupload2.5-part1/</id>
+    <title><![CDATA[SWFUpload 2.5 bug 修改日志(1)]]></title>
+    <link href="http://rank.im/2012/08/18/fix-swfupload2.5-1/"/>
+    <id>http://rank.im/2012/08/18/fix-swfupload2.5-1/</id>
     <published>2012-08-18T07:08:51.000Z</published>
-    <updated>2014-03-16T03:09:28.000Z</updated>
+    <updated>2014-03-17T02:30:54.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-swfupload">关于 SWFUpload</h2>
 <blockquote>
 <p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
