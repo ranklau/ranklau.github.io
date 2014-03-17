@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-17T02:40:58.950Z</updated>
+  <updated>2014-03-17T02:41:23.819Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -60,11 +60,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[推荐 android/ios 开发切图神器 cutandslice]]></title>
+    <title><![CDATA[android/ios 开发切图神器 cutandslice]]></title>
     <link href="http://rank.im/2013/10/09/cutandslice/"/>
     <id>http://rank.im/2013/10/09/cutandslice/</id>
     <published>2013-10-09T11:12:05.000Z</published>
-    <updated>2014-03-17T02:40:52.000Z</updated>
+    <updated>2014-03-17T02:41:13.000Z</updated>
     <content type="html"><![CDATA[<p>在多端开发时切图是个很痛苦的事，如果有一个很好的工具必将解决掉很多很繁琐的工作。<br>最近试用了一款软件「cutandslice」，觉得不错，推荐给大家。<br>官网：<a href="http://www.cutandslice.me/" target="_blank">http://www.cutandslice.me/</a><br>作者从简介上来看是一名 ue 设计师。  </p>
 <p>用了之后你会发现其实开发的原理不难：<br>用了很多 PS 里自己的「宏」来解决问题，程序只处理了规则（rule）。</p>
 <p>这个思路很赞。</p>
