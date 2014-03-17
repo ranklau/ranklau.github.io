@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-17T02:34:53.974Z</updated>
+  <updated>2014-03-17T02:35:49.605Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -998,19 +998,19 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
   </entry>
   
   <entry>
-    <title><![CDATA[radio list的用户体验细节]]></title>
+    <title><![CDATA[HTML Form 里 radio list 的用户体验细节]]></title>
     <link href="http://rank.im/2008/11/24/radio-list-user-experience-detail/"/>
     <id>http://rank.im/2008/11/24/radio-list-user-experience-detail/</id>
     <published>2008-11-24T12:34:57.000Z</published>
-    <updated>2014-03-15T09:58:29.000Z</updated>
-    <content type="html"><![CDATA[<p>radio list的用户体验细节相当赞：</p>
+    <updated>2014-03-17T02:35:39.000Z</updated>
+    <content type="html"><![CDATA[<p>HTML Form 里 radio list 的用户体验细节相当赞：</p>
 <ul>
 <li>可支持方向键</li>
-<li>当radio最后一个选中时，按小键盘后会自动跳回第一个</li>
-<li>checked可自动触发onclick</li>
-<li>支持各种浏览器,cross-browser</li>
+<li>当 radio 最后一个选中时，按小键盘后会自动跳回第一个</li>
+<li>checked 可自动触发 onclick</li>
+<li>支持各种浏览器，cross-browser</li>
 </ul>
-<p>用这个特性，可以做一个无障碍的TabView:)</p>
+<p>用这个特性，可以做一个无障碍的 TabView :)</p>
 <p><a id="more"></a></p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
 "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
@@ -1053,14 +1053,14 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 
 <p>-- EOF --</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>radio list的用户体验细节相当赞：</p>
+    <summary type="html"><![CDATA[<p>HTML Form 里 radio list 的用户体验细节相当赞：</p>
 <ul>
 <li>可支持方向键</li>
-<li>当radio最后一个选中时，按小键盘后会自动跳回第一个</li>
-<li>checked可自动触发onclick</li>
-<li>支持各种浏览器,cross-browser</li>
+<li>当 radio 最后一个选中时，按小键盘后会自动跳回第一个</li>
+<li>checked 可自动触发 onclick</li>
+<li>支持各种浏览器，cross-browser</li>
 </ul>
-<p>用这个特性，可以做一个无障碍的TabView:)</p>
+<p>用这个特性，可以做一个无障碍的 TabView :)</p>
 <p>]]></summary>
     
       <category term="tech" scheme="http://rank.im/categories/tech/"/>
