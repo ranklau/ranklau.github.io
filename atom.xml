@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-17T02:41:23.819Z</updated>
+  <updated>2014-03-17T02:42:35.477Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -19,19 +19,19 @@
     <link href="http://rank.im/2014/03/10/hexo-for-blog/"/>
     <id>http://rank.im/2014/03/10/hexo-for-blog/</id>
     <published>2014-03-10T13:40:27.000Z</published>
-    <updated>2014-03-17T02:32:43.000Z</updated>
+    <updated>2014-03-17T02:42:27.000Z</updated>
     <content type="html"><![CDATA[<p>这两天把博客新迁在 github page 上，这两天抽空注册了新域名，并且在 github pages 上搭建了新的博客，还用了逼格极高的 hexo。 </p>
 <p>在 github pages 上搭建静态博客不只 hexo，排名前 5 的系统有：</p>
 <ul>
 <li><a href="https://github.com/mojombo/jekyll" target="_blank">mojombo/jekyll</a>  最著名的静态博客引擎(ruby) </li>
-<li><a href="https://github.com/imathis/octopress" target="_blank">imathis/octopress</a>  jekyll的一个框架，降低了使用难度</li>
-<li><a href="https://github.com/tommy351/hexo" target="_blank">tommy351/hexo</a>  使用node编写的静态博客生成器</li>
-<li><a href="https://github.com/getpelican/pelican" target="_blank">getpelican/pelican</a>  Python编写的静态博客生成器</li>
-<li><a href="https://github.com/lepture/liquidluck" target="_blank">lepture/liquidluck</a>  同样也是Python的系统</li>
+<li><a href="https://github.com/imathis/octopress" target="_blank">imathis/octopress</a>  jekyll 的一个框架，降低了使用难度</li>
+<li><a href="https://github.com/tommy351/hexo" target="_blank">tommy351/hexo</a>  使用 NodeJS 编写的静态博客生成器</li>
+<li><a href="https://github.com/getpelican/pelican" target="_blank">getpelican/pelican</a>  Python 编写的静态博客生成器</li>
+<li><a href="https://github.com/lepture/liquidluck" target="_blank">lepture/liquidluck</a>  同样也是 Python 的系统</li>
 </ul>
 <p>官方推荐的是 <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>。</p>
-<p>我用 hexo 主要想借机多熟悉下 NodeJs，另外也先看了简介使用，感觉 hexo上 手也相对容易，markdown 语言来写内容。<br>如果你想对这几种静态博客进行系统比较的话，可自行测试，或 <a href="http://www.zhihu.com/question/21981094" target="_blank">参考这篇贴子</a>。</p>
-<p>hexo的配置及使用官方有比较详细的 <a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a> ，有一位热心同学写了较为详细的博文 《<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank">hexo你的博客</a>》 。  </p>
+<p>我用 hexo 主要想借机多熟悉下 NodeJS，另外也先看了简介使用，感觉 hexo 上手也相对容易，markdown 语言来写内容。<br>如果你想对这几种静态博客进行系统比较的话，可自行测试，或 <a href="http://www.zhihu.com/question/21981094" target="_blank">参考这篇贴子</a>。</p>
+<p>hexo 的配置及使用官方有比较详细的 <a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a> ，有一位热心同学写了较为详细的博文 《<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank">hexo你的博客</a>》 。  </p>
 <p>有一些问题他没有提及，我补充一下：</p>
 <ul>
 <li><a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank">这里</a> 有详细的官方推荐皮肤。目前我使用的是<a href="https://github.com/heroicyang/hexo-theme-modernist" target="_blank">modernist</a>，如果你对皮肤要求比较高的话，恐怕theme上没有太满意的，只能自己设计。:(</li>
