@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title> neverModules-slider - http://www.never-online.net </title>
+    <style type="text/css" media="all" title="Default">
+      @import "main.css";
+      @import "slider.css";
+    </style>
+    <meta http-equiv="ImageToolbar" content="no" />
+    <meta name="author" content="rank"/>
+    <meta name="keywords" content="javascript outlook Menu, never modules, javascript, DHTML, ajax, never-online"/>
+    <meta name="description" content="javascript reference, javascript outlook Menu, javascript tutorial and ajax control"/>
+    <meta name="creator.name" content="rank" />
+    <script type="text/javascript" src="slider_extras.js"></script>
+  </head>
+  <body id="www.never-online.net">
+    <div id="header">
+      <h1> neverModules - slider </h1>
+      by rank - <a href="http://rank.im">http://rank.im</a> - updated: 03.01.2006
+      <hr />
+    </div>
+    <div class="wrapper">
+      <div class="content">
+        <h4> cross-browser </h4>
+        IE 6.0 - Opera 9.0 - - Mozilla 1.5.0
+        </ul>
+      </div>
+      <div class="content">
+        <h4> Example list </h4>
+        <div id="sliderDetail" style="font-weight:bolder;"></div>
+        <input value="40" id="jumpValue">
+        <input type="button" 
+        onclick="var a=getElementById('jumpValue').value;sliderImage1.setValue(a);sliderImage2.setValue(a);winSlider.setValue(a)" 
+        value="MoveToValue"/>
+        <div style="height:100px; margin:10px; ">
+          <div id="sliderDemo1" style="height:40px;"></div>
+          <div id="sliderDemo2" style="height:40px;"></div>
+          <div id="sliderDemo3" style="height:40px;"></div>
+        </div>
+        <script type="text/javascript">
+        //<![CDATA[
+          var sliderImage1 = new neverModules.modules.slider(
+          {targetId: "sliderDemo1",
+          sliderCss: "imageSlider1",
+          barCss: "imageBar1",
+          min: 0,
+          max: 20,
+          hints: "move the slider"
+          });
+          sliderImage1.onstart  = function () {
+            getElementById("sliderDetail").innerHTML = "onstart: sliderImage1 Start value is " +sliderImage1.getValue();
+          }
+          sliderImage1.onchange = function () {
+            getElementById("sliderDetail").innerHTML = "onchange: sliderImage1 Current value is " +sliderImage1.getValue();
+          };
+          sliderImage1.onend = function () {
+            getElementById("sliderDetail").innerHTML += ", onend: The end the sliderImage1 value is " +sliderImage1.getValue();
+          }
+          sliderImage1.create();
+          sliderImage1.setValue(sliderImage1.max/2);
+          //--------------------------------------------------------------------------------
+          var sliderImage2 = new neverModules.modules.slider(
+          {targetId: "sliderDemo2",
+          sliderCss: "imageSlider2",
+          barCss: "imageBar2",
+          min: 16,
+          max: 1024,
+					ckValue:16,
+          hints: "move the slider"
+          });
+          sliderImage2.onstart  = function () {
+            getElementById("sliderDetail").innerHTML = "onstart: sliderImage2 Start value is " +sliderImage2.getValue();
+          }
+          sliderImage2.onchange = function () {
+            getElementById("sliderDetail").innerHTML = "onchange: sliderImage2 Current value is " +sliderImage2.getValue();
+          };
+          sliderImage2.onend = function () {
+            getElementById("sliderDetail").innerHTML += ", onend: The end the sliderImage2 value is " +sliderImage2.getValue();
+          }
+          sliderImage2.create();
+          //--------------------------------------------------------------------------------
+          var winSlider = new neverModules.modules.slider(
+          {targetId: "sliderDemo3",
+          sliderCss: "winSlider",
+          barCss: "winBar",
+          min: 0,
+          max: 10000,
+          hints: "move the slider"
+          });
+          winSlider.onstart  = function () {
+            getElementById("sliderDetail").innerHTML = "onstart: winSlider Start value is " +winSlider.getValue();
+          }
+          winSlider.onchange = function () {
+            getElementById("sliderDetail").innerHTML = "onchange: winSlider Current value is " +winSlider.getValue();
+          };
+          winSlider.onend = function () {
+            getElementById("sliderDetail").innerHTML += ", onend: The end the winSlider value is " +winSlider.getValue();
+          }
+          winSlider.create();
+          winSlider.setValue(5000);
+        //]]>
+        </script>
+      </div>
+      <div class="content">
+        <h4> Download source </h4>
+        click <a href="neverModules-slider.rar">here</a> to download this file.
+      </div>
+      <div class="content">
+        <h4> History </h4>
+        2006 - 01: slider beta<br/>
+        2007 - 03: slider 0.10<br/>
+      </div>
+      <div class="content">
+        <h4> Known bug </h4>
+        
+      </div>
+    </div>
+    <div id="footer">
+      by rank @2008
+    </div>
+  </body>
+</html>
