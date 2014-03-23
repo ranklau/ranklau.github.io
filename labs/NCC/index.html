@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> NCC Tools - http://rank.im </title>
+  <hta:application id="NCC" 
+  applicationname="NCC application" 
+  border="thin" 
+  borderstyle="normal" 
+  caption="yes" 
+  icon="http://rank.im/favicon.ico" 
+  maximizebutton="no"
+  minimizebutton="yes"
+  showintaskbar="no" 
+  singleinstance="yes"
+  sysmenu="yes" 
+  version="1.01" 
+  windowState="normal"/>
+  <meta http-equiv="ImageToolbar" content="no" />
+  <meta name="author" content="rank"/>
+  <meta name="title" content="never code counter (NCC) - http://rank.im" />
+  <style type="text/css" media="all" title="Default">
+    body           { background-color:buttonface; }
+    body,td,input  { font:9pt tahoma; }
+    h1             { text-align:center; font-weight: bold; font-family: tahoma; font-size: 16pt; } 
+    fieldset       { height:300px; }
+    legend         { font-weight: bolder; }
+    .btn           { border-left:4px solid #444; border-top:1px solid #444; border-bottom:1px solid #444; border-right:1px solid #444; }
+    .two           { width:200px; }
+    .txt           { border:1px solid #444; }
+    .file          { display:none; width:300px; border-left:4px solid #444; border-top:1px solid #444; border-bottom:1px solid #444; border-right:1px solid #444; }
+    #loading       { display:none; filter:alpha(opacity=70); border:1px solid #444444; background-color:appworkspace; color:#ffffff; width:300px; font-size:13px; font-weight:bold; font-family:arial; padding:10px; position:absolute; top:0; left:0; }
+    #left          { line-height:200%; width:50%; padding:20px; }
+    #left ul       { margin:0 0 0 10px; }
+    #left li       { list-style-type: decimal; margin:20px 10px 15px 10px; }
+    #footer        { font-size:11px; text-align:center; }
+    #right         { padding:20px; width:50%; }
+    #outputWrapper { padding:10px; }
+  </style>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  //======================================================================================
+  //
+  //  Module     : NCC -  never code counter V1.01 beta
+  //  Script by  : rank
+  //  Updated    : 2006-6-25
+  //  Copyright  : Miracle technology all reserved
+  //  Website    : http://www.rank.im
+  //  Email      : ranklau@gmail.com
+  //  Blog       : http://rank.im
+  //  Comment    : Permission given to use this script in ANY kind of applications if
+  //  header lines are left unchanged.
+  //
+  //======================================================================================
+
+  //====================================================================================
+  // Ultity Function
+    var doc = document, wnd = window;
+    String.prototype.trim = function() { return this.replace(/(^\s*)|(\s*$)/g, ''); };
+    Array.prototype.push = function(x) { this[this.length] = x; };
+    Array.prototype.pop = function() { return this[this.length-1]; };
+  //====================================================================================
+    var NCC = 
+    {
+  // Private Variables
+      _maxloop : 3000,
+      _version : "1.02 beta",
+      _author : "rank",
+      _webURI : "http://www.rank.im",
+      _lines : {"total":0},
+      _bytes : {"total":0},
+      _files : {"total":0},
+      _words : {"total":0},
+      _error : {},
+      _filesExts : "cs,js,asp,xml,aspx",
+      _fsoObj : new ActiveXObject("Scripting.FileSystemObject")
+      // make sure Your fso activeXObject is availd. otherwise can not runing next code
+    };
+  // Public Functions API
+    NCC.splash = function()
+    {
+
+    };
+    NCC.init = function()
+    {
+      var fileDlgObjStr = '<object id="filepathDlg"'
+                         +'          width="0px" height="0px"'
+                         +'          classid="CLSID:F9043C85-F6F2-101A-A3C9-08002B2F49FB"'
+                         +'          codebase="http://activex.microsoft.com/controls/vb5/comdlg32.cab">'
+                         +'</object>';
+      var folderDlgObjStr = '<object id="folderpathDlg"'
+                           +'        classid="CLSID:13709620-C279-11CE-A49E-444553540000"'
+                           +'        width="0" height="0">'
+                           +'</object>';
+      var loadingObjStr = '<div id="loading"></div>';
+      doc.body.insertAdjacentHTML("beforeEnd", fileDlgObjStr);
+      doc.body.insertAdjacentHTML("beforeEnd", folderDlgObjStr);
+      doc.body.insertAdjacentHTML("beforeEnd", loadingObjStr);
+    }
+    NCC.chkFileExts = function(filenameStr)
+    {
+      var a = this._filesExts.trim().split(",");
+      var f = this.getFileExts(filenameStr);
+      for (var i=0; i<a.length; i++)
+      if (f.toLowerCase() == a[i].toLowerCase()) return true;
+      return false;
+    };
+    NCC.output = function(wrapperID)
+    {
+      var k, x; x=[]; 
+      x.push("------------- Files -------------");
+      // -- part of files --
+      for (k in this._files)
+      x.push("[" +k+ "]: " +this._files[k]+ "");
+      // -- part of words --
+      x.push("------------- Words -------------");
+      for (k in this._words)
+      x.push("[" +k+ "]: " +this._words[k]+ "");
+      // -- part of bytes --
+      x.push("------------- Bytes -------------");
+      for (k in this._bytes)
+      x.push("[" +k+ "]: " +this._bytes[k]+ "");
+      // -- part of lines --
+      x.push("------------- Lines -------------");
+      for (k in this._lines)
+      x.push("[" +k+ "]: " +this._lines[k]+ "");
+      x = x.join("\n");
+      if (wrapperID) {
+        var a = doc.all(wrapperID), t=a.tagName.toLowerCase();
+        if (!a) return wnd.alert("HTMLElement ID \"" +wrapperID+ "\" is not valid!");
+        if (t=="input" || t=="textarea") a.value = x;
+        else a.innerHTML = x.replace(/\n/,"<br/>");
+      }
+      return x;
+    };
+    NCC.saveAs = function(elIdorStr)
+    {
+      var dlg = doc.all("filepathDlg");
+      var a = doc.all(elIdorStr);
+      if (a) {
+        var t = a.tagName.toLowerCase();
+        var fileStr = (t=="input" || t=="textarea") ? a.value : a.innerHTML.replace(/<br(\/)?>/g, "\n");
+      } else {
+        fileStr = elIdorStr;
+      }
+      dlg.cancelError=true;
+      try {
+        dlg.filter="Text Files (*.txt)|*.txt|HTM Files (*.htm)|*.htm";
+        dlg.showSave();
+        var f = this._fsoObj.CreateTextFile(dlg.filename,true);
+        f.write(fileStr);
+        f.Close();
+      } catch(ex) {};
+    };
+    NCC.setFilesExt = function(filesExtsStr)
+    {
+      this._filesExts = filesExtsStr;
+      return true;
+    };
+    NCC.getFilesExts = function()
+    {
+      return this._filesExts;
+    };
+    NCC.getFileExts = function(filenameStr)
+    {
+      var a=filenameStr.split(".");
+      return a[a.length-1].toLowerCase();//a.pop()
+    };
+    NCC.selectSingleFile = function() 
+    {
+      var dlg = doc.all("filepathDlg");
+      var fps = doc.all("filepathStr");
+      var fes = this._filesExts;
+      var filename="", filter="", arr=[];
+      arr = fes.trim().split(",");
+      for (var i=0; i<arr.length; i++)
+      filter += arr[i].toUpperCase() +" Files (*." +arr[i]+ ")|*." +arr[i]+ "" +(i==arr.length-1?"":"|");
+      dlg.cancelError=true;
+      try {
+        dlg.filter = filter;
+        dlg.showOpen();
+        filename = dlg.filename;
+      } catch(ex) {};
+      if (filename.trim()=="") return false;
+      fps.value = filename;
+      if (!this.chkFileExts(filename)) return wnd.alert("File Extension name \"" +filename+ "\" is not valid!");
+      return filename;
+    };
+    NCC.selectFolder = function()
+    {
+      var dlg = doc.all("folderpathDlg");
+      try {
+        var pathObj = dlg.browseForFolder(0,"Please Select Folder��",0);
+        var pathStr = pathObj.parentFolder.parseName(pathObj.Title).path;
+        return pathStr;
+      } catch(ex) { return false };
+    };
+    NCC.countFolder = function(folderpathStr) 
+    {
+      var ldg = doc.all("loading");
+      with (ldg.style) {
+        display = "block";
+        top = parseInt((doc.body.clientHeight-ldg.offsetHeight)/2);
+        left = parseInt((doc.body.clientWidth-ldg.offsetWidth)/2);
+      }; ldg.innerHTML = "<div align=\"center\">Now Counting...</div>";
+      wnd.status = "NCC Counting...";
+      if (!this._fsoObj.FolderExists(folderpathStr)) {
+        this.countSingleFile(folderpathStr);
+      } else {
+        var cnt = 0;
+        function iterator(folderpathStr) {
+          var a = NCC._fsoObj.getFolder(folderpathStr);
+          var e = new Enumerator(a.files)
+          for (; !e.atEnd(); e.moveNext()) {
+            NCC.countSingleFile(e.item());
+            if (cnt++>=NCC._maxloop) return;
+          }
+
+          var f = new Enumerator(a.subFolders)
+          for (; !f.atEnd(); f.moveNext()) {
+            iterator(f.item());
+            if (cnt++>=NCC._maxloop) return;
+          }
+        }
+        iterator(folderpathStr);
+      }
+      ldg.innerHTML = "<div align=\"center\">NCC Count Completely.</div>"
+      wnd.status = "NCC Count Completely.";
+      wnd.setTimeout(function(){ldg.style.display = "none";},3000);
+    };
+    NCC.countSingleFile = function(filepathStr) 
+    {
+      var x, a, f, e;
+      var ldg = doc.all("loading");
+      if (!this._fsoObj.FileExists(filepathStr)) return false;
+      f = this._fsoObj.GetFile(filepathStr);
+      if (this.chkFileExts(f.name))
+      {
+        var o = f.openAsTextStream(1);
+        if (o.atEndOfStream) { x = ""; } else { x = o.ReadAll(); }
+        x = x.replace(/(\n|\r)+/mg,"$1");
+        a = x.split("\n");
+        e = this.getFileExts(f.name);
+        this._bytes["total"] += x.length;
+        this._bytes[e] ? this._bytes[e]+=x.length : this._bytes[e]=x.length;
+        this._lines["total"] += a.length;
+        this._lines[e] ? this._lines[e]+=a.length : this._lines[e]=a.length;
+        a = x.replace(/(\s|\t| )+/g," ").split(" ");
+        this._words["total"] += a.length;
+        this._words[e] ? this._words[e]+=a.length : this._words[e]=a.length;
+        this._files["total"] ++;
+        this._files[e] ? this._files[e]++ : this._files[e]=1;
+      }
+      wnd.status = "NCC(\"" +f.path+ "\")";
+      ldg.innerHTML = "now count \"" +f.name+ "\"."
+      return this.chkFileExts(f.name)
+    };
+    NCC.formatSingleFile = function(filepathStr)
+    {
+
+    };
+  //====================================================================================
+    function window.onload() {
+      NCC.init();
+      wnd.resizeTo(800,480);
+      doc.all("outputWrapper").value = "";
+      setFilesExts();//setFilesExts.call(this);
+    }
+    function setFilesExts() {
+      doc.all("filesExts").value = NCC.getFilesExts();
+    }
+    function output() {
+      /*
+      var e = event.srcElement;
+      var a = doc.body.all;
+      for (var i=0; i<a.length; i++) {
+        if (a[i].tagName.toLowerCase()=="input") {
+          if (a[i]!=e) a[i].disabled=true;
+        }
+      }
+      */
+      NCC.setFilesExt(doc.all("filesExts").value)
+      NCC.countFolder(doc.all('filepathStr').value);
+      NCC.output('outputWrapper');
+    }
+    function changeFileExt() {
+      var groupfileExts = doc.all("groupfileExt");
+      var fileExtStr = [];
+      for (var i=0; i<groupfileExts.length; i++) {
+        if (groupfileExts[i].checked)
+        fileExtStr.push(groupfileExts[i].value);
+      }
+      NCC.setFilesExt(fileExtStr.join(","));
+      setFilesExts();
+    }
+    function selectSingleFile(val) {
+      if (!NCC.selectSingleFile()) return "";
+      doc.all(val).value = NCC.selectSingleFile();
+    }
+    function selectFolder(val) {
+      var a = NCC.selectFolder();
+      if (a==false) return "";
+      doc.all(val).value = a;
+    }
+    function saveAs() {
+      NCC.saveAs('outputWrapper');
+      //NCC.saveAs(NCC.output());
+    }
+  //]]>
+  </script>
+</head>
+<body id="www.never-online.net">
+  <h1> NCC (never code counter) tools - http://rank.im </h1>
+  <fieldset>
+    <legend> - Application NCC (never code counter) -</legend>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="left" valign="top" id="left">
+          <ul>
+            <li>
+              <input name="filepathStr" type="text" class="txt" value="type your file or folder path" size="30">
+              <input class="btn" type="button" value=" FILE " onclick="selectSingleFile('filepathStr')"/>
+              <input class="btn" type="button" value="FOLDER" onclick="selectFolder('filepathStr')"/>
+            </li>
+            <li>
+              <input name="groupfileExt" value="asp" type="checkbox" checked onclick="changeFileExt()"/>
+              .asp
+              <input name="groupfileExt" value="js" type="checkbox" checked onclick="changeFileExt()"/>
+              .js
+              <input name="groupfileExt" value="xml" type="checkbox" checked onclick="changeFileExt()"/>
+              .xml
+              <input name="groupfileExt" value="aspx" type="checkbox" checked onclick="changeFileExt()"/>
+              .aspx
+              <input name="groupfileExt" value="cs" type="checkbox" checked onclick="changeFileExt()"/>
+              .cs            
+              <br/>
+              <input name="filesExts" type="text" class="txt" id="filesExts" value="" size="40">
+            </li>
+            <li>
+              <input class="btn two" type="button" value="Output Information" onclick="output()"/>
+              <!-- not complete <input name="button" type="button" class="btn" onclick="NCC.format();" value="Format Code"/> -->
+            </li>
+            <li>
+              <input class="btn two" type="button" value="Information Save As" onclick="saveAs();"/>
+            </li>
+          </ul>
+          <div id="footer">
+            <p> 
+              NCC V1.01 beta Power By <a href="http://www.rank.im" target="_blank">rank</a> 
+            </p>
+          </div>
+        </td>
+        <td align="left" valign="top" id="right">
+          <fieldset>
+            <legend>- Output Information -</legend>
+              <textarea id="outputWrapper" style="border:0; background-color:buttonface; width:96%; height:100%;"></textarea>
+          </fieldset>
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+</body>
+</html>
