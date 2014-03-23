@@ -1,0 +1,14 @@
+/** 
+ * default outlookmenu css 
+ * @author rank
+ * @cat    outlookmenu
+ * design by rank
+ */
+
+.outlookMenu               { overflow:hidden; background-color: #FFFFEE; width:180px; margin:0; padding:0; border:1px solid #629B5B; font-size:10pt; font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif; }
+.outlookMenu h4            { font-size:10pt; width:100%; cursor:default; background-color:#629B5B; color:#FFFFCC; margin:0; padding:2px 2px 2px 5px; border-bottom:3px double #999; }
+.outlookMenu ul, li        { width:100%; margin:0; padding:0; list-style-type: none; }
+.outlookMenu ul            { background-color: #629B5B; }
+.outlookMenu ul li         { background-color: #FFFFEE; color:#006600; margin-bottom:1px; padding:2px 2px 2px 5px; }
+.outlookMenu ul li a       { text-decoration:none; color:#006600; }
+.outlookMenu ul li a:hover { text-decoration:underline; color:#000; }
