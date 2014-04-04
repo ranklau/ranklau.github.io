@@ -10,9 +10,9 @@
   <meta name="description" content="常规思路
 在 firefox 里如何实现 firebug 的 DOM inspect 选择功能?
 
-首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border。
-接着，mousedown，这个 absolute 的元素隐藏；
-再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。
+首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border 。
+接着， mousedown ，这个 absolute 的元素隐藏；
+再着着， click 结束后从事件里的 event 得到 target ，从而再得到 inspect 。
 
 可这样是不是真的能做到呢？">
   
@@ -74,20 +74,20 @@
       <h2 id="-">常规思路</h2>
 <p>在 firefox 里如何实现 firebug 的 DOM inspect 选择功能?</p>
 <ul>
-<li>首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border。</li>
-<li>接着，mousedown，这个 absolute 的元素隐藏；</li>
-<li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
+<li>首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border 。</li>
+<li>接着， mousedown ，这个 absolute 的元素隐藏；</li>
+<li>再着着， click 结束后从事件里的 event 得到 target ，从而再得到 inspect 。</li>
 </ul>
 <p>可这样是不是真的能做到呢？
 <a id="more"></a>
 忽视了一点。<br>mouseover 如果在某个元素上飘一个 absolute 容器，那么你的 over 事件永远在这个 absolute 元素上了。</p>
-<p>可惜不是as，as可以把某个容器的事件 enable 设为 false 即可。<br>DOM w3c 没有禁用事件的功能。</p>
+<p>可惜不是 as ， as 可以把某个容器的事件 enable 设为 false 即可。<br>DOM w3c 没有禁用事件的功能。</p>
 <h2 id="-">打破常规</h2>
 <p>回到题目，那怎么做呢？<br>同事能跳出刚才的程序思维——用 4 个 div 当 4 条边就可以了。</p>
 <p>不知道你第还没试之前的分析是否是这样的呢？
-我当时在想，在coding的时候能跳出原来传统的思维真是不易。太赞了!</p>
-<p>写个简单 demo 记念（用 firefox 看吧。)
-八卦一下，据观察，firebug 确实真的也是这么做的（没看代码，只看了 DOM tree 里多了几个 div）。</p>
+我当时在想，在 coding 的时候能跳出原来传统的思维真是不易。太赞了!</p>
+<p>写个简单 demo 记念（用 firefox 看吧。 )
+八卦一下，据观察， firebug 确实真的也是这么做的（没看代码，只看了 DOM tree 里多了几个 div ）。</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
 "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
@@ -132,8 +132,8 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 
 
 <h2 id="-">穿透事件</h2>
-<p>不能像 AS 一样禁止事件，但是非IE下可穿透事件。<br>非IE下可以通过
- <a href="https://developer.mozilla.org/en/CSS/pointer-events" target="_blank">pointer-events:none</a>来透过事件，这里有个 <a href="http://www.qgy18.com/file/code/firebug_demo.html" target="_blank">demo</a>。</p>
+<p>不能像 AS 一样禁止事件，但是非 IE 下可穿透事件。<br>非 IE 下可以通过
+ <a href="https://developer.mozilla.org/en/CSS/pointer-events" target="_blank">pointer-events:none</a> 来透过事件，这里有个 <a href="http://www.qgy18.com/file/code/firebug_demo.html" target="_blank">demo</a> 。</p>
 <p>-- EOF --</p>
 
     
@@ -207,7 +207,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

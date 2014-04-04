@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>IE 在 DOM 操作有表单控件时的bug | rank&#39;s blog</title>
+  <title>IE 在 DOM 操作有表单控件时的 bug | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
-  <meta name="description" content="bug描述
+  <meta name="description" content="bug 描述
 
-影响的范围: IE的所有版本
-在表单的 radio/checkbox 控件中，一旦他们的DOM结构被更改过就会出现这个bug。
-操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio将会自动恢复到默认状态，
+影响的范围: IE 的所有版本
+在表单的 radio/checkbox 控件中，一旦他们的 DOM 结构被更改过就会出现这个 bug 。
+操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio 将会自动恢复到默认状态，
 有如点了 reset 按钮一样。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <meta property="og:title" content="IE 在 DOM 操作有表单控件时的bug"/>
+  <meta property="og:title" content="IE 在 DOM 操作有表单控件时的 bug"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -62,22 +62,22 @@
     
     
   
-    <h1 class="title">IE 在 DOM 操作有表单控件时的bug</h1>
+    <h1 class="title">IE 在 DOM 操作有表单控件时的 bug</h1>
   
 
   </header>
   
   <div class="entry">
     
-      <h2 id="bug-">bug描述</h2>
+      <h2 id="bug-">bug 描述</h2>
 <ul>
-<li>影响的范围: IE的所有版本</li>
-<li>在表单的 radio/checkbox 控件中，一旦他们的DOM结构被更改过就会出现这个bug。</li>
-<li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio将会自动恢复到默认状态，</li>
+<li>影响的范围: IE 的所有版本</li>
+<li>在表单的 radio/checkbox 控件中，一旦他们的 DOM 结构被更改过就会出现这个 bug 。</li>
+<li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio 将会自动恢复到默认状态，</li>
 <li>有如点了 reset 按钮一样。</li>
 </ul>
 <p><a id="more"></a>
-bug重现</p>
+bug 重现</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
 "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
@@ -142,7 +142,7 @@ bug重现</p>
 
 
 <h2 id="-">解决方法</h2>
-<p>可以在操作DOM之前，用 「defaultChecked」 来设置 checked 的值。</p>
+<p>可以在操作 DOM 之前，用 「 defaultChecked 」 来设置 checked 的值。</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
 "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
@@ -235,7 +235,7 @@ bug重现</p>
 
 <section id="comment">
   <h1 class="title">Comments</h1>
-  <div class="ds-thread" data-title="IE 在 DOM 操作有表单控件时的bug">
+  <div class="ds-thread" data-title="IE 在 DOM 操作有表单控件时的 bug">
   </div>
 </section>
 </div>
@@ -287,7 +287,7 @@ bug重现</p>
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

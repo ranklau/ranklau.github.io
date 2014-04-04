@@ -8,11 +8,11 @@
   <meta name="author" content="rank">
   
   <meta name="description" content="问题
-先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?
+先问一个问题, 在 firefox 2 里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?
 有可能你会答「是，他们相等」，也有可能你去查了查手册, 看到以下的解释:
 
 \d Matches a nondigit character. Equivalent to [^0-9]. 
-匹配一个数字字符。等价于 [0-9]。
+匹配一个数字字符。等价于 [0-9] 。
 
 那我们测试一下以下代码：
  //http://rank.im
@@ -75,11 +75,11 @@
   <div class="entry">
     
       <h2 id="-">问题</h2>
-<p>先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
+<p>先问一个问题, 在 firefox 2 里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
 <p>有可能你会答「是，他们相等」，也有可能你去查了查手册, 看到以下的解释:</p>
 <blockquote>
 <p>\d Matches a nondigit character. Equivalent to [^0-9]. 
-匹配一个数字字符。等价于 [0-9]。</p>
+匹配一个数字字符。等价于 [0-9] 。</p>
 </blockquote>
 <p>那我们测试一下以下代码：</p>
 <figure class="highlight js"><pre> <span class="comment">//http://rank.im</span>
@@ -96,16 +96,16 @@
 </pre></figure>
 
 
-<p>Firefox 2 里会出现「\d」等于 半角[0-9] 和 全角[0-9] 现象。</p>
+<p>Firefox 2 里会出现「\d 」等于 半角 [0-9] 和 全角 [0-9] 现象。</p>
 <h2 id="-">解决办法</h2>
-<p>Firefox 2里用正则表达式\d字符时,会将全角转义成半角再进行匹配, 与手册描述不一致。  </p>
+<p>Firefox 2 里用正则表达式\d 字符时,会将全角转义成半角再进行匹配, 与手册描述不一致。  </p>
 <p>解决办法即是：以后大家用正则还是直接用 [0-9] 去匹配数字。</p>
-<p>这是否意味着是 Firefox 2 的bug呢？非也。  </p>
-<p>《Master Regular Expression，精通正则表达式》书中说是不同的流派的问题。</p>
+<p>这是否意味着是 Firefox 2 的 bug 呢？非也。  </p>
+<p>《 Master Regular Expression ，精通正则表达式》书中说是不同的流派的问题。</p>
 <blockquote>
 <p>Matches any non-decimal digit. Equivalent to [\P{Nd}] for Unicode and [^0-9] for non-Unicode, ECMAScript behavior.</p>
 </blockquote>
-<p>另，Firefox 后续版本已无问题。</p>
+<p>另， Firefox 后续版本已无问题。</p>
 <p>-- EOF --</p>
 
     
@@ -179,7 +179,7 @@
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

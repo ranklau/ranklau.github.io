@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Border is just for crossing]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://rank.im/"/>
-  <updated>2014-03-24T15:28:41.909Z</updated>
+  <updated>2014-04-04T02:40:42.050Z</updated>
   <id>http://rank.im/</id>
   
   <author>
@@ -19,24 +19,24 @@
     <link href="http://rank.im/2014/03/10/hexo-for-blog/"/>
     <id>http://rank.im/2014/03/10/hexo-for-blog/</id>
     <published>2014-03-10T13:40:27.000Z</published>
-    <updated>2014-03-17T02:42:27.000Z</updated>
-    <content type="html"><![CDATA[<p>这两天把博客新迁在 github page 上，这两天抽空注册了新域名，并且在 github pages 上搭建了新的博客，还用了逼格极高的 hexo。 </p>
-<p>在 github pages 上搭建静态博客不只 hexo，排名前 5 的系统有：</p>
+    <updated>2014-04-04T02:39:20.000Z</updated>
+    <content type="html"><![CDATA[<p>这两天把博客新迁在 github page 上，这两天抽空注册了新域名，并且在 github pages 上搭建了新的博客，还用了逼格极高的 hexo 。 </p>
+<p>在 github pages 上搭建静态博客不只 hexo ，排名前 5 的系统有：</p>
 <ul>
-<li><a href="https://github.com/mojombo/jekyll" target="_blank">mojombo/jekyll</a>  最著名的静态博客引擎(ruby) </li>
+<li><a href="https://github.com/mojombo/jekyll" target="_blank">mojombo/jekyll</a>  最著名的静态博客引擎 (ruby) </li>
 <li><a href="https://github.com/imathis/octopress" target="_blank">imathis/octopress</a>  jekyll 的一个框架，降低了使用难度</li>
 <li><a href="https://github.com/tommy351/hexo" target="_blank">tommy351/hexo</a>  使用 NodeJS 编写的静态博客生成器</li>
 <li><a href="https://github.com/getpelican/pelican" target="_blank">getpelican/pelican</a>  Python 编写的静态博客生成器</li>
 <li><a href="https://github.com/lepture/liquidluck" target="_blank">lepture/liquidluck</a>  同样也是 Python 的系统</li>
 </ul>
-<p>官方推荐的是 <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>。</p>
-<p>我用 hexo 主要想借机多熟悉下 NodeJS，另外也先看了简介使用，感觉 hexo 上手也相对容易，markdown 语言来写内容。<br>如果你想对这几种静态博客进行系统比较的话，可自行测试，或 <a href="http://www.zhihu.com/question/21981094" target="_blank">参考这篇贴子</a>。</p>
-<p>hexo 的配置及使用官方有比较详细的 <a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a> ，有一位热心同学写了较为详细的博文 《<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank">hexo你的博客</a>》 。  </p>
+<p>官方推荐的是 <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a> 。</p>
+<p>我用 hexo 主要想借机多熟悉下 NodeJS ，另外也先看了简介使用，感觉 hexo 上手也相对容易， markdown 语言来写内容。<br>如果你想对这几种静态博客进行系统比较的话，可自行测试，或 <a href="http://www.zhihu.com/question/21981094" target="_blank"> 参考这篇贴子 </a> 。</p>
+<p>hexo 的配置及使用官方有比较详细的 <a href="http://zespia.tw/hexo/docs/" target="_blank"> 文档 </a> ，有一位热心同学写了较为详细的博文 《 <a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank">hexo 你的博客 </a> 》 。  </p>
 <p>有一些问题他没有提及，我补充一下：</p>
 <ul>
-<li><a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank">这里</a> 有详细的官方推荐皮肤。目前我使用的是<a href="https://github.com/heroicyang/hexo-theme-modernist" target="_blank">modernist</a>，如果你对皮肤要求比较高的话，恐怕theme上没有太满意的，只能自己设计。:(</li>
-<li><a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a>。看上去挺全的，但很多地方『点到即止』，所以才看到有很多使用说明都是自己搭建过的同学写出来的经验之谈，不过这没关系，结合 google baidu 来使用就可以了。</li>
-<li><a href="http://zespia.tw/hexo/docs/migration.html" target="_blank">迁移</a>。 关键的功能从 rss 导入功能
+<li><a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank"> 这里 </a> 有详细的官方推荐皮肤。目前我使用的是 <a href="https://github.com/heroicyang/hexo-theme-modernist" target="_blank">modernist</a> ，如果你对皮肤要求比较高的话，恐怕 theme 上没有太满意的，只能自己设计。:(</li>
+<li><a href="http://zespia.tw/hexo/docs/" target="_blank"> 文档 </a> 。看上去挺全的，但很多地方『点到即止』，所以才看到有很多使用说明都是自己搭建过的同学写出来的经验之谈，不过这没关系，结合 google baidu 来使用就可以了。</li>
+<li><a href="http://zespia.tw/hexo/docs/migration.html" target="_blank"> 迁移 </a> 。 关键的功能从 rss 导入功能
 &quot;hexo migrate rss <a href="http://rank.im/atom.xml">http://rank.im/atom.xml</a>&quot; 居然不能用。我哪天 fix 了放出来给大家。</li>
 </ul>
 ]]></content>
@@ -51,8 +51,8 @@
     <link href="http://rank.im/2014/03/07/new-blog-start/"/>
     <id>http://rank.im/2014/03/07/new-blog-start/</id>
     <published>2014-03-07T09:04:20.000Z</published>
-    <updated>2014-03-17T02:57:46.000Z</updated>
-    <content type="html"><![CDATA[<p>注册了一个比较帅的域名 <a href="http://rank.im">rank.im</a>，用于个人站点。<br>把原来的很古老的博客系统换成现在比较流行，逼格比较高的 hexo。  </p>
+    <updated>2014-04-04T02:39:20.000Z</updated>
+    <content type="html"><![CDATA[<p>注册了一个比较帅的域名 <a href="http://rank.im">rank.im</a> ，用于个人站点。<br>把原来的很古老的博客系统换成现在比较流行，逼格比较高的 hexo 。  </p>
 <p>虽然原来我的博客在 G reader 的订阅数也有 1K 多，抛弃历史包袱从头再开始是个不错的选择。:)<br>此篇是个新的开始。</p>
 ]]></content>
     
@@ -64,9 +64,9 @@
     <link href="http://rank.im/2013/10/09/cutandslice/"/>
     <id>http://rank.im/2013/10/09/cutandslice/</id>
     <published>2013-10-09T11:12:05.000Z</published>
-    <updated>2014-03-17T02:41:13.000Z</updated>
-    <content type="html"><![CDATA[<p>在多端开发时切图是个很痛苦的事，如果有一个很好的工具必将解决掉很多很繁琐的工作。<br>最近试用了一款软件「cutandslice」，觉得不错，推荐给大家。<br>官网：<a href="http://www.cutandslice.me/" target="_blank">http://www.cutandslice.me/</a><br>作者从简介上来看是一名 ue 设计师。  </p>
-<p>用了之后你会发现其实开发的原理不难：<br>用了很多 PS 里自己的「宏」来解决问题，程序只处理了规则（rule）。</p>
+    <updated>2014-04-04T02:39:20.000Z</updated>
+    <content type="html"><![CDATA[<p>在多端开发时切图是个很痛苦的事，如果有一个很好的工具必将解决掉很多很繁琐的工作。<br>最近试用了一款软件「 cutandslice 」，觉得不错，推荐给大家。<br>官网： <a href="http://www.cutandslice.me/" target="_blank">http://www.cutandslice.me/</a><br>作者从简介上来看是一名 ue 设计师。  </p>
+<p>用了之后你会发现其实开发的原理不难：<br>用了很多 PS 里自己的「宏」来解决问题，程序只处理了规则（ rule ）。</p>
 <p>这个思路很赞。</p>
 <p><img src="http://www.cutandslice.me/css/layout/v1/ui/plugin.png" alt="&#39;cutandslice&#39;"></p>
 <a id="more"></a>
@@ -76,17 +76,17 @@
 <li>解决 ios 的 @2x.png 的分辩率问题</li>
 <li>解决 android 的多分辩率的问题</li>
 <li>解决 web 下也需要导出图片的问题</li>
-<li>自动切图 - 注意是切图，不是生成 html，只是根据一些简单规则自动切好图放到相应的文件夹里。</li>
+<li>自动切图 - 注意是切图，不是生成 html ，只是根据一些简单规则自动切好图放到相应的文件夹里。</li>
 </ul>
 <p>它的规则也非常简单，只有 3 条：</p>
 <ol>
-<li>要输出图的单位以图层文件夹(组)为单位， 文件夹命名末尾加「@」为结束符。并且，自动切除边界外透明的像素。</li>
-<li>以「#」名字命名的图层可以认为是选择图片输出的边界。<br>如：输出背景图可将图层组命名为「bg@」，组里有两个图层：<ul>
+<li>要输出图的单位以图层文件夹 ( 组 ) 为单位， 文件夹命名末尾加「@」为结束符。并且，自动切除边界外透明的像素。</li>
+<li>以「#」名字命名的图层可以认为是选择图片输出的边界。<br>如：输出背景图可将图层组命名为「 bg@」，组里有两个图层：<ul>
 <li>1 是大背景图片；</li>
 <li>2 是横向 1 个像素形状图层,并且此图层命名为「#」。</li>
 </ul>
 </li>
-<li>button是一种特殊的组。以「_BTN」结尾认为是按钮，有多种状态支持：<ul>
+<li>button 是一种特殊的组。以「_BTN 」结尾认为是按钮，有多种状态支持：<ul>
 <li>normal</li>
 <li>hover</li>
 <li>clicked / pressed</li>
@@ -95,12 +95,12 @@
 </ul>
 </li>
 </ol>
-<p>输出图片时也会自动按按钮状态 「btn_xxx_normal」和「btn_xxx_hover」来命名，非常方便。</p>
+<p>输出图片时也会自动按按钮状态 「 btn_xxx_normal 」和「 btn_xxx_hover 」来命名，非常方便。</p>
 <p>要看更详细的使用说明，可移步：<br><a href="http://www.zcool.com.cn/article/ZNDYzODA=.html" target="_blank">http://www.zcool.com.cn/article/ZNDYzODA=.html</a></p>
 <p>-- EOF --</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>在多端开发时切图是个很痛苦的事，如果有一个很好的工具必将解决掉很多很繁琐的工作。<br>最近试用了一款软件「cutandslice」，觉得不错，推荐给大家。<br>官网：<a href="http://www.cutandslice.me/" target="_blank">http://www.cutandslice.me/</a><br>作者从简介上来看是一名 ue 设计师。  </p>
-<p>用了之后你会发现其实开发的原理不难：<br>用了很多 PS 里自己的「宏」来解决问题，程序只处理了规则（rule）。</p>
+    <summary type="html"><![CDATA[<p>在多端开发时切图是个很痛苦的事，如果有一个很好的工具必将解决掉很多很繁琐的工作。<br>最近试用了一款软件「 cutandslice 」，觉得不错，推荐给大家。<br>官网： <a href="http://www.cutandslice.me/" target="_blank">http://www.cutandslice.me/</a><br>作者从简介上来看是一名 ue 设计师。  </p>
+<p>用了之后你会发现其实开发的原理不难：<br>用了很多 PS 里自己的「宏」来解决问题，程序只处理了规则（ rule ）。</p>
 <p>这个思路很赞。</p>
 <p><img src="http://www.cutandslice.me/css/layout/v1/ui/plugin.png" alt="&#39;cutandslice&#39;"></p>
 ]]></summary>
@@ -114,11 +114,11 @@
     <link href="http://rank.im/2012/12/13/get-script-path/"/>
     <id>http://rank.im/2012/12/13/get-script-path/</id>
     <published>2012-12-13T06:54:40.000Z</published>
-    <updated>2014-03-15T08:56:02.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
 <ol>
-<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
-<li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
+<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「 document.currentScript.async 」 来查看「异步」还是「同步」加载。</li>
+<li>用 document.scripts 得到最后一个 script.src ，但需注意 readyState 是否为 「 interactive 」状态。</li>
 </ol>
 <a id="more"></a>
 
@@ -132,7 +132,7 @@
 		 <span class="keyword">var</span> scripts = document.scripts || document.getElementsByTagName(<span class="string">'script'</span>),
 		   len = scripts.length,
 		   state = <span class="string">'interactive'</span>;
-		 <span class="comment">//兼容IE</span>
+		 <span class="comment">//兼容 IE</span>
 		 <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt;len; i++) {
 		   <span class="keyword">if</span> (scripts[i].readyState==state) {
 		     <span class="keyword">return</span> scripts[i].src;
@@ -146,17 +146,17 @@
 
 <p>最近在开发中遇到一个 readyState 在 IE 下的特例：</p>
 <ul>
-<li>page.html 里引入一个外链的脚本 a.js。</li>
-<li>a.js 里有两个外链脚本：a.a.js 和 a.b.js。「注：这是用 document.write 来引入脚本。」</li>
+<li>page.html 里引入一个外链的脚本 a.js 。</li>
+<li>a.js 里有两个外链脚本： a.a.js 和 a.b.js 。「注：这是用 document.write 来引入脚本。」</li>
 </ul>
-<p>page.html代码：</p>
+<p>page.html 代码：</p>
 <pre><code>&lt;html&gt;
 &lt;head&gt;&lt;/head&gt;
 &lt;body&gt;
     &lt;script src=&quot;a.js&quot;&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>a.js代码：</p>
+</code></pre><p>a.js 代码：</p>
 <pre><code>document.write(&#39;&lt;script src=&quot;a.a.js&quot;&gt;&lt;\/script&gt;&#39;);
 document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 </code></pre><p>在浏览器 IE6 至 IE10 里：</p>
@@ -170,8 +170,8 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 ]]></content>
     <summary type="html"><![CDATA[<p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
 <ol>
-<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
-<li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
+<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「 document.currentScript.async 」 来查看「异步」还是「同步」加载。</li>
+<li>用 document.scripts 得到最后一个 script.src ，但需注意 readyState 是否为 「 interactive 」状态。</li>
 </ol>
 ]]></summary>
     
@@ -180,26 +180,26 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
   </entry>
   
   <entry>
-    <title><![CDATA[SWFUpload 2.5 bug 修改(2)]]></title>
+    <title><![CDATA[SWFUpload 2.5 bug 修改 (2)]]></title>
     <link href="http://rank.im/2012/09/12/fix-swfupload2.5-2/"/>
     <id>http://rank.im/2012/09/12/fix-swfupload2.5-2/</id>
     <published>2012-09-12T03:11:54.000Z</published>
-    <updated>2014-03-17T02:56:17.000Z</updated>
-    <content type="html"><![CDATA[<p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
+    <updated>2014-04-04T02:39:20.000Z</updated>
+    <content type="html"><![CDATA[<p>在 github 上我放了一个 <a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank"> 修改版 </a> ，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
 <h2 id="-">再遇问题</h2>
 <p>经过上一轮的 SWFUpload 修改两周后有人反馈：</p>
 <ul>
 <li>上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；</li>
 <li>其次是上传图片数量到某个阈值就无法上传；</li>
 </ul>
-<p>Debug了一个下午，发现：</p>
+<p>Debug 了一个下午，发现：</p>
 <ul>
 <li>问题 1 上传速度慢的问题，只存在 IE 里。<ul>
 <li>我也觉得很奇怪，为什么 Flash 的性能还和浏览器有差别</li>
 </ul>
 </li>
 <li>问题 2 不是 Flash 的问题，与脚本使用有关<ul>
-<li>经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work（这比较好查）；</li>
+<li>经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work （这比较好查）；</li>
 </ul>
 </li>
 </ul>
@@ -209,36 +209,36 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <p>随之，经过一系列的调试和全系列机器环境测试：</p>
 <ul>
 <li>测试环境在 Flash Player 版本都是 11+；</li>
-<li>在 Mac 下的最新版 Safari, Chrome, Firefox 和 win xp， Win 7 下的 IE 6, 7, 8；</li>
-<li>测试图片由 5616 × 3744 5M 及 3888 × 2592px 的图组成；</li>
-<li>由原图压缩成 1000*1000 的图；质量 90。</li>
+<li>在 Mac 下的最新版 Safari, Chrome, Firefox 和 win xp ， Win 7 下的 IE 6, 7, 8 ；</li>
+<li>测试图片由 5616  ×  3744 5M 及 3888  ×  2592px 的图组成；</li>
+<li>由原图压缩成 1000*1000 的图；质量 90 。</li>
 </ul>
 <p>我用了多种异步 JPEGencode 的库，发现还是 alchemy 的效率比较好，所以只列它的数据：</p>
 <ul>
 <li>异步 library 在非 IE 下表现良好，但是在 IE 下性能极差。</li>
 <li>IE 时间值大致分布在 4s~30s 之间<ul>
-<li>均值 8s～10s 左右，时间上随机性很大</li>
+<li>均值 8s ～ 10s 左右，时间上随机性很大</li>
 </ul>
 </li>
 <li>非 IE 下值相对很稳定，时间都在 3~5s 这个区间。</li>
-<li>IE与其他浏览器相比，性能有的时候甚至有差 10 倍！这不能忍啊。<ul>
+<li>IE 与其他浏览器相比，性能有的时候甚至有差 10 倍！这不能忍啊。<ul>
 <li>我猜测是 Flash Player 在 IE 下，不能获得较长的 CPU 时间片。（注：目测了 CPU 监控得出的结论）</li>
 </ul>
 </li>
 </ul>
-<p>既然异步压缩没有办法允分利用 CPU，那我试着改用同步压缩，而不用异步。<br>惊喜的发现效果比预期要好得多（如果用swc会更佳）。</p>
+<p>既然异步压缩没有办法允分利用 CPU ，那我试着改用同步压缩，而不用异步。<br>惊喜的发现效果比预期要好得多（如果用 swc 会更佳）。</p>
 <ul>
-<li>用同步的压缩有可以去大牛 <a href="http://www.bytearray.org/?p=775" target="_blank">bytearray</a> 下载优化后的 <a href="http://www.bytearray.org/wp-content/projects/fastjpeg/JPEGEncoder.as" target="_blank">JPEGEncoder.as</a>。  </li>
+<li>用同步的压缩有可以去大牛 <a href="http://www.bytearray.org/?p=775" target="_blank">bytearray</a> 下载优化后的 <a href="http://www.bytearray.org/wp-content/projects/fastjpeg/JPEGEncoder.as" target="_blank">JPEGEncoder.as</a> 。  </li>
 <li>我这里用的是同事推荐的 <a href="http://www.blooddy.by/en/crypto/" target="_blank">blooddy_crypto.swc</a> 组件。</li>
 </ul>
 <h2 id="-">测试结果</h2>
 <ul>
 <li>IE 时间值大致分布在 1~8s 之间<ul>
-<li>均值 4s 左右，时间上随机性很大，1 次上传的图片越多，越趋向于均值）</li>
+<li>均值 4s 左右，时间上随机性很大， 1 次上传的图片越多，越趋向于均值）</li>
 </ul>
 </li>
-<li>非 IE下 值相对很稳定，时间都在 1s 左右，绝在多数用时不超过 1s。</li>
-<li>没有出现假死现象。用 i4 CPU 测试，cpu 使用最高才 13%。</li>
+<li>非 IE 下 值相对很稳定，时间都在 1s 左右，绝在多数用时不超过 1s 。</li>
+<li>没有出现假死现象。用 i4 CPU 测试， cpu 使用最高才 13%。</li>
 </ul>
 <p>比预期还好，完爆异步压缩。</p>
 <p>从 CPU 监控可以看到控制都较为良好（都没到 50%）；<br>IE 下的 Flash Player 的性能短期压缩时间很随机，长期看性能平均下来比非 IE 要慢不少。<br>曲线是由快而慢，然后慢慢是趋向均值（就象是电脑越用越慢一样）。</p>
@@ -250,21 +250,21 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 </blockquote>
 <p>-- EOF --</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
+    <summary type="html"><![CDATA[<p>在 github 上我放了一个 <a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank"> 修改版 </a> ，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
 <h2 id="-">再遇问题</h2>
 <p>经过上一轮的 SWFUpload 修改两周后有人反馈：</p>
 <ul>
 <li>上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；</li>
 <li>其次是上传图片数量到某个阈值就无法上传；</li>
 </ul>
-<p>Debug了一个下午，发现：</p>
+<p>Debug 了一个下午，发现：</p>
 <ul>
 <li>问题 1 上传速度慢的问题，只存在 IE 里。<ul>
 <li>我也觉得很奇怪，为什么 Flash 的性能还和浏览器有差别</li>
 </ul>
 </li>
 <li>问题 2 不是 Flash 的问题，与脚本使用有关<ul>
-<li>经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work（这比较好查）；</li>
+<li>经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work （这比较好查）；</li>
 </ul>
 </li>
 </ul>
@@ -275,42 +275,42 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
   </entry>
   
   <entry>
-    <title><![CDATA[SWFUpload 2.5 bug 修改(1)]]></title>
+    <title><![CDATA[SWFUpload 2.5 bug 修改 (1)]]></title>
     <link href="http://rank.im/2012/08/18/fix-swfupload2.5-1/"/>
     <id>http://rank.im/2012/08/18/fix-swfupload2.5-1/</id>
     <published>2012-08-18T07:08:51.000Z</published>
-    <updated>2014-03-17T02:56:12.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-swfupload">关于 SWFUpload</h2>
 <blockquote>
-<p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
+<p>SWFUpload 是一个客户端文件上传工具，最初由 Vinterwebb.se 开发，它通过整合 Flash 与 JavaScript 技术为 WEB 开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
 </blockquote>
 <p>主要特点：</p>
 <ul>
 <li>可以同时上传多个文件；</li>
-<li>类似AJAX的无刷新上传；</li>
+<li>类似 AJAX 的无刷新上传；</li>
 <li>可以显示上传进度；</li>
 <li>良好的浏览器兼容性；</li>
-<li>兼容其他JavaScript库 (例如：jQuery, Prototype等)；</li>
-<li>支持Flash 8和Flash 9；</li>
+<li>兼容其他 JavaScript 库 ( 例如： jQuery, Prototype 等 ) ；</li>
+<li>支持 Flash 8 和 Flash 9 ；</li>
 </ul>
 <blockquote>
-<p>SWFUpload 不同于其他基于 Flash 构建的上传工具，它有着优雅的代码设计，开发者可以利用 XHTML、 CSS和 JavaScript 来随心所欲的定制它在浏览器下的外观；它还提供了一组简明的 JavaScript 事件，借助它们开发者可以方便的在文件上传过程中更新页面内容来营造各种动态效果。</p>
+<p>SWFUpload 不同于其他基于 Flash 构建的上传工具，它有着优雅的代码设计，开发者可以利用 XHTML 、 CSS 和 JavaScript 来随心所欲的定制它在浏览器下的外观；它还提供了一组简明的 JavaScript 事件，借助它们开发者可以方便的在文件上传过程中更新页面内容来营造各种动态效果。</p>
 </blockquote>
-<p>这么多说的就是一个意思，SWFUpload 使用灵活方便，不少人在用。<br>但是，它在我们项目实际应用中发现问题。
+<p>这么多说的就是一个意思， SWFUpload 使用灵活方便，不少人在用。<br>但是，它在我们项目实际应用中发现问题。
 <a id="more"></a></p>
 <h2 id="-swfupload-2-5-">目前 SWFUpload 2.5 存在问题</h2>
-<p>目前swfupload 2.5存在的bug及修改方法：</p>
+<p>目前 swfupload 2.5 存在的 bug 及修改方法：</p>
 <ul>
-<li>在目前 v2.5 的代码里 bitmapData 不能用于 「applyFilter」 函数，那段代码需要去除（注释也可）或修改。对程序无明显影响。</li>
-<li>使用 jpegencoder.swc 的 init()方法有内存 free up 问题，可以改成单例模式「singleton」 调用组件 jpegencoder.swc。</li>
+<li>在目前 v2.5 的代码里 bitmapData 不能用于 「 applyFilter 」 函数，那段代码需要去除（注释也可）或修改。对程序无明显影响。</li>
+<li>使用 jpegencoder.swc 的 init() 方法有内存 free up 问题，可以改成单例模式「 singleton 」 调用组件 jpegencoder.swc 。</li>
 </ul>
-<p>如果有需要使用SWFUploader，可到我的 github 上下载 fix 后的代码。完全向前兼容。<br>在这篇文章中主要讲述 debug 过程。</p>
+<p>如果有需要使用 SWFUploader ，可到我的 github 上下载 fix 后的代码。完全向前兼容。<br>在这篇文章中主要讲述 debug 过程。</p>
 <h2 id="-">线上问题反馈</h2>
 <p>从用户反馈过来，上传图片速度过慢。-- 用户界面 loading 的菊花图转比较久。</p>
 <h2 id="-">定位问题</h2>
 <p>单从描述来看太过笼统，需要先具体定位到哪个环节出了问题。</p>
 <ul>
-<li>我在本机上测试上传，感觉速度很快（图片大小平均大概1M，width 最大为 800 像素），几乎秒传。  </li>
+<li>我在本机上测试上传，感觉速度很快（图片大小平均大概 1M ， width 最大为 800 像素），几乎秒传。  </li>
 <li>后来发起群众后发现在另一同事机器上传图片也很慢。</li>
 </ul>
 <p>我们先将「上传整体流程」分析，大致可分为以下几个部分:</p>
@@ -320,13 +320,13 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <li>修剪图象及入库</li>
 <li>主库与从库进行同步</li>
 </ul>
-<p>从反馈问题来看，有可能出现的地方是在 压缩、网络 IO 上传、修剪图象及入库这 3 部分。<br>如何找到具体是哪一部分，首先看看我们执行图片resize上传的阈值是多少。</p>
-<p>对应的 查看了一下 PublishUploader.js，发现有这样的代码。</p>
+<p>从反馈问题来看，有可能出现的地方是在 压缩、网络 IO 上传、修剪图象及入库这 3 部分。<br>如何找到具体是哪一部分，首先看看我们执行图片 resize 上传的阈值是多少。</p>
+<p>对应的 查看了一下 PublishUploader.js ，发现有这样的代码。</p>
 <figure class="highlight as"><pre><span class="keyword">this</span>.startResizedUpload(<span class="keyword">null</span>,<span class="number">800</span>,<span class="number">800</span>,SWFUpload.RESIZE_ENCODING.JPEG,<span class="number">80</span>,<span class="keyword">false</span>);
 </pre></figure>
 
 
-<p>从代码作用是将所有图片最大尺寸 resize 为 800*800 象素。用 jpeg 图像压缩算法，并且图片质量是80 。</p>
+<p>从代码作用是将所有图片最大尺寸 resize 为 800*800 象素。用 jpeg 图像压缩算法，并且图片质量是 80 。</p>
 <p>于是，我进行以下操作：</p>
 <ul>
 <li>上传一张小于 800px 的图与一张大于 800px 的图，这两张图的总像素近似进行比较</li>
@@ -335,8 +335,8 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <p>经过实际测试，在「公司级网络」传输速度下，小于 800px 的图从上传到服务器返回在 1s 左右。<br>而 大于 800px 的图约 6s+ 才能执行完整个上传流程。</p>
 <p>diff 这两个过程中，结论比较明显：</p>
 <ul>
-<li>图片 resize 压缩占的时间花了上传时间的 5 倍 -- 5s。</li>
-<li>后后经测试，发现在3000px的图上传压缩的时间占了 10s 左右。</li>
+<li>图片 resize 压缩占的时间花了上传时间的 5 倍 -- 5s 。</li>
+<li>后后经测试，发现在 3000px 的图上传压缩的时间占了 10s 左右。</li>
 </ul>
 <h2 id="-swfupload">修改 SWFUpload</h2>
 <p>扫过 SWFUpload 代码，了解它的上传原理流程：</p>
@@ -344,11 +344,11 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 <li>FileReference 获取路径和图片内容</li>
 <li>loader 载入图片</li>
 <li>判断宽和高进行 resize 和压缩编码</li>
-<li>进行HTTP POST</li>
+<li>进行 HTTP POST</li>
 <li>服务器返回进行 JS 回调</li>
 </ul>
-<p>所以，在 Flash 里用 FileReference 是无法获取图片的宽高，如果如要得到图片的宽度和高度，需要创建一个 loader 把图片传入，通过 loader 的「complete」异步事件得到图片的高宽。</p>
-<p>所以，查看ImageResizer.as，看到loader_Complete的事件处理函数：</p>
+<p>所以，在 Flash 里用 FileReference 是无法获取图片的宽高，如果如要得到图片的宽度和高度，需要创建一个 loader 把图片传入，通过 loader 的「 complete 」异步事件得到图片的高宽。</p>
+<p>所以，查看 ImageResizer.as ，看到 loader_Complete 的事件处理函数：</p>
 <figure class="highlight as"><pre> <span class="keyword">if</span> (<span class="keyword">this</span>.newWidth &lt; bmp.width || <span class="keyword">this</span>.newHeight &lt; bmp.height) {
    <span class="comment">// Apply the blur filter that helps clean up the resized image result</span>
    <span class="keyword">var</span> blurMultiplier:<span class="built_in">Number</span> = <span class="number">1.15</span>; <span class="comment">// 1.25;</span>
@@ -382,43 +382,43 @@ document.write(&#39;&lt;script src=&quot;a.b.js&quot;&gt;&lt;\/script&gt;&#39;);
 </pre></figure>
 
 
-<p>未注释的代码是用一个开源异步 JPEG 编码类（<a href="http://code.google.com/p/sync-to-async/source/browse/#svn%2Ftrunk%2Facr%2Fcodec" target="_blank">AsyncJPEGEncoder</a>）用于编码图片。</p>
-<p>为什么它没有用内置的 JPEG 图片 lib 「JEPGEncoder」进行编码？是因为开源的 AsyncJPEGEncoder 是异步的，且它在效率上对比 Adobe 内置的要稍高一些。</p>
+<p>未注释的代码是用一个开源异步 JPEG 编码类（ <a href="http://code.google.com/p/sync-to-async/source/browse/#svn%2Ftrunk%2Facr%2Fcodec" target="_blank">AsyncJPEGEncoder</a> ）用于编码图片。</p>
+<p>为什么它没有用内置的 JPEG 图片 lib 「 JEPGEncoder 」进行编码？是因为开源的 AsyncJPEGEncoder 是异步的，且它在效率上对比 Adobe 内置的要稍高一些。</p>
 <p>注释的代码是用 <a href="http://labs.adobe.com/wiki/index.php?title=Alchemy:Documentation:Developing_with_Alchemy:AS3_API&amp;redirect=no
-http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">Adobe alchemy</a> 技术实现的一个 clib 组件，这个组件在代码目录下可以看到是 jpegencoder.swc。</p>
-<p>这个技术简单的说就是，它是把 c 的 libjpeg 编进 flash 里，并且可以高效执行 swc，看网上的一些测试数据，确实比较高效。</p>
-<p>看到这里或许我们该高兴了，如果将现在异步的 AsyncJPEGEncoder 类改成 jpegencoder.swc，那问题不就解决了吗？</p>
-<h2 id="-bitmapdata">神奇的BitmapData</h2>
-<p>我带着上面的想法试了一下，果然有效！<br>但不久就发现一个问题，有的图片上传成功，有的图片在 resize 的时候抛出异常「#2015」。  </p>
-<p>google 了一下这个错误号，发现是 flash Player 10 的一个 <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/BitmapData.html" target="_blank">限制</a>：</p>
+http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">Adobe alchemy</a> 技术实现的一个 clib 组件，这个组件在代码目录下可以看到是 jpegencoder.swc 。</p>
+<p>这个技术简单的说就是，它是把 c 的 libjpeg 编进 flash 里，并且可以高效执行 swc ，看网上的一些测试数据，确实比较高效。</p>
+<p>看到这里或许我们该高兴了，如果将现在异步的 AsyncJPEGEncoder 类改成 jpegencoder.swc ，那问题不就解决了吗？</p>
+<h2 id="-bitmapdata">神奇的 BitmapData</h2>
+<p>我带着上面的想法试了一下，果然有效！<br>但不久就发现一个问题，有的图片上传成功，有的图片在 resize 的时候抛出异常「#2015 」。  </p>
+<p>google 了一下这个错误号，发现是 flash Player 10 的一个 <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/BitmapData.html" target="_blank"> 限制 </a> ：</p>
 <blockquote>
 <p>In AIR 1.5 and Flash Player 10, the maximum size for a BitmapData object is 8,191 pixels in width or height, and the total number of pixels cannot exceed 16,777,215 pixels. (So, if a BitmapData object is 8,191 pixels wide, it can only be 2,048 pixels high.) In Flash Player 9 and earlier and AIR 1.1 and earlier, the limitation is 2,880 pixels in height and 2,880 in width.</p>
 <p>Starting with AIR 3 and Flash player 11, the size limits for a BitmapData object have been removed. The maximum size of a bitmap is now dependent on the operating system.</p>
 </blockquote>
-<p>现在市面上比较好的全画幅相机，就会超过这个像素限制。<br>例如测试的一张样图 5616 × 3744=21026304 像素。<br>而我们目前的 SWFUploader 2.5的编译是基于 flash player 10 。<br>所以，异常自然就抛出了。</p>
+<p>现在市面上比较好的全画幅相机，就会超过这个像素限制。<br>例如测试的一张样图 5616 × 3744=21026304 像素。<br>而我们目前的 SWFUploader 2.5 的编译是基于 flash player 10 。<br>所以，异常自然就抛出了。</p>
 <p>但是</p>
 <ul>
 <li>为什么线上正在运行的 SWFUploader 没有这个异常问题？</li>
 <li>不是超过 1600w 像素的限制了吗，为什么还能正常上传还没有报错呢？</li>
 </ul>
-<p>原来，是 bitmapdata 文档有一个 loader 无 1600w 像素限制的细节没有说。<br>先比较以下两段使用bitmapdata代码：</p>
-<p>代码 A：</p>
+<p>原来，是 bitmapdata 文档有一个 loader 无 1600w 像素限制的细节没有说。<br>先比较以下两段使用 bitmapdata 代码：</p>
+<p>代码 A ：</p>
 <figure class="highlight as"><pre><span class="keyword">var</span> bmp:BitmapData = (li.content <span class="keyword">as</span> Bitmap).bitmapData; 
-<span class="comment">//载入图片并放入到bitmapData里</span>
+<span class="comment">//载入图片并放入到 bitmapData 里</span>
 </pre></figure>
 
 
-<p>代码 B：</p>
+<p>代码 B ：</p>
 <figure class="highlight as"><pre>	 
 bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, bmp.width, bmp.height), <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>), blurFilter); 
-<span class="comment">//应用bitmapData的filter</span>
+<span class="comment">//应用 bitmapData 的 filter</span>
 </pre></figure>
 
 
 <p>两者在使用上有何不同?   </p>
 <ul>
-<li>「代码 A」是将图片load到bitmtpData里，它不会报错。</li>
-<li>「代码 B」调用方法 applyFilter 创建出来的Bitmap，这样就会报错。</li>
+<li>「代码 A 」是将图片 load 到 bitmtpData 里，它不会报错。</li>
+<li>「代码 B 」调用方法 applyFilter 创建出来的 Bitmap ，这样就会报错。</li>
 </ul>
 <p>applyFilter 从文档里的一段描述可以看出此方法是创建了一个新的 bitmapData 对象：</p>
 <blockquote>
@@ -426,8 +426,8 @@ bmp.applyFilter(bmp, <span class="keyword">new</span> Rectangle(<span class="num
 <p>public function applyFilter(sourceBitmapData:BitmapData, sourceRect:Rectangle, destPoint:Point, filter:BitmapFilter):void</p>
 <p>Takes a source image and a filter object and generates the filtered image.</p>
 </blockquote>
-<p>以上代码差别 AS 3 文档没有说明用 loader 载入图片没有像素限制的问题。<br>线上代码因之前是其他同学修改过部分代码，无意用成了「代码 A」loader 方式载入。<br>因此并没有报错。</p>
-<p>所以，此问题的解决方法为将使用filter的条件由</p>
+<p>以上代码差别 AS 3 文档没有说明用 loader 载入图片没有像素限制的问题。<br>线上代码因之前是其他同学修改过部分代码，无意用成了「代码 A 」 loader 方式载入。<br>因此并没有报错。</p>
+<p>所以，此问题的解决方法为将使用 filter 的条件由</p>
 <figure class="highlight as"><pre>	 
 if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preprocessor">.width</span> || this<span class="preprocessor">.newHeight</span> &lt; bmp<span class="preprocessor">.height</span>) { 
 //bmp<span class="preprocessor">.applyFilter</span> 
@@ -437,7 +437,7 @@ if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preproc
 
 <p>改为</p>
 <figure class="highlight as"><pre>	 	
-<span class="comment">//（0x01000000 等于10进制数 16777216）</span>
+<span class="comment">//（ 0x01000000 等于 10 进制数 16777216 ）</span>
 <span class="keyword">if</span> (bmp.width * bmp.height &lt; <span class="number">0x01000000</span>) { 
 <span class="comment">//bmp.applyFilter </span>
 } 
@@ -451,14 +451,14 @@ if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preproc
 <li>用 JS 创建 SWFUploader 上传图片第一次成功；</li>
 <li>再用这个 flash 实例传一张图就可耻的失败了，而且还不抛异常。</li>
 </ul>
-<p>好吧，不抛异常，就只能加入调试埋 log 了，将几个代码关键函数加入对应的log：</p>
+<p>好吧，不抛异常，就只能加入调试埋 log 了，将几个代码关键函数加入对应的 log ：</p>
 <ul>
-<li>加入压缩进度log。因为不管用何种JPEG组件，都是异步成生成JPEG图片。</li>
-<li>在重点逻辑的入口点与出口点加入相应 log，<ul>
-<li>加入到 load图片成功；</li>
+<li>加入压缩进度 log 。因为不管用何种 JPEG 组件，都是异步成生成 JPEG 图片。</li>
+<li>在重点逻辑的入口点与出口点加入相应 log ，<ul>
+<li>加入到 load 图片成功；</li>
 <li>开始进入压缩函数块；</li>
 <li>压缩图片的宽高；</li>
-<li>调用alchemy结束；</li>
+<li>调用 alchemy 结束；</li>
 <li>异步压缩结束。</li>
 </ul>
 </li>
@@ -471,13 +471,13 @@ if (this<span class="preprocessor">.newWidth</span> &lt; bmp<span class="preproc
 </pre></figure>
 
 
-<p>这样，就可以在控制台里看到log了。
+<p>这样，就可以在控制台里看到 log 了。
 发现规律</p>
 <ul>
 <li>第 1 次 resize 图正常</li>
-<li>第 2 次除了压缩进度的有log，其他进展一直都是 0%。</li>
+<li>第 2 次除了压缩进度的有 log ，其他进展一直都是 0%。</li>
 </ul>
-<p>再次review JPEG编码的代码块:</p>
+<p>再次 review JPEG 编码的代码块:</p>
 <figure class="highlight as"><pre>	 
 var cLibEncoder:Object = (new CLibInit)<span class="preprocessor">.init</span>()<span class="comment">;</span>
 this<span class="preprocessor">.debug</span>(resizedBmp<span class="preprocessor">.width</span><span class="preprocessor">.toString</span>())<span class="comment">;</span>
@@ -487,67 +487,67 @@ cLibEncoder<span class="preprocessor">.encodeAsync</span>(compressFinished, this
 
 
 <p>分析个组件的使用，第一感觉就是组件使用过后居然没有销毁，这代码太囧了 =.=</p>
-<p>alchemy如果为了高效，应该是</p>
+<p>alchemy 如果为了高效，应该是</p>
 <ul>
 <li>将 lib 驻入内存再开辟一块 buffer 给它</li>
-<li>Resize 大图时，如果 buffer 处理不好，没有很好的 free up，第二次 init 会不会有问题？</li>
+<li>Resize 大图时，如果 buffer 处理不好，没有很好的 free up ，第二次 init 会不会有问题？</li>
 <li>如果开辟的内存小的话是不是更安全？</li>
 </ul>
 <p>按照上面的这个思路，我将 resize 的参数改小，使 buffer 使用尽可能的小：</p>
 <ul>
-<li>将 resize 参数改为所有上传图都 resize 到 100*100, quiality 为80。</li>
+<li>将 resize 参数改为所有上传图都 resize 到 100*100, quiality 为 80 。</li>
 </ul>
 <p>测试了一下发现都能正常上传多张图片。</p>
-<p>那再按照第一次可上传后续不能传和 buffer 小可用的结论，我将使用 alchemy 组件初始化的使用改用为static（即singlton类型）保证只实例化一次，看是否正常。</p>
-<p>最后发现可正常resize多张图片，到此 alchemy 的问题也得已解决。</p>
+<p>那再按照第一次可上传后续不能传和 buffer 小可用的结论，我将使用 alchemy 组件初始化的使用改用为 static （即 singlton 类型）保证只实例化一次，看是否正常。</p>
+<p>最后发现可正常 resize 多张图片，到此 alchemy 的问题也得已解决。</p>
 <h2 id="-">后记</h2>
 <p>这篇文章来源于我把 SWFUpload 的问题解决思路用邮件分享给大家。<br>如何改的，可以看我附件里的代码。<br>重要的不是代码怎么 fix 的，而是思路。  </p>
 <p>因为我觉得前端同学看上去都是只关注兼容性而不关注逻辑思维。这篇文章是算是抛砖引玉了。<br>对于我们使用的第三方代码，有空可以多熟悉，关键时刻也许不用手忙脚乱。</p>
-<p>其他的flash第三方上传解决方案：</p>
+<p>其他的 flash 第三方上传解决方案：</p>
 <ul>
-<li><a href="http://www.plupload.com/example_all_runtimes.php" target="_blank">plupload</a> - 特点是支持平台全（flash, silverlight, html5, html4)都支持。flash支持客户端压缩图片，flash编译出来的大小只有18K。压缩效率比swfupload低不少。<ul>
-<li>5616 × 3744(5.1M)图片，resize成（320*240，质量90）</li>
-<li>plupload用时在10s+，而Swfupload用时在2s- ;</li>
-<li>环境在 mac ML 系统 flash player 11，safari 6 &amp; chrome 22dev。</li>
+<li><a href="http://www.plupload.com/example_all_runtimes.php" target="_blank">plupload</a> - 特点是支持平台全（ flash, silverlight, html5, html4) 都支持。 flash 支持客户端压缩图片， flash 编译出来的大小只有 18K 。压缩效率比 swfupload 低不少。<ul>
+<li>5616 × 3744(5.1M) 图片， resize 成（ 320*240 ，质量 90 ）</li>
+<li>plupload 用时在 10s+，而 Swfupload 用时在 2s- ;</li>
+<li>环境在 mac ML 系统 flash player 11 ， safari 6 &amp; chrome 22dev 。</li>
 </ul>
 </li>
 <li><a href="http://www.uploadify.com/demos/" target="_blank">uploadify</a> <ul>
-<li>平台支持全面， 与plupload类似</li>
-<li>但是不支持resize图片，</li>
+<li>平台支持全面， 与 plupload 类似</li>
+<li>但是不支持 resize 图片，</li>
 <li>在大图上传的时，网速慢时，上传整体时间就会比较久，全依赖于带宽。</li>
 </ul>
 </li>
 </ul>
-<p>虽然两年过去了，swfupload的压缩性能还算是不错的（主要是依赖于flash平台的性能）。</p>
+<p>虽然两年过去了， swfupload 的压缩性能还算是不错的（主要是依赖于 flash 平台的性能）。</p>
 <h2 id="-">相关链接汇总</h2>
 <ul>
 <li><a href="http://code.google.com/p/swfupload/" target="_blank">swfupload</a></li>
 <li><a href="http://code.google.com/p/sync-to-async/source/browse/#svn%2Ftrunk%2Facr%2Fcodec" target="_blank">AsyncJPEGEncoder</a></li>
-<li><a href="http://www.bytearray.org/?p=775" target="_blank">JPEG encoder with alchemy</a> <a href="http://www.adobe.com/cn/devnet/author_bios/thibault_imbert.html" target="_blank">作者介绍</a></li>
+<li><a href="http://www.bytearray.org/?p=775" target="_blank">JPEG encoder with alchemy</a> <a href="http://www.adobe.com/cn/devnet/author_bios/thibault_imbert.html" target="_blank"> 作者介绍 </a></li>
 <li><a href="http://www.plupload.com/example_all_runtimes.php" target="_blank">plupload</a></li>
 <li><a href="http://www.uploadify.com/demos/" target="_blank">uploadify</a> </li>
 <li><a href="http://labs.adobe.com/wiki/index.php?title=Alchemy:Documentation:Developing_with_Alchemy:AS3_API&amp;redirect=no
 http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">adobe alchemy</a></li>
-<li><a href="http://wenku.baidu.com/view/42b5633e5727a5e9856a61ff.html" target="_blank">JPEG图像格式详解</a></li>
+<li><a href="http://wenku.baidu.com/view/42b5633e5727a5e9856a61ff.html" target="_blank">JPEG 图像格式详解 </a></li>
 </ul>
 ]]></content>
     <summary type="html"><![CDATA[<h2 id="-swfupload">关于 SWFUpload</h2>
 <blockquote>
-<p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
+<p>SWFUpload 是一个客户端文件上传工具，最初由 Vinterwebb.se 开发，它通过整合 Flash 与 JavaScript 技术为 WEB 开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
 </blockquote>
 <p>主要特点：</p>
 <ul>
 <li>可以同时上传多个文件；</li>
-<li>类似AJAX的无刷新上传；</li>
+<li>类似 AJAX 的无刷新上传；</li>
 <li>可以显示上传进度；</li>
 <li>良好的浏览器兼容性；</li>
-<li>兼容其他JavaScript库 (例如：jQuery, Prototype等)；</li>
-<li>支持Flash 8和Flash 9；</li>
+<li>兼容其他 JavaScript 库 ( 例如： jQuery, Prototype 等 ) ；</li>
+<li>支持 Flash 8 和 Flash 9 ；</li>
 </ul>
 <blockquote>
-<p>SWFUpload 不同于其他基于 Flash 构建的上传工具，它有着优雅的代码设计，开发者可以利用 XHTML、 CSS和 JavaScript 来随心所欲的定制它在浏览器下的外观；它还提供了一组简明的 JavaScript 事件，借助它们开发者可以方便的在文件上传过程中更新页面内容来营造各种动态效果。</p>
+<p>SWFUpload 不同于其他基于 Flash 构建的上传工具，它有着优雅的代码设计，开发者可以利用 XHTML 、 CSS 和 JavaScript 来随心所欲的定制它在浏览器下的外观；它还提供了一组简明的 JavaScript 事件，借助它们开发者可以方便的在文件上传过程中更新页面内容来营造各种动态效果。</p>
 </blockquote>
-<p>这么多说的就是一个意思，SWFUpload 使用灵活方便，不少人在用。<br>但是，它在我们项目实际应用中发现问题。
+<p>这么多说的就是一个意思， SWFUpload 使用灵活方便，不少人在用。<br>但是，它在我们项目实际应用中发现问题。
 ]]></summary>
     
       <category term="tech" scheme="http://rank.im/categories/tech/"/>
@@ -559,8 +559,8 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
     <link href="http://rank.im/2012/06/26/tourism-in-shanxi/"/>
     <id>http://rank.im/2012/06/26/tourism-in-shanxi/</id>
     <published>2012-06-26T09:08:31.000Z</published>
-    <updated>2014-03-16T14:02:25.000Z</updated>
-    <content type="html"><![CDATA[<p>出门旅游在外，iPhone 4S 这样的设备拍照比较方便，可以不用拿沉重的单反了。
+    <updated>2014-04-04T02:39:20.000Z</updated>
+    <content type="html"><![CDATA[<p>出门旅游在外， iPhone 4S 这样的设备拍照比较方便，可以不用拿沉重的单反了。
 这次用 iPhone 拍的照片除了象素低点，广角和长焦都不够用以外，其他的还蛮好的。</p>
 <p>大同或平遥都是有历史的城市，所以我把照片去色，用黑白体现历史感。</p>
 <p><img src="/images/shanxi/IMG_0691.JPG" alt=""></p>
@@ -584,7 +584,7 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
 <p>传说中的乔家大院。</p>
 <p>-- EOF --</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>出门旅游在外，iPhone 4S 这样的设备拍照比较方便，可以不用拿沉重的单反了。
+    <summary type="html"><![CDATA[<p>出门旅游在外， iPhone 4S 这样的设备拍照比较方便，可以不用拿沉重的单反了。
 这次用 iPhone 拍的照片除了象素低点，广角和长焦都不够用以外，其他的还蛮好的。</p>
 <p>大同或平遥都是有历史的城市，所以我把照片去色，用黑白体现历史感。</p>
 <p><img src="/images/shanxi/IMG_0691.JPG" alt=""></p>
@@ -599,11 +599,11 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
     <link href="http://rank.im/2012/01/05/webkit-css3-blink/"/>
     <id>http://rank.im/2012/01/05/webkit-css3-blink/</id>
     <published>2012-01-05T06:00:03.000Z</published>
-    <updated>2014-03-15T08:56:44.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  </p>
 <h2 id="-">解决办法</h2>
-<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于sprite雪碧图*/</span><span class="rule">}</span></span>
+<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于 sprite 雪碧图*/</span><span class="rule">}</span></span>
 <span class="comment">/* 或 */</span>
 <span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"><span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;<span class="rule">}</span></span>
 </pre></figure>
@@ -612,43 +612,43 @@ http://www.websector.de/blog/2009/06/21/speed-up-jpeg-encoding-using-alchemy/">a
 <a id="more"></a>
 
 <h2 id="-">过程</h2>
-<p>昨天晚上maomao，晓刚我提起，会否是我们的「浮层」导致。逻辑是因为</p>
+<p>昨天晚上 maomao ，晓刚我提起，会否是我们的「浮层」导致。逻辑是因为</p>
 <ul>
-<li>「浮层」 的 style 加了opacity。</li>
-<li>页面还没 load 完毕就把 mask 给加到 body 第一个元素了，这时没有加 display:none。</li>
+<li>「浮层」 的 style 加了 opacity 。</li>
+<li>页面还没 load 完毕就把 mask 给加到 body 第一个元素了，这时没有加 display:none 。</li>
 </ul>
-<p>而后我在「浮层」的蒙板 mask 把 background:white 改成 Red。<br>很遗憾是没有出现红色。</p>
+<p>而后我在「浮层」的蒙板 mask 把 background:white 改成 Red 。<br>很遗憾是没有出现红色。</p>
 <p>所以，确定不是「浮层」的 mask 导致的问题。</p>
 <p>在调试的时候感到幸运的是：<br>发现「闪」这个问题，都是闪在页面头部，经过精简后发现是在</p>
 <pre><code>&lt;a&gt;&lt;i&gt;&lt;i&gt;&lt;/a&gt;
 </code></pre><p>标签里。</p>
 <p>晓亮提到会否是 Transform 引起的。<br>试后，去除 transform 果然管用。<br>但是我们仍然没有知道解决办法，以及为何这样。</p>
-<p>在百度上搜索类似 css 3 transform bug，无果。
-别灰心，在 stackoverflow上 看看。
+<p>在百度上搜索类似 css 3 transform bug ，无果。
+别灰心，在 stackoverflow 上 看看。
 query: &quot;transform flick bug webkit&quot;</p>
 <p>果然有料。<br><a href="http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform" target="_blank">http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform</a></p>
-<figure class="highlight css"><pre><span class="tag">-webkit-backface-visibility</span>: <span class="tag">hidden</span>; <span class="comment">/*但不能用于sprite雪碧图*/</span>
+<figure class="highlight css"><pre><span class="tag">-webkit-backface-visibility</span>: <span class="tag">hidden</span>; <span class="comment">/*但不能用于 sprite 雪碧图*/</span>
 <span class="comment">/* 或 */</span>
 <span class="tag">-webkit-transform</span><span class="pseudo">:translate3d(0</span>,0,0);
 </pre></figure>
 
 <p>来解决「闪」的问题。</p>
-<p>如果用 translate3d 这么解决，心里想这不是用 3d 另一个问题解决现在 css3 3d的一个问题吗。
+<p>如果用 translate3d 这么解决，心里想这不是用 3d 另一个问题解决现在 css3 3d 的一个问题吗。
 顺着往下找了下资料。</p>
-<p>果然如此，translate3d 有问题：</p>
+<p>果然如此， translate3d 有问题：</p>
 <blockquote>
 <p>However, the body {-webkit-transform} approach causes all elements on the page to effectively be rendered in 3D. This isn&#39;t the worst thing, but it slightly changes the rendering of text and other CSS-styled elements.</p>
 <p>It may be an effect you want. It may be useful if you&#39;re doing a lot of transform on your page. Otherwise, -webkit-backface-visibility:hidden on the element your transforming is the least invasive option.</p>
 </blockquote>
 <p>所以，从目前来看 -webkit-backface-visibility: hidden; 是最优解。</p>
 <h2 id="-">弄清源头</h2>
-<p>关于这个css3属性拿来作什么用的。可以查阅<br>w3c 资料
+<p>关于这个 css3 属性拿来作什么用的。可以查阅<br>w3c 资料
 <a href="http://www.w3.org/TR/css3-3d-transforms/#backface-visibility-property" target="_blank">http://www.w3.org/TR/css3-3d-transforms/#backface-visibility-property</a></p>
 <blockquote>
-<p>The ‘backface-visibility’ property determines whether or not the &quot;back&quot; side of a transformed element is visible when facing the viewer. With an identity transform, the front side of an element faces the viewer. Applying a rotation about Y of 180 degrees (for instance) would cause the back side of the element to face the viewer.
+<p>The ‘ backface-visibility ’ property determines whether or not the &quot;back&quot; side of a transformed element is visible when facing the viewer. With an identity transform, the front side of an element faces the viewer. Applying a rotation about Y of 180 degrees (for instance) would cause the back side of the element to face the viewer.
 This property is useful when you place two elements back-to-back, as you would to create a playing card. Without this property, the front and back elements could switch places at times during an animation to flip the card. Another example is creating a box out of 6 elements, but where you want to see the inside faces of the box. This is useful when creating the backdrop for a 3 dimensional stage.</p>
 </blockquote>
-<p>用这个属性做翻卡片的小游戏比较合适 :)。<br>测试运行以下代码，就能理解为什么会在transform时会闪：</p>
+<p>用这个属性做翻卡片的小游戏比较合适 :) 。<br>测试运行以下代码，就能理解为什么会在 transform 时会闪：</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
 <span class="tag">&lt;<span class="title">head</span>&gt;</span>
@@ -691,25 +691,25 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 </pre></figure>
 
 
-<p>transform 是 3D 变换，而 backface-visibility:hidden，则是在背面隐藏，实际上就变成了 2D。<br>而把 translate3d 变换关闭也可以，但性能不好。</p>
+<p>transform 是 3D 变换，而 backface-visibility:hidden ，则是在背面隐藏，实际上就变成了 2D 。<br>而把 translate3d 变换关闭也可以，但性能不好。</p>
 <h2 id="-">结论</h2>
 <p>在用 </p>
 <ul>
 <li>position:absulote+zindex!=0 </li>
-<li>用 transform会偶尔出现页面会闪的现象</li>
+<li>用 transform 会偶尔出现页面会闪的现象</li>
 </ul>
-<p>确实是chrome的一个bug。<br>chromium里没有发现有人提bug，所以我检索了一下 webkit.org 的 bugtrace，看到</p>
+<p>确实是 chrome 的一个 bug 。<br>chromium 里没有发现有人提 bug ，所以我检索了一下 webkit.org 的 bugtrace ，看到</p>
 <ul>
 <li><a href="https://bugs.webkit.org/show_bug.cgi?id=47175" target="_blank">https://bugs.webkit.org/show_bug.cgi?id=47175</a></li>
 <li><a href="https://bug-47175-attachments.webkit.org/attachment.cgi?id=69779" target="_blank">https://bug-47175-attachments.webkit.org/attachment.cgi?id=69779</a></li>
 </ul>
-<p>无疑，这个问题后续 webkit 一定会 fix。<br>另，-webkit-backface-visibility: hidden; 是最优解。</p>
+<p>无疑，这个问题后续 webkit 一定会 fix 。<br>另，-webkit-backface-visibility: hidden; 是最优解。</p>
 <p>-- EOF --</p>
 ]]></content>
     <summary type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  </p>
 <h2 id="-">解决办法</h2>
-<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于sprite雪碧图*/</span><span class="rule">}</span></span>
+<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于 sprite 雪碧图*/</span><span class="rule">}</span></span>
 <span class="comment">/* 或 */</span>
 <span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"><span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;<span class="rule">}</span></span>
 </pre></figure>
@@ -768,9 +768,9 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
     <link href="http://rank.im/2011/04/07/user-behavior-record-data/"/>
     <id>http://rank.im/2011/04/07/user-behavior-record-data/</id>
     <published>2011-04-07T15:45:43.000Z</published>
-    <updated>2014-03-15T08:54:01.000Z</updated>
-    <content type="html"><![CDATA[<p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot。中文为「土拨鼠」，有挖掘之意。
-除我之外，还有两位开发人员分别是：seven 和 cyhello。</p>
+    <updated>2014-04-04T02:39:20.000Z</updated>
+    <content type="html"><![CDATA[<p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot 。中文为「土拨鼠」，有挖掘之意。
+除我之外，还有两位开发人员分别是： seven 和 cyhello 。</p>
 <p>本篇文章简短的说明一下 marmot 的 log 重点问题：</p>
 <ol>
 <li>解决不同分辩率的策略.</li>
@@ -781,7 +781,7 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 <a id="more"></a>
 
 <h2 id="-">分辩率策略</h2>
-<p>默认原点以p(0,0)开始计算,如果是定宽页面,p(0,0)坐标在不同辩率下得到的坐标是不同的.如何解决这一问题.
+<p>默认原点以 p(0,0) 开始计算,如果是定宽页面,p(0,0) 坐标在不同辩率下得到的坐标是不同的.如何解决这一问题.
 普遍情况下会采取截面坐标. 分析目前页面几种类型：</p>
 <ul>
 <li>页面居左布局原点坐标从 p(0,0) 开始计算。</li>
@@ -789,28 +789,28 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 <li>百分比的宽其实也是可以定位的，原理也是引入相对坐标系，但也有一些劣势，这里不展开了。</li>
 </ul>
 <h2 id="-">页面像素粒度切分</h2>
-<p>每个页面默认粒度为 pixel(1,1)，即 1 像素为单位。 这样的优点是数据不失真，但缺点则是数据量传输和存储量大。</p>
+<p>每个页面默认粒度为 pixel(1,1) ，即 1 像素为单位。 这样的优点是数据不失真，但缺点则是数据量传输和存储量大。</p>
 <p>大多数时候我们是不需要按 pixel(1,1) 来计算的。而解决这一问题的思路很简单：</p>
 <ul>
-<li>页面做先 grid 化, pixel(n,n)。</li>
-<li>数量为: Math.floor(document.documentElement.scrollWidth/n)。「n为象素比例尺」</li>
+<li>页面做先 grid 化, pixel(n,n) 。</li>
+<li>数量为: Math.floor(document.documentElement.scrollWidth/n) 。「 n 为象素比例尺」</li>
 </ul>
 <h2 id="-">还原路径</h2>
 <ul>
-<li>可以序列化 DOM path 成 selector。</li>
-<li>以 previousSibling + ancestor 不断向上递归出 presudo selector(伪selector)。</li>
+<li>可以序列化 DOM path 成 selector 。</li>
+<li>以 previousSibling + ancestor 不断向上递归出 presudo selector( 伪 selector) 。</li>
 </ul>
 <h2 id="-">何时发回及发回数据量</h2>
-<p>beforeunload异步发回。
+<p>beforeunload 异步发回。
 数据量不会太大, HTTP 里 GET 方式请求我们所知：</p>
 <ul>
-<li>IE6 2K 数据(已知)。</li>
-<li>IE7+5K 左右(记得之前我测过，印象中是这个数据)，非 IE 都有 &gt;= 2K 的数据量。</li>
+<li>IE6 2K 数据 ( 已知 ) 。</li>
+<li>IE7+5K 左右 ( 记得之前我测过，印象中是这个数据 ) ，非 IE 都有 &gt;= 2K 的数据量。</li>
 </ul>
-<p>肯定有人问发回的比例是多少，据 dron 同学统计过约80%左右。<br>虽说不是绝对发回来，但足够你用。<br>采样率 5K~1W 左右 pv 的操作发回，数据最大为 2K*1W 约 20~30M log不算多。</p>
+<p>肯定有人问发回的比例是多少，据 dron 同学统计过约 80%左右。<br>虽说不是绝对发回来，但足够你用。<br>采样率 5K~1W 左右 pv 的操作发回，数据最大为 2K*1W 约 20~30M log 不算多。</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot。中文为「土拨鼠」，有挖掘之意。
-除我之外，还有两位开发人员分别是：seven 和 cyhello。</p>
+    <summary type="html"><![CDATA[<p>最近准备把我主持并负责的前端用户行为系统开源了，这个系统我们内部命名为 marmot 。中文为「土拨鼠」，有挖掘之意。
+除我之外，还有两位开发人员分别是： seven 和 cyhello 。</p>
 <p>本篇文章简短的说明一下 marmot 的 log 重点问题：</p>
 <ol>
 <li>解决不同分辩率的策略.</li>
@@ -860,24 +860,24 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
     <link href="http://rank.im/2010/08/29/simulate-dom-inspect-effect/"/>
     <id>http://rank.im/2010/08/29/simulate-dom-inspect-effect/</id>
     <published>2010-08-29T06:09:15.000Z</published>
-    <updated>2014-03-17T02:34:46.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">常规思路</h2>
 <p>在 firefox 里如何实现 firebug 的 DOM inspect 选择功能?</p>
 <ul>
-<li>首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border。</li>
-<li>接着，mousedown，这个 absolute 的元素隐藏；</li>
-<li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
+<li>首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border 。</li>
+<li>接着， mousedown ，这个 absolute 的元素隐藏；</li>
+<li>再着着， click 结束后从事件里的 event 得到 target ，从而再得到 inspect 。</li>
 </ul>
 <p>可这样是不是真的能做到呢？
 <a id="more"></a>
 忽视了一点。<br>mouseover 如果在某个元素上飘一个 absolute 容器，那么你的 over 事件永远在这个 absolute 元素上了。</p>
-<p>可惜不是as，as可以把某个容器的事件 enable 设为 false 即可。<br>DOM w3c 没有禁用事件的功能。</p>
+<p>可惜不是 as ， as 可以把某个容器的事件 enable 设为 false 即可。<br>DOM w3c 没有禁用事件的功能。</p>
 <h2 id="-">打破常规</h2>
 <p>回到题目，那怎么做呢？<br>同事能跳出刚才的程序思维——用 4 个 div 当 4 条边就可以了。</p>
 <p>不知道你第还没试之前的分析是否是这样的呢？
-我当时在想，在coding的时候能跳出原来传统的思维真是不易。太赞了!</p>
-<p>写个简单 demo 记念（用 firefox 看吧。)
-八卦一下，据观察，firebug 确实真的也是这么做的（没看代码，只看了 DOM tree 里多了几个 div）。</p>
+我当时在想，在 coding 的时候能跳出原来传统的思维真是不易。太赞了!</p>
+<p>写个简单 demo 记念（用 firefox 看吧。 )
+八卦一下，据观察， firebug 确实真的也是这么做的（没看代码，只看了 DOM tree 里多了几个 div ）。</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
 "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
@@ -922,16 +922,16 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 
 
 <h2 id="-">穿透事件</h2>
-<p>不能像 AS 一样禁止事件，但是非IE下可穿透事件。<br>非IE下可以通过
- <a href="https://developer.mozilla.org/en/CSS/pointer-events" target="_blank">pointer-events:none</a>来透过事件，这里有个 <a href="http://www.qgy18.com/file/code/firebug_demo.html" target="_blank">demo</a>。</p>
+<p>不能像 AS 一样禁止事件，但是非 IE 下可穿透事件。<br>非 IE 下可以通过
+ <a href="https://developer.mozilla.org/en/CSS/pointer-events" target="_blank">pointer-events:none</a> 来透过事件，这里有个 <a href="http://www.qgy18.com/file/code/firebug_demo.html" target="_blank">demo</a> 。</p>
 <p>-- EOF --</p>
 ]]></content>
     <summary type="html"><![CDATA[<h2 id="-">常规思路</h2>
 <p>在 firefox 里如何实现 firebug 的 DOM inspect 选择功能?</p>
 <ul>
-<li>首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border。</li>
-<li>接着，mousedown，这个 absolute 的元素隐藏；</li>
-<li>再着着，click 结束后从事件里的 event 得到 target，从而再得到 inspect。</li>
+<li>首先，我们会 document 里添加 mouseover 事件时在 HTMLElement 上飘一个 absolute 的容器，设置 border 。</li>
+<li>接着， mousedown ，这个 absolute 的元素隐藏；</li>
+<li>再着着， click 结束后从事件里的 event 得到 target ，从而再得到 inspect 。</li>
 </ul>
 <p>可这样是不是真的能做到呢？
 ]]></summary>
@@ -945,13 +945,13 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/12/21/ie6-ssl-ajax-trouble/"/>
     <id>http://rank.im/2008/12/21/ie6-ssl-ajax-trouble/</id>
     <published>2008-12-20T17:04:33.000Z</published>
-    <updated>2014-03-15T09:14:10.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题描述</h2>
-<p>在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank">网上</a>有不少人遇到了这困惑的状态码。</p>
+<p>在 IE 6 SP1 访问 https 站点， AJAX 会随机出现一个 winet 的状态码： 12152 。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank"> 网上 </a> 有不少人遇到了这困惑的状态码。</p>
 <p>说明</p>
 <ul>
 <li>Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。</li>
-<li>IE 7以下对 SSL (即 HTTPS) 的支持不够好。</li>
+<li>IE 7 以下对 SSL ( 即 HTTPS) 的支持不够好。</li>
 </ul>
 <a id="more"></a>
 
@@ -960,18 +960,18 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <p>考虑</p>
 <ul>
 <li>如上述的情况基数人群很少，那可考虑短时间内不解决此问题。</li>
-<li>要解决而我们又不想彻底的抛弃AJAX，该怎么办。<ul>
-<li>因为我们不仅仅只有IE 6，还有 IE 7和IE 8。</li>
-<li>所以不能因为IE 6 SP1或某些奇怪版本的 IE 用户而摒弃 AJAX）</li>
+<li>要解决而我们又不想彻底的抛弃 AJAX ，该怎么办。<ul>
+<li>因为我们不仅仅只有 IE 6 ，还有 IE 7 和 IE 8 。</li>
+<li>所以不能因为 IE 6 SP1 或某些奇怪版本的 IE 用户而摒弃 AJAX ）</li>
 </ul>
 </li>
 </ul>
 <p>要解决此问题，可以想</p>
 <ul>
-<li>把无刷新页面看做是一个与服务器沟通的桥梁的话，这座桥除了用XMLHttpRequest之外。</li>
-<li>还可以用iframe。形成一个 connection 的 adapter。</li>
+<li>把无刷新页面看做是一个与服务器沟通的桥梁的话，这座桥除了用 XMLHttpRequest 之外。</li>
+<li>还可以用 iframe 。形成一个 connection 的 adapter 。</li>
 </ul>
-<p>除此之外可以将 AJAX 加一个比较快速的 「重试」（retry）方案：</p>
+<p>除此之外可以将 AJAX 加一个比较快速的 「重试」（ retry ）方案：</p>
 <figure class="highlight js"><pre>      <span class="keyword">switch</span>(<span class="keyword">this</span>.requestor.status)
       {
         <span class="keyword">case</span> <span class="number">12029</span>:
@@ -993,11 +993,11 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <p>-- EOF --</p>
 ]]></content>
     <summary type="html"><![CDATA[<h2 id="-">问题描述</h2>
-<p>在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank">网上</a>有不少人遇到了这困惑的状态码。</p>
+<p>在 IE 6 SP1 访问 https 站点， AJAX 会随机出现一个 winet 的状态码： 12152 。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank"> 网上 </a> 有不少人遇到了这困惑的状态码。</p>
 <p>说明</p>
 <ul>
 <li>Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。</li>
-<li>IE 7以下对 SSL (即 HTTPS) 的支持不够好。</li>
+<li>IE 7 以下对 SSL ( 即 HTTPS) 的支持不够好。</li>
 </ul>
 ]]></summary>
     
@@ -1010,13 +1010,13 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/11/24/radio-list-user-experience-detail/"/>
     <id>http://rank.im/2008/11/24/radio-list-user-experience-detail/</id>
     <published>2008-11-24T12:34:57.000Z</published>
-    <updated>2014-03-17T02:35:39.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<p>HTML Form 里 radio list 的用户体验细节相当赞：</p>
 <ul>
 <li>可支持方向键</li>
 <li>当 radio 最后一个选中时，按小键盘后会自动跳回第一个</li>
 <li>checked 可自动触发 onclick</li>
-<li>支持各种浏览器，cross-browser</li>
+<li>支持各种浏览器， cross-browser</li>
 </ul>
 <p>用这个特性，可以做一个无障碍的 TabView :)</p>
 <p><a id="more"></a></p>
@@ -1034,12 +1034,12 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
  </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>radio list的妙用<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>radio list 的妙用<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
 
     <span class="tag">&lt;<span class="title">ol</span>&gt;</span>
       <span class="tag">&lt;<span class="title">li</span>&gt;</span>可支持方向键<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">li</span>&gt;</span>当radio最后一个选中时，按小键盘后会自动跳回第一个<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">li</span>&gt;</span>checked可自动触发onclick<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">li</span>&gt;</span>当 radio 最后一个选中时，按小键盘后会自动跳回第一个<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">li</span>&gt;</span>checked 可自动触发 onclick<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
       <span class="tag">&lt;<span class="title">li</span>&gt;</span>支持各种浏览器,cross-browser<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
     <span class="tag">&lt;/<span class="title">ol</span>&gt;</span>
 
@@ -1066,7 +1066,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <li>可支持方向键</li>
 <li>当 radio 最后一个选中时，按小键盘后会自动跳回第一个</li>
 <li>checked 可自动触发 onclick</li>
-<li>支持各种浏览器，cross-browser</li>
+<li>支持各种浏览器， cross-browser</li>
 </ul>
 <p>用这个特性，可以做一个无障碍的 TabView :)</p>
 <p>]]></summary>
@@ -1080,7 +1080,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/11/24/trim-to-regexp-performance/"/>
     <id>http://rank.im/2008/11/24/trim-to-regexp-performance/</id>
     <published>2008-11-24T12:20:21.000Z</published>
-    <updated>2014-03-16T13:12:23.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
 <p>一般情况下用正则写法为：</p>
 <figure class="highlight js"><pre>&lt;script type=<span class="string">"text/javascript"</span>&gt;<span class="comment">//&lt;![CDATA[</span>
@@ -1104,7 +1104,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Pragma"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
   <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">textarea</span>&gt;</span>请在这里写足够多的空格或者tab字符。<span class="tag">&lt;/<span class="title">textarea</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">textarea</span>&gt;</span>请在这里写足够多的空格或者 tab 字符。<span class="tag">&lt;/<span class="title">textarea</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="comment">//&lt;![CDATA[</span>
   <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\t ]+|[\s\t ]+$/g</span>, <span class="string">''</span>);
@@ -1120,33 +1120,33 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 
 
 <h2 id="dfa">DFA</h2>
-<p>在解释这个原因的时候想起以前看到 《Master regular expression》 里面有提到过。</p>
+<p>在解释这个原因的时候想起以前看到 《 Master regular expression 》 里面有提到过。</p>
 <p>NFA 和 DFA 引擎是有区别的。</p>
 <blockquote>
-<p>DFA 与 NFA 机制上的不同带来5个影响：</p>
+<p>DFA 与 NFA 机制上的不同带来 5 个影响：</p>
 <ol>
 <li>DFA 对于文本串里的每一个字符只需扫描一次，比较快，但特性较少；<ul>
 <li>NFA 要翻来覆去吃字符、吐字符，速度慢，但是特性丰富，所以反而应用广泛。</li>
-<li>当今主要的正则表达式引擎，如 Perl、Ruby、Python 的 re 模块、Java 和 .NET 的 regex 库，都是 NFA 的。</li>
+<li>当今主要的正则表达式引擎，如 Perl 、 Ruby 、 Python 的 re 模块、 Java 和 .NET 的 regex 库，都是 NFA 的。</li>
 </ul>
 </li>
-<li>只有 NFA 才支持 lazy 和 backreference（后向引用）等特性；</li>
+<li>只有 NFA 才支持 lazy 和 backreference （后向引用）等特性；</li>
 <li>NFA 急于邀功请赏，所以最左子正则式优先匹配成功，因此偶尔会错过最佳匹配结果；<ul>
 <li>DFA 则是“最长的左子正则式优先匹配成功”。</li>
 </ul>
 </li>
-<li>NFA 缺省采用 greedy 量词(就是对于/.*/、/\w+/这样的“重复n”次的模式，以贪婪方式进行，尽可能匹配更多字符，直到不得以罢手为止)，NFA 会优先匹配量词。</li>
-<li>NFA可能会陷入递归调用的陷阱而表现得性能极差。</li>
+<li>NFA 缺省采用 greedy 量词 ( 就是对于/.*/、/\w+/这样的“重复 n ”次的模式，以贪婪方式进行，尽可能匹配更多字符，直到不得以罢手为止 ) ， NFA 会优先匹配量词。</li>
+<li>NFA 可能会陷入递归调用的陷阱而表现得性能极差。</li>
 </ol>
 </blockquote>
 <p>JS 是 NFA 引擎。</p>
-<h2 id="backtracking-">backtracking（回朔）</h2>
+<h2 id="backtracking-">backtracking （回朔）</h2>
 <blockquote>
-<p>当 NFA 发现自己吃多了，一个一个往回吐，边吐边找匹配，这个过程叫做 backtracking。</p>
+<p>当 NFA 发现自己吃多了，一个一个往回吐，边吐边找匹配，这个过程叫做 backtracking 。</p>
 </blockquote>
 <p>由于存在这个过程，在 NFA 匹配过程中，特别是在编写不合理的正则式匹配过程中，文本被反复扫描，效率损失是不小的。明白这个道理，对于写出高效的正则表达式很有帮助。</p>
 <h2 id="-">定位/分析原因</h2>
-<p>在解释上面的trim原型方法的时候。<br>经过测试，有几个方法是可以化解 JS NFA 引擎的回朔次数：</p>
+<p>在解释上面的 trim 原型方法的时候。<br>经过测试，有几个方法是可以化解 JS NFA 引擎的回朔次数：</p>
 <ul>
 <li><p>去掉限定的量词，即改成</p>
   <figure class="highlight js"><pre> <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
@@ -1179,10 +1179,10 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <li>多行既然能够匹配，而且性能消耗不大。性能上没有任何问题，从一个写这个正则程序的人角度上去看，多行明显比单行要替换的空串多得多。所以第二点的结论应该是对的。</li>
 </ul>
 <h2 id="-trim-">改良 trim 函数</h2>
-<p>首先确定匹配字符串的开始正则是没有任何效率问题的。而匹配结束的时候会出现性能问题，那可以采用正则与传统相结合来改善这个trim性能问题。</p>
+<p>首先确定匹配字符串的开始正则是没有任何效率问题的。而匹配结束的时候会出现性能问题，那可以采用正则与传统相结合来改善这个 trim 性能问题。</p>
 <figure class="highlight js"><pre>  <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">var</span> s = <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\t ]+/g</span>, <span class="string">''</span>);
-    从s后端开始查找，并回循环到最后一个非空字符串，代码略。
+    从 s 后端开始查找，并回循环到最后一个非空字符串，代码略。
   }
 </pre></figure>
 
@@ -1212,7 +1212,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/10/08/tourism-in-beijing-at-national-day-2/"/>
     <id>http://rank.im/2008/10/08/tourism-in-beijing-at-national-day-2/</id>
     <published>2008-10-07T19:30:15.000Z</published>
-    <updated>2014-03-17T02:50:16.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<h2 id="10-3-">10.3 颐和园一日游</h2>
 <p>值得一说的是当天去颐和园之前，我认为我在中关村附近应该离那很近，坐车去那应该要不了多久。<br>事实上恰恰相反，在快到颐和园那的一条路堵死了。</p>
 <p>只好步行了十几分钟才到了颐和园。<br>进了园被人潮所包围，没有找到更好的地方拍风景。</p>
@@ -1239,7 +1239,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <p><img src="http://farm4.static.flickr.com/3153/2914806592_18f0310eb1.jpg?v=0" alt=""></p>
 <p>昆明湖旁的绿地真的可以让心沉静下来，是我理想中散步的地方。（幸运的是旅游团没有朝这边走，所以人都比较少，可以让我们有足够的时间从这边欣赏湖光山色。）</p>
 <p><img src="http://farm3.static.flickr.com/2268/2972330058_5e8cfe320f.jpg?v=0" alt=""></p>
-<p>特别是在太阳将要落山的时候，一位年轻母亲坐在长凳上。旁边是她的孩子静静躺在摇篮车里，夕阳洒在他们身上。so sweet。 </p>
+<p>特别是在太阳将要落山的时候，一位年轻母亲坐在长凳上。旁边是她的孩子静静躺在摇篮车里，夕阳洒在他们身上。 so sweet 。 </p>
 <p>快到佛香阁的时候，看到有苏州街</p>
 <p><img src="http://farm4.static.flickr.com/3153/2914403985_b8f1bbf371.jpg?v=0" alt=""></p>
 <p>在佛香阁下有一条长廊，这条长廊上都有壁绘，每一幅都是昆明湖一景。
@@ -1255,7 +1255,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <h2 id="10-4-">10.4 鸟巢，水立方，全聚德</h2>
 <p>大概十点左右，昨天订的二十一客蛋糕到了，很激动的下去拿~服务人员态度很好，而且要验货的。并解释由于是自行车送货可能有颠簸，所以蛋糕上的巧克力会有一点点散落。</p>
 <p>之前有在公司吃过一次二十一客，是来做推广的时候吃的，感觉很不错，一直想着有机会再吃一次。现在终于愿望成真了。</p>
-<p>包装很不错，有质感的牛皮纸，用麻绳系着。拆开里面还带有刀叉。刀叉很Q。</p>
+<p>包装很不错，有质感的牛皮纸，用麻绳系着。拆开里面还带有刀叉。刀叉很 Q 。</p>
 <p><img src="http://farm4.static.flickr.com/3017/2914128083_3a04cd8682.jpg?v=0" alt="">
 <img src="http://farm4.static.flickr.com/3049/2914967466_883b2db2e0.jpg?v=0" alt=""></p>
 <p>拿出来后第一感觉是巧克力很多~，多得吃不完...</p>
@@ -1264,12 +1264,12 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 听昨天的师傅说和平门的全聚德比较好但又不接受预定。所以下午四点我们就出发去全聚德去看看还有没有空位。</p>
 <p><img src="http://farm4.static.flickr.com/3273/2914156103_86854ea0b6.jpg?v=0" alt=""></p>
 <p>很幸运。我们到的时间刚好合适。还有空位。点了两个网上好评比较多的菜，烤鸭，咸水鸭肝。还有一个记不清了（叫什么四宝来着），但总之是划不来的菜，四宝中的一宝还是笋，不是肉...</p>
-<p>烤鸭拿出来了，服务员上来背课文似的说烤鸭有三种吃法之类的。我是完全没听清...就任师傅宰割吧（全聚德也够 BT，收 10% 的服务费，国际化和本地化都有了）</p>
+<p>烤鸭拿出来了，服务员上来背课文似的说烤鸭有三种吃法之类的。我是完全没听清...就任师傅宰割吧（全聚德也够 BT ，收 10% 的服务费，国际化和本地化都有了）</p>
 <p><img src="http://farm4.static.flickr.com/3239/2914157521_22df2431b9.jpg?v=0" alt="">
 <img src="http://farm4.static.flickr.com/3184/2914182905_c5a86bae19.jpg?v=0" alt=""></p>
 <p>饭饱也该去鸟巢和水立方了。实际上是去走个形式。而且听说还不让进场馆里，进的话要一百块。
 反正每次从机场过来中关村都会经过水立方，感觉从电视上和真正看到完全是两个概念。</p>
-<p>当走近水立方和鸟巢这个大笼子(旁边都围着的，感觉象笼子）的时候，就有人要问你是否要票，5块十块皆不等。</p>
+<p>当走近水立方和鸟巢这个大笼子 ( 旁边都围着的，感觉象笼子）的时候，就有人要问你是否要票， 5 块十块皆不等。</p>
 <p>我们走到门口问了一下，进去笼子是否要钱，他们说进的确是要票的。有一位说看我们这么想看就给我们一张他捡到的票让我们进去。我们感激得不得了。但很奇怪的是他说不管几个人一张票就可以了，让我觉得很不可思议。</p>
 <p><img src="http://farm4.static.flickr.com/3082/2914278407_33e89b8d19.jpg?v=0" alt=""></p>
 <p>本来还想进去里面的餐厅吃顿饭的，但无奈于进鸟巢的门票太贵。。。</p>
@@ -1301,7 +1301,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/10/08/tourism-in-beijing-at-national-day-1/"/>
     <id>http://rank.im/2008/10/08/tourism-in-beijing-at-national-day-1/</id>
     <published>2008-10-07T17:50:05.000Z</published>
-    <updated>2014-03-17T02:55:07.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<p>来北京工作半年有余了。</p>
 <p>由于工作的原因没有太多时间去看看北京这座城市。正好十一有空，也顾不上人多，去看了看北京的一些传统的旅游景点。</p>
 <p>也尝了一些北京特色的小吃。</p>
@@ -1322,10 +1322,10 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <p>北大十一期间不让进，没办法我们就只能去清华了。</p>
 <p>去到的第一感觉就是游人比清华学生多。<br>基本没法把一些景点的照片照全，当然在某些地方也是没有人的，比如：</p>
 <p><img src="http://farm3.static.flickr.com/2408/2914396541_01bc4b5083.jpg?v=0" alt=""></p>
-<p>傍晚一些的时候，我们打算去“芝兰园”吃自助餐。这个地方是来北京的一位朋友介绍的，他说他们原来在中央美院读书的时候，当时我还在家乡。他们就经常去那吃。现在我到了北京也要去尝尝他们推荐的餐厅，而且这个餐厅的价格很便宜。据后来我们考证。有卡15元吃自助餐，没卡买票的话20块。</p>
+<p>傍晚一些的时候，我们打算去“芝兰园”吃自助餐。这个地方是来北京的一位朋友介绍的，他说他们原来在中央美院读书的时候，当时我还在家乡。他们就经常去那吃。现在我到了北京也要去尝尝他们推荐的餐厅，而且这个餐厅的价格很便宜。据后来我们考证。有卡 15 元吃自助餐，没卡买票的话 20 块。</p>
 <p>说回流水帐，我们询问校园里的同学，得知芝华园在东北门，我们当时是靠近西门附近。需要步行近二十至三十分钟方能到东北门。反正来了清华，走会儿就走会儿吧，于是决定步行去东北门。</p>
 <p>后来才后悔了，发现这段路程是多么漫长，多么“阴森”。说到漫长是因为确实是有段距离......<br>说到阴森，是感觉清华的照明设施是有必要改善一下了，路灯的灯光很暗，让人感觉心凉凉的。有的叉路口放眼望去，一个身影都没有，路的尽头只有黑暗。在这种情况下很容易联想到鬼片。</p>
-<p>好不容易走到芝兰园。营业时间写着最晚到8点，我们一看表，差不多七点半了。。。买票进去看了一下，基本都被扫空了~看了一下周围的同学，看上去象是大一大二的同学。还有开小聚会什么的。</p>
+<p>好不容易走到芝兰园。营业时间写着最晚到 8 点，我们一看表，差不多七点半了。。。买票进去看了一下，基本都被扫空了~看了一下周围的同学，看上去象是大一大二的同学。还有开小聚会什么的。</p>
 <p>总的来说，芝兰园的饭菜是很不错的。物美价廉~，比平常吃平常在公司周围吃快餐还便宜一些。如果离得近的话，应该是我们饭团的目标了。</p>
 <h2 id="10-2-">10.2 恭王府，故宫</h2>
 <p>这天我们大清早就起早，准备坐公交车去....</p>
@@ -1343,7 +1343,7 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 <p>走了差不多三十分钟的路程，到了故宫。那时已经差不多是下午四点了，故宫五点关门。还是决定进去游览一番~
 从午门进的。（看到地图的时候才知道是午门）这让我经常想起电视剧里做皇帝的都是赏给某些运气不好的大臣——午门斩首......</p>
 <p>进了故宫之后再次感叹这故宫宏伟。<br>才知道电视上的那些艺术加工远没有在现场看到的那样令人感叹。</p>
-<p>与 birdnest 之类建筑的宏伟截然不同，故宫显然带着中华历史的宏伟。<br>进去之后的人，大多数都以张开双臂来摆pose。我也跟风一把。</p>
+<p>与 birdnest 之类建筑的宏伟截然不同，故宫显然带着中华历史的宏伟。<br>进去之后的人，大多数都以张开双臂来摆 pose 。我也跟风一把。</p>
 <p><img src="http://farm4.static.flickr.com/3249/2914754172_15334b3be4_o.jpg" alt=""></p>
 <p>当然，游人的数量也是让人感叹的。这更让我感觉一个个是从鬼门关午门进去....<br>从太和殿上看过去，也能体会一下万人之上的感觉~难怪张艺谋会找如此多人去拍黄金甲~</p>
 <p>看到北京的这些建筑才知道红配绿可以搭配得这么漂亮。</p>
@@ -1368,13 +1368,13 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
     <link href="http://rank.im/2008/08/23/firefox-regexp-issue/"/>
     <id>http://rank.im/2008/08/23/firefox-regexp-issue/</id>
     <published>2008-08-23T10:56:41.000Z</published>
-    <updated>2014-03-15T09:57:42.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<h2 id="-">问题</h2>
-<p>先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
+<p>先问一个问题, 在 firefox 2 里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
 <p>有可能你会答「是，他们相等」，也有可能你去查了查手册, 看到以下的解释:</p>
 <blockquote>
 <p>\d Matches a nondigit character. Equivalent to [^0-9]. 
-匹配一个数字字符。等价于 [0-9]。</p>
+匹配一个数字字符。等价于 [0-9] 。</p>
 </blockquote>
 <p>那我们测试一下以下代码：</p>
 <figure class="highlight js"><pre> <span class="comment">//http://rank.im</span>
@@ -1391,24 +1391,24 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
 </pre></figure>
 
 
-<p>Firefox 2 里会出现「\d」等于 半角[0-9] 和 全角[0-9] 现象。</p>
+<p>Firefox 2 里会出现「\d 」等于 半角 [0-9] 和 全角 [0-9] 现象。</p>
 <h2 id="-">解决办法</h2>
-<p>Firefox 2里用正则表达式\d字符时,会将全角转义成半角再进行匹配, 与手册描述不一致。  </p>
+<p>Firefox 2 里用正则表达式\d 字符时,会将全角转义成半角再进行匹配, 与手册描述不一致。  </p>
 <p>解决办法即是：以后大家用正则还是直接用 [0-9] 去匹配数字。</p>
-<p>这是否意味着是 Firefox 2 的bug呢？非也。  </p>
-<p>《Master Regular Expression，精通正则表达式》书中说是不同的流派的问题。</p>
+<p>这是否意味着是 Firefox 2 的 bug 呢？非也。  </p>
+<p>《 Master Regular Expression ，精通正则表达式》书中说是不同的流派的问题。</p>
 <blockquote>
 <p>Matches any non-decimal digit. Equivalent to [\P{Nd}] for Unicode and [^0-9] for non-Unicode, ECMAScript behavior.</p>
 </blockquote>
-<p>另，Firefox 后续版本已无问题。</p>
+<p>另， Firefox 后续版本已无问题。</p>
 <p>-- EOF --</p>
 ]]></content>
     <summary type="html"><![CDATA[<h2 id="-">问题</h2>
-<p>先问一个问题, 在firefox 2里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
+<p>先问一个问题, 在 firefox 2 里,正则表达式字符&quot;\d&quot;全等于&quot;[0-9]&quot;吗?</p>
 <p>有可能你会答「是，他们相等」，也有可能你去查了查手册, 看到以下的解释:</p>
 <blockquote>
 <p>\d Matches a nondigit character. Equivalent to [^0-9]. 
-匹配一个数字字符。等价于 [0-9]。</p>
+匹配一个数字字符。等价于 [0-9] 。</p>
 </blockquote>
 <p>那我们测试一下以下代码：</p>
 <figure class="highlight js"><pre> <span class="comment">//http://rank.im</span>
@@ -1424,20 +1424,20 @@ $(document).click(<span class="function"><span class="keyword">function</span><s
   </entry>
   
   <entry>
-    <title><![CDATA[IE 在 DOM 操作有表单控件时的bug]]></title>
+    <title><![CDATA[IE 在 DOM 操作有表单控件时的 bug]]></title>
     <link href="http://rank.im/2008/07/20/ie-form-check-bug/"/>
     <id>http://rank.im/2008/07/20/ie-form-check-bug/</id>
     <published>2008-07-20T11:44:21.000Z</published>
-    <updated>2014-03-16T03:25:44.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="bug-">bug描述</h2>
+    <updated>2014-04-04T02:39:20.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="bug-">bug 描述</h2>
 <ul>
-<li>影响的范围: IE的所有版本</li>
-<li>在表单的 radio/checkbox 控件中，一旦他们的DOM结构被更改过就会出现这个bug。</li>
-<li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio将会自动恢复到默认状态，</li>
+<li>影响的范围: IE 的所有版本</li>
+<li>在表单的 radio/checkbox 控件中，一旦他们的 DOM 结构被更改过就会出现这个 bug 。</li>
+<li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio 将会自动恢复到默认状态，</li>
 <li>有如点了 reset 按钮一样。</li>
 </ul>
 <p><a id="more"></a>
-bug重现</p>
+bug 重现</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
 "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
@@ -1502,7 +1502,7 @@ bug重现</p>
 
 
 <h2 id="-">解决方法</h2>
-<p>可以在操作DOM之前，用 「defaultChecked」 来设置 checked 的值。</p>
+<p>可以在操作 DOM 之前，用 「 defaultChecked 」 来设置 checked 的值。</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
 "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
@@ -1576,11 +1576,11 @@ bug重现</p>
 
 <p>-- EOF --</p>
 ]]></content>
-    <summary type="html"><![CDATA[<h2 id="bug-">bug描述</h2>
+    <summary type="html"><![CDATA[<h2 id="bug-">bug 描述</h2>
 <ul>
-<li>影响的范围: IE的所有版本</li>
-<li>在表单的 radio/checkbox 控件中，一旦他们的DOM结构被更改过就会出现这个bug。</li>
-<li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio将会自动恢复到默认状态，</li>
+<li>影响的范围: IE 的所有版本</li>
+<li>在表单的 radio/checkbox 控件中，一旦他们的 DOM 结构被更改过就会出现这个 bug 。</li>
+<li>操作了表单 radio/checkbox 的 DOM 结构时（或者直接影响了他们的结构时）选中的 checkbox/radio 将会自动恢复到默认状态，</li>
 <li>有如点了 reset 按钮一样。</li>
 </ul>
 <p>]]></summary>
@@ -1590,17 +1590,17 @@ bug重现</p>
   </entry>
   
   <entry>
-    <title><![CDATA[Javascript 标准 DOM Range操作(3)]]></title>
+    <title><![CDATA[Javascript 标准 DOM Range 操作 (3)]]></title>
     <link href="http://rank.im/2006/09/30/javascript-dom-range-3/"/>
     <id>http://rank.im/2006/09/30/javascript-dom-range-3/</id>
     <published>2006-09-30T12:33:20.000Z</published>
-    <updated>2014-03-16T13:17:01.000Z</updated>
+    <updated>2014-04-04T02:39:20.000Z</updated>
     <content type="html"><![CDATA[<ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range 操作 (1)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript 标准 DOM Range 操作 (2)</a></li>
 </ul>
-<h2 id="-range-">从Range中插入一些数据</h2>
-<p>前一节的几个方法解决了如何移除 Range 中所选中的 fragment。
+<h2 id="-range-">从 Range 中插入一些数据</h2>
+<p>前一节的几个方法解决了如何移除 Range 中所选中的 fragment 。
 现在来看， insertNode() 方法可以插入一个节点到 Range 中。</p>
 <p>假如我想把以下的节点插如 Range 中，将如何操作呢？</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color: red"</span>&gt;</span>Inserted text<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
@@ -1628,12 +1628,12 @@ oRange.insertNode(oSpan);
 </pre></figure>
 
 
-<p>那么原来的HTML将会变成这样：</p>
+<p>那么原来的 HTML 将会变成这样：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color: red"</span>&gt;</span>Inserted text<span class="tag">&lt;/<span class="title">span</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 </pre></figure>
 
 
-<p>surroundContents() 的参数为一个node，它将这个 node 加入到 Range 里，看这个示例：</p>
+<p>surroundContents() 的参数为一个 node ，它将这个 node 加入到 Range 里，看这个示例：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
 <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
@@ -1650,9 +1650,9 @@ oRange.surroundContents(oSpan);
 </pre></figure>
 
 
-<p>在 「oRange」 选取的范围内有一个我们新生成的节点 「span」，因此选取的 Range 的背景变成了黄色。</p>
-<h2 id="collapse-">collapse()方法</h2>
-<p>collapse()方法只有一个布尔型的参数，该参数为可选的，默认为false。<br>为 true 时折叠到 Range 边界的首部，为 false 时折叠到 Range 尾部。</p>
+<p>在 「 oRange 」 选取的范围内有一个我们新生成的节点 「 span 」，因此选取的 Range 的背景变成了黄色。</p>
+<h2 id="collapse-">collapse() 方法</h2>
+<p>collapse() 方法只有一个布尔型的参数，该参数为可选的，默认为 false 。<br>为 true 时折叠到 Range 边界的首部，为 false 时折叠到 Range 尾部。</p>
 <p><img src="/images/javascript-dom-range/30_174339_domranges6.gif" alt=""></p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
@@ -1667,7 +1667,7 @@ oRange.collapse(<span class="literal">true</span>);
 </pre></figure>
 
 
-<p>如果你想知道该 Range 是否已经折叠，可以用 collapsed 属性来得到 true 或者 false。<br>示例：</p>
+<p>如果你想知道该 Range 是否已经折叠，可以用 collapsed 属性来得到 true 或者 false 。<br>示例：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span>Paragraph 1<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p2"</span>&gt;</span>Paragraph 2<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
 <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
@@ -1680,16 +1680,16 @@ alert(oRange.collapsed); <span class="comment">//outputs "true"</span>
 </pre></figure>
 
 
-<p>上面的代码输为 true。</p>
-<p>虽然我们没有用 collapse 方法，但是由于我们的 Range 设置开始为 1 末端到 p2 的首端，没有任何元素。即&lt;/p&gt;(Range开始)(Range结束)&lt;p id=&quot;p2&quot;&gt;，所以显示的是 true。</p>
-<h2 id="range-">Range边界的比较</h2>
-<p>compareBoundaryPoints()方法，语法：</p>
+<p>上面的代码输为 true 。</p>
+<p>虽然我们没有用 collapse 方法，但是由于我们的 Range 设置开始为 1 末端到 p2 的首端，没有任何元素。即&lt;/p&gt;(Range 开始 )(Range 结束 )&lt;p id=&quot;p2&quot;&gt;，所以显示的是 true 。</p>
+<h2 id="range-">Range 边界的比较</h2>
+<p>compareBoundaryPoints() 方法，语法：</p>
 <blockquote>
 <p>compare = comparerange.compareBoundaryPoints(how,sourceRange)</p>
 </blockquote>
 <p>参数含义：</p>
 <ul>
-<li>compare —— 返回1, 0, -1。<ul>
+<li>compare —— 返回 1, 0, -1 。<ul>
 <li>0 为相等。</li>
 <li>1 为 comparerange 在 sourceRange 之后。</li>
 <li>-1 为 comparerange 在 sourceRange 之前。</li>
@@ -1723,21 +1723,21 @@ alert(oRange1.compareBoundaryPoints(Range.END_TO_END, oRange2));
 
 <p>下图为这两个 Range 的示意图，结合代码和上面的说明，可以清晰的分析出结果了。</p>
 <p><img src="/images/javascript-dom-range/01_022322_domranges7.gif" alt=""></p>
-<h2 id="-clone-range">克隆(clone)Range</h2>
+<h2 id="-clone-range">克隆 (clone)Range</h2>
 <p>这个操作很简单，只需要一句语句即可：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oNewRange = oRange.cloneRange();
 </pre></figure>
 
 
 <p>cloneRange() 方法将返回一个当前 Range 的副本。当然，它也是 Range 对象。</p>
-<h2 id="-range-">清除Range所占的系统资源</h2>
-<p>当你创建了 Range 对象最好用 detach() 方法来清除它所占的系统资源。<br>虽然不清除，GC（垃圾收集器）也会将其收集，但用detach()释放是一个好习惯。</p>
+<h2 id="-range-">清除 Range 所占的系统资源</h2>
+<p>当你创建了 Range 对象最好用 detach() 方法来清除它所占的系统资源。<br>虽然不清除， GC （垃圾收集器）也会将其收集，但用 detach() 释放是一个好习惯。</p>
 <p>语法为：</p>
 <figure class="highlight js"><pre>oRange.detach();
 </pre></figure>
 
 
-<p>下面一个示例在Mozilla中，利用Range可以模拟出IE中的element.insertAdjacentHTML()方法，</p>
+<p>下面一个示例在 Mozilla 中，利用 Range 可以模拟出 IE 中的 element.insertAdjacentHTML() 方法，</p>
 <figure class="highlight js"><pre><span class="keyword">if</span> (browser.isMozilla) {
 	 HTMLElement.prototype.insertAdjacentHTML = <span class="function"><span class="keyword">function</span> <span class="params">(sWhere, sHTML)</span> {</span>
 		 <span class="keyword">var</span> df; <span class="keyword">var</span> r = <span class="keyword">this</span>.ownerDocument.createRange();
@@ -1778,11 +1778,11 @@ alert(oRange1.compareBoundaryPoints(Range.END_TO_END, oRange2));
 <p>-- EOF --</p>
 ]]></content>
     <summary type="html"><![CDATA[<ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range 操作 (1)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript 标准 DOM Range 操作 (2)</a></li>
 </ul>
-<h2 id="-range-">从Range中插入一些数据</h2>
-<p>前一节的几个方法解决了如何移除 Range 中所选中的 fragment。
+<h2 id="-range-">从 Range 中插入一些数据</h2>
+<p>前一节的几个方法解决了如何移除 Range 中所选中的 fragment 。
 现在来看， insertNode() 方法可以插入一个节点到 Range 中。</p>
 <p>假如我想把以下的节点插如 Range 中，将如何操作呢？</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color: red"</span>&gt;</span>Inserted text<span class="tag">&lt;/<span class="title">span</span>&gt;</span>

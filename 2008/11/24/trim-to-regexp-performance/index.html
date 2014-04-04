@@ -99,7 +99,7 @@
  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Pragma"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span> /&gt;</span> 
  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
   <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">textarea</span>&gt;</span>请在这里写足够多的空格或者tab字符。<span class="tag">&lt;/<span class="title">textarea</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">textarea</span>&gt;</span>请在这里写足够多的空格或者 tab 字符。<span class="tag">&lt;/<span class="title">textarea</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="comment">//&lt;![CDATA[</span>
   <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\t ]+|[\s\t ]+$/g</span>, <span class="string">''</span>);
@@ -115,33 +115,33 @@
 
 
 <h2 id="dfa">DFA</h2>
-<p>在解释这个原因的时候想起以前看到 《Master regular expression》 里面有提到过。</p>
+<p>在解释这个原因的时候想起以前看到 《 Master regular expression 》 里面有提到过。</p>
 <p>NFA 和 DFA 引擎是有区别的。</p>
 <blockquote>
-<p>DFA 与 NFA 机制上的不同带来5个影响：</p>
+<p>DFA 与 NFA 机制上的不同带来 5 个影响：</p>
 <ol>
 <li>DFA 对于文本串里的每一个字符只需扫描一次，比较快，但特性较少；<ul>
 <li>NFA 要翻来覆去吃字符、吐字符，速度慢，但是特性丰富，所以反而应用广泛。</li>
-<li>当今主要的正则表达式引擎，如 Perl、Ruby、Python 的 re 模块、Java 和 .NET 的 regex 库，都是 NFA 的。</li>
+<li>当今主要的正则表达式引擎，如 Perl 、 Ruby 、 Python 的 re 模块、 Java 和 .NET 的 regex 库，都是 NFA 的。</li>
 </ul>
 </li>
-<li>只有 NFA 才支持 lazy 和 backreference（后向引用）等特性；</li>
+<li>只有 NFA 才支持 lazy 和 backreference （后向引用）等特性；</li>
 <li>NFA 急于邀功请赏，所以最左子正则式优先匹配成功，因此偶尔会错过最佳匹配结果；<ul>
 <li>DFA 则是“最长的左子正则式优先匹配成功”。</li>
 </ul>
 </li>
-<li>NFA 缺省采用 greedy 量词(就是对于/.*/、/\w+/这样的“重复n”次的模式，以贪婪方式进行，尽可能匹配更多字符，直到不得以罢手为止)，NFA 会优先匹配量词。</li>
-<li>NFA可能会陷入递归调用的陷阱而表现得性能极差。</li>
+<li>NFA 缺省采用 greedy 量词 ( 就是对于/.*/、/\w+/这样的“重复 n ”次的模式，以贪婪方式进行，尽可能匹配更多字符，直到不得以罢手为止 ) ， NFA 会优先匹配量词。</li>
+<li>NFA 可能会陷入递归调用的陷阱而表现得性能极差。</li>
 </ol>
 </blockquote>
 <p>JS 是 NFA 引擎。</p>
-<h2 id="backtracking-">backtracking（回朔）</h2>
+<h2 id="backtracking-">backtracking （回朔）</h2>
 <blockquote>
-<p>当 NFA 发现自己吃多了，一个一个往回吐，边吐边找匹配，这个过程叫做 backtracking。</p>
+<p>当 NFA 发现自己吃多了，一个一个往回吐，边吐边找匹配，这个过程叫做 backtracking 。</p>
 </blockquote>
 <p>由于存在这个过程，在 NFA 匹配过程中，特别是在编写不合理的正则式匹配过程中，文本被反复扫描，效率损失是不小的。明白这个道理，对于写出高效的正则表达式很有帮助。</p>
 <h2 id="-">定位/分析原因</h2>
-<p>在解释上面的trim原型方法的时候。<br>经过测试，有几个方法是可以化解 JS NFA 引擎的回朔次数：</p>
+<p>在解释上面的 trim 原型方法的时候。<br>经过测试，有几个方法是可以化解 JS NFA 引擎的回朔次数：</p>
 <ul>
 <li><p>去掉限定的量词，即改成</p>
   <figure class="highlight js"><pre> <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
@@ -174,10 +174,10 @@
 <li>多行既然能够匹配，而且性能消耗不大。性能上没有任何问题，从一个写这个正则程序的人角度上去看，多行明显比单行要替换的空串多得多。所以第二点的结论应该是对的。</li>
 </ul>
 <h2 id="-trim-">改良 trim 函数</h2>
-<p>首先确定匹配字符串的开始正则是没有任何效率问题的。而匹配结束的时候会出现性能问题，那可以采用正则与传统相结合来改善这个trim性能问题。</p>
+<p>首先确定匹配字符串的开始正则是没有任何效率问题的。而匹配结束的时候会出现性能问题，那可以采用正则与传统相结合来改善这个 trim 性能问题。</p>
 <figure class="highlight js"><pre>  <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">var</span> s = <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\t ]+/g</span>, <span class="string">''</span>);
-    从s后端开始查找，并回循环到最后一个非空字符串，代码略。
+    从 s 后端开始查找，并回循环到最后一个非空字符串，代码略。
   }
 </pre></figure>
 
@@ -254,7 +254,7 @@
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

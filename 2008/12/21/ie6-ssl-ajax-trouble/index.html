@@ -8,11 +8,11 @@
   <meta name="author" content="rank">
   
   <meta name="description" content="问题描述
-在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。网上有不少人遇到了这困惑的状态码。
+在 IE 6 SP1 访问 https 站点， AJAX 会随机出现一个 winet 的状态码： 12152 。 网上  有不少人遇到了这困惑的状态码。
 说明
 
 Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。
-IE 7以下对 SSL (即 HTTPS) 的支持不够好。">
+IE 7 以下对 SSL ( 即 HTTPS) 的支持不够好。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -70,11 +70,11 @@ IE 7以下对 SSL (即 HTTPS) 的支持不够好。">
   <div class="entry">
     
       <h2 id="-">问题描述</h2>
-<p>在 IE 6 SP1 访问 https 站点，AJAX 会随机出现一个 winet 的状态码：12152。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank">网上</a>有不少人遇到了这困惑的状态码。</p>
+<p>在 IE 6 SP1 访问 https 站点， AJAX 会随机出现一个 winet 的状态码： 12152 。<br><a href="http://www.baidu.com/s?tn=ichuner_4_pg&amp;ie=gb2312&amp;bs=xmlhttp+12152&amp;sr=&amp;z=&amp;cl=3&amp;f=8&amp;wd=ajax+12152&amp;ct=0" target="_blank"> 网上 </a> 有不少人遇到了这困惑的状态码。</p>
 <p>说明</p>
 <ul>
 <li>Windows 下的 IE 里 new ActiveXObject(progId) 生成的 XMLHttpRequest 是 winet 的一部分。</li>
-<li>IE 7以下对 SSL (即 HTTPS) 的支持不够好。</li>
+<li>IE 7 以下对 SSL ( 即 HTTPS) 的支持不够好。</li>
 </ul>
 <a id="more"></a>
 
@@ -83,18 +83,18 @@ IE 7以下对 SSL (即 HTTPS) 的支持不够好。">
 <p>考虑</p>
 <ul>
 <li>如上述的情况基数人群很少，那可考虑短时间内不解决此问题。</li>
-<li>要解决而我们又不想彻底的抛弃AJAX，该怎么办。<ul>
-<li>因为我们不仅仅只有IE 6，还有 IE 7和IE 8。</li>
-<li>所以不能因为IE 6 SP1或某些奇怪版本的 IE 用户而摒弃 AJAX）</li>
+<li>要解决而我们又不想彻底的抛弃 AJAX ，该怎么办。<ul>
+<li>因为我们不仅仅只有 IE 6 ，还有 IE 7 和 IE 8 。</li>
+<li>所以不能因为 IE 6 SP1 或某些奇怪版本的 IE 用户而摒弃 AJAX ）</li>
 </ul>
 </li>
 </ul>
 <p>要解决此问题，可以想</p>
 <ul>
-<li>把无刷新页面看做是一个与服务器沟通的桥梁的话，这座桥除了用XMLHttpRequest之外。</li>
-<li>还可以用iframe。形成一个 connection 的 adapter。</li>
+<li>把无刷新页面看做是一个与服务器沟通的桥梁的话，这座桥除了用 XMLHttpRequest 之外。</li>
+<li>还可以用 iframe 。形成一个 connection 的 adapter 。</li>
 </ul>
-<p>除此之外可以将 AJAX 加一个比较快速的 「重试」（retry）方案：</p>
+<p>除此之外可以将 AJAX 加一个比较快速的 「重试」（ retry ）方案：</p>
 <figure class="highlight js"><pre>      <span class="keyword">switch</span>(<span class="keyword">this</span>.requestor.status)
       {
         <span class="keyword">case</span> <span class="number">12029</span>:
@@ -186,7 +186,7 @@ IE 7以下对 SSL (即 HTTPS) 的支持不够好。">
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

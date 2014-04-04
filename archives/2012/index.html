@@ -69,8 +69,8 @@
     
       <p>在正常情况下，无 defer 或 async 属性要准确取得当前脚本执行路径，在不同浏览器里有两种办法：</p>
 <ol>
-<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「document.currentScript.async」 来查看「异步」还是「同步」加载。</li>
-<li>用 document.scripts 得到最后一个script.src，但需注意 readyState 是否为 「interactive」状态。</li>
+<li>在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.currentScript" target="_blank">MDC</a> 里可查看到用 document.currentScript 拿到当前运用的 script 路径。除此属性外还可通过它的子属性 「 document.currentScript.async 」 来查看「异步」还是「同步」加载。</li>
+<li>用 document.scripts 得到最后一个 script.src ，但需注意 readyState 是否为 「 interactive 」状态。</li>
 </ol>
 
     
@@ -98,28 +98,28 @@
     
     
   
-    <h1 class="title"><a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a></h1>
+    <h1 class="title"><a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
+      <p>在 github 上我放了一个 <a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank"> 修改版 </a> ，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
 <h2 id="-">再遇问题</h2>
 <p>经过上一轮的 SWFUpload 修改两周后有人反馈：</p>
 <ul>
 <li>上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；</li>
 <li>其次是上传图片数量到某个阈值就无法上传；</li>
 </ul>
-<p>Debug了一个下午，发现：</p>
+<p>Debug 了一个下午，发现：</p>
 <ul>
 <li>问题 1 上传速度慢的问题，只存在 IE 里。<ul>
 <li>我也觉得很奇怪，为什么 Flash 的性能还和浏览器有差别</li>
 </ul>
 </li>
 <li>问题 2 不是 Flash 的问题，与脚本使用有关<ul>
-<li>经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work（这比较好查）；</li>
+<li>经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work （这比较好查）；</li>
 </ul>
 </li>
 </ul>
@@ -149,7 +149,7 @@
     
     
   
-    <h1 class="title"><a href="/2012/08/18/fix-swfupload2.5-1/">SWFUpload 2.5 bug 修改(1)</a></h1>
+    <h1 class="title"><a href="/2012/08/18/fix-swfupload2.5-1/">SWFUpload 2.5 bug 修改 (1)</a></h1>
   
 
   </header>
@@ -158,21 +158,21 @@
     
       <h2 id="-swfupload">关于 SWFUpload</h2>
 <blockquote>
-<p>SWFUpload 是一个客户端文件上传工具，最初由Vinterwebb.se开发，它通过整合 Flash 与 JavaScript 技术为WEB开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
+<p>SWFUpload 是一个客户端文件上传工具，最初由 Vinterwebb.se 开发，它通过整合 Flash 与 JavaScript 技术为 WEB 开发者提供了一个具有丰富功能继而超越传统标签的文件上传模式。</p>
 </blockquote>
 <p>主要特点：</p>
 <ul>
 <li>可以同时上传多个文件；</li>
-<li>类似AJAX的无刷新上传；</li>
+<li>类似 AJAX 的无刷新上传；</li>
 <li>可以显示上传进度；</li>
 <li>良好的浏览器兼容性；</li>
-<li>兼容其他JavaScript库 (例如：jQuery, Prototype等)；</li>
-<li>支持Flash 8和Flash 9；</li>
+<li>兼容其他 JavaScript 库 ( 例如： jQuery, Prototype 等 ) ；</li>
+<li>支持 Flash 8 和 Flash 9 ；</li>
 </ul>
 <blockquote>
-<p>SWFUpload 不同于其他基于 Flash 构建的上传工具，它有着优雅的代码设计，开发者可以利用 XHTML、 CSS和 JavaScript 来随心所欲的定制它在浏览器下的外观；它还提供了一组简明的 JavaScript 事件，借助它们开发者可以方便的在文件上传过程中更新页面内容来营造各种动态效果。</p>
+<p>SWFUpload 不同于其他基于 Flash 构建的上传工具，它有着优雅的代码设计，开发者可以利用 XHTML 、 CSS 和 JavaScript 来随心所欲的定制它在浏览器下的外观；它还提供了一组简明的 JavaScript 事件，借助它们开发者可以方便的在文件上传过程中更新页面内容来营造各种动态效果。</p>
 </blockquote>
-<p>这么多说的就是一个意思，SWFUpload 使用灵活方便，不少人在用。<br>但是，它在我们项目实际应用中发现问题。
+<p>这么多说的就是一个意思， SWFUpload 使用灵活方便，不少人在用。<br>但是，它在我们项目实际应用中发现问题。
 
     
   </div>
@@ -206,7 +206,7 @@
   
   <div class="entry">
     
-      <p>出门旅游在外，iPhone 4S 这样的设备拍照比较方便，可以不用拿沉重的单反了。
+      <p>出门旅游在外， iPhone 4S 这样的设备拍照比较方便，可以不用拿沉重的单反了。
 这次用 iPhone 拍的照片除了象素低点，广角和长焦都不够用以外，其他的还蛮好的。</p>
 <p>大同或平遥都是有历史的城市，所以我把照片去色，用黑白体现历史感。</p>
 <p><img src="/images/shanxi/IMG_0691.JPG" alt=""></p>
@@ -246,7 +246,7 @@
       <h2 id="-">问题</h2>
 <p>有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  </p>
 <h2 id="-">解决办法</h2>
-<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于sprite雪碧图*/</span><span class="rule">}</span></span>
+<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于 sprite 雪碧图*/</span><span class="rule">}</span></span>
 <span class="comment">/* 或 */</span>
 <span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"><span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;<span class="rule">}</span></span>
 </pre></figure>
@@ -326,7 +326,7 @@
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

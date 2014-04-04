@@ -60,7 +60,7 @@
     
     
   
-    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-3/">Javascript 标准 DOM Range操作(3)</a></h1>
+    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-3/">Javascript 标准 DOM Range 操作 (3)</a></h1>
   
 
   </header>
@@ -68,11 +68,11 @@
   <div class="entry">
     
       <ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range 操作 (1)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript 标准 DOM Range 操作 (2)</a></li>
 </ul>
-<h2 id="-range-">从Range中插入一些数据</h2>
-<p>前一节的几个方法解决了如何移除 Range 中所选中的 fragment。
+<h2 id="-range-">从 Range 中插入一些数据</h2>
+<p>前一节的几个方法解决了如何移除 Range 中所选中的 fragment 。
 现在来看， insertNode() 方法可以插入一个节点到 Range 中。</p>
 <p>假如我想把以下的节点插如 Range 中，将如何操作呢？</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color: red"</span>&gt;</span>Inserted text<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
@@ -106,7 +106,7 @@
     
     
   
-    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range操作(1)</a></h1>
+    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range 操作 (1)</a></h1>
   
 
   </header>
@@ -114,16 +114,16 @@
   <div class="entry">
     
       <ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript 标准 DOM Range 操作 (2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript 标准 DOM Range 操作 (3)</a></li>
 </ul>
 <h2 id="createrange-">createRange 方法</h2>
-<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
+<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照 DOM 此标准的浏览器（ IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
 </pre></figure>
 
 
-<p>如果你要检测你的浏览器是否支持此标准Range对象，可以用hasFeature()方法来检测：</p>
+<p>如果你要检测你的浏览器是否支持此标准 Range 对象，可以用 hasFeature() 方法来检测：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> supportsDOMRanges = document.implementation.hasFeature(<span class="string">"Range"</span>, <span class="string">"2.0"</span>);
 <span class="keyword">if</span> (supportsDOMRange) {
 	<span class="keyword">var</span> oRange = document.createRange();
@@ -158,7 +158,7 @@
     
     
   
-    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-2/">Javascript 标准 DOM Range操作(2)</a></h1>
+    <h1 class="title"><a href="/2006/09/30/javascript-dom-range-2/">Javascript 标准 DOM Range 操作 (2)</a></h1>
   
 
   </header>
@@ -166,20 +166,20 @@
   <div class="entry">
     
       <ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range 操作 (1)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript 标准 DOM Range 操作 (3)</a></li>
 </ul>
-<h2 id="-dom-range">复杂DOM Range</h2>
+<h2 id="-dom-range">复杂 DOM Range</h2>
 <p>建立复杂的 DOM range 需要使用 setStart() 和 setEnd() 两个方法。
 这两个方法有两个参数：</p>
 <ul>
-<li>一个参数是一个节点 (node)引用；</li>
-<li>另一个参数是偏移量 (offset)。</li>
+<li>一个参数是一个节点 (node) 引用；</li>
+<li>另一个参数是偏移量 (offset) 。</li>
 </ul>
 <p>这两个方法的功能：</p>
 <ul>
-<li>setStart(node, offset) 节点的引用是 startContainer，偏移则是 startOffset；</li>
-<li>setEnd(node, offset) 节点引用为 endContainer，偏移就是 endOffset。</li>
+<li>setStart(node, offset) 节点的引用是 startContainer ，偏移则是 startOffset ；</li>
+<li>setEnd(node, offset) 节点引用为 endContainer ，偏移就是 endOffset 。</li>
 </ul>
 
     
@@ -255,7 +255,7 @@
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

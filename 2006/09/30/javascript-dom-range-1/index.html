@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Javascript 标准 DOM Range操作(1) | rank&#39;s blog</title>
+  <title>Javascript 标准 DOM Range 操作 (1) | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
-  <meta name="description" content="Javascript标准DOM Range操作(2)
-Javascript标准DOM Range操作(3)
+  <meta name="description" content="Javascript 标准 DOM Range 操作 (2)
+Javascript 标准 DOM Range 操作 (3)
 
 createRange 方法
-2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：
+2 级 DOM 定义了一个 createRange() 方法，如果是按照 DOM 此标准的浏览器（ IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：
 var oRange = document.createRange();
 
 
 
-如果你要检测你的浏览器是否支持此标准Range对象，可以用hasFeature()方法来检测：
+如果你要检测你的浏览器是否支持此标准 Range 对象，可以用 hasFeature() 方法来检测：
 var supportsDOMRanges = document.implementation.hasFeature(&quot;Range&quot;, &quot;2.0&quot;);
 if (supportsDOMRange) {
 	var oRange = document.createRange();
@@ -26,7 +26,7 @@ if (supportsDOMRange) {
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <meta property="og:title" content="Javascript 标准 DOM Range操作(1)"/>
+  <meta property="og:title" content="Javascript 标准 DOM Range 操作 (1)"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -71,7 +71,7 @@ if (supportsDOMRange) {
     
     
   
-    <h1 class="title">Javascript 标准 DOM Range操作(1)</h1>
+    <h1 class="title">Javascript 标准 DOM Range 操作 (1)</h1>
   
 
   </header>
@@ -79,16 +79,16 @@ if (supportsDOMRange) {
   <div class="entry">
     
       <ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript标准DOM Range操作(3)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript 标准 DOM Range 操作 (2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-3/">Javascript 标准 DOM Range 操作 (3)</a></li>
 </ul>
 <h2 id="createrange-">createRange 方法</h2>
-<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照DOM此标准的浏览器（IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
+<p>2 级 DOM 定义了一个 createRange() 方法，如果是按照 DOM 此标准的浏览器（ IE 并不是支持此标准的，但是 IE 里的属性或方法却远比标准中的功能多得多），它属于 document 对象，所以创建一个 range 对象：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oRange = document.createRange();
 </pre></figure>
 
 
-<p>如果你要检测你的浏览器是否支持此标准Range对象，可以用hasFeature()方法来检测：</p>
+<p>如果你要检测你的浏览器是否支持此标准 Range 对象，可以用 hasFeature() 方法来检测：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> supportsDOMRanges = document.implementation.hasFeature(<span class="string">"Range"</span>, <span class="string">"2.0"</span>);
 <span class="keyword">if</span> (supportsDOMRange) {
 	<span class="keyword">var</span> oRange = document.createRange();
@@ -98,10 +98,10 @@ if (supportsDOMRange) {
 
 
 <p><a id="more"></a></p>
-<h2 id="-range-">用Range对象进行简单的选择</h2>
+<h2 id="-range-">用 Range 对象进行简单的选择</h2>
 <p>最简单用 Range 进行选择，用 selectNode() 或者 selectNodeContents() 方法，这两个方法
 只有 1 个接收参数， 1 个 DOM 节点。</p>
-<p>selectNode()方法选择全部节点，包括它的孩子，而selectNodeContents()选择的节点只是它的孩子：</p>
+<p>selectNode() 方法选择全部节点，包括它的孩子，而 selectNodeContents() 选择的节点只是它的孩子：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
 <span class="keyword">var</span> oRange1 = document.createRange();
@@ -114,20 +114,20 @@ oRange2.selectNodeContents(oP1);
 
 <p>oRange1 和 oRange2 包含上面所说的两种方法，看了下面的示图相信你能很快明白这两个方法的区别：</p>
 <p><img src="/images/javascript-dom-range/30_160954_domranges1.gif" alt="range demo"></p>
-<p>当你创建了一个 Range 对象时，Range 实例会有以下的属性：</p>
+<p>当你创建了一个 Range 对象时， Range 实例会有以下的属性：</p>
 <ul>
 <li>startContainer — 返回 Range 对象从何开始的节点对象（父节点的第一个节点）</li>
-<li>startOffset — 返回 Range 开始的偏移量(offset)。<ul>
+<li>startOffset — 返回 Range 开始的偏移量 (offset) 。<ul>
 <li>如果 startContainer 是一个文本节点、注释节点、或者是 CDATA 节点；</li>
-<li>这个属性返回文本的偏移量，否则返回第一个节点的索引(index)。</li>
+<li>这个属性返回文本的偏移量，否则返回第一个节点的索引 (index) 。</li>
 </ul>
 </li>
 <li>endCOntainer — 返回 Range 对象最后一个节点对象（父节点的最后一个节点）</li>
-<li>endOffset — 返回 Range 结束时的偏移量(offset)特性与 startOffset 相同。</li>
+<li>endOffset — 返回 Range 结束时的偏移量 (offset) 特性与 startOffset 相同。</li>
 <li>commonAncestorContainer — 返回第一个包含该 Range 对象的节点。</li>
 </ul>
-<p>注：这些属性均为只读属性(read-only)，startOffset 和 endOffset 将在下文中有较详细的解释。</p>
-<p>下面这段代码将说明这些属性，请在 Mozilla firefox 里运行（支持此标准的浏览器——DOM 2 级，IE 里将无效）：</p>
+<p>注：这些属性均为只读属性 (read-only) ， startOffset 和 endOffset 将在下文中有较详细的解释。</p>
+<p>下面这段代码将说明这些属性，请在 Mozilla firefox 里运行（支持此标准的浏览器—— DOM 2 级， IE 里将无效）：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">html</span>&gt;</span>
  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
  <span class="tag">&lt;<span class="title">title</span>&gt;</span>DOM Range Example<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
@@ -230,7 +230,7 @@ oRange2.selectNodeContents(oP1);
 
 <section id="comment">
   <h1 class="title">Comments</h1>
-  <div class="ds-thread" data-title="Javascript 标准 DOM Range操作(1)">
+  <div class="ds-thread" data-title="Javascript 标准 DOM Range 操作 (1)">
   </div>
 </section>
 </div>
@@ -282,7 +282,7 @@ oRange2.selectNodeContents(oP1);
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

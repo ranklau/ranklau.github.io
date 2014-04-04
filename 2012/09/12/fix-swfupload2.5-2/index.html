@@ -4,29 +4,29 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>SWFUpload 2.5 bug 修改(2) | rank&#39;s blog</title>
+  <title>SWFUpload 2.5 bug 修改 (2) | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
-  <meta name="description" content="在github上我放了一个修改版，有兴趣的同学可以测试下性能。需要注意的是，要在支持 PHP 的 Webserver 下运行。
+  <meta name="description" content="在 github 上我放了一个  修改版  ，有兴趣的同学可以测试下性能。需要注意的是，要在支持 PHP 的 Webserver 下运行。
 再遇问题
 经过上一轮的 SWFUpload 修改两周后有人反馈：
 
 上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；
 其次是上传图片数量到某个阈值就无法上传；
 
-Debug了一个下午，发现：
+Debug 了一个下午，发现：
 
 问题 1 上传速度慢的问题，只存在 IE 里。
 我也觉得很奇怪，为什么 Flash 的性能还和浏览器有差别
 
 
 问题 2 不是 Flash 的问题，与脚本使用有关
-经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work（这比较好查）；">
+经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work （这比较好查）；">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <meta property="og:title" content="SWFUpload 2.5 bug 修改(2)"/>
+  <meta property="og:title" content="SWFUpload 2.5 bug 修改 (2)"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -71,28 +71,28 @@ Debug了一个下午，发现：
     
     
   
-    <h1 class="title">SWFUpload 2.5 bug 修改(2)</h1>
+    <h1 class="title">SWFUpload 2.5 bug 修改 (2)</h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>在github上我放了一个<a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank">修改版</a>，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
+      <p>在 github 上我放了一个 <a href="https://github.com/ranklau/repos/tree/master/labs/swfupload2.5-fixed" target="_blank"> 修改版 </a> ，有兴趣的同学可以测试下性能。<br>需要注意的是，要在支持 PHP 的 Webserver 下运行。</p>
 <h2 id="-">再遇问题</h2>
 <p>经过上一轮的 SWFUpload 修改两周后有人反馈：</p>
 <ul>
 <li>上传速度非常慢，上传 8 张图片，有时甚至 8 分钟都没上传完；</li>
 <li>其次是上传图片数量到某个阈值就无法上传；</li>
 </ul>
-<p>Debug了一个下午，发现：</p>
+<p>Debug 了一个下午，发现：</p>
 <ul>
 <li>问题 1 上传速度慢的问题，只存在 IE 里。<ul>
 <li>我也觉得很奇怪，为什么 Flash 的性能还和浏览器有差别</li>
 </ul>
 </li>
 <li>问题 2 不是 Flash 的问题，与脚本使用有关<ul>
-<li>经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work（这比较好查）；</li>
+<li>经查问题发现 Flash 用 css 隐藏之后，在 IE 下压缩和上传都无法 work （这比较好查）；</li>
 </ul>
 </li>
 </ul>
@@ -102,36 +102,36 @@ Debug了一个下午，发现：
 <p>随之，经过一系列的调试和全系列机器环境测试：</p>
 <ul>
 <li>测试环境在 Flash Player 版本都是 11+；</li>
-<li>在 Mac 下的最新版 Safari, Chrome, Firefox 和 win xp， Win 7 下的 IE 6, 7, 8；</li>
-<li>测试图片由 5616 × 3744 5M 及 3888 × 2592px 的图组成；</li>
-<li>由原图压缩成 1000*1000 的图；质量 90。</li>
+<li>在 Mac 下的最新版 Safari, Chrome, Firefox 和 win xp ， Win 7 下的 IE 6, 7, 8 ；</li>
+<li>测试图片由 5616  ×  3744 5M 及 3888  ×  2592px 的图组成；</li>
+<li>由原图压缩成 1000*1000 的图；质量 90 。</li>
 </ul>
 <p>我用了多种异步 JPEGencode 的库，发现还是 alchemy 的效率比较好，所以只列它的数据：</p>
 <ul>
 <li>异步 library 在非 IE 下表现良好，但是在 IE 下性能极差。</li>
 <li>IE 时间值大致分布在 4s~30s 之间<ul>
-<li>均值 8s～10s 左右，时间上随机性很大</li>
+<li>均值 8s ～ 10s 左右，时间上随机性很大</li>
 </ul>
 </li>
 <li>非 IE 下值相对很稳定，时间都在 3~5s 这个区间。</li>
-<li>IE与其他浏览器相比，性能有的时候甚至有差 10 倍！这不能忍啊。<ul>
+<li>IE 与其他浏览器相比，性能有的时候甚至有差 10 倍！这不能忍啊。<ul>
 <li>我猜测是 Flash Player 在 IE 下，不能获得较长的 CPU 时间片。（注：目测了 CPU 监控得出的结论）</li>
 </ul>
 </li>
 </ul>
-<p>既然异步压缩没有办法允分利用 CPU，那我试着改用同步压缩，而不用异步。<br>惊喜的发现效果比预期要好得多（如果用swc会更佳）。</p>
+<p>既然异步压缩没有办法允分利用 CPU ，那我试着改用同步压缩，而不用异步。<br>惊喜的发现效果比预期要好得多（如果用 swc 会更佳）。</p>
 <ul>
-<li>用同步的压缩有可以去大牛 <a href="http://www.bytearray.org/?p=775" target="_blank">bytearray</a> 下载优化后的 <a href="http://www.bytearray.org/wp-content/projects/fastjpeg/JPEGEncoder.as" target="_blank">JPEGEncoder.as</a>。  </li>
+<li>用同步的压缩有可以去大牛 <a href="http://www.bytearray.org/?p=775" target="_blank">bytearray</a> 下载优化后的 <a href="http://www.bytearray.org/wp-content/projects/fastjpeg/JPEGEncoder.as" target="_blank">JPEGEncoder.as</a> 。  </li>
 <li>我这里用的是同事推荐的 <a href="http://www.blooddy.by/en/crypto/" target="_blank">blooddy_crypto.swc</a> 组件。</li>
 </ul>
 <h2 id="-">测试结果</h2>
 <ul>
 <li>IE 时间值大致分布在 1~8s 之间<ul>
-<li>均值 4s 左右，时间上随机性很大，1 次上传的图片越多，越趋向于均值）</li>
+<li>均值 4s 左右，时间上随机性很大， 1 次上传的图片越多，越趋向于均值）</li>
 </ul>
 </li>
-<li>非 IE下 值相对很稳定，时间都在 1s 左右，绝在多数用时不超过 1s。</li>
-<li>没有出现假死现象。用 i4 CPU 测试，cpu 使用最高才 13%。</li>
+<li>非 IE 下 值相对很稳定，时间都在 1s 左右，绝在多数用时不超过 1s 。</li>
+<li>没有出现假死现象。用 i4 CPU 测试， cpu 使用最高才 13%。</li>
 </ul>
 <p>比预期还好，完爆异步压缩。</p>
 <p>从 CPU 监控可以看到控制都较为良好（都没到 50%）；<br>IE 下的 Flash Player 的性能短期压缩时间很随机，长期看性能平均下来比非 IE 要慢不少。<br>曲线是由快而慢，然后慢慢是趋向均值（就象是电脑越用越慢一样）。</p>
@@ -162,7 +162,7 @@ Debug了一个下午，发现：
 
 <section id="comment">
   <h1 class="title">Comments</h1>
-  <div class="ds-thread" data-title="SWFUpload 2.5 bug 修改(2)">
+  <div class="ds-thread" data-title="SWFUpload 2.5 bug 修改 (2)">
   </div>
 </section>
 </div>
@@ -214,7 +214,7 @@ Debug了一个下午，发现：
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

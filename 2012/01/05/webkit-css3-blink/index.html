@@ -10,7 +10,7 @@
   <meta name="description" content="问题
 有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  
 解决办法
-.no-flick{-webkit-backface-visibility: hidden; /*但不能用于sprite雪碧图*/}
+.no-flick{-webkit-backface-visibility: hidden; /*但不能用于 sprite 雪碧图*/}
 /* 或 */
 .no-flick{-webkit-transform:translate3d(0,0,0);}">
   
@@ -72,7 +72,7 @@
       <h2 id="-">问题</h2>
 <p>有用户反馈在 chrome 下出现屏幕会闪，但不是每次都能复现。  </p>
 <h2 id="-">解决办法</h2>
-<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于sprite雪碧图*/</span><span class="rule">}</span></span>
+<figure class="highlight css"><pre><span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>; <span class="comment">/*但不能用于 sprite 雪碧图*/</span><span class="rule">}</span></span>
 <span class="comment">/* 或 */</span>
 <span class="class">.no-flick</span><span class="rules">{<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"><span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;<span class="rule">}</span></span>
 </pre></figure>
@@ -81,43 +81,43 @@
 <a id="more"></a>
 
 <h2 id="-">过程</h2>
-<p>昨天晚上maomao，晓刚我提起，会否是我们的「浮层」导致。逻辑是因为</p>
+<p>昨天晚上 maomao ，晓刚我提起，会否是我们的「浮层」导致。逻辑是因为</p>
 <ul>
-<li>「浮层」 的 style 加了opacity。</li>
-<li>页面还没 load 完毕就把 mask 给加到 body 第一个元素了，这时没有加 display:none。</li>
+<li>「浮层」 的 style 加了 opacity 。</li>
+<li>页面还没 load 完毕就把 mask 给加到 body 第一个元素了，这时没有加 display:none 。</li>
 </ul>
-<p>而后我在「浮层」的蒙板 mask 把 background:white 改成 Red。<br>很遗憾是没有出现红色。</p>
+<p>而后我在「浮层」的蒙板 mask 把 background:white 改成 Red 。<br>很遗憾是没有出现红色。</p>
 <p>所以，确定不是「浮层」的 mask 导致的问题。</p>
 <p>在调试的时候感到幸运的是：<br>发现「闪」这个问题，都是闪在页面头部，经过精简后发现是在</p>
 <pre><code>&lt;a&gt;&lt;i&gt;&lt;i&gt;&lt;/a&gt;
 </code></pre><p>标签里。</p>
 <p>晓亮提到会否是 Transform 引起的。<br>试后，去除 transform 果然管用。<br>但是我们仍然没有知道解决办法，以及为何这样。</p>
-<p>在百度上搜索类似 css 3 transform bug，无果。
-别灰心，在 stackoverflow上 看看。
+<p>在百度上搜索类似 css 3 transform bug ，无果。
+别灰心，在 stackoverflow 上 看看。
 query: &quot;transform flick bug webkit&quot;</p>
 <p>果然有料。<br><a href="http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform" target="_blank">http://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform</a></p>
-<figure class="highlight css"><pre><span class="tag">-webkit-backface-visibility</span>: <span class="tag">hidden</span>; <span class="comment">/*但不能用于sprite雪碧图*/</span>
+<figure class="highlight css"><pre><span class="tag">-webkit-backface-visibility</span>: <span class="tag">hidden</span>; <span class="comment">/*但不能用于 sprite 雪碧图*/</span>
 <span class="comment">/* 或 */</span>
 <span class="tag">-webkit-transform</span><span class="pseudo">:translate3d(0</span>,0,0);
 </pre></figure>
 
 <p>来解决「闪」的问题。</p>
-<p>如果用 translate3d 这么解决，心里想这不是用 3d 另一个问题解决现在 css3 3d的一个问题吗。
+<p>如果用 translate3d 这么解决，心里想这不是用 3d 另一个问题解决现在 css3 3d 的一个问题吗。
 顺着往下找了下资料。</p>
-<p>果然如此，translate3d 有问题：</p>
+<p>果然如此， translate3d 有问题：</p>
 <blockquote>
 <p>However, the body {-webkit-transform} approach causes all elements on the page to effectively be rendered in 3D. This isn&#39;t the worst thing, but it slightly changes the rendering of text and other CSS-styled elements.</p>
 <p>It may be an effect you want. It may be useful if you&#39;re doing a lot of transform on your page. Otherwise, -webkit-backface-visibility:hidden on the element your transforming is the least invasive option.</p>
 </blockquote>
 <p>所以，从目前来看 -webkit-backface-visibility: hidden; 是最优解。</p>
 <h2 id="-">弄清源头</h2>
-<p>关于这个css3属性拿来作什么用的。可以查阅<br>w3c 资料
+<p>关于这个 css3 属性拿来作什么用的。可以查阅<br>w3c 资料
 <a href="http://www.w3.org/TR/css3-3d-transforms/#backface-visibility-property" target="_blank">http://www.w3.org/TR/css3-3d-transforms/#backface-visibility-property</a></p>
 <blockquote>
-<p>The ‘backface-visibility’ property determines whether or not the &quot;back&quot; side of a transformed element is visible when facing the viewer. With an identity transform, the front side of an element faces the viewer. Applying a rotation about Y of 180 degrees (for instance) would cause the back side of the element to face the viewer.
+<p>The ‘ backface-visibility ’ property determines whether or not the &quot;back&quot; side of a transformed element is visible when facing the viewer. With an identity transform, the front side of an element faces the viewer. Applying a rotation about Y of 180 degrees (for instance) would cause the back side of the element to face the viewer.
 This property is useful when you place two elements back-to-back, as you would to create a playing card. Without this property, the front and back elements could switch places at times during an animation to flip the card. Another example is creating a box out of 6 elements, but where you want to see the inside faces of the box. This is useful when creating the backdrop for a 3 dimensional stage.</p>
 </blockquote>
-<p>用这个属性做翻卡片的小游戏比较合适 :)。<br>测试运行以下代码，就能理解为什么会在transform时会闪：</p>
+<p>用这个属性做翻卡片的小游戏比较合适 :) 。<br>测试运行以下代码，就能理解为什么会在 transform 时会闪：</p>
 <figure class="highlight html"><pre><span class="doctype">&lt;!DOCTYPE HTML&gt;</span>
 <span class="tag">&lt;<span class="title">html</span>&gt;</span>
 <span class="tag">&lt;<span class="title">head</span>&gt;</span>
@@ -160,19 +160,19 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
 </pre></figure>
 
 
-<p>transform 是 3D 变换，而 backface-visibility:hidden，则是在背面隐藏，实际上就变成了 2D。<br>而把 translate3d 变换关闭也可以，但性能不好。</p>
+<p>transform 是 3D 变换，而 backface-visibility:hidden ，则是在背面隐藏，实际上就变成了 2D 。<br>而把 translate3d 变换关闭也可以，但性能不好。</p>
 <h2 id="-">结论</h2>
 <p>在用 </p>
 <ul>
 <li>position:absulote+zindex!=0 </li>
-<li>用 transform会偶尔出现页面会闪的现象</li>
+<li>用 transform 会偶尔出现页面会闪的现象</li>
 </ul>
-<p>确实是chrome的一个bug。<br>chromium里没有发现有人提bug，所以我检索了一下 webkit.org 的 bugtrace，看到</p>
+<p>确实是 chrome 的一个 bug 。<br>chromium 里没有发现有人提 bug ，所以我检索了一下 webkit.org 的 bugtrace ，看到</p>
 <ul>
 <li><a href="https://bugs.webkit.org/show_bug.cgi?id=47175" target="_blank">https://bugs.webkit.org/show_bug.cgi?id=47175</a></li>
 <li><a href="https://bug-47175-attachments.webkit.org/attachment.cgi?id=69779" target="_blank">https://bug-47175-attachments.webkit.org/attachment.cgi?id=69779</a></li>
 </ul>
-<p>无疑，这个问题后续 webkit 一定会 fix。<br>另，-webkit-backface-visibility: hidden; 是最优解。</p>
+<p>无疑，这个问题后续 webkit 一定会 fix 。<br>另，-webkit-backface-visibility: hidden; 是最优解。</p>
 <p>-- EOF --</p>
 
     
@@ -246,7 +246,7 @@ Rotate:<span class="tag">&lt;<span class="title">br</span> /&gt;</span>
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>

@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Javascript 标准 DOM Range操作(3) | rank&#39;s blog</title>
+  <title>Javascript 标准 DOM Range 操作 (3) | rank&#39;s blog</title>
   <meta name="author" content="rank">
   
-  <meta name="description" content="Javascript标准DOM Range操作(1)
-Javascript标准DOM Range操作(2)
+  <meta name="description" content="Javascript 标准 DOM Range 操作 (1)
+Javascript 标准 DOM Range 操作 (2)
 
-从Range中插入一些数据
-前一节的几个方法解决了如何移除 Range 中所选中的 fragment。
+从 Range 中插入一些数据
+前一节的几个方法解决了如何移除 Range 中所选中的 fragment 。
 现在来看， insertNode() 方法可以插入一个节点到 Range 中。
 假如我想把以下的节点插如 Range 中，将如何操作呢？
 &lt;span style=&quot;color: red&quot;&gt;Inserted text&lt;/span&gt;">
@@ -19,7 +19,7 @@ Javascript标准DOM Range操作(2)
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <meta property="og:title" content="Javascript 标准 DOM Range操作(3)"/>
+  <meta property="og:title" content="Javascript 标准 DOM Range 操作 (3)"/>
   <meta property="og:site_name" content="rank&#39;s blog"/>
 
   <link rel="alternate" href="/atom.xml" title="rank&#39;s blog" type="application/atom+xml">
@@ -64,7 +64,7 @@ Javascript标准DOM Range操作(2)
     
     
   
-    <h1 class="title">Javascript 标准 DOM Range操作(3)</h1>
+    <h1 class="title">Javascript 标准 DOM Range 操作 (3)</h1>
   
 
   </header>
@@ -72,11 +72,11 @@ Javascript标准DOM Range操作(2)
   <div class="entry">
     
       <ul>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript标准DOM Range操作(1)</a></li>
-<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript标准DOM Range操作(2)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-1/">Javascript 标准 DOM Range 操作 (1)</a></li>
+<li><a href="http://rank.im/2006/09/30/javascript-dom-range-2/">Javascript 标准 DOM Range 操作 (2)</a></li>
 </ul>
-<h2 id="-range-">从Range中插入一些数据</h2>
-<p>前一节的几个方法解决了如何移除 Range 中所选中的 fragment。
+<h2 id="-range-">从 Range 中插入一些数据</h2>
+<p>前一节的几个方法解决了如何移除 Range 中所选中的 fragment 。
 现在来看， insertNode() 方法可以插入一个节点到 Range 中。</p>
 <p>假如我想把以下的节点插如 Range 中，将如何操作呢？</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color: red"</span>&gt;</span>Inserted text<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
@@ -104,12 +104,12 @@ oRange.insertNode(oSpan);
 </pre></figure>
 
 
-<p>那么原来的HTML将会变成这样：</p>
+<p>那么原来的 HTML 将会变成这样：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>He<span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color: red"</span>&gt;</span>Inserted text<span class="tag">&lt;/<span class="title">span</span>&gt;</span>llo<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 </pre></figure>
 
 
-<p>surroundContents() 的参数为一个node，它将这个 node 加入到 Range 里，看这个示例：</p>
+<p>surroundContents() 的参数为一个 node ，它将这个 node 加入到 Range 里，看这个示例：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
 <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
@@ -126,9 +126,9 @@ oRange.surroundContents(oSpan);
 </pre></figure>
 
 
-<p>在 「oRange」 选取的范围内有一个我们新生成的节点 「span」，因此选取的 Range 的背景变成了黄色。</p>
-<h2 id="collapse-">collapse()方法</h2>
-<p>collapse()方法只有一个布尔型的参数，该参数为可选的，默认为false。<br>为 true 时折叠到 Range 边界的首部，为 false 时折叠到 Range 尾部。</p>
+<p>在 「 oRange 」 选取的范围内有一个我们新生成的节点 「 span 」，因此选取的 Range 的背景变成了黄色。</p>
+<h2 id="collapse-">collapse() 方法</h2>
+<p>collapse() 方法只有一个布尔型的参数，该参数为可选的，默认为 false 。<br>为 true 时折叠到 Range 边界的首部，为 false 时折叠到 Range 尾部。</p>
 <p><img src="/images/javascript-dom-range/30_174339_domranges6.gif" alt=""></p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span><span class="tag">&lt;<span class="title">b</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">b</span>&gt;</span> World<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
@@ -143,7 +143,7 @@ oRange.collapse(<span class="literal">true</span>);
 </pre></figure>
 
 
-<p>如果你想知道该 Range 是否已经折叠，可以用 collapsed 属性来得到 true 或者 false。<br>示例：</p>
+<p>如果你想知道该 Range 是否已经折叠，可以用 collapsed 属性来得到 true 或者 false 。<br>示例：</p>
 <figure class="highlight html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span>Paragraph 1<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p2"</span>&gt;</span>Paragraph 2<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
 <span class="keyword">var</span> oP1 = document.getElementById(<span class="string">"p1"</span>);
@@ -156,16 +156,16 @@ alert(oRange.collapsed); <span class="comment">//outputs "true"</span>
 </pre></figure>
 
 
-<p>上面的代码输为 true。</p>
-<p>虽然我们没有用 collapse 方法，但是由于我们的 Range 设置开始为 1 末端到 p2 的首端，没有任何元素。即&lt;/p&gt;(Range开始)(Range结束)&lt;p id=&quot;p2&quot;&gt;，所以显示的是 true。</p>
-<h2 id="range-">Range边界的比较</h2>
-<p>compareBoundaryPoints()方法，语法：</p>
+<p>上面的代码输为 true 。</p>
+<p>虽然我们没有用 collapse 方法，但是由于我们的 Range 设置开始为 1 末端到 p2 的首端，没有任何元素。即&lt;/p&gt;(Range 开始 )(Range 结束 )&lt;p id=&quot;p2&quot;&gt;，所以显示的是 true 。</p>
+<h2 id="range-">Range 边界的比较</h2>
+<p>compareBoundaryPoints() 方法，语法：</p>
 <blockquote>
 <p>compare = comparerange.compareBoundaryPoints(how,sourceRange)</p>
 </blockquote>
 <p>参数含义：</p>
 <ul>
-<li>compare —— 返回1, 0, -1。<ul>
+<li>compare —— 返回 1, 0, -1 。<ul>
 <li>0 为相等。</li>
 <li>1 为 comparerange 在 sourceRange 之后。</li>
 <li>-1 为 comparerange 在 sourceRange 之前。</li>
@@ -199,21 +199,21 @@ alert(oRange1.compareBoundaryPoints(Range.END_TO_END, oRange2));
 
 <p>下图为这两个 Range 的示意图，结合代码和上面的说明，可以清晰的分析出结果了。</p>
 <p><img src="/images/javascript-dom-range/01_022322_domranges7.gif" alt=""></p>
-<h2 id="-clone-range">克隆(clone)Range</h2>
+<h2 id="-clone-range">克隆 (clone)Range</h2>
 <p>这个操作很简单，只需要一句语句即可：</p>
 <figure class="highlight js"><pre><span class="keyword">var</span> oNewRange = oRange.cloneRange();
 </pre></figure>
 
 
 <p>cloneRange() 方法将返回一个当前 Range 的副本。当然，它也是 Range 对象。</p>
-<h2 id="-range-">清除Range所占的系统资源</h2>
-<p>当你创建了 Range 对象最好用 detach() 方法来清除它所占的系统资源。<br>虽然不清除，GC（垃圾收集器）也会将其收集，但用detach()释放是一个好习惯。</p>
+<h2 id="-range-">清除 Range 所占的系统资源</h2>
+<p>当你创建了 Range 对象最好用 detach() 方法来清除它所占的系统资源。<br>虽然不清除， GC （垃圾收集器）也会将其收集，但用 detach() 释放是一个好习惯。</p>
 <p>语法为：</p>
 <figure class="highlight js"><pre>oRange.detach();
 </pre></figure>
 
 
-<p>下面一个示例在Mozilla中，利用Range可以模拟出IE中的element.insertAdjacentHTML()方法，</p>
+<p>下面一个示例在 Mozilla 中，利用 Range 可以模拟出 IE 中的 element.insertAdjacentHTML() 方法，</p>
 <figure class="highlight js"><pre><span class="keyword">if</span> (browser.isMozilla) {
 	 HTMLElement.prototype.insertAdjacentHTML = <span class="function"><span class="keyword">function</span> <span class="params">(sWhere, sHTML)</span> {</span>
 		 <span class="keyword">var</span> df; <span class="keyword">var</span> r = <span class="keyword">this</span>.ownerDocument.createRange();
@@ -272,7 +272,7 @@ alert(oRange1.compareBoundaryPoints(Range.END_TO_END, oRange2));
 
 <section id="comment">
   <h1 class="title">Comments</h1>
-  <div class="ds-thread" data-title="Javascript 标准 DOM Range操作(3)">
+  <div class="ds-thread" data-title="Javascript 标准 DOM Range 操作 (3)">
   </div>
 </section>
 </div>
@@ -324,7 +324,7 @@ alert(oRange1.compareBoundaryPoints(Range.END_TO_END, oRange2));
       </li>
     
       <li>
-        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改(2)</a>
+        <a href="/2012/09/12/fix-swfupload2.5-2/">SWFUpload 2.5 bug 修改 (2)</a>
       </li>
     
   </ul>
