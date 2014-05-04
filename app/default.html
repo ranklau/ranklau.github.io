@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head><title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="http://cdn.staticfile.org/meyer-reset/2.0/reset.min.css">
+<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+ --><link rel="stylesheet" href="mix.css">
+<script src="http://libs.baidu.com/zepto/0.8/zepto.min.js"></script>
+<script type="text/javascript" src="js/framework-mixed.js"></script>
+<script type="text/javascript" src="js/calendar.js"></script>
+<script type="text/javascript" src="js/ios-calendar.js"></script>
+<script type="text/javascript" src="js/logic.js"></script>
+</head>
+<body>
+	<header id="header">
+		<img id="logo" src="images/logo@2x.png" height="25">
+		<h1>经期助手 —— 安全期计算</h1>
+	</header>
+
+	<div id="form">
+		<div class="form-box">
+		<div class="tips">宝贝，耐心填写好帮你预测哦～</div>
+		<div class="form cls">
+			<ul>
+				<li>
+					<label for="startdate">开始时间：</label>
+					<input required class="text calendar-picker" id="startdate" type="date" value="2014-05-01">
+				</li>
+				<li class="group cls">
+					<section class="col">
+					<ul>
+						<li>
+							<label for="circle">月经周期：</label>
+							<select  class="text" id="circle">
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28" selected>28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+							<option value="32">32</option>
+							<option value="33">33</option>
+							<option value="34">34</option>
+							<option value="35">35</option>
+							<option value="36">36</option>
+							<option value="37">37</option>
+							<option value="38">38</option>
+							<option value="39">39</option>
+							<option value="40">40</option>
+							</select> 天
+						</li>
+						<li>
+							<label for="days">行经天数：</label>
+							<select  class="text" id="days">
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5" selected>5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							</select> 天
+						</li>
+					</ul>
+					<div class="submit"><button id="query">计算</button></div>
+					</section>
+				</li>
+			</ul>	
+		</div>
+		</div>
+	</div>
+
+	<div id="body">
+		<div id="calendar">
+		  	<div id="cal-op" class="cls">
+		  		<a id="cal-prev"><b class="arrow-left"></b></a>
+				<em class="selected-date"></em>
+				<a id="cal-next"><b class="arrow-right"></b></a>
+		  	</div>
+
+		  	<div id="cal-box">
+		  		<div id="cal" data-min-date="2008-8-8" data-max-date="2015-1-1">
+		  			正在加载日历...
+		  		</div>
+		  	</div>
+
+		  	<div id="cal-ind" class="cls">
+		  		<ul>
+		  			<li><b class="item g"></b> 安全期</li>
+		  			<li><b class="item y"></b> 排卵期</li>
+		  			<li><b class="item r"></b> 月经期</li>
+		  		</ul>
+		  	</div>
+	  	</div>
+	  	<div id="info">
+	  		<ul>
+	  			<li>你在<span class="status"></span>间，<span class="msg">请注意休息哦～</span></li>
+	  			<li class="pregnant">
+	  				<span class="text">受孕指数</span>
+	  				<span class="star-rating-box">
+	  				<b class="star-rating one-star"></b>	
+	  				</span>
+	  				<span class="act"><img src="images/arrow@2x.png" height="10px"></span>
+	  			</li>
+	  			<li class="lose-weight">
+	  				<span class="text">减肥指数</span>
+	  				<span class="star-rating-box">
+	  				<b class="star-rating"></b>	
+	  				</span>
+	  				<span class="act"><img src="images/arrow@2x.png" height="10px"></span>
+	  			</li>
+	  			<li class="beauty">
+	  				<span class="text">美肌指数</span>
+	  				<span class="star-rating-box">
+	  				<b class="star-rating"></b>	
+	  				</span>
+	  				<span class="act"><img src="images/arrow@2x.png" height="10px"></span>
+	  			</li>
+	  			<li class="body">
+	  				<span class="text">身体指数</span>
+	  				<span class="star-rating-box">
+	  				<b class="star-rating"></b>	
+	  				</span>
+	  				<span class="act"><img src="images/arrow@2x.png" height="10px"></span>
+	  			</li>
+	  		</ul>
+	  	</div>
+
+	  	<div id="status">
+	  		<ul>
+	  			<li>
+	  				<span class="selected-date">2014-4-27</span>
+	  				<span class="status"></span>
+	  			</li>
+	  			<li class="good">
+	  				<span class="icon">宜</span>
+	  				<span class="info">着装性感出门</span>
+	  			</li>
+	  			<li class="bad">
+	  				<span class="icon">忌</span>
+	  				<span class="info">完美主义 久坐不动</span>
+	  			</li>
+	  		</ul>
+	  	</div>
+
+	</div>
+</body>
