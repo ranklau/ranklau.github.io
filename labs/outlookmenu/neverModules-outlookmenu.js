@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2006, www.never-online.net! All rights reserved.
- * web    : http://www.never-online
- * author : never-online, BlueDestiny
+ * web    : http://rank.im
+ * author : rank
  * version: 0.10 beta
  * debug in IE6.0, Opera9.0, Mozilla Firefox1.5.0
  */ 
