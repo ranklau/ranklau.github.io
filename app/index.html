@@ -3,8 +3,7 @@
 <head><title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="http://cdn.staticfile.org/meyer-reset/2.0/reset.min.css">
- <link rel="stylesheet" href="mix.css">
+<link rel="stylesheet" href="css/mix.css">
 <script src="http://libs.baidu.com/zepto/0.8/zepto.min.js"></script>
 <script type="text/javascript" src="js/framework-mixed.js"></script>
 <script type="text/javascript" src="js/calendar.js"></script>
@@ -17,6 +16,7 @@
 	<article id="pageframe">
 
 		<article id="mainframe">
+		<div id="scroller">
 
 			<header id="header">
 				<img id="logo" src="images/logo@2x.png" height="25">
@@ -161,23 +161,46 @@
 			  	</div>
 
 			</div>
+		</div>
 		</article>
 
-		<article id="infoframe" style="display:none">
-			<header class="nav">
-				<a class="back"><em> <img src="images/back@2x.png" height="10"></em>返回</a><h1>受孕指数</h1>
-			</header>
+
+
+
+
+		<article id="infoframe">
+			<header class="nav"><a class="back">返回</a><h1>减肥指数</h1></header>
 			<div class="block">
-				<span class="star-rating-box">
-			  		<b class="star-rating"></b>	
-			  	</span>
+				<span class="star-rating-box" style="margin-left:10px">
+				<b class="star-rating"></b>
+				</span>
+				<div class="digest"></div>
 			</div>
-			<div class="digest">
+			<div class="tab">
+				<ul class="cls">
+					<li class="selected"></li>
+				</ul>
 			</div>
 			<div class="content">
 				<iframe src="about:blank" frameborder="0" style="width:100%;"></iframe>
 			</div>
 		</article>
 
+
+
 	</article>
+
+
+	<script src="js/idangerous.swiper-2.0.min.js"></script>
+	<script src="js/idangerous.swiper.scrollbar-2.0.js"></script>
+<script type="application/javascript" src="js/iscroll-lite.js?v4"></script>
+<script type="text/javascript">
+
+
+
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+//document.addEventListener('DOMContentLoaded', loaded, false);
+
+</script>
 </body>

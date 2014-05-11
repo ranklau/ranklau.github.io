@@ -1,0 +1,19 @@
+#header {
+	background: url(../images/header.bg.png) repeat-x 0 1px #fa7480; 
+	height:44px; 
+	width:100%;
+	line-height:44px;
+	color:#fff;
+}
+#header img {
+	padding-top:10px;
+	display: block;
+	font-size:0;
+	margin-left:10px;
+	float:left;
+}
+#header h1 {
+	display: inline-block;
+	margin-left:10px;
+	font-size:20px;
+}
