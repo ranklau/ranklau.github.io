@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head><title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/web/css/mix.css">
+<script src="/web/js/jquery.min.js"></script>
+<script type="text/javascript" src="/web/js/framework-mixed.js"></script>
+<script type="text/javascript" src="/web/js/calendar.js"></script>
+<script src="/web/js/all.js"></script>
+</head>
+<body style="width:540px">
+
+	<div id="header">
+		<div class="logo-box cls">
+			<img src="/web/images/logo.png" id="logo">
+			<h1>排卵期和安全期</h1>
+		</div>
+		<div class="op">
+			<ul class="cls">
+				<li class="first">平常两次月经大概相隔：</li>
+				<li>
+					<div class="adjust-box cls">
+						<em><a class="arrow-left" href="#" 
+						onclick="$('#circle').val( parseInt($('#circle').val(),10)-1 )"></a></em>
+						<input type="text" value="28" maxlength="2" autofocus="true" id="circle" onkeyup="this.value=this.value.replace(/[^0-9]/,'')">
+						<em><a class="arrow-right" href="#" 
+						onclick="$('#circle').val( parseInt($('#circle').val(),10)+1 )"></a></em>
+					</div>
+				</li>
+				<li>天<input id="startdate" value="" type="hidden"></li>
+				<li>
+					<span id="literal-tip">请点击「日历」选择月经大量来潮的第一天</span>
+					<a href="#" id="btn-reset" style="display:none">重新计算</a>
+<!-- 					<div class="btn-cal">
+						<a href="#" class="button"></a>
+					</div> -->
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="body">
+	  	
+	  	<div id="cal-ind" class="cls">
+	  		<ul>
+	  			<li><b class="item g"></b> 安全期</li>
+	  			<li><b class="item y"></b> 排卵期</li>
+	  			<li><b class="item r"></b> 月经期</li>
+	  		</ul>
+	  	</div>
+
+	  	<div class="cal-center-box" class="cls">
+			<ul id="cal-container" class="unselected">
+				<li class="cal-box cal-current first">
+					<div class="hd">
+						<a href="#" id="cal-sel-prev-month">&lt;</a>
+						&nbsp;&nbsp;<span id="cal-ind-current">2014年5月</span>&nbsp;&nbsp;
+						<a href="#" id="cal-sel-next-month">&gt;</a></div>
+					<div id="cal-current" class="calendar"></div>
+				</li>
+				<li class="cal-box cal-next">
+					<div class="hd" id="cal-ind-next">2014 年 5 月</div>
+					<div id="cal-next" class="calendar"></div>
+				</li>
+			</ul>
+		</div>
+
+	  	<div id="status" style="display:none">
+	  		<ul class="cls">
+	  			<li class="date first">
+	  				<span class="selected-date"></span>
+	  				<span class="status"></span>
+	  			</li>
+	  			<li class="good">
+	  				<span class="icon">宜</span>
+	  				<span class="info">着装性感出门</span>
+	  			</li>
+	  			<li class="bad">
+	  				<span class="icon">忌</span>
+	  				<span class="info">完美主义 久坐不动</span>
+	  			</li>
+	  		</ul>
+	  	</div>
+
+	</div>
+
+</body>
