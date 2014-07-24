@@ -90,7 +90,7 @@ display: none;
 <body onload="init()">
 	<script type="text/javascript">
 	window.shareData = {
-	        "imgUrl": "images/640.png",
+	        "imgUrl": "http://rank.im/games/apple/images/640.png",
 	        "timeLineLink": "http://rank.im/games/apple/",
 	        "tTitle": "我是你的小呀小苹果！",
 	        "tContent": "我是你的小呀小苹果,怎么爱你都不嫌多！"
@@ -218,7 +218,7 @@ display: none;
 	function gameTime(){
 		_gameTimeNum --;
 		if( _gameTimeNum <= 0){
-			GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
+			GameTimeLayer.innerHTML = '&nbsp;&nbsp;时间到！';
 			gameOver();
 			GameLayerBG.className += ' flash';
 			createjs.Sound.play("end");
@@ -502,6 +502,15 @@ display: none;
 <script type="text/javascript">
 	if (isDesktop)
 		document.write('</div>');
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9b67804759bfe908a7ab00e9ac2a261f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
 
 </body>
