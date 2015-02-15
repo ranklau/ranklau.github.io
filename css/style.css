@@ -15,6 +15,7 @@ html {
   background-image: url("images/checker.png");
 }
 body {
+  background: #6c7989;
   padding: 50px 0;
   margin: 0;
   font: 14px/1.5 "Droid Serif", Helvetica Neue, Helvetica, Arial, sans-serif;
